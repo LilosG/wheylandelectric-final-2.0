@@ -1,0 +1,110 @@
+---
+import { site } from '../../data/site';
+import { getPublishedPillars } from '../../data/services';
+
+const services = getPublishedPillars();
+const linkClass = 'text-white/70 hover:text-white text-sm transition-colors block py-1';
+---
+<footer class="bg-[#0E2233] text-white">
+  {/* Top badge row */}
+  <div class="border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 bg-brand-moonstone/20 rounded-lg flex items-center justify-center">
+          <svg class="w-4 h-4 text-brand-moonstone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <span class="font-heading font-bold text-lg">{site.nap.name}</span>
+      </div>
+      <div class="flex items-center gap-1">
+        {[1, 2, 3, 4, 5].map(() => (
+          <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+            <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+          </svg>
+        ))}
+        <span class="text-white/60 text-sm ml-2">153 reviews</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-1 text-sm text-white/70">
+        <span>{site.nap.address.full}</span>
+        <a href={`tel:${site.nap.phoneTel}`} class="text-white font-semibold hover:text-brand-moonstone transition-colors">{site.nap.phone}</a>
+      </div>
+    </div>
+  </div>
+
+  {/* Main 4-column grid */}
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10">
+      {/* Col 1: About */}
+      <div>
+        <h3 class="font-heading font-bold text-white text-base mb-4">Wheyland Electric</h3>
+        <p class="text-white/60 text-sm leading-relaxed mb-4">{site.tagline}</p>
+        <address class="not-italic text-sm text-white/60 space-y-1">
+          <p>{site.nap.address.street}</p>
+          <p>{site.nap.address.city}, {site.nap.address.state} {site.nap.address.zip}</p>
+        </address>
+        <p class="text-white/50 text-xs mt-3">{site.license}</p>
+      </div>
+
+      {/* Col 2: Quick Links */}
+      <div>
+        <h3 class="font-heading font-bold text-white text-base mb-4">Quick Links</h3>
+        <nav class="space-y-0.5">
+          <a href="/services/" class={linkClass}>Services</a>
+          <a href="/service-areas/" class={linkClass}>Service Areas</a>
+          <a href="/about/" class={linkClass}>About Us</a>
+          <a href="/about/licenses/" class={linkClass}>Licenses & Trust</a>
+          <a href="/contact-us/" class={linkClass}>Contact</a>
+          <a href="/free-estimates/" class={linkClass}>Free Estimates</a>
+          <a href="/blog/" class={linkClass}>Blog</a>
+        </nav>
+      </div>
+
+      {/* Col 3: Services */}
+      <div>
+        <h3 class="font-heading font-bold text-white text-base mb-4">Services</h3>
+        <nav class="space-y-0.5">
+          {services.map((service) => (
+            <a href={`/services/${service.slug}/`} class={linkClass}>{service.name}</a>
+          ))}
+        </nav>
+      </div>
+
+      {/* Col 4: Contact */}
+      <div>
+        <h3 class="font-heading font-bold text-white text-base mb-4">Contact</h3>
+        <div class="space-y-3 text-sm">
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-moonstone shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+            </svg>
+            <a href={`tel:${site.nap.phoneTel}`} class="text-white hover:text-brand-moonstone transition-colors font-medium">{site.nap.phone}</a>
+          </div>
+          <div class="flex items-center gap-2">
+            <svg class="w-4 h-4 text-brand-moonstone shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+            <a href={`mailto:${site.nap.email}`} class="text-white/70 hover:text-white transition-colors">{site.nap.email}</a>
+          </div>
+          <div class="flex items-start gap-2">
+            <svg class="w-4 h-4 text-brand-moonstone shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <div class="text-white/70">
+              <p>{site.hours.weekday}</p>
+              <p>{site.hours.weekend}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Bottom bar */}
+  <div class="border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-white/50">
+      <p>&copy; {new Date().getFullYear()} {site.nap.name}. All rights reserved.</p>
+      <p>Licensed, Bonded & Insured &middot; {site.license}</p>
+    </div>
+  </div>
+</footer>

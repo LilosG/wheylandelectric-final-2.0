@@ -1,0 +1,34 @@
+---
+import type { PageMeta } from '../../types';
+
+interface Props {
+  meta: PageMeta;
+  schemas?: Record<string, unknown>[];
+}
+
+const { meta, schemas = [] } = Astro.props;
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+---
+<!-- SEO Meta -->
+<title>{meta.title}</title>
+<meta name="description" content={meta.description} />
+<link rel="canonical" href={meta.canonical} />
+
+<!-- Open Graph -->
+<meta property="og:title" content={meta.title} />
+<meta property="og:description" content={meta.description} />
+<meta property="og:url" content={meta.canonical} />
+<meta property="og:type" content="website" />
+<meta property="og:image" content={meta.ogImage || `${SITE_URL}/images/logo-wheyland-electric.png`} />
+<meta property="og:site_name" content="Wheyland Electric" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={meta.title} />
+<meta name="twitter:description" content={meta.description} />
+<meta name="twitter:image" content={meta.ogImage || `${SITE_URL}/images/logo-wheyland-electric.png`} />
+
+<!-- Schema JSON-LD -->
+{schemas.map((schema) => (
+  <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+))}

@@ -1,0 +1,50 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import { generateMeta } from '../../lib/seo';
+import { faqPageSchema } from '../../lib/schema/faq';
+import type { FAQ } from '../../types';
+
+const globalFaqs: FAQ[] = [
+  { question: 'What areas does Wheyland Electric serve?', answer: 'We serve all of San Diego County with a focus on North County communities including Carlsbad, Encinitas, Oceanside, San Marcos, Del Mar, Solana Beach, and Rancho Santa Fe. We also serve Orange County and Western Riverside County.' },
+  { question: 'Are you licensed, bonded, and insured?', answer: 'Yes. Wheyland Electric holds California Contractor License #940291. We are fully bonded and carry both general liability and workers compensation insurance.' },
+  { question: 'Do you offer free estimates?', answer: 'Yes. We provide free estimates for most electrical projects. Contact us by phone at (858) 663-5564 or through our online estimate request form to schedule yours.' },
+  { question: 'What is your labor warranty?', answer: 'All electrical services performed by Wheyland Electric are backed by a one (1) year labor warranty on workmanship from the date of service or project completion. If a problem occurs due to our installation or electrical workmanship, we will correct it at no additional labor cost.' },
+  { question: 'Do you handle both residential and commercial work?', answer: 'Yes. We serve homeowners, property managers, HOA communities, commercial businesses, and EV owners. Our team handles projects of all scales — from a single outlet repair to complete electrical systems for commercial tenant improvements.' },
+  { question: 'Do you pull permits for electrical work?', answer: 'Yes. For any work that requires it, we pull proper permits and schedule required inspections. This ensures your electrical work is code-compliant and properly documented.' },
+  { question: 'What are your business hours?', answer: 'Our regular business hours are Monday through Friday, 8:00 AM to 5:00 PM. We are closed on weekends. For urgent electrical needs during business hours, call us at (858) 663-5564.' },
+  { question: 'How long has Wheyland Electric been in business?', answer: 'Wheyland Electric was established in 2008. Owner Tim Wheyland is a fourth generation San Diego County resident with deep roots in the North County community.' },
+  { question: 'Can you install EV chargers?', answer: 'Yes. We install Level 2 EV chargers for all makes including Tesla, Rivian, Ford, Chevrolet, and more. We handle the full process from panel assessment to permitting, installation, and inspection.' },
+  { question: 'Do you offer HOA maintenance services?', answer: 'Yes. We offer flat-rate monthly lighting and electrical maintenance services for HOA communities. This includes scheduled inspections, documentation, and transparent pricing to reduce emergencies and support consistent maintenance planning.' },
+];
+
+const meta = generateMeta({
+  title: 'Frequently Asked Questions | Wheyland Electric',
+  description: 'Find answers to common questions about Wheyland Electric\'s services, licensing, warranty, service areas, and more.',
+  path: '/about/faqs/',
+});
+---
+<PageLayout
+  meta={meta}
+  schemas={[faqPageSchema(globalFaqs)]}
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'FAQs', href: '/about/faqs/' },
+  ]}
+>
+  <Section bg="white">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-indigo mb-6">Frequently Asked Questions</h1>
+      <p class="text-lg text-text-muted">
+        Have a question about our electrical services? Find answers below or contact us directly.
+      </p>
+    </div>
+    <div class="max-w-3xl mx-auto">
+      <FAQAccordion faqs={globalFaqs} heading="" />
+    </div>
+  </Section>
+
+  <CTASection title="Still Have Questions?" subtitle="Give us a call or request a free estimate. We are happy to help." />
+</PageLayout>

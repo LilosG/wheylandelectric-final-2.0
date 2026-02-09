@@ -1,0 +1,332 @@
+{
+  "meta": {
+    "projectName": "Wheyland Electric",
+    "framework": "Astro 4.x",
+    "cssFramework": "Tailwind CSS v3",
+    "language": "TypeScript (strict)",
+    "deployment": "Vercel (static)",
+    "generatedAt": "2026-02-07",
+    "totalPages": 88,
+    "sitemapUrls": 87
+  },
+  "business": {
+    "name": "Wheyland Electric",
+    "tagline": "Bright Ideas For Your Electrical Needs",
+    "owner": "Tim Wheyland",
+    "license": "CA License #940291",
+    "established": 2008,
+    "phone": "(858) 663-5564",
+    "phoneTel": "8586635564",
+    "email": "info@wheylandelectric.com",
+    "address": {
+      "street": "3536 Woodland Way",
+      "city": "Carlsbad",
+      "state": "CA",
+      "zip": "92008"
+    },
+    "hours": {
+      "weekday": "Mon–Fri 8:00 AM – 5:00 PM",
+      "weekend": "Sat–Sun Closed"
+    },
+    "serviceRadiusCounties": [
+      "San Diego County",
+      "Orange County",
+      "Western Riverside County"
+    ],
+    "gbpReviewCount": 153,
+    "gbpRating": 5.0
+  },
+  "flags": {
+    "reviews_verified": false,
+    "show_review_excerpts": false,
+    "publish_wave2": false
+  },
+  "designTokens": {
+    "colors": {
+      "brand-mint": "#BEE9E8",
+      "brand-moonstone": "#62B6CB",
+      "brand-indigo": "#1B4965",
+      "brand-columbia": "#CAE9FF",
+      "brand-picton": "#5FA8D3",
+      "brand-cta": "#D97706",
+      "brand-cta-hover": "#B45309",
+      "surface-subtle": "#F0F9FF",
+      "text-muted": "#3D6B85"
+    },
+    "fonts": {
+      "heading": "Plus Jakarta Sans",
+      "body": "Inter"
+    },
+    "logoPaths": {
+      "primary": "/images/logo-wheyland-electric.png",
+      "dark": "/images/logo-wheyland-electric-dark.png",
+      "favicon": "/favicon.svg"
+    }
+  },
+  "cities": {
+    "wave1": [
+      {
+        "slug": "carlsbad",
+        "name": "Carlsbad",
+        "zips": ["92008", "92009", "92010", "92011"],
+        "neighborhoods": ["Barrio", "Olde Carlsbad", "La Costa", "Bressi Ranch", "Aviara", "Calavera Hills"],
+        "nearbyCities": ["encinitas", "oceanside", "san-marcos"],
+        "serviceCategories": ["residential", "commercial", "hoa", "ev"]
+      },
+      {
+        "slug": "encinitas",
+        "name": "Encinitas",
+        "zips": ["92023", "92024"],
+        "neighborhoods": ["Leucadia", "Cardiff-by-the-Sea", "Olivenhain", "Old Encinitas", "New Encinitas"],
+        "nearbyCities": ["carlsbad", "solana-beach", "del-mar", "rancho-santa-fe"],
+        "serviceCategories": ["residential", "commercial", "hoa", "ev"]
+      },
+      {
+        "slug": "rancho-santa-fe",
+        "name": "Rancho Santa Fe",
+        "zips": ["92067"],
+        "neighborhoods": ["The Covenant", "Fairbanks Ranch", "Cielo", "Morgan Run", "The Bridges"],
+        "nearbyCities": ["encinitas", "del-mar", "solana-beach"],
+        "serviceCategories": ["residential", "commercial", "ev"]
+      },
+      {
+        "slug": "san-marcos",
+        "name": "San Marcos",
+        "zips": ["92069", "92078", "92096"],
+        "neighborhoods": ["Lake San Marcos", "San Elijo Hills", "Twin Oaks Valley", "Rancho Santa Fe Road corridor", "Discovery Hills"],
+        "nearbyCities": ["carlsbad", "oceanside", "encinitas"],
+        "serviceCategories": ["residential", "commercial", "hoa", "ev"]
+      },
+      {
+        "slug": "del-mar",
+        "name": "Del Mar",
+        "zips": ["92014"],
+        "neighborhoods": ["Del Mar Village", "Del Mar Heights", "Del Mar Mesa", "Carmel Valley adjacent"],
+        "nearbyCities": ["solana-beach", "encinitas", "rancho-santa-fe"],
+        "serviceCategories": ["residential", "commercial", "hoa", "ev"]
+      },
+      {
+        "slug": "solana-beach",
+        "name": "Solana Beach",
+        "zips": ["92075"],
+        "neighborhoods": ["Solana Beach Village", "Eden Gardens", "Lomas Santa Fe", "Santa Helena"],
+        "nearbyCities": ["del-mar", "encinitas", "rancho-santa-fe"],
+        "serviceCategories": ["residential", "commercial", "hoa", "ev"]
+      },
+      {
+        "slug": "oceanside",
+        "name": "Oceanside",
+        "zips": ["92049", "92054", "92056", "92057", "92058"],
+        "neighborhoods": ["Downtown Oceanside", "Fire Mountain", "South Oceanside", "Mira Costa", "Rancho Del Oro", "Arrowood"],
+        "nearbyCities": ["carlsbad", "san-marcos"],
+        "serviceCategories": ["residential", "commercial", "hoa", "ev"]
+      }
+    ],
+    "wave2": [
+      { "slug": "vista", "name": "Vista" },
+      { "slug": "escondido", "name": "Escondido" },
+      { "slug": "poway", "name": "Poway" },
+      { "slug": "ramona", "name": "Ramona" },
+      { "slug": "valley-center", "name": "Valley Center" },
+      { "slug": "rancho-bernardo", "name": "Rancho Bernardo" },
+      { "slug": "rancho-penasquitos", "name": "Rancho Peñasquitos" },
+      { "slug": "san-diego", "name": "San Diego" },
+      { "slug": "fallbrook", "name": "Fallbrook" }
+    ]
+  },
+  "servicePillars": {
+    "wave1": [
+      { "slug": "ev-charger-installation", "name": "EV Charger Installation" },
+      { "slug": "electrical-panel-upgrades", "name": "Electrical Panel Upgrades" },
+      { "slug": "service-calls-troubleshooting", "name": "Service Calls & Troubleshooting" },
+      { "slug": "recessed-lighting-installation", "name": "Recessed Lighting Installation" },
+      { "slug": "light-fixture-installation", "name": "Light Fixture Installation" },
+      { "slug": "ceiling-fan-installation", "name": "Ceiling Fan Installation" },
+      { "slug": "spa-jacuzzi-sauna-electrical", "name": "Spa, Jacuzzi & Sauna Electrical" },
+      { "slug": "outlet-switch-dimmer-gfci-repairs", "name": "Outlet, Switch, Dimmer & GFCI Repairs" }
+    ],
+    "wave2": [
+      { "slug": "dedicated-circuits", "name": "Dedicated Circuits" },
+      { "slug": "remodel-rewiring-adu", "name": "Remodel & Rewiring (incl. ADU)" },
+      { "slug": "commercial-tenant-improvement", "name": "Commercial Tenant Improvement (TI)" },
+      { "slug": "commercial-electrical-maintenance", "name": "Commercial Electrical Maintenance" },
+      { "slug": "light-industrial-electrical", "name": "Light Industrial Electrical" },
+      { "slug": "electrical-safety-inspections", "name": "Electrical Safety Inspections" }
+    ]
+  },
+  "extendedServiceCount": 86,
+  "offerings": [
+    {
+      "slug": "hoa-monthly-electrical-maintenance",
+      "title": "HOA Lighting & Electrical Maintenance"
+    }
+  ],
+  "routes": {
+    "static": [
+      { "path": "/", "template": "index.astro", "type": "homepage" },
+      { "path": "/about/", "template": "about/index.astro", "type": "about" },
+      { "path": "/about/licenses/", "template": "about/licenses.astro", "type": "trust" },
+      { "path": "/about/faqs/", "template": "about/faqs.astro", "type": "faq" },
+      { "path": "/about/projects/", "template": "about/projects.astro", "type": "gallery" },
+      { "path": "/reviews/", "template": "reviews.astro", "type": "reviews" },
+      { "path": "/who-we-work-with/", "template": "who-we-work-with.astro", "type": "audience" },
+      { "path": "/free-estimates/", "template": "free-estimates.astro", "type": "lead-gen" },
+      { "path": "/contact-us/", "template": "contact-us.astro", "type": "contact" },
+      { "path": "/thank-you/", "template": "thank-you.astro", "type": "confirmation" },
+      { "path": "/services/", "template": "services/index.astro", "type": "hub" },
+      { "path": "/service-areas/", "template": "service-areas/index.astro", "type": "hub" },
+      { "path": "/blog/", "template": "blog/index.astro", "type": "blog-index" },
+      { "path": "/404/", "template": "404.astro", "type": "error" }
+    ],
+    "dynamic": [
+      {
+        "pattern": "/services/[service]/",
+        "template": "services/[service].astro",
+        "type": "service-pillar",
+        "count": 8,
+        "generatedPaths": [
+          "/services/ev-charger-installation/",
+          "/services/electrical-panel-upgrades/",
+          "/services/service-calls-troubleshooting/",
+          "/services/recessed-lighting-installation/",
+          "/services/light-fixture-installation/",
+          "/services/ceiling-fan-installation/",
+          "/services/spa-jacuzzi-sauna-electrical/",
+          "/services/outlet-switch-dimmer-gfci-repairs/"
+        ]
+      },
+      {
+        "pattern": "/[city]/",
+        "template": "[city]/index.astro",
+        "type": "city-landing",
+        "count": 7,
+        "generatedPaths": [
+          "/carlsbad/",
+          "/encinitas/",
+          "/rancho-santa-fe/",
+          "/san-marcos/",
+          "/del-mar/",
+          "/solana-beach/",
+          "/oceanside/"
+        ]
+      },
+      {
+        "pattern": "/[city]/[service]/",
+        "template": "[city]/[service].astro",
+        "type": "money-page",
+        "count": 56,
+        "example": "/carlsbad/ev-charger-installation/"
+      },
+      {
+        "pattern": "/blog/[...slug]/",
+        "template": "blog/[...slug].astro",
+        "type": "blog-post",
+        "count": 3,
+        "generatedPaths": [
+          "/blog/ev-charger-installation-guide-san-diego/",
+          "/blog/signs-you-need-electrical-panel-upgrade/",
+          "/blog/outdoor-lighting-ideas-coastal-homes/"
+        ]
+      }
+    ],
+    "pageCounts": {
+      "static": 14,
+      "servicePillar": 8,
+      "cityLanding": 7,
+      "moneyPages": 56,
+      "blogPosts": 3,
+      "total": 88
+    }
+  },
+  "seo": {
+    "schemas": [
+      "LocalBusiness/Electrician (homepage, city pages)",
+      "Service (service pillar pages, money pages)",
+      "FAQPage (pages with FAQs)",
+      "BreadcrumbList (all pages)",
+      "Article (blog posts)"
+    ],
+    "titlePattern": "{Service} in {City} | Wheyland Electric",
+    "canonicalDomain": "https://www.wheylandelectric.com",
+    "sitemapUrl": "https://www.wheylandelectric.com/sitemap-index.xml",
+    "robotsTxt": "/robots.txt"
+  },
+  "forms": {
+    "provider": "Formspree",
+    "envVar": "PUBLIC_FORMSPREE_ENDPOINT",
+    "spamProtection": ["honeypot field", "time-to-submit guard (3s minimum)"],
+    "forms": [
+      { "name": "EstimateForm", "location": "/free-estimates/" },
+      { "name": "ContactForm", "location": "/contact-us/" }
+    ]
+  },
+  "redirects": [
+    {
+      "source": "/about-us-san-diego-county-electrician/",
+      "destination": "/about/",
+      "permanent": true
+    }
+  ],
+  "navigation": {
+    "primary": [
+      { "label": "Home", "href": "/" },
+      { "label": "Services", "href": "/services/", "hasDropdown": true },
+      { "label": "Service Areas", "href": "/service-areas/", "hasDropdown": true },
+      { "label": "Who We Work With", "href": "/who-we-work-with/" },
+      { "label": "About", "href": "/about/", "hasDropdown": true },
+      { "label": "Blog", "href": "/blog/" },
+      { "label": "Contact", "href": "/contact-us/" }
+    ],
+    "cta": {
+      "estimate": { "label": "Free Estimate", "href": "/free-estimates/" },
+      "phone": { "label": "Call (858) 663-5564", "href": "tel:8586635564" }
+    }
+  },
+  "components": {
+    "layouts": ["BaseLayout", "PageLayout"],
+    "ui": ["Container", "Section", "Button", "Card", "CardGrid"],
+    "navigation": ["Header", "Footer", "MobileCTA", "Breadcrumbs"],
+    "sections": [
+      "Hero",
+      "TrustBar",
+      "CTASection",
+      "FAQAccordion",
+      "ServiceGrid",
+      "CityGrid",
+      "TestimonialBlock",
+      "HOAOfferBlock",
+      "GBPEmbed",
+      "ProjectGallery"
+    ],
+    "forms": ["EstimateForm", "ContactForm"],
+    "seo": ["SEOHead"]
+  },
+  "dataFiles": {
+    "src/data/site.ts": "NAP, hours, license, owner, team, warranty, pledge, flags",
+    "src/data/brand.ts": "Color tokens, logo paths, fonts, tagline",
+    "src/data/cities.ts": "16 cities (7 Wave 1, 9 Wave 2) with localIntroSeed",
+    "src/data/services.ts": "14 service pillars + 86 extended services",
+    "src/data/offerings.ts": "HOA maintenance offering",
+    "src/data/testimonials.ts": "5 review excerpts (gated)",
+    "src/data/projects.ts": "Project gallery (empty-safe)",
+    "src/data/navigation.ts": "Auto-generated nav from data",
+    "src/data/redirects.ts": "Legacy URL redirects"
+  },
+  "schemaFiles": {
+    "src/lib/schema/localBusiness.ts": "LocalBusiness/Electrician JSON-LD",
+    "src/lib/schema/service.ts": "Service JSON-LD",
+    "src/lib/schema/faq.ts": "FAQPage JSON-LD",
+    "src/lib/schema/breadcrumb.ts": "BreadcrumbList JSON-LD",
+    "src/lib/schema/article.ts": "Article JSON-LD"
+  },
+  "scripts": {
+    "validate-links": "scripts/validate-links.ts — BFS depth check, orphan detection"
+  },
+  "testimonials": [
+    { "author": "Matt Schlumpberger", "serviceTag": "light-fixture-installation", "cityTag": "carlsbad" },
+    { "author": "C Littlestar", "serviceTag": "light-fixture-installation" },
+    { "author": "John P.", "serviceTag": "service-calls-troubleshooting", "cityTag": "carlsbad" },
+    { "author": "Simone A.", "serviceTag": "ev-charger-installation" },
+    { "author": "Damien I.", "serviceTag": "ev-charger-installation", "cityTag": "oceanside" }
+  ]
+}

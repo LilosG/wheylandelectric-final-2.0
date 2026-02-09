@@ -1,0 +1,59 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
+import EstimateForm from '../components/forms/EstimateForm.astro';
+import Section from '../components/ui/Section.astro';
+import { generateMeta } from '../lib/seo';
+import { site } from '../data/site';
+
+const meta = generateMeta({
+  title: 'Free Estimate | Wheyland Electric',
+  description: 'Request a free estimate from Wheyland Electric. Licensed electrician serving San Diego County. Call (858) 663-5564 or fill out our form.',
+  path: '/free-estimates/',
+});
+---
+<PageLayout meta={meta} breadcrumbs={[{ label: 'Free Estimate', href: '/free-estimates/' }]}>
+  <Section bg="white">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-indigo mb-6">Request Your Free Estimate</h1>
+      <p class="text-lg text-text-muted mb-6">
+        Tell us about your project and we will get back to you promptly with a free estimate. No obligation, no pressure.
+      </p>
+      <p class="text-text-muted">
+        Prefer to call? Reach us at{' '}
+        <a href={`tel:${site.nap.phoneTel}`} class="text-brand-moonstone font-semibold hover:text-brand-indigo transition-colors">
+          {site.nap.phone}
+        </a>
+      </p>
+    </div>
+  </Section>
+
+  <TrustBar />
+
+  <Section bg="subtle">
+    <div class="max-w-2xl mx-auto">
+      <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
+        <EstimateForm />
+      </div>
+    </div>
+  </Section>
+
+  <!-- Trust reinforcement -->
+  <Section bg="white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl font-heading font-bold text-brand-indigo mb-6">Why Choose Wheyland Electric?</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+        {[
+          { title: 'Free Estimates', desc: 'No-obligation estimates for your electrical project' },
+          { title: '1-Year Warranty', desc: 'All workmanship backed by our labor warranty' },
+          { title: 'Licensed & Insured', desc: 'CA License #940291 — fully bonded' },
+        ].map((item) => (
+          <div class="text-center">
+            <h3 class="font-semibold text-brand-indigo mb-2">{item.title}</h3>
+            <p class="text-sm text-text-muted">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+</PageLayout>

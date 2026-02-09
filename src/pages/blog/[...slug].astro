@@ -1,0 +1,68 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import { blogPostMeta } from '../../lib/seo';
+import { articleSchema } from '../../lib/schema/article';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts
+    .filter((post) => !post.data.draft)
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await post.render();
+
+const meta = blogPostMeta(post.data.title, post.data.description, post.slug);
+const schema = articleSchema(
+  post.data.title,
+  post.data.description,
+  post.data.date.toISOString(),
+  post.data.author,
+  post.slug,
+);
+---
+<PageLayout
+  meta={meta}
+  schemas={[schema]}
+  breadcrumbs={[
+    { label: 'Blog', href: '/blog/' },
+    { label: post.data.title, href: `/blog/${post.slug}/` },
+  ]}
+>
+  <Section bg="white">
+    <article class="max-w-3xl mx-auto">
+      <header class="mb-8">
+        <time class="text-sm text-text-muted" datetime={post.data.date.toISOString()}>
+          {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+        </time>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-indigo mt-3 mb-4">
+          {post.data.title}
+        </h1>
+        <p class="text-lg text-text-muted">{post.data.description}</p>
+        <div class="mt-4 text-sm text-text-muted">
+          By <span class="font-medium text-brand-indigo">{post.data.author}</span>
+        </div>
+      </header>
+
+      <div class="prose prose-lg max-w-none
+        prose-headings:font-heading prose-headings:text-brand-indigo
+        prose-p:text-text-muted prose-p:leading-relaxed
+        prose-a:text-brand-moonstone prose-a:no-underline hover:prose-a:text-brand-indigo
+        prose-strong:text-brand-indigo
+        prose-li:text-text-muted
+        prose-ul:list-disc prose-ol:list-decimal
+      ">
+        <Content />
+      </div>
+    </article>
+  </Section>
+
+  <CTASection title="Need Electrical Service?" subtitle="Contact Wheyland Electric for a free estimate on your next project." />
+</PageLayout>

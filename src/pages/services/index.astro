@@ -1,0 +1,50 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import ServiceGrid from '../../components/sections/ServiceGrid.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import { generateMeta } from '../../lib/seo';
+import { getPublishedPillars } from '../../data/services';
+
+const meta = generateMeta({
+  title: 'Electrical Services | San Diego County',
+  description: 'Full-service electrician in San Diego County. EV chargers, panel upgrades, lighting, fans, spa wiring, outlet repairs & more. Licensed, bonded & insured.',
+  path: '/services/',
+});
+
+const services = getPublishedPillars();
+---
+<PageLayout meta={meta} breadcrumbs={[{ label: 'Services', href: '/services/' }]}>
+  <Hero
+    title="Our Electrical Services"
+    subtitle="Professional electrical services for homes and businesses across San Diego County. Licensed, bonded, and insured with a 1-year labor warranty."
+    showCTAs={false}
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+  />
+
+  <TrustBar />
+
+  <Section bg="white">
+    <ServiceGrid services={services} heading="What We Do" />
+  </Section>
+
+  <Section bg="subtle">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">Full-Service Electrical Contractor</h2>
+      <p class="text-text-muted leading-relaxed mb-4">
+        Beyond our core service offerings, Wheyland Electric handles a wide range of electrical work including new construction wiring, whole-home surge protection, generator installation, home automation, smoke and carbon monoxide detectors, and more.
+      </p>
+      <p class="text-text-muted leading-relaxed">
+        If you have an electrical need that is not listed above, give us a call at{' '}
+        <a href="tel:8586635564" class="text-brand-moonstone font-semibold hover:text-brand-indigo transition-colors">(858) 663-5564</a>.
+        We are happy to discuss your project and provide a free estimate.
+      </p>
+    </div>
+  </Section>
+
+  <CTASection />
+</PageLayout>

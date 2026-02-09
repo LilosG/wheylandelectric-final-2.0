@@ -1,0 +1,163 @@
+---
+import { getPublishedCities } from '../../data/cities';
+import { getPublishedPillars } from '../../data/services';
+
+const cities = getPublishedCities();
+const services = getPublishedPillars();
+---
+<form
+  id="estimate-form"
+  action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
+  method="POST"
+  class="space-y-6"
+>
+  <!-- Honeypot -->
+  <div class="hidden" aria-hidden="true">
+    <label for="website">Website</label>
+    <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <!-- Timestamp for spam guard -->
+  <input type="hidden" name="_timestamp" id="form-timestamp" />
+
+  <!-- Redirect -->
+  <input type="hidden" name="_next" value="/thank-you/" />
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Name -->
+    <div>
+      <label for="name" class="block text-sm font-semibold text-brand-indigo mb-2">Full Name *</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text"
+        placeholder="Your full name"
+      />
+    </div>
+
+    <!-- Phone -->
+    <div>
+      <label for="phone" class="block text-sm font-semibold text-brand-indigo mb-2">Phone *</label>
+      <input
+        type="tel"
+        id="phone"
+        name="phone"
+        required
+        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text"
+        placeholder="(xxx) xxx-xxxx"
+      />
+    </div>
+
+    <!-- Email -->
+    <div>
+      <label for="email" class="block text-sm font-semibold text-brand-indigo mb-2">Email *</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text"
+        placeholder="you@example.com"
+      />
+    </div>
+
+    <!-- City -->
+    <div>
+      <label for="city" class="block text-sm font-semibold text-brand-indigo mb-2">City</label>
+      <select
+        id="city"
+        name="city"
+        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text bg-white"
+      >
+        <option value="">Select your city</option>
+        {cities.map((city) => (
+          <option value={city.name}>{city.name}, CA</option>
+        ))}
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Service -->
+    <div>
+      <label for="service" class="block text-sm font-semibold text-brand-indigo mb-2">Service Needed</label>
+      <select
+        id="service"
+        name="service"
+        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text bg-white"
+      >
+        <option value="">Select a service</option>
+        {services.map((svc) => (
+          <option value={svc.name}>{svc.name}</option>
+        ))}
+        <option value="HOA Maintenance Quote">HOA Maintenance Quote</option>
+        <option value="Other">Other</option>
+      </select>
+    </div>
+
+    <!-- Preferred contact method -->
+    <div>
+      <label for="contact-method" class="block text-sm font-semibold text-brand-indigo mb-2">Preferred Contact Method</label>
+      <select
+        id="contact-method"
+        name="contact_method"
+        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text bg-white"
+      >
+        <option value="phone">Phone</option>
+        <option value="email">Email</option>
+        <option value="text">Text</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Message -->
+  <div>
+    <label for="message" class="block text-sm font-semibold text-brand-indigo mb-2">Tell Us About Your Project</label>
+    <textarea
+      id="message"
+      name="message"
+      rows="4"
+      class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text resize-y"
+      placeholder="Describe what you need help with..."
+    ></textarea>
+  </div>
+
+  <!-- Submit -->
+  <div>
+    <button
+      type="submit"
+      class="w-full sm:w-auto bg-brand-cta hover:bg-brand-cta-hover text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-brand-moonstone focus:ring-offset-2"
+    >
+      Request Free Estimate
+    </button>
+  </div>
+</form>
+
+<script>
+  // Set timestamp on load for spam guard
+  const timestampField = document.getElementById('form-timestamp') as HTMLInputElement;
+  if (timestampField) {
+    timestampField.value = String(Date.now());
+  }
+
+  // Client-side validation
+  const form = document.getElementById('estimate-form') as HTMLFormElement;
+  form?.addEventListener('submit', (e) => {
+    const timestamp = parseInt(timestampField?.value || '0', 10);
+    const elapsed = Date.now() - timestamp;
+
+    // Reject if submitted in under 3 seconds (likely bot)
+    if (elapsed < 3000) {
+      e.preventDefault();
+      return;
+    }
+
+    // Check honeypot
+    const honeypot = (form.querySelector('[name="_gotcha"]') as HTMLInputElement)?.value;
+    if (honeypot) {
+      e.preventDefault();
+      return;
+    }
+  });
+</script>

@@ -1,0 +1,90 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import HOAOfferBlock from '../components/sections/HOAOfferBlock.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import Section from '../components/ui/Section.astro';
+import Button from '../components/ui/Button.astro';
+import { generateMeta } from '../lib/seo';
+
+const meta = generateMeta({
+  title: 'Who We Work With | Wheyland Electric',
+  description: 'Wheyland Electric serves homeowners, property managers, HOA communities, commercial businesses, and EV owners across San Diego County.',
+  path: '/who-we-work-with/',
+});
+
+const segments = [
+  {
+    title: 'Homeowners',
+    description: 'From panel upgrades and recessed lighting to ceiling fan installation and outlet repairs, we handle all residential electrical needs with the care and craftsmanship your home deserves.',
+    services: ['Electrical Panel Upgrades', 'Recessed Lighting', 'Ceiling Fan Installation', 'Outlet & Switch Repairs', 'EV Charger Installation'],
+    cta: { label: 'Residential Services', href: '/services/' },
+  },
+  {
+    title: 'Property Managers',
+    description: 'Reliable, responsive electrical service for managed properties. We understand the urgency of tenant issues and the importance of maintaining safe, code-compliant electrical systems across your portfolio.',
+    services: ['Service Calls & Troubleshooting', 'Electrical Maintenance', 'Panel Upgrades', 'Lighting Repairs', 'Safety Inspections'],
+    cta: { label: 'Service Calls', href: '/services/service-calls-troubleshooting/' },
+  },
+  {
+    title: 'HOA Communities',
+    description: 'Predictable monthly maintenance with flat-rate pricing, scheduled inspections, and transparent documentation. We help HOA boards reduce emergency calls and maintain consistent electrical standards.',
+    services: ['Monthly Lighting Maintenance', 'Electrical Inspections', 'Common Area Lighting', 'Parking Lot Lighting', 'Emergency Response'],
+    cta: { label: 'HOA Services', href: '/free-estimates/' },
+  },
+  {
+    title: 'Commercial & Business',
+    description: 'Tenant improvements, commercial lighting, 3-phase equipment hookups, and code compliance. We bring the same integrity and professionalism to commercial projects that we bring to residential work.',
+    services: ['Tenant Improvements', 'Commercial Lighting', 'Equipment Hookups', 'Code Compliance', 'Maintenance Programs'],
+    cta: { label: 'Commercial Services', href: '/services/' },
+  },
+  {
+    title: 'EV Owners',
+    description: 'Level 2 home charger installation for Tesla, Rivian, Ford, Chevrolet, and all EV makes. We handle panel assessment, permitting, installation, and inspection — the full process from start to finish.',
+    services: ['Level 2 Charger Installation', 'Panel Capacity Assessment', 'Dedicated Circuit Installation', 'Permit & Inspection Coordination'],
+    cta: { label: 'EV Charger Installation', href: '/services/ev-charger-installation/' },
+  },
+];
+---
+<PageLayout meta={meta} breadcrumbs={[{ label: 'Who We Work With', href: '/who-we-work-with/' }]}>
+  <Hero
+    title="Who We Work With"
+    subtitle="Big enough to handle any project. Small enough to care about every detail."
+    showCTAs={false}
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+  />
+
+  {segments.map((segment, index) => (
+    <Section bg={index % 2 === 0 ? 'white' : 'subtle'}>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-4">{segment.title}</h2>
+          <p class="text-text-muted leading-relaxed mb-6">{segment.description}</p>
+          <ul class="space-y-2 mb-6">
+            {segment.services.map((svc) => (
+              <li class="flex items-center gap-2 text-text-muted">
+                <svg class="w-4 h-4 text-brand-moonstone shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                {svc}
+              </li>
+            ))}
+          </ul>
+          <Button href={segment.cta.href} variant="secondary">{segment.cta.label}</Button>
+        </div>
+        <div class="bg-surface-subtle rounded-xl p-8 flex items-center justify-center min-h-[200px]">
+          <p class="text-sm text-text-muted">Image placeholder — {segment.title}</p>
+        </div>
+      </div>
+    </Section>
+  ))}
+
+  <!-- HOA Offer Block -->
+  <Section bg="subtle">
+    <HOAOfferBlock />
+  </Section>
+
+  <CTASection />
+</PageLayout>

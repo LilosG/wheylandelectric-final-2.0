@@ -1,0 +1,262 @@
+%% Wheyland Electric -- Full Site Architecture
+%% Mermaid graph (top-down)
+%% Render with: https://mermaid.live or any Mermaid-compatible tool
+
+graph TD
+    %% ===== DEPTH 0 =====
+    HOME["/  Homepage"]
+
+    %% ===== DEPTH 1 -- Hubs & Static =====
+    HOME --> SERVICES_HUB["/services/  Services Hub"]
+    HOME --> AREAS_HUB["/service-areas/  Service Areas Hub"]
+    HOME --> ABOUT["/about/  About"]
+    HOME --> REVIEWS["/reviews/  Reviews"]
+    HOME --> WWW["/who-we-work-with/  Who We Work With"]
+    HOME --> ESTIMATES["/free-estimates/  Free Estimates"]
+    HOME --> CONTACT["/contact-us/  Contact Us"]
+    HOME --> BLOG["/blog/  Blog Index"]
+    HOME --> THANKYOU["/thank-you/  Thank You"]
+    HOME --> FOUR04["/404  404 Page"]
+
+    %% ===== DEPTH 2 -- Service Pillars =====
+    SERVICES_HUB --> SVC_EV["/services/ev-charger-installation/"]
+    SERVICES_HUB --> SVC_PANEL["/services/electrical-panel-upgrades/"]
+    SERVICES_HUB --> SVC_CALLS["/services/service-calls-troubleshooting/"]
+    SERVICES_HUB --> SVC_RECESS["/services/recessed-lighting-installation/"]
+    SERVICES_HUB --> SVC_LIGHT["/services/light-fixture-installation/"]
+    SERVICES_HUB --> SVC_FAN["/services/ceiling-fan-installation/"]
+    SERVICES_HUB --> SVC_SPA["/services/spa-jacuzzi-sauna-electrical/"]
+    SERVICES_HUB --> SVC_OUTLET["/services/outlet-switch-dimmer-gfci-repairs/"]
+
+    %% Homepage also links directly to service pillars
+    HOME --> SVC_EV
+    HOME --> SVC_PANEL
+    HOME --> SVC_CALLS
+    HOME --> SVC_RECESS
+    HOME --> SVC_LIGHT
+    HOME --> SVC_FAN
+    HOME --> SVC_SPA
+    HOME --> SVC_OUTLET
+
+    %% ===== DEPTH 2 -- City Landing Pages =====
+    AREAS_HUB --> CARLSBAD["/carlsbad/"]
+    AREAS_HUB --> ENCINITAS["/encinitas/"]
+    AREAS_HUB --> RSF["/rancho-santa-fe/"]
+    AREAS_HUB --> SANMARCOS["/san-marcos/"]
+    AREAS_HUB --> DELMAR["/del-mar/"]
+    AREAS_HUB --> SOLANA["/solana-beach/"]
+    AREAS_HUB --> OCEANSIDE["/oceanside/"]
+
+    %% Homepage also links directly to cities
+    HOME --> CARLSBAD
+    HOME --> ENCINITAS
+    HOME --> RSF
+    HOME --> SANMARCOS
+    HOME --> DELMAR
+    HOME --> SOLANA
+    HOME --> OCEANSIDE
+
+    %% ===== DEPTH 2 -- About Sub-Pages =====
+    ABOUT --> LICENSES["/about/licenses/"]
+    ABOUT --> FAQS["/about/faqs/"]
+    ABOUT --> PROJECTS["/about/projects/"]
+
+    %% ===== DEPTH 2 -- Blog Posts =====
+    BLOG --> POST1["/blog/post-1/"]
+    BLOG --> POST2["/blog/post-2/"]
+    BLOG --> POST3["/blog/post-3/"]
+
+    %% ===== DEPTH 3 -- Money Pages (Carlsbad) =====
+    CARLSBAD --> CB_EV["/carlsbad/ev-charger-installation/"]
+    CARLSBAD --> CB_PANEL["/carlsbad/electrical-panel-upgrades/"]
+    CARLSBAD --> CB_CALLS["/carlsbad/service-calls-troubleshooting/"]
+    CARLSBAD --> CB_RECESS["/carlsbad/recessed-lighting-installation/"]
+    CARLSBAD --> CB_LIGHT["/carlsbad/light-fixture-installation/"]
+    CARLSBAD --> CB_FAN["/carlsbad/ceiling-fan-installation/"]
+    CARLSBAD --> CB_SPA["/carlsbad/spa-jacuzzi-sauna-electrical/"]
+    CARLSBAD --> CB_OUTLET["/carlsbad/outlet-switch-dimmer-gfci-repairs/"]
+
+    %% Service pillars also link to Carlsbad money pages
+    SVC_EV --> CB_EV
+    SVC_PANEL --> CB_PANEL
+    SVC_CALLS --> CB_CALLS
+    SVC_RECESS --> CB_RECESS
+    SVC_LIGHT --> CB_LIGHT
+    SVC_FAN --> CB_FAN
+    SVC_SPA --> CB_SPA
+    SVC_OUTLET --> CB_OUTLET
+
+    %% ===== DEPTH 3 -- Money Pages (Encinitas) =====
+    ENCINITAS --> EN_EV["/encinitas/ev-charger-installation/"]
+    ENCINITAS --> EN_PANEL["/encinitas/electrical-panel-upgrades/"]
+    ENCINITAS --> EN_CALLS["/encinitas/service-calls-troubleshooting/"]
+    ENCINITAS --> EN_RECESS["/encinitas/recessed-lighting-installation/"]
+    ENCINITAS --> EN_LIGHT["/encinitas/light-fixture-installation/"]
+    ENCINITAS --> EN_FAN["/encinitas/ceiling-fan-installation/"]
+    ENCINITAS --> EN_SPA["/encinitas/spa-jacuzzi-sauna-electrical/"]
+    ENCINITAS --> EN_OUTLET["/encinitas/outlet-switch-dimmer-gfci-repairs/"]
+
+    SVC_EV --> EN_EV
+    SVC_PANEL --> EN_PANEL
+    SVC_CALLS --> EN_CALLS
+    SVC_RECESS --> EN_RECESS
+    SVC_LIGHT --> EN_LIGHT
+    SVC_FAN --> EN_FAN
+    SVC_SPA --> EN_SPA
+    SVC_OUTLET --> EN_OUTLET
+
+    %% ===== DEPTH 3 -- Money Pages (Rancho Santa Fe) =====
+    RSF --> RSF_EV["/rancho-santa-fe/ev-charger-installation/"]
+    RSF --> RSF_PANEL["/rancho-santa-fe/electrical-panel-upgrades/"]
+    RSF --> RSF_CALLS["/rancho-santa-fe/service-calls-troubleshooting/"]
+    RSF --> RSF_RECESS["/rancho-santa-fe/recessed-lighting-installation/"]
+    RSF --> RSF_LIGHT["/rancho-santa-fe/light-fixture-installation/"]
+    RSF --> RSF_FAN["/rancho-santa-fe/ceiling-fan-installation/"]
+    RSF --> RSF_SPA["/rancho-santa-fe/spa-jacuzzi-sauna-electrical/"]
+    RSF --> RSF_OUTLET["/rancho-santa-fe/outlet-switch-dimmer-gfci-repairs/"]
+
+    SVC_EV --> RSF_EV
+    SVC_PANEL --> RSF_PANEL
+    SVC_CALLS --> RSF_CALLS
+    SVC_RECESS --> RSF_RECESS
+    SVC_LIGHT --> RSF_LIGHT
+    SVC_FAN --> RSF_FAN
+    SVC_SPA --> RSF_SPA
+    SVC_OUTLET --> RSF_OUTLET
+
+    %% ===== DEPTH 3 -- Money Pages (San Marcos) =====
+    SANMARCOS --> SM_EV["/san-marcos/ev-charger-installation/"]
+    SANMARCOS --> SM_PANEL["/san-marcos/electrical-panel-upgrades/"]
+    SANMARCOS --> SM_CALLS["/san-marcos/service-calls-troubleshooting/"]
+    SANMARCOS --> SM_RECESS["/san-marcos/recessed-lighting-installation/"]
+    SANMARCOS --> SM_LIGHT["/san-marcos/light-fixture-installation/"]
+    SANMARCOS --> SM_FAN["/san-marcos/ceiling-fan-installation/"]
+    SANMARCOS --> SM_SPA["/san-marcos/spa-jacuzzi-sauna-electrical/"]
+    SANMARCOS --> SM_OUTLET["/san-marcos/outlet-switch-dimmer-gfci-repairs/"]
+
+    SVC_EV --> SM_EV
+    SVC_PANEL --> SM_PANEL
+    SVC_CALLS --> SM_CALLS
+    SVC_RECESS --> SM_RECESS
+    SVC_LIGHT --> SM_LIGHT
+    SVC_FAN --> SM_FAN
+    SVC_SPA --> SM_SPA
+    SVC_OUTLET --> SM_OUTLET
+
+    %% ===== DEPTH 3 -- Money Pages (Del Mar) =====
+    DELMAR --> DM_EV["/del-mar/ev-charger-installation/"]
+    DELMAR --> DM_PANEL["/del-mar/electrical-panel-upgrades/"]
+    DELMAR --> DM_CALLS["/del-mar/service-calls-troubleshooting/"]
+    DELMAR --> DM_RECESS["/del-mar/recessed-lighting-installation/"]
+    DELMAR --> DM_LIGHT["/del-mar/light-fixture-installation/"]
+    DELMAR --> DM_FAN["/del-mar/ceiling-fan-installation/"]
+    DELMAR --> DM_SPA["/del-mar/spa-jacuzzi-sauna-electrical/"]
+    DELMAR --> DM_OUTLET["/del-mar/outlet-switch-dimmer-gfci-repairs/"]
+
+    SVC_EV --> DM_EV
+    SVC_PANEL --> DM_PANEL
+    SVC_CALLS --> DM_CALLS
+    SVC_RECESS --> DM_RECESS
+    SVC_LIGHT --> DM_LIGHT
+    SVC_FAN --> DM_FAN
+    SVC_SPA --> DM_SPA
+    SVC_OUTLET --> DM_OUTLET
+
+    %% ===== DEPTH 3 -- Money Pages (Solana Beach) =====
+    SOLANA --> SB_EV["/solana-beach/ev-charger-installation/"]
+    SOLANA --> SB_PANEL["/solana-beach/electrical-panel-upgrades/"]
+    SOLANA --> SB_CALLS["/solana-beach/service-calls-troubleshooting/"]
+    SOLANA --> SB_RECESS["/solana-beach/recessed-lighting-installation/"]
+    SOLANA --> SB_LIGHT["/solana-beach/light-fixture-installation/"]
+    SOLANA --> SB_FAN["/solana-beach/ceiling-fan-installation/"]
+    SOLANA --> SB_SPA["/solana-beach/spa-jacuzzi-sauna-electrical/"]
+    SOLANA --> SB_OUTLET["/solana-beach/outlet-switch-dimmer-gfci-repairs/"]
+
+    SVC_EV --> SB_EV
+    SVC_PANEL --> SB_PANEL
+    SVC_CALLS --> SB_CALLS
+    SVC_RECESS --> SB_RECESS
+    SVC_LIGHT --> SB_LIGHT
+    SVC_FAN --> SB_FAN
+    SVC_SPA --> SB_SPA
+    SVC_OUTLET --> SB_OUTLET
+
+    %% ===== DEPTH 3 -- Money Pages (Oceanside) =====
+    OCEANSIDE --> OC_EV["/oceanside/ev-charger-installation/"]
+    OCEANSIDE --> OC_PANEL["/oceanside/electrical-panel-upgrades/"]
+    OCEANSIDE --> OC_CALLS["/oceanside/service-calls-troubleshooting/"]
+    OCEANSIDE --> OC_RECESS["/oceanside/recessed-lighting-installation/"]
+    OCEANSIDE --> OC_LIGHT["/oceanside/light-fixture-installation/"]
+    OCEANSIDE --> OC_FAN["/oceanside/ceiling-fan-installation/"]
+    OCEANSIDE --> OC_SPA["/oceanside/spa-jacuzzi-sauna-electrical/"]
+    OCEANSIDE --> OC_OUTLET["/oceanside/outlet-switch-dimmer-gfci-repairs/"]
+
+    SVC_EV --> OC_EV
+    SVC_PANEL --> OC_PANEL
+    SVC_CALLS --> OC_CALLS
+    SVC_RECESS --> OC_RECESS
+    SVC_LIGHT --> OC_LIGHT
+    SVC_FAN --> OC_FAN
+    SVC_SPA --> OC_SPA
+    SVC_OUTLET --> OC_OUTLET
+
+    %% ===== Cross-Links: Neighbor Cities =====
+    CARLSBAD <--> ENCINITAS
+    CARLSBAD <--> OCEANSIDE
+    CARLSBAD <--> SANMARCOS
+    ENCINITAS <--> DELMAR
+    ENCINITAS <--> SOLANA
+    RSF <--> DELMAR
+    RSF <--> SANMARCOS
+    DELMAR <--> SOLANA
+    SANMARCOS <--> OCEANSIDE
+
+    %% ===== Cross-Links: Related Services =====
+    SVC_EV <--> SVC_PANEL
+    SVC_PANEL <--> SVC_CALLS
+    SVC_CALLS <--> SVC_OUTLET
+    SVC_RECESS <--> SVC_LIGHT
+    SVC_LIGHT <--> SVC_FAN
+    SVC_FAN <--> SVC_RECESS
+    SVC_SPA <--> SVC_PANEL
+    SVC_SPA <--> SVC_CALLS
+
+    %% ===== CTA Links (all content pages --> free estimates) =====
+    SVC_EV --> ESTIMATES
+    SVC_PANEL --> ESTIMATES
+    SVC_CALLS --> ESTIMATES
+    SVC_RECESS --> ESTIMATES
+    SVC_LIGHT --> ESTIMATES
+    SVC_FAN --> ESTIMATES
+    SVC_SPA --> ESTIMATES
+    SVC_OUTLET --> ESTIMATES
+    CARLSBAD --> ESTIMATES
+    ENCINITAS --> ESTIMATES
+    RSF --> ESTIMATES
+    SANMARCOS --> ESTIMATES
+    DELMAR --> ESTIMATES
+    SOLANA --> ESTIMATES
+    OCEANSIDE --> ESTIMATES
+
+    %% ===== Styling =====
+    classDef home fill:#1a56db,color:#fff,stroke:#1a56db
+    classDef hub fill:#2563eb,color:#fff,stroke:#2563eb
+    classDef pillar fill:#3b82f6,color:#fff,stroke:#3b82f6
+    classDef city fill:#059669,color:#fff,stroke:#059669
+    classDef money fill:#6b7280,color:#fff,stroke:#6b7280
+    classDef static fill:#9333ea,color:#fff,stroke:#9333ea
+    classDef cta fill:#dc2626,color:#fff,stroke:#dc2626
+
+    class HOME home
+    class SERVICES_HUB,AREAS_HUB hub
+    class SVC_EV,SVC_PANEL,SVC_CALLS,SVC_RECESS,SVC_LIGHT,SVC_FAN,SVC_SPA,SVC_OUTLET pillar
+    class CARLSBAD,ENCINITAS,RSF,SANMARCOS,DELMAR,SOLANA,OCEANSIDE city
+    class CB_EV,CB_PANEL,CB_CALLS,CB_RECESS,CB_LIGHT,CB_FAN,CB_SPA,CB_OUTLET money
+    class EN_EV,EN_PANEL,EN_CALLS,EN_RECESS,EN_LIGHT,EN_FAN,EN_SPA,EN_OUTLET money
+    class RSF_EV,RSF_PANEL,RSF_CALLS,RSF_RECESS,RSF_LIGHT,RSF_FAN,RSF_SPA,RSF_OUTLET money
+    class SM_EV,SM_PANEL,SM_CALLS,SM_RECESS,SM_LIGHT,SM_FAN,SM_SPA,SM_OUTLET money
+    class DM_EV,DM_PANEL,DM_CALLS,DM_RECESS,DM_LIGHT,DM_FAN,DM_SPA,DM_OUTLET money
+    class SB_EV,SB_PANEL,SB_CALLS,SB_RECESS,SB_LIGHT,SB_FAN,SB_SPA,SB_OUTLET money
+    class OC_EV,OC_PANEL,OC_CALLS,OC_RECESS,OC_LIGHT,OC_FAN,OC_SPA,OC_OUTLET money
+    class ABOUT,REVIEWS,WWW,CONTACT,BLOG,LICENSES,FAQS,PROJECTS,THANKYOU,FOUR04,POST1,POST2,POST3 static
+    class ESTIMATES cta

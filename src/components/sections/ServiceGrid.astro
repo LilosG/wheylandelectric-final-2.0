@@ -1,0 +1,45 @@
+---
+import type { ServicePillar } from '../../types';
+import ServiceCard from './ServiceCard.astro';
+
+interface Props {
+  services: ServicePillar[];
+  citySlug?: string;
+  heading?: string;
+  subtitle?: string;
+}
+
+const {
+  services,
+  citySlug,
+  heading = 'Our Electrical Services',
+  subtitle = 'Professional electrical solutions for homes and businesses across San Diego County.',
+} = Astro.props;
+---
+<div>
+  <div class="text-center mb-12">
+    <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo">
+      <span class="relative inline-block pb-3">
+        {heading}
+      </span>
+    </h2>
+    <span class="block w-16 h-0.5 bg-brand-moonstone mx-auto mt-3"></span>
+    {subtitle && (
+      <p class="text-text-muted max-w-2xl mx-auto mt-4">{subtitle}</p>
+    )}
+  </div>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {services.map((service) => {
+      const href = citySlug
+        ? `/${citySlug}/${service.slug}/`
+        : `/services/${service.slug}/`;
+      return (
+        <ServiceCard
+          name={service.name}
+          description={service.shortDesc}
+          href={href}
+        />
+      );
+    })}
+  </div>
+</div>

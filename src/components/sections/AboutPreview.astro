@@ -1,0 +1,57 @@
+---
+import { site } from '../../data/site';
+
+const trustPills = [
+  site.license,
+  '1-Year Warranty',
+  'Fully Insured',
+];
+---
+<section class="bg-white py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+      {/* Left — photo placeholder */}
+      <div class="lg:col-span-3">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl bg-gradient-to-br from-brand-indigo/10 to-brand-moonstone/10 aspect-[4/3]">
+          <div class="absolute inset-0 flex items-center justify-center">
+            <div class="text-center p-8">
+              <svg class="w-16 h-16 text-brand-moonstone/40 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+              </svg>
+              <p class="text-text-muted text-sm">Tim Wheyland & Family — Photo placeholder</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Right — quote + bio */}
+      <div class="lg:col-span-2">
+        <span class="text-brand-moonstone text-xs uppercase tracking-wider font-semibold mb-4 block">
+          Since {site.established} in North County
+        </span>
+
+        <blockquote class="text-xl md:text-2xl font-heading font-bold text-brand-indigo leading-snug mb-6">
+          &ldquo;Build our business with the same standards of care and ethics we strive to build our{' '}
+          <span class="text-brand-cta">family.</span>&rdquo;
+        </blockquote>
+
+        <p class="text-text-muted leading-relaxed mb-6">
+          {site.owner.name} is a {site.owner.generation}. He grew up in North County aware of the benefits of being local, buying local, and knowing first hand with whom you are dealing. Wheyland Electric carries that same personal accountability into every project.
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-6">
+          {trustPills.map((pill) => (
+            <span class="border border-brand-moonstone text-brand-moonstone text-xs font-semibold px-3 py-1.5 rounded-full">
+              {pill}
+            </span>
+          ))}
+        </div>
+
+        <a href="/about/" class="text-brand-moonstone hover:text-brand-picton font-semibold inline-flex items-center gap-1 transition-colors text-sm">
+          Learn More About Us
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

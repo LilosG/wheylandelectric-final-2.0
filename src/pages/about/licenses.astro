@@ -1,0 +1,76 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import { generateMeta } from '../../lib/seo';
+import { site } from '../../data/site';
+
+const meta = generateMeta({
+  title: 'Licenses & Credentials | Wheyland Electric',
+  description: 'Wheyland Electric: CA License #940291. Licensed, bonded & insured since 2008. Verify our credentials with the CSLB.',
+  path: '/about/licenses/',
+});
+---
+<PageLayout
+  meta={meta}
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'Licenses & Trust', href: '/about/licenses/' },
+  ]}
+>
+  <Section bg="white">
+    <div class="max-w-3xl mx-auto text-center">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-indigo mb-6">Licenses & Credentials</h1>
+      <p class="text-lg text-text-muted mb-12">
+        Wheyland Electric is fully licensed, bonded, and insured. We stand behind our work with transparency and accountability.
+      </p>
+    </div>
+  </Section>
+
+  <TrustBar />
+
+  <Section bg="subtle">
+    <div class="max-w-2xl mx-auto space-y-8">
+      <div class="bg-white rounded-xl shadow-md p-8 text-center">
+        <h2 class="text-2xl font-heading font-bold text-brand-indigo mb-2">California Contractor License</h2>
+        <p class="text-3xl font-bold text-brand-moonstone mb-4">#940291</p>
+        <p class="text-text-muted mb-4">
+          Issued by the Contractors State License Board (CSLB). Active and in good standing.
+        </p>
+        <p class="text-sm text-text-muted">
+          Verify at: <span class="font-mono text-brand-indigo">cslb.ca.gov</span>
+        </p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md p-8">
+        <h2 class="text-xl font-heading font-bold text-brand-indigo mb-4 text-center">Trust & Compliance</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {[
+            { label: 'Licensed', detail: 'Active CA electrical contractor license' },
+            { label: 'Bonded', detail: 'Contractor surety bond on file' },
+            { label: 'Insured', detail: 'General liability and workers compensation coverage' },
+            { label: 'Established', detail: `Serving San Diego County since ${site.established}` },
+          ].map((item) => (
+            <div class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-moonstone shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <div>
+                <p class="font-semibold text-brand-indigo">{item.label}</p>
+                <p class="text-sm text-text-muted">{item.detail}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-md p-8 text-center">
+        <h2 class="text-xl font-heading font-bold text-brand-indigo mb-4">1-Year Labor Warranty</h2>
+        <p class="text-text-muted leading-relaxed">{site.warranty}</p>
+      </div>
+    </div>
+  </Section>
+
+  <CTASection />
+</PageLayout>

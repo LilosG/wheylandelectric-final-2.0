@@ -1,0 +1,36 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import Section from '../components/ui/Section.astro';
+import Button from '../components/ui/Button.astro';
+import { generateMeta } from '../lib/seo';
+
+const meta = generateMeta({
+  title: 'Page Not Found | Wheyland Electric',
+  description: 'The page you are looking for could not be found. Return to the Wheyland Electric homepage.',
+  path: '/404/',
+});
+---
+<PageLayout meta={meta}>
+  <Section bg="white">
+    <div class="max-w-2xl mx-auto text-center py-12">
+      <p class="text-8xl font-heading font-bold text-brand-mint mb-6">404</p>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-brand-indigo mb-4">Page Not Found</h1>
+      <p class="text-lg text-text-muted mb-8">
+        Sorry, the page you are looking for does not exist or has been moved.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+        <Button href="/" variant="primary">Go to Homepage</Button>
+        <Button href="/services/" variant="secondary">View Services</Button>
+        <Button href="/contact-us/" variant="secondary">Contact Us</Button>
+      </div>
+      <div class="text-sm text-text-muted">
+        <p>Popular pages:</p>
+        <div class="flex flex-wrap justify-center gap-4 mt-2">
+          <a href="/free-estimates/" class="text-brand-moonstone hover:text-brand-indigo transition-colors">Free Estimate</a>
+          <a href="/service-areas/" class="text-brand-moonstone hover:text-brand-indigo transition-colors">Service Areas</a>
+          <a href="/about/" class="text-brand-moonstone hover:text-brand-indigo transition-colors">About Us</a>
+        </div>
+      </div>
+    </div>
+  </Section>
+</PageLayout>

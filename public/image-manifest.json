@@ -1,0 +1,346 @@
+{
+  "generated": "2026-01-31",
+  "total_images": 82,
+  "categories": {
+    "team": [
+      {
+        "file": "team/team-equipment.webp",
+        "size_kb": 129
+      },
+      {
+        "file": "team/team-thumbs-up.webp",
+        "size_kb": 52
+      },
+      {
+        "file": "team/team-at-work.webp",
+        "size_kb": 60
+      },
+      {
+        "file": "team/team-photo.webp",
+        "size_kb": 83
+      },
+      {
+        "file": "team/team-on-site.webp",
+        "size_kb": 77
+      },
+      {
+        "file": "team/team-vehicle-rear.webp",
+        "size_kb": 85
+      },
+      {
+        "file": "team/truck-branding.webp",
+        "size_kb": 74
+      },
+      {
+        "file": "team/service-truck.webp",
+        "size_kb": 16
+      }
+    ],
+    "insurance": [
+      {
+        "file": "insurance/insurance-usaa.png",
+        "size_kb": 1
+      },
+      {
+        "file": "insurance/insurance-farmers.png",
+        "size_kb": 16
+      },
+      {
+        "file": "insurance/insurance-liberty-mutual.png",
+        "size_kb": 3
+      },
+      {
+        "file": "insurance/insurance-partners-banner.webp",
+        "size_kb": 65
+      },
+      {
+        "file": "insurance/insurance-state-farm.png",
+        "size_kb": 8
+      },
+      {
+        "file": "insurance/insurance-allstate.png",
+        "size_kb": 14
+      }
+    ],
+    "certifications": [
+      {
+        "file": "certifications/iicrc-asd-certified.webp",
+        "size_kb": 5
+      },
+      {
+        "file": "certifications/iicrc-wrt-certified.webp",
+        "size_kb": 7
+      },
+      {
+        "file": "certifications/certifications-banner.webp",
+        "size_kb": 41
+      },
+      {
+        "file": "certifications/homeadvisor-approved.webp",
+        "size_kb": 11
+      }
+    ],
+    "logo": [
+      {
+        "file": "logo/tamarack-logo.webp",
+        "size_kb": 1
+      },
+      {
+        "file": "logo/tamarack-logo-square.webp",
+        "size_kb": 17
+      },
+      {
+        "file": "logo/tamarack-logo-white.png",
+        "size_kb": 30
+      }
+    ],
+    "hero": [
+      {
+        "file": "hero/hero-restoration-services.webp",
+        "size_kb": 220
+      }
+    ],
+    "services": [
+      {
+        "file": "services/tamarack-restoration-oceanside-water-damage-restoration.webp",
+        "size_kb": 81
+      },
+      {
+        "file": "services/tamarack-restoration-oceanside-sewage-cleanup.webp",
+        "size_kb": 47
+      },
+      {
+        "file": "services/tamarack-restoration-fire-damage-restoration.webp",
+        "size_kb": 154
+      },
+      {
+        "file": "services/tamarack-restoration-rancho-santa-fe-water-leak-repair.webp",
+        "size_kb": 23
+      },
+      {
+        "file": "services/tamarack-restoration-encinitas-fire-damage-restoration.webp",
+        "size_kb": 154
+      },
+      {
+        "file": "services/tamarack-restoration-encinitas-sewage-cleanup.webp",
+        "size_kb": 98
+      },
+      {
+        "file": "services/tamarack-restoration-water-damage-restoration-card.webp",
+        "size_kb": 65
+      },
+      {
+        "file": "services/tamarack-restoration-rancho-santa-fe-water-damage-restoration.webp",
+        "size_kb": 65
+      },
+      {
+        "file": "services/tamarack-restoration-flood-cleanup-card.webp",
+        "size_kb": 93
+      },
+      {
+        "file": "services/tamarack-restoration-vista-flood-cleanup.webp",
+        "size_kb": 80
+      },
+      {
+        "file": "services/tamarack-restoration-encinitas-water-damage-restoration.webp",
+        "size_kb": 46
+      },
+      {
+        "file": "services/tamarack-restoration-oceanside-mold-removal.webp",
+        "size_kb": 70
+      },
+      {
+        "file": "services/tamarack-restoration-solana-beach-fire-damage-restoration.webp",
+        "size_kb": 51
+      },
+      {
+        "file": "services/tamarack-restoration-solana-beach-water-leak-repair.webp",
+        "size_kb": 22
+      },
+      {
+        "file": "services/tamarack-restoration-vista-fire-damage-restoration.webp",
+        "size_kb": 60
+      },
+      {
+        "file": "services/tamarack-restoration-carlsbad-flood-cleanup.webp",
+        "size_kb": 35
+      },
+      {
+        "file": "services/tamarack-restoration-vista-water-leak-repair.webp",
+        "size_kb": 22
+      },
+      {
+        "file": "services/tamarack-restoration-mold-removal.webp",
+        "size_kb": 235
+      },
+      {
+        "file": "services/tamarack-restoration-solana-beach-flood-cleanup.webp",
+        "size_kb": 24
+      },
+      {
+        "file": "services/tamarack-restoration-solana-beach-sewage-cleanup.webp",
+        "size_kb": 235
+      },
+      {
+        "file": "services/tamarack-restoration-carlsbad-water-damage-restoration.webp",
+        "size_kb": 63
+      },
+      {
+        "file": "services/tamarack-restoration-bressi-ranch-sewage-cleanup.webp",
+        "size_kb": 36
+      },
+      {
+        "file": "services/tamarack-restoration-vista-water-damage-restoration.webp",
+        "size_kb": 70
+      },
+      {
+        "file": "services/tamarack-restoration-encinitas-water-leak-repair.webp",
+        "size_kb": 15
+      },
+      {
+        "file": "services/tamarack-restoration-water-leak-repair.webp",
+        "size_kb": 41
+      },
+      {
+        "file": "services/tamarack-restoration-solana-beach-mold-removal.webp",
+        "size_kb": 79
+      },
+      {
+        "file": "services/tamarack-restoration-carlsbad-sewage-cleanup.webp",
+        "size_kb": 50
+      },
+      {
+        "file": "services/tamarack-restoration-san-marcos-mold-removal.webp",
+        "size_kb": 19
+      },
+      {
+        "file": "services/tamarack-restoration-bressi-ranch-water-leak-repair.webp",
+        "size_kb": 18
+      },
+      {
+        "file": "services/tamarack-restoration-san-marcos-sewage-cleanup.webp",
+        "size_kb": 110
+      },
+      {
+        "file": "services/tamarack-restoration-oceanside-flood-cleanup.webp",
+        "size_kb": 56
+      },
+      {
+        "file": "services/tamarack-restoration-sewage-cleanup.webp",
+        "size_kb": 235
+      },
+      {
+        "file": "services/tamarack-restoration-rancho-santa-fe-mold-removal.webp",
+        "size_kb": 235
+      },
+      {
+        "file": "services/tamarack-restoration-oceanside-fire-damage-restoration.webp",
+        "size_kb": 93
+      },
+      {
+        "file": "services/tamarack-restoration-vista-mold-removal.webp",
+        "size_kb": 108
+      },
+      {
+        "file": "services/tamarack-restoration-vista-sewage-cleanup.webp",
+        "size_kb": 235
+      },
+      {
+        "file": "services/tamarack-restoration-encinitas-mold-removal.webp",
+        "size_kb": 30
+      },
+      {
+        "file": "services/tamarack-restoration-san-marcos-water-leak-repair.webp",
+        "size_kb": 18
+      },
+      {
+        "file": "services/tamarack-restoration-bressi-ranch-water-damage-restoration.webp",
+        "size_kb": 58
+      },
+      {
+        "file": "services/tamarack-restoration-mold-removal-card.webp",
+        "size_kb": 110
+      },
+      {
+        "file": "services/tamarack-restoration-rancho-santa-fe-sewage-cleanup.webp",
+        "size_kb": 235
+      },
+      {
+        "file": "services/tamarack-restoration-oceanside-water-leak-repair.webp",
+        "size_kb": 25
+      },
+      {
+        "file": "services/tamarack-restoration-water-leak-repair-card.webp",
+        "size_kb": 29
+      },
+      {
+        "file": "services/tamarack-restoration-sewage-cleanup-card.webp",
+        "size_kb": 110
+      },
+      {
+        "file": "services/tamarack-restoration-solana-beach-water-damage-restoration.webp",
+        "size_kb": 52
+      },
+      {
+        "file": "services/tamarack-restoration-bressi-ranch-fire-damage-restoration.webp",
+        "size_kb": 154
+      },
+      {
+        "file": "services/tamarack-restoration-san-marcos-water-damage-restoration.webp",
+        "size_kb": 50
+      },
+      {
+        "file": "services/tamarack-restoration-encinitas-flood-cleanup.webp",
+        "size_kb": 93
+      },
+      {
+        "file": "services/tamarack-restoration-san-marcos-flood-cleanup.webp",
+        "size_kb": 30
+      },
+      {
+        "file": "services/tamarack-restoration-water-damage-restoration.webp",
+        "size_kb": 119
+      },
+      {
+        "file": "services/tamarack-restoration-bressi-ranch-mold-removal.webp",
+        "size_kb": 66
+      },
+      {
+        "file": "services/tamarack-restoration-carlsbad-water-leak-repair.webp",
+        "size_kb": 29
+      },
+      {
+        "file": "services/tamarack-restoration-san-marcos-fire-damage-restoration.webp",
+        "size_kb": 61
+      },
+      {
+        "file": "services/tamarack-restoration-carlsbad-fire-damage-restoration.webp",
+        "size_kb": 87
+      },
+      {
+        "file": "services/tamarack-restoration-rancho-santa-fe-fire-damage-restoration.webp",
+        "size_kb": 66
+      },
+      {
+        "file": "services/tamarack-restoration-flood-cleanup.webp",
+        "size_kb": 154
+      },
+      {
+        "file": "services/tamarack-restoration-bressi-ranch-flood-cleanup.webp",
+        "size_kb": 154
+      },
+      {
+        "file": "services/tamarack-restoration-carlsbad-mold-removal.webp",
+        "size_kb": 110
+      },
+      {
+        "file": "services/tamarack-restoration-fire-damage-restoration-card.webp",
+        "size_kb": 93
+      },
+      {
+        "file": "services/tamarack-restoration-rancho-santa-fe-flood-cleanup.webp",
+        "size_kb": 87
+      }
+    ]
+  }
+}

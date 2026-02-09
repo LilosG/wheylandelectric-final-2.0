@@ -1,0 +1,42 @@
+---
+import { site } from '../../data/site';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  cityName?: string;
+}
+
+const {
+  title = 'Need an estimate for your electrical project?',
+  subtitle = 'Big enough to handle complex projects. Local enough to care about every detail.',
+  cityName,
+} = Astro.props;
+
+const areaText = cityName ? `Serving ${cityName} and surrounding areas` : '';
+---
+<section class="bg-brand-indigo py-20 md:py-28 relative overflow-hidden">
+  {/* Subtle radial gradient center */}
+  <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(95,168,211,0.08) 0%, transparent 70%)"></div>
+
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white leading-tight">
+      {title}
+    </h2>
+    <p class="text-white/80 text-lg mt-4 mb-10 max-w-2xl mx-auto">
+      {subtitle}
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button href="/free-estimates/" variant="primary" size="lg">
+        Free Estimate
+      </Button>
+      <Button href={`tel:${site.nap.phoneTel}`} variant="outline-white" size="lg">
+        Call {site.nap.phone}
+      </Button>
+    </div>
+    {areaText && (
+      <p class="text-white/50 text-sm mt-6">{areaText}</p>
+    )}
+  </div>
+</section>

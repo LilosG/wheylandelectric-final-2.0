@@ -1,0 +1,171 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import Button from '../../components/ui/Button.astro';
+import { servicePageMeta } from '../../lib/seo';
+import { serviceSchema } from '../../lib/schema/service';
+import { faqPageSchema } from '../../lib/schema/faq';
+import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { getPublishedPillars, getPillarBySlug } from '../../data/services';
+import { getPublishedCities } from '../../data/cities';
+import type { ServicePillar } from '../../types';
+
+export function getStaticPaths() {
+  const pillars = getPublishedPillars();
+  return pillars.map((pillar) => ({
+    params: { service: pillar.slug },
+    props: { pillar },
+  }));
+}
+
+interface Props {
+  pillar: ServicePillar;
+}
+
+const { pillar } = Astro.props;
+const cities = getPublishedCities();
+const meta = servicePageMeta(pillar.name, pillar.slug);
+const breadcrumbs = [
+  { label: 'Services', href: '/services/' },
+  { label: pillar.name, href: `/services/${pillar.slug}/` },
+];
+const relatedPillars = pillar.relatedServices
+  .map((slug) => getPillarBySlug(slug))
+  .filter((p): p is ServicePillar => p !== undefined && p.publish);
+---
+<PageLayout
+  meta={meta}
+  schemas={[
+    serviceSchema(pillar.name, pillar.shortDesc, `/services/${pillar.slug}/`),
+    faqPageSchema(pillar.faqs),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+  breadcrumbs={breadcrumbs}
+>
+  <Hero
+    title={`${pillar.name} in San Diego County`}
+    subtitle={pillar.shortDesc}
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+  />
+
+  <TrustBar />
+
+  <!-- What's Included -->
+  <Section bg="white">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">What's Included</h2>
+        <ul class="space-y-3">
+          {pillar.includedBullets.map((bullet) => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-moonstone shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-text-muted">{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="bg-surface-subtle rounded-xl p-8 flex items-center justify-center min-h-[200px]">
+        <p class="text-sm text-text-muted">Service image placeholder — {pillar.name}</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Process Steps -->
+  {pillar.processSteps.length > 0 && (
+    <Section bg="subtle">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-8 text-center">Our Process</h2>
+      <div class="max-w-3xl mx-auto space-y-6">
+        {pillar.processSteps.map((step) => (
+          <div class="flex items-start gap-4">
+            <div class="w-10 h-10 bg-brand-moonstone text-white rounded-full flex items-center justify-center shrink-0 font-bold text-lg">
+              {step.step}
+            </div>
+            <div>
+              <h3 class="font-semibold text-brand-indigo mb-1">{step.title}</h3>
+              <p class="text-text-muted">{step.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </Section>
+  )}
+
+  <!-- Pricing Factors -->
+  {pillar.pricingFactors.length > 0 && (
+    <Section bg="white">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">What Affects Pricing</h2>
+      <p class="text-text-muted mb-6">
+        Every project is unique. These are the factors that typically influence the cost of {pillar.name.toLowerCase()}:
+      </p>
+      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
+        {pillar.pricingFactors.map((factor) => (
+          <li class="flex items-start gap-2 text-text-muted">
+            <svg class="w-4 h-4 text-brand-picton shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            {factor}
+          </li>
+        ))}
+      </ul>
+      <p class="text-text-muted italic">
+        Call <a href="tel:8586635564" class="text-brand-moonstone font-semibold hover:text-brand-indigo transition-colors">(858) 663-5564</a> for a free estimate tailored to your specific project.
+      </p>
+    </Section>
+  )}
+
+  <!-- City Links -->
+  <Section bg="subtle">
+    <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6 text-center">
+      We Offer {pillar.name} In
+    </h2>
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-6">
+      {cities.map((city) => (
+        <a
+          href={`/${city.slug}/${pillar.slug}/`}
+          class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4 text-center text-brand-indigo hover:text-brand-moonstone font-medium"
+        >
+          {city.name}, CA
+        </a>
+      ))}
+    </div>
+    <div class="text-center">
+      <Button href="/service-areas/" variant="ghost">All Service Areas</Button>
+    </div>
+  </Section>
+
+  <!-- Related Services -->
+  {relatedPillars.length > 0 && (
+    <Section bg="white">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">Related Services</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {relatedPillars.map((related) => (
+          <a href={`/services/${related.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
+            <h3 class="font-semibold text-brand-indigo mb-2">{related.name}</h3>
+            <p class="text-sm text-text-muted">{related.shortDesc}</p>
+          </a>
+        ))}
+      </div>
+    </Section>
+  )}
+
+  <!-- FAQs -->
+  <Section bg="subtle">
+    <div class="max-w-3xl mx-auto">
+      <FAQAccordion faqs={pillar.faqs} heading={`${pillar.name} FAQs`} />
+    </div>
+  </Section>
+
+  <!-- Testimonials -->
+  <TestimonialBlock serviceTag={pillar.slug} />
+
+  <CTASection subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`} />
+</PageLayout>

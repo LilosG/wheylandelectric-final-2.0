@@ -1,0 +1,42 @@
+---
+import '../styles/global.css';
+import type { PageMeta, BreadcrumbItem } from '../types';
+import Header from '../components/navigation/Header.astro';
+import Footer from '../components/navigation/Footer.astro';
+import MobileCTA from '../components/navigation/MobileCTA.astro';
+import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
+import SEOHead from '../components/seo/SEOHead.astro';
+
+interface Props {
+  meta: PageMeta;
+  schemas?: Record<string, unknown>[];
+  breadcrumbs?: BreadcrumbItem[];
+}
+
+const { meta, schemas = [], breadcrumbs } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    <SEOHead meta={meta} schemas={schemas} />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <Header />
+    <main class="flex-1 pb-20 lg:pb-0">
+      {breadcrumbs && breadcrumbs.length > 0 && (
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <Breadcrumbs items={breadcrumbs} />
+        </div>
+      )}
+      <slot />
+    </main>
+    <Footer />
+    <MobileCTA />
+  </body>
+</html>

@@ -1,17 +1,98 @@
 ---
+import PageLayout from '../layouts/PageLayout.astro';
+import Hero from '../components/sections/Hero.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
+import ServiceGrid from '../components/sections/ServiceGrid.astro';
+import CityGrid from '../components/sections/CityGrid.astro';
+import CustomerTypeCard from '../components/sections/CustomerTypeCard.astro';
+import HOAOfferBlock from '../components/sections/HOAOfferBlock.astro';
+import TestimonialBlock from '../components/sections/TestimonialBlock.astro';
+import AboutPreview from '../components/sections/AboutPreview.astro';
+import CTASection from '../components/sections/CTASection.astro';
+import MapSection from '../components/sections/MapSection.astro';
+import Section from '../components/ui/Section.astro';
+import Button from '../components/ui/Button.astro';
+import { homePageMeta } from '../lib/seo';
+import { localBusinessSchema } from '../lib/schema/localBusiness';
+import { getPublishedPillars } from '../data/services';
+import { getPublishedCities } from '../data/cities';
 
+const meta = homePageMeta();
+const services = getPublishedPillars();
+const cities = getPublishedCities();
 ---
+<PageLayout meta={meta} schemas={[localBusinessSchema()]}>
+  {/* 1. Hero — dark indigo, full viewport, split layout */}
+  <Hero
+    eyebrow="Satisfaction Guaranteed"
+    title="An Innovative Electrician"
+    titleAccent="You Can Trust."
+    subtitle="We offer electrical installation, repair, and maintenance to residential, commercial, and industrial customers across San Diego County."
+  />
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+  {/* 2. TrustBar — columbia blue strip */}
+  <TrustBar />
+
+  {/* 3. Services — white bg */}
+  <Section bg="white">
+    <ServiceGrid services={services} heading="Electrical Services You Can Count On" />
+    <div class="text-center mt-8">
+      <Button href="/services/" variant="secondary">View All Services</Button>
+    </div>
+  </Section>
+
+  {/* 4. Service Areas — dark indigo bg (self-contained) */}
+  <CityGrid cities={cities} />
+
+  {/* 5. Who We Work With — surface-subtle bg */}
+  <Section bg="subtle">
+    <div class="text-center mb-12">
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-brand-indigo">
+        Who We Work With
+      </h2>
+      <span class="block w-16 h-0.5 bg-brand-moonstone mx-auto mt-3"></span>
+      <p class="text-text-muted max-w-2xl mx-auto mt-4">
+        From homeowners to HOA communities, Wheyland Electric serves a wide range of customers with the same dedication to quality and integrity.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <CustomerTypeCard
+        title="Homeowners"
+        description="Residential electrical services from panel upgrades to recessed lighting."
+        icon="house"
+      />
+      <CustomerTypeCard
+        title="Property Managers"
+        description="Reliable electrical maintenance and prompt service calls for managed properties."
+        icon="building"
+      />
+      <CustomerTypeCard
+        title="HOA Communities"
+        description="Monthly maintenance programs with flat-rate pricing and scheduled inspections."
+        icon="landmark"
+      />
+      <CustomerTypeCard
+        title="EV Owners"
+        description="Level 2 charger installation for Tesla, Rivian, Ford, and all EV makes."
+        icon="zap"
+      />
+    </div>
+  </Section>
+
+  {/* 6. HOA Maintenance — gradient bg card */}
+  <Section bg="white">
+    <HOAOfferBlock />
+  </Section>
+
+  {/* 7. Testimonials — dark indigo bg (self-contained) */}
+  <TestimonialBlock />
+
+  {/* 8. About Preview — white bg (self-contained) */}
+  <AboutPreview />
+
+  {/* 9. CTA — dark indigo with radial gradient (self-contained) */}
+  <CTASection />
+
+  {/* 10. Map / Local Service — white bg (self-contained) */}
+  <MapSection />
+</PageLayout>

@@ -1,0 +1,32 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import ProjectGallery from '../../components/sections/ProjectGallery.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import { generateMeta } from '../../lib/seo';
+
+const meta = generateMeta({
+  title: 'Our Projects | Wheyland Electric',
+  description: 'View completed electrical projects by Wheyland Electric across San Diego County. Residential, commercial, and HOA work.',
+  path: '/about/projects/',
+});
+---
+<PageLayout
+  meta={meta}
+  breadcrumbs={[
+    { label: 'About', href: '/about/' },
+    { label: 'Projects', href: '/about/projects/' },
+  ]}
+>
+  <Section bg="white">
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-indigo mb-6">Our Projects</h1>
+      <p class="text-lg text-text-muted">
+        A look at the electrical work we have completed for homeowners, businesses, and HOA communities across San Diego County.
+      </p>
+    </div>
+    <ProjectGallery heading="" />
+  </Section>
+
+  <CTASection />
+</PageLayout>

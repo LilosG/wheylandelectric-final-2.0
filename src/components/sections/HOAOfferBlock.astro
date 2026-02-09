@@ -1,0 +1,50 @@
+---
+import { getPublishedOfferings } from '../../data/offerings';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  cityName?: string;
+}
+
+const { cityName } = Astro.props;
+const hoaOffering = getPublishedOfferings().find((o) => o.slug === 'hoa-monthly-electrical-maintenance');
+
+const features = [
+  'Scheduled lighting inspections',
+  'Electrical maintenance documentation',
+  'Transparent flat-rate pricing',
+  'Reduced emergency calls',
+  'Consistent maintenance planning',
+  'Direct communication',
+];
+---
+{hoaOffering && (
+  <div class="bg-gradient-to-r from-brand-mint/40 to-surface/40 rounded-2xl p-8 md:p-12">
+    <div class="max-w-4xl mx-auto">
+      <span class="text-xs uppercase tracking-wider font-semibold text-brand-moonstone mb-3 block">
+        HOA Lighting & Electrical Maintenance Services
+      </span>
+      <h3 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-3">
+        {hoaOffering.headline}
+      </h3>
+      <p class="text-text-muted leading-relaxed mb-8 max-w-2xl">
+        {cityName
+          ? `Flat-rate monthly lighting and electrical maintenance services for HOA communities in ${cityName}. Scheduled inspections, documentation, and transparent pricing help reduce emergencies and support consistent maintenance planning.`
+          : hoaOffering.description}
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mb-8">
+        {features.map((feature) => (
+          <div class="flex items-start gap-2 text-sm text-text-muted">
+            <svg class="w-4 h-4 text-brand-moonstone shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+            {feature}
+          </div>
+        ))}
+      </div>
+      <Button href="/free-estimates/" variant="primary">
+        Get an HOA Maintenance Quote
+      </Button>
+    </div>
+  </div>
+)}

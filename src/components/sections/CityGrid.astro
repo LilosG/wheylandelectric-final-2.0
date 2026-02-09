@@ -1,0 +1,43 @@
+---
+import type { City } from '../../types';
+import CityCard from './CityCard.astro';
+
+interface Props {
+  cities: City[];
+  title?: string;
+  subtitle?: string;
+}
+
+const {
+  cities,
+  title = 'Areas We Serve',
+  subtitle = 'Wheyland Electric proudly serves communities across North County San Diego with licensed, bonded, and insured electrical services.',
+} = Astro.props;
+---
+<section class="bg-brand-indigo py-16 md:py-24">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-white text-center mb-4">
+      {title}
+    </h2>
+    <p class="text-white/80 text-center mb-12 max-w-2xl mx-auto">
+      {subtitle}
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {cities.map((city) => (
+        <CityCard
+          name={city.name}
+          slug={city.slug}
+          description={`Residential, commercial, HOA, and EV charging services in ${city.name}.`}
+        />
+      ))}
+    </div>
+    <div class="text-center mt-10">
+      <a
+        href="/service-areas/"
+        class="text-brand-moonstone hover:text-white text-sm font-semibold inline-flex items-center gap-1 transition-colors duration-200"
+      >
+        View All Service Areas &rarr;
+      </a>
+    </div>
+  </div>
+</section>

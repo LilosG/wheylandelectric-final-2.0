@@ -1,0 +1,1873 @@
+import type { ServicePillar, ExtendedService } from '../types';
+import { flags } from './site';
+
+// ============================================================
+// Wheyland Electric — Service Pillars
+// ============================================================
+
+export const servicePillars: ServicePillar[] = [
+  // ========================
+  // WAVE 1 — publish: true
+  // ========================
+
+  // 1. EV Charger Installation
+  {
+    slug: 'ev-charger-installation',
+    name: 'EV Charger Installation',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'EV charger installation',
+    secondaryKeywords: [
+      'Level 2 EV charger installation',
+      'Tesla Wall Connector installer',
+      'home EV charging station',
+      'electric vehicle charger electrician',
+      'NEMA 14-50 outlet for EV',
+      'ChargePoint home installer',
+    ],
+    shortDesc:
+      'Professional Level 2 EV charger installation for homes and businesses across North County San Diego. Licensed, permitted, and backed by our 1-year labor warranty.',
+    includedBullets: [
+      'Site assessment and electrical load evaluation',
+      'Panel capacity review and upgrade recommendation if needed',
+      'Dedicated 240V circuit installation (40A or 50A)',
+      'Charger mounting and wiring to manufacturer specifications',
+      'City permit procurement and final inspection coordination',
+      'Post-install walkthrough and charger operation demo',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Consultation & Load Assessment',
+        description:
+          'We evaluate your existing electrical panel, discuss your vehicle and charging goals, and determine the optimal charger location and circuit requirements.',
+      },
+      {
+        step: 2,
+        title: 'Proposal & Permitting',
+        description:
+          'You receive a transparent, itemized quote. Once approved, we pull the required city electrical permit before any work begins.',
+      },
+      {
+        step: 3,
+        title: 'Installation',
+        description:
+          'Our licensed electricians install the dedicated circuit, mount the charger, and complete all wiring to NEC and manufacturer specifications.',
+      },
+      {
+        step: 4,
+        title: 'Inspection & Activation',
+        description:
+          'We schedule the city inspection, verify the installation passes, and walk you through charger operation, app setup, and charging best practices.',
+      },
+    ],
+    pricingFactors: [
+      'Distance from electrical panel to charger location',
+      'Panel capacity and whether an upgrade is required',
+      'Charger brand and amperage (40A vs. 50A circuits)',
+      'Conduit routing complexity (attic, crawl space, exterior)',
+      'Permit and inspection fees (vary by city)',
+    ],
+    faqs: [
+      {
+        question: 'How long does an EV charger installation take?',
+        answer:
+          'Most residential Level 2 installations are completed in 4 to 6 hours. If a panel upgrade is also required, the project may extend to a full day or require a second visit after inspection.',
+      },
+      {
+        question: 'Do I need a panel upgrade for an EV charger?',
+        answer:
+          'It depends on your current panel capacity and existing electrical load. Many homes with 200-amp panels have room for a dedicated 40A or 50A EV circuit. Homes with 100-amp or heavily loaded panels often need an upgrade. We perform a load calculation during the initial assessment to give you a definitive answer.',
+      },
+      {
+        question: 'What is the difference between Level 1 and Level 2 charging?',
+        answer:
+          'Level 1 uses a standard 120V household outlet and adds roughly 3 to 5 miles of range per hour. Level 2 uses a dedicated 240V circuit and delivers 25 to 40 miles of range per hour, making it the preferred option for daily home charging.',
+      },
+      {
+        question: 'Can you install a Tesla Wall Connector or other brand-specific charger?',
+        answer:
+          'Yes. We install all major brands including Tesla Wall Connector, ChargePoint Home Flex, Grizzl-E, JuiceBox, Emporia, and Wallbox Pulsar. We can also install NEMA 14-50 outlets for portable charger use.',
+      },
+      {
+        question: 'Do I need a permit for EV charger installation?',
+        answer:
+          'Yes. California requires an electrical permit for dedicated circuit installations. We handle the entire permitting process and coordinate the final inspection so you do not have to.',
+      },
+      {
+        question: 'Are there rebates available for EV charger installation in San Diego?',
+        answer:
+          'SDG&E and some manufacturers offer rebates and incentive programs that can offset installation costs. Availability changes periodically. We can point you toward current programs during your consultation.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'dedicated-circuits',
+      'outlet-switch-dimmer-gfci-repairs',
+    ],
+    subtopics: [
+      'Tesla Wall Connector installation',
+      'ChargePoint Home Flex installation',
+      'NEMA 14-50 outlet for EV charging',
+      'Commercial EV charging stations',
+      'Multi-unit EV charging solutions',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad has embraced electric vehicles faster than nearly any community in North County — and Wheyland Electric has been right here installing chargers since the early days. Whether your home is in La Costa, Aviara, or one of the newer Bressi Ranch developments, we handle the full installation from panel evaluation through city inspection. Our office on Woodland Way means we are local to Carlsbad and respond quickly.',
+      encinitas:
+        'Encinitas homeowners along the 101 corridor and throughout Olivenhain are adding EV chargers at a rapid pace. Wheyland Electric understands the unique wiring considerations of older Leucadia cottages as well as the modern construction in New Encinitas. We pull Encinitas permits, coordinate inspections, and make sure your charger is installed to code and optimized for your driving habits.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe properties often feature longer driveway runs and detached garages that require careful circuit planning for EV charger placement. Wheyland Electric has extensive experience running conduit across estate-scale properties in The Covenant, Fairbanks Ranch, and Cielo. We work discreetly, respect your landscaping, and ensure every installation meets the high standards this community expects.',
+      'san-marcos':
+        'San Marcos residents in San Elijo Hills, Lake San Marcos, and the newer developments near Twin Oaks Valley are adding Level 2 chargers to keep pace with California EV adoption. Wheyland Electric provides straightforward pricing and handles the City of San Marcos permitting process from start to finish. We evaluate your panel, install the dedicated circuit, and make sure everything passes inspection.',
+      'del-mar':
+        'Del Mar homeowners expect precision and professionalism, and Wheyland Electric delivers both when installing EV chargers in this coastal community. From Del Mar Heights garages to the village properties with tighter access, we plan each installation around your home layout and electrical capacity. Our team handles city permits and coordinates with Del Mar HOA requirements where applicable.',
+      'solana-beach':
+        'Solana Beach is a compact, walkable community — but most residents still rely on a car for commuting. Adding a Level 2 EV charger at home makes daily charging effortless. Wheyland Electric serves Solana Beach from just up the road in Carlsbad. We know the local building department, pull the right permits, and complete installations efficiently so you can start charging the same day.',
+      oceanside:
+        'Oceanside is one of the largest and fastest-growing cities in North County, and EV adoption is rising across every neighborhood from downtown to Rancho Del Oro and Arrowood. Wheyland Electric provides EV charger installation for single-family homes, townhomes, and multi-unit properties throughout Oceanside. We handle the City of Oceanside permit process and ensure your installation meets all current code requirements.',
+    },
+  },
+
+  // 2. Electrical Panel Upgrades
+  {
+    slug: 'electrical-panel-upgrades',
+    name: 'Electrical Panel Upgrades',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'electrical panel upgrade',
+    secondaryKeywords: [
+      'breaker panel replacement',
+      '200 amp panel upgrade',
+      'main electrical panel replacement',
+      'sub-panel installation',
+      'electrical panel upgrade cost',
+      'fuse box replacement',
+    ],
+    shortDesc:
+      'Electrical panel upgrades and replacements for homes and businesses in North County San Diego. From 100-amp to 200-amp conversions to sub-panel installations, we handle permitting through final inspection.',
+    includedBullets: [
+      'Comprehensive electrical load calculation',
+      'Panel sizing recommendation (100A, 200A, 320A, or 400A)',
+      'Permit procurement and utility coordination',
+      'Panel installation with code-compliant breakers',
+      'Labeling of all circuits per NEC requirements',
+      'City inspection scheduling and attendance',
+      'Whole-home surge protection recommendation',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Evaluation & Load Calculation',
+        description:
+          'We inspect your current panel, perform a load calculation, and identify the right panel size for your current and future electrical needs.',
+      },
+      {
+        step: 2,
+        title: 'Proposal & Coordination',
+        description:
+          'You receive a detailed written quote. After approval, we pull permits and coordinate the temporary power shutoff with SDG&E.',
+      },
+      {
+        step: 3,
+        title: 'Panel Installation',
+        description:
+          'Our electricians remove the old panel, install the new one, transfer and label all circuits, and restore power. Most upgrades are completed in one day.',
+      },
+      {
+        step: 4,
+        title: 'Inspection & Closeout',
+        description:
+          'We schedule the city inspection, verify everything passes, and provide you with a clean panel schedule and documentation for your records.',
+      },
+    ],
+    pricingFactors: [
+      'Current panel amperage and condition',
+      'Target panel size (200A, 320A, 400A)',
+      'Whether SDG&E meter/riser work is required',
+      'Number of circuits to transfer or add',
+      'Sub-panel installation if applicable',
+      'Permit and inspection fees by jurisdiction',
+    ],
+    faqs: [
+      {
+        question: 'How do I know if I need a panel upgrade?',
+        answer:
+          'Common signs include frequently tripping breakers, a panel that still uses fuses instead of breakers, a 100-amp panel in a home with modern appliances, or plans to add an EV charger, spa, or ADU. If your panel is more than 30 years old, an evaluation is a good idea.',
+      },
+      {
+        question: 'How long does a panel upgrade take?',
+        answer:
+          'Most residential panel upgrades — including a 100-amp to 200-amp conversion — are completed in a single day, typically 6 to 8 hours. Larger commercial panels or situations requiring SDG&E coordination may take longer.',
+      },
+      {
+        question: 'Will I lose power during the panel upgrade?',
+        answer:
+          'Yes, power will be off for a portion of the day while we swap the panel. We coordinate the outage to minimize inconvenience and restore power as quickly as possible, typically within a few hours.',
+      },
+      {
+        question: 'What size panel do I need?',
+        answer:
+          'Most modern single-family homes in San Diego County are well served by a 200-amp panel. Larger homes with pools, spas, EV chargers, and ADUs may benefit from 320-amp or 400-amp service. We perform a load calculation to give you a precise recommendation.',
+      },
+      {
+        question: 'Do you replace Federal Pacific or Zinsco panels?',
+        answer:
+          'Absolutely. Federal Pacific Stab-Lok and Zinsco panels are widely considered safety hazards due to breakers that may fail to trip during an overload. We strongly recommend replacing these panels and can provide a detailed assessment.',
+      },
+      {
+        question: 'Is a permit required for a panel upgrade?',
+        answer:
+          'Yes. Panel upgrades require an electrical permit in all San Diego County jurisdictions. We handle the permit application, schedule the inspection, and ensure the work passes on the first visit.',
+      },
+    ],
+    relatedServices: [
+      'ev-charger-installation',
+      'dedicated-circuits',
+      'service-calls-troubleshooting',
+      'electrical-safety-inspections',
+    ],
+    subtopics: [
+      '200-amp panel upgrade',
+      'Sub-panel installation',
+      'Federal Pacific panel replacement',
+      'Zinsco panel replacement',
+      'Meter and riser upgrades',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Many Carlsbad homes built in the 1970s through 1990s still operate on 100-amp panels that struggle to keep up with modern electrical demands. Wheyland Electric has upgraded hundreds of panels across Carlsbad neighborhoods including La Costa, Calavera Hills, and the Village area. We coordinate directly with the City of Carlsbad building department and SDG&E to make the process seamless.',
+      encinitas:
+        'Older homes in Leucadia, Cardiff-by-the-Sea, and Old Encinitas frequently have undersized or aging panels that need upgrading — especially when homeowners add EV chargers, mini-split systems, or ADUs. Wheyland Electric navigates the City of Encinitas permitting process and handles SDG&E coordination so you get a safe, code-compliant panel with minimal disruption.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe estates often have complex electrical systems with multiple sub-panels, pool equipment, landscape lighting transformers, and high-demand appliances. Wheyland Electric specializes in panel upgrades that accommodate these extensive loads. We perform thorough load calculations and work with Rancho Santa Fe Association requirements to ensure every detail is addressed.',
+      'san-marcos':
+        'San Marcos homes across Lake San Marcos, San Elijo Hills, and Twin Oaks Valley span several decades of construction standards. Whether your home has a 100-amp panel from the 1980s or a builder-grade panel from a 2005 tract development, Wheyland Electric can evaluate your capacity and upgrade to meet today and tomorrow requirements — EV chargers, home offices, and more.',
+      'del-mar':
+        'Del Mar properties range from mid-century beach homes to contemporary custom builds, and each has distinct panel requirements. Wheyland Electric has upgraded panels throughout Del Mar Heights and the village, working within the city tight permitting timelines and coordinating with SDG&E for meter and riser work when needed.',
+      'solana-beach':
+        'Many Solana Beach homes in the Lomas Santa Fe and Eden Gardens neighborhoods were built with 100-amp panels that cannot support today electrical loads. Adding an EV charger, spa, or even a modern kitchen remodel often requires a panel upgrade first. Wheyland Electric handles the entire process from load calculation through city inspection.',
+      oceanside:
+        'Oceanside diverse housing stock — from 1950s-era homes near the coast to new construction in Arrowood — means panel needs vary widely. Wheyland Electric performs panel upgrades across Oceanside, from straightforward 200-amp replacements to complex multi-meter commercial setups. We work with the City of Oceanside permitting office and keep the process on schedule.',
+    },
+  },
+
+  // 3. Service Calls & Troubleshooting
+  {
+    slug: 'service-calls-troubleshooting',
+    name: 'Service Calls & Troubleshooting',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'electrical service call',
+    secondaryKeywords: [
+      'electrical troubleshooting',
+      'emergency electrician near me',
+      'circuit breaker tripping',
+      'electrical repair service',
+      'power outage electrician',
+      'flickering lights repair',
+    ],
+    shortDesc:
+      'Fast, reliable electrical service calls and troubleshooting for homes and businesses in North County San Diego. We diagnose the root cause, explain your options clearly, and fix the problem right.',
+    includedBullets: [
+      'Thorough diagnostic evaluation of the reported issue',
+      'Circuit testing with professional-grade meters',
+      'Clear explanation of findings before any repair work',
+      'Code-compliant repair using quality materials',
+      'Testing and verification after repair completion',
+      'Written summary of work performed',
+      'One-year labor warranty on all repairs',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Schedule & Arrival',
+        description:
+          'Call us to describe the issue. We schedule a service window, confirm ahead of arrival, and show up on time in a marked company vehicle.',
+      },
+      {
+        step: 2,
+        title: 'Diagnose',
+        description:
+          'Our electrician performs a systematic diagnosis — testing circuits, connections, and components — to identify the root cause rather than just the symptom.',
+      },
+      {
+        step: 3,
+        title: 'Explain & Approve',
+        description:
+          'We explain what we found, present your repair options with transparent pricing, and get your approval before proceeding with any work.',
+      },
+      {
+        step: 4,
+        title: 'Repair & Verify',
+        description:
+          'We complete the repair, test the system to confirm the issue is resolved, and clean up the work area before leaving.',
+      },
+    ],
+    pricingFactors: [
+      'Complexity of the diagnostic (single circuit vs. whole-house)',
+      'Parts and materials required for the repair',
+      'Accessibility of the affected wiring or components',
+      'Time of service (standard business hours vs. after-hours)',
+      'Whether permit or inspection is required for the repair',
+    ],
+    faqs: [
+      {
+        question: 'How quickly can you respond to an electrical service call?',
+        answer:
+          'We schedule most service calls within 1 to 2 business days. For urgent situations — such as a total loss of power, burning smell, or sparking — we prioritize same-day or next-day response.',
+      },
+      {
+        question: 'How much does an electrical service call cost?',
+        answer:
+          'We charge a diagnostic fee to come out, evaluate the issue, and provide a repair quote. If you approve the repair, the diagnostic fee is typically applied toward the total cost. We always explain pricing before starting any work.',
+      },
+      {
+        question: 'Why do my circuit breakers keep tripping?',
+        answer:
+          'Repeated tripping usually indicates an overloaded circuit, a short circuit, a ground fault, or a failing breaker. Our diagnostic process identifies the specific cause so we can recommend the right fix — whether that is redistributing loads, replacing a breaker, or repairing faulty wiring.',
+      },
+      {
+        question: 'What should I do if I smell burning near an outlet or panel?',
+        answer:
+          'Turn off the breaker for that circuit immediately. If you cannot identify the circuit, turn off the main breaker. Do not use the outlet or panel until a licensed electrician has inspected and cleared it. Call us for a priority service call.',
+      },
+      {
+        question: 'Can you troubleshoot issues in older homes?',
+        answer:
+          'Yes. We regularly work in homes with older wiring systems, including knob-and-tube, cloth-wrapped wiring, and aluminum branch circuits. We diagnose the issue and recommend the safest, most cost-effective repair approach.',
+      },
+      {
+        question: 'Do you offer after-hours or weekend service calls?',
+        answer:
+          'We primarily operate Monday through Friday, 8 AM to 5 PM. For genuine electrical emergencies, we do our best to accommodate urgent requests outside normal hours. Call our office and we will advise you on next steps.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'outlet-switch-dimmer-gfci-repairs',
+      'electrical-safety-inspections',
+    ],
+    subtopics: [
+      'Circuit breaker troubleshooting',
+      'Flickering lights diagnosis',
+      'Partial power loss repair',
+      'Aluminum wiring evaluation',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'When something goes wrong with the electrical system in your Carlsbad home, you want an electrician who shows up on time, finds the real problem, and fixes it right. Wheyland Electric is based right here in Carlsbad and responds quickly to service calls across every neighborhood — from Barrio to Aviara. We carry the parts and experience to handle most common issues in a single visit.',
+      encinitas:
+        'Encinitas homes range from vintage beach bungalows in Leucadia to modern builds in New Encinitas, and each presents different electrical troubleshooting challenges. Wheyland Electric has the diagnostic experience to trace problems through older wiring systems and newer smart-panel setups alike. We serve Encinitas homeowners with honest assessments and reliable repairs.',
+      'rancho-santa-fe':
+        'Electrical issues in Rancho Santa Fe properties can be particularly complex due to the scale of these homes — multiple sub-panels, extensive landscape lighting circuits, and dedicated equipment feeds. Wheyland Electric brings the diagnostic expertise to trace problems methodically and resolve them completely, maintaining the reliability your property demands.',
+      'san-marcos':
+        'San Marcos homeowners call Wheyland Electric when they need a dependable electrician who will actually diagnose the problem instead of guessing. From flickering lights in Lake San Marcos homes to tripping breakers in San Elijo Hills, we arrive prepared, explain what we find, and fix it at a fair price.',
+      'del-mar':
+        'Salt air and coastal humidity can accelerate electrical issues in Del Mar homes, from corroded connections to degraded outdoor wiring. Wheyland Electric understands the environmental factors that affect electrical systems in this coastal community and brings targeted diagnostic skills to every service call.',
+      'solana-beach':
+        'Solana Beach residents count on Wheyland Electric for prompt, professional electrical troubleshooting. Whether your home is near the Cedros Design District or up in Lomas Santa Fe, our team arrives with the tools and knowledge to identify the problem, explain your options, and get your electrical system back to normal.',
+      oceanside:
+        'Oceanside covers a lot of ground and a wide range of home styles, from the older pier-area houses to brand-new construction in the eastern neighborhoods. Wheyland Electric provides electrical service calls throughout Oceanside with the same thorough diagnostic approach and transparent communication no matter where you are in the city.',
+    },
+  },
+
+  // 4. Recessed Lighting Installation
+  {
+    slug: 'recessed-lighting-installation',
+    name: 'Recessed Lighting Installation',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'recessed lighting installation',
+    secondaryKeywords: [
+      'can light installation',
+      'LED recessed light install',
+      'recessed lighting electrician',
+      'wafer light installation',
+      'recessed lighting layout design',
+      'retrofit recessed lighting',
+    ],
+    shortDesc:
+      'Expert recessed lighting installation for homes and businesses in North County San Diego. We help you plan the layout, select the right fixtures, and install everything to code.',
+    includedBullets: [
+      'Lighting layout consultation and design',
+      'Fixture selection guidance (trim style, color temperature, IC rating)',
+      'New-construction or retrofit installation',
+      'Dimmer switch installation and programming',
+      'Attic access and insulation-safe installation',
+      'Post-install cleanup and fixture adjustment',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Layout Consultation',
+        description:
+          'We walk the space with you, discuss your lighting goals, and plan the optimal fixture count, spacing, and placement for even, functional illumination.',
+      },
+      {
+        step: 2,
+        title: 'Fixture & Dimmer Selection',
+        description:
+          'We recommend fixture types (IC-rated, wafer, standard can), trim styles, and color temperatures based on the room function and your aesthetic preferences.',
+      },
+      {
+        step: 3,
+        title: 'Installation',
+        description:
+          'Our electricians cut openings, run wiring from the switch to each fixture location, install the housing and trim, and connect dimmers as specified.',
+      },
+      {
+        step: 4,
+        title: 'Testing & Adjustment',
+        description:
+          'We test every fixture, verify dimmer operation, adjust any directional trims, and clean up all work areas including attic insulation displacement.',
+      },
+    ],
+    pricingFactors: [
+      'Number of fixtures to install',
+      'New construction vs. retrofit (existing ceiling)',
+      'Attic accessibility and insulation conditions',
+      'Wiring distance from switch to fixture locations',
+      'Dimmer switch type (basic, smart, multi-zone)',
+      'Fixture quality and trim selection',
+    ],
+    faqs: [
+      {
+        question: 'How many recessed lights do I need in a room?',
+        answer:
+          'As a general guideline, we space recessed lights at half the ceiling height — so an 8-foot ceiling would have fixtures roughly 4 feet apart. The exact number depends on room size, layout, ceiling height, and how you use the space. We plan this during the consultation.',
+      },
+      {
+        question: 'What is the difference between can lights and wafer lights?',
+        answer:
+          'Traditional can lights use a metal housing recessed into the ceiling cavity. Wafer (or slim-profile) lights are ultra-thin LED discs that mount flush to the ceiling with a small junction box above. Wafers are ideal for spaces with limited clearance or no attic access.',
+      },
+      {
+        question: 'Can you install recessed lights without attic access?',
+        answer:
+          'Yes. We use retrofit or wafer-style fixtures that can be installed from below the ceiling. These are specifically designed for existing ceilings where attic access is limited or unavailable.',
+      },
+      {
+        question: 'What color temperature should I choose?',
+        answer:
+          'For most residential applications, 2700K (warm white) creates a comfortable ambiance in living areas and bedrooms. 3000K (soft white) works well in kitchens and bathrooms. 4000K (neutral white) is popular in garages, laundry rooms, and commercial spaces. We can discuss options during the consultation.',
+      },
+      {
+        question: 'Do recessed lights need to be on a dimmer?',
+        answer:
+          'They do not have to be, but we strongly recommend it. Dimmers extend LED life, reduce energy usage, and give you control over ambiance. Make sure to use an LED-compatible dimmer to avoid flickering.',
+      },
+      {
+        question: 'Can you add recessed lights to a room that already has a ceiling fixture?',
+        answer:
+          'Absolutely. We can replace a central fixture with recessed lights, or add recessed lighting around an existing chandelier or fan. We rewire the switching as needed to control each zone independently.',
+      },
+    ],
+    relatedServices: [
+      'light-fixture-installation',
+      'ceiling-fan-installation',
+      'dedicated-circuits',
+    ],
+    subtopics: [
+      'Kitchen recessed lighting',
+      'Living room recessed lighting layout',
+      'Wafer light vs. can light installation',
+      'Retrofit recessed lighting in existing homes',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Recessed lighting is one of the most popular upgrades in Carlsbad homes, and Wheyland Electric has installed thousands of fixtures across neighborhoods from La Costa to the Village. We design layouts that complement the natural light San Diego is known for while providing even illumination after sunset. Our team works cleanly, respects your home, and makes sure every fixture is perfectly aligned.',
+      encinitas:
+        'Whether you are updating a Leucadia bungalow with modern wafer lights or adding a complete recessed layout to a New Encinitas kitchen remodel, Wheyland Electric brings the design eye and technical skill to get it right. We work with your contractor or directly with you to plan spacing, select color temperatures, and install everything with clean, professional results.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe homes often feature vaulted ceilings, custom millwork, and architectural details that require thoughtful lighting design. Wheyland Electric plans recessed lighting layouts that enhance these features without overpowering them — placing fixtures for even wash, accent, and task illumination throughout the home.',
+      'san-marcos':
+        'San Marcos homeowners frequently add recessed lighting during kitchen and living room renovations. Wheyland Electric provides the complete service — layout planning, fixture selection, installation, and dimmer setup — for homes throughout Lake San Marcos, San Elijo Hills, and Discovery Hills. We keep the process straightforward and the results outstanding.',
+      'del-mar':
+        'Recessed lighting installations in Del Mar homes need to account for ocean-view sight lines and architectural character. Wheyland Electric takes care to position fixtures so they light the room evenly without creating glare against windows or competing with the coastal views that make Del Mar properties special.',
+      'solana-beach':
+        'Solana Beach homeowners looking to brighten up their kitchens, living rooms, and outdoor entertaining areas turn to Wheyland Electric for clean, professional recessed lighting installations. We handle everything from layout design through dimmer programming and leave your home looking better than we found it.',
+      oceanside:
+        'Recessed lighting transforms a room, and Oceanside homeowners across Fire Mountain, South O, and Rancho Del Oro are upgrading in record numbers. Wheyland Electric installs both new-construction and retrofit recessed lighting throughout Oceanside, helping each homeowner choose the right fixture count, spacing, and color temperature for their space.',
+    },
+  },
+
+  // 5. Light Fixture Installation
+  {
+    slug: 'light-fixture-installation',
+    name: 'Light Fixture Installation',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'light fixture installation',
+    secondaryKeywords: [
+      'chandelier installation electrician',
+      'pendant light installation',
+      'LED light fixture install',
+      'outdoor light installation',
+      'commercial lighting installation',
+      'landscape lighting electrician',
+    ],
+    shortDesc:
+      'Professional light fixture installation for every application — chandeliers, pendants, sconces, outdoor lighting, and commercial fixtures. Serving North County San Diego homes and businesses.',
+    includedBullets: [
+      'Safe removal and disposal of existing fixtures',
+      'Junction box inspection and upgrade if needed',
+      'Fixture assembly and secure mounting',
+      'Wiring connections to NEC standards',
+      'Switch and dimmer compatibility verification',
+      'Post-install testing and alignment',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Review & Preparation',
+        description:
+          'We review the fixture, confirm the junction box and wiring can support it, and assess whether any structural reinforcement or electrical updates are needed.',
+      },
+      {
+        step: 2,
+        title: 'Removal of Existing Fixture',
+        description:
+          'We safely disconnect and remove the old fixture, inspect the wiring and box, and make any necessary upgrades before mounting the new one.',
+      },
+      {
+        step: 3,
+        title: 'Installation & Wiring',
+        description:
+          'We assemble, mount, and wire the new fixture according to manufacturer instructions and NEC requirements. Heavy fixtures get rated support brackets.',
+      },
+      {
+        step: 4,
+        title: 'Testing & Cleanup',
+        description:
+          'We test the fixture on all switch and dimmer settings, verify secure mounting, and clean up all packaging and debris.',
+      },
+    ],
+    pricingFactors: [
+      'Number of fixtures to install',
+      'Fixture type and complexity (chandelier vs. sconce vs. pendant)',
+      'Ceiling height and accessibility',
+      'Whether new wiring or a junction box upgrade is needed',
+      'Outdoor vs. indoor installation requirements',
+    ],
+    faqs: [
+      {
+        question: 'Can I buy my own fixtures and have you install them?',
+        answer:
+          'Absolutely. Most of our customers purchase their own fixtures from retailers or online. We install customer-supplied fixtures every day. Just make sure the fixture is rated for the intended location (e.g., damp-rated for outdoor use).',
+      },
+      {
+        question: 'Do I need an electrician to install a light fixture?',
+        answer:
+          'While simple fixture swaps may seem straightforward, a licensed electrician ensures the junction box can support the weight, the wiring is safe and code-compliant, and the fixture is properly grounded. This is especially important for heavier fixtures like chandeliers and ceiling fans.',
+      },
+      {
+        question: 'How much does it cost to install a light fixture?',
+        answer:
+          'Costs vary depending on the fixture type, ceiling height, and whether new wiring is needed. A straightforward swap of a standard fixture is the most affordable option. Chandeliers, high-ceiling installations, and new-wire runs cost more. We provide a clear quote before starting.',
+      },
+      {
+        question: 'Can you install a fixture where there is no existing wiring?',
+        answer:
+          'Yes. We can run new wiring to add a fixture in a location that does not currently have one. This involves routing wire through the attic or wall cavity and installing a new junction box and switch.',
+      },
+      {
+        question: 'Do you install outdoor and landscape lighting?',
+        answer:
+          'Yes. We install exterior wall sconces, post lights, pathway lighting, and security lighting. Outdoor fixtures must be rated for wet or damp locations, and we ensure all outdoor wiring is properly protected and grounded.',
+      },
+      {
+        question: 'Can you hang a heavy chandelier from my ceiling?',
+        answer:
+          'Yes. Heavy chandeliers require a fan-rated or appropriately rated junction box with structural support. If your existing box is not rated for the weight, we install a brace and rated box before mounting the fixture.',
+      },
+    ],
+    relatedServices: [
+      'recessed-lighting-installation',
+      'ceiling-fan-installation',
+      'service-calls-troubleshooting',
+    ],
+    subtopics: [
+      'Chandelier and pendant installation',
+      'Outdoor and security lighting',
+      'LED retrofit and conversion',
+      'Commercial fixture installation',
+      'Smart lighting control systems',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'From the craftsman homes of Olde Carlsbad to the contemporary builds in Bressi Ranch, Wheyland Electric installs light fixtures that complement every style. Whether you have ordered a statement chandelier for your foyer or need outdoor sconces along a walkway, our team handles the installation with care and precision. We are based in Carlsbad and treat every home like our neighbor — because many of them are.',
+      encinitas:
+        'Encinitas homeowners have a flair for distinctive design, and the right light fixture makes all the difference. Wheyland Electric installs everything from hand-blown glass pendants in Olivenhain kitchens to salt-air-resistant outdoor fixtures along the 101 corridor. We make sure your fixtures are secure, wired correctly, and looking exactly how you envisioned.',
+      'rancho-santa-fe':
+        'Fixture installations in Rancho Santa Fe often involve designer chandeliers, multi-arm pendants, and custom sconces selected by interior designers. Wheyland Electric works seamlessly with your design team or directly with you to install fixtures of any size and complexity. We bring the right equipment for high ceilings and oversized fixtures and treat your home with the respect it deserves.',
+      'san-marcos':
+        'Whether you are refreshing the lighting throughout your San Marcos home or installing new fixtures as part of a kitchen or bathroom remodel, Wheyland Electric makes the process simple. We install all types of fixtures — flush mounts, pendants, vanity lights, and outdoor sconces — across Lake San Marcos, San Elijo Hills, and every San Marcos neighborhood.',
+      'del-mar':
+        'Light fixture upgrades are one of the fastest ways to elevate a Del Mar home interior. Wheyland Electric installs fixtures of every type and size, from sleek modern pendants in Del Mar Heights kitchens to statement chandeliers in village-area dining rooms. Our electricians handle high ceilings, heavy fixtures, and complex wiring with equal confidence.',
+      'solana-beach':
+        'Solana Beach homes deserve lighting that reflects the character of this creative coastal community. Wheyland Electric installs fixtures sourced from the Cedros Design District shops and from anywhere else you choose — online retailers, showrooms, or your designer. We bring the electrical expertise to mount, wire, and test every fixture safely.',
+      oceanside:
+        'Across Oceanside — from the renovated downtown lofts to the family homes in Rancho Del Oro — Wheyland Electric provides professional light fixture installation services. We install everything from simple flush mounts and bathroom vanity lights to large outdoor fixtures and commercial lighting. Every installation includes junction box verification and a clean, code-compliant result.',
+    },
+  },
+
+  // 6. Ceiling Fan Installation
+  {
+    slug: 'ceiling-fan-installation',
+    name: 'Ceiling Fan Installation',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'ceiling fan installation',
+    secondaryKeywords: [
+      'ceiling fan electrician',
+      'ceiling fan replacement',
+      'outdoor ceiling fan installation',
+      'ceiling fan with light install',
+      'fan-rated box installation',
+      'ceiling fan remote setup',
+    ],
+    shortDesc:
+      'Ceiling fan installation and replacement by licensed electricians serving North County San Diego. We ensure proper support, wiring, and balancing for safe, reliable operation.',
+    includedBullets: [
+      'Fan-rated junction box installation or verification',
+      'Old fixture removal and disposal',
+      'Fan assembly and secure ceiling mounting',
+      'Wiring for fan, light kit, and remote receiver',
+      'Blade balancing and wobble check',
+      'Remote or wall control programming',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Assessment',
+        description:
+          'We verify ceiling structure, junction box rating, and wiring to confirm the location can support a fan. If upgrades are needed, we identify them before starting.',
+      },
+      {
+        step: 2,
+        title: 'Box & Bracket Upgrade',
+        description:
+          'If the existing junction box is not fan-rated, we install a fan-rated brace and box to safely support the weight and vibration of a ceiling fan.',
+      },
+      {
+        step: 3,
+        title: 'Fan Installation',
+        description:
+          'We assemble the fan, mount it to the bracket, wire the motor, light kit, and remote receiver, and attach the blades per manufacturer specifications.',
+      },
+      {
+        step: 4,
+        title: 'Testing & Balancing',
+        description:
+          'We test all speeds, light functions, and remote operation. We check for wobble and balance the blades if needed, then clean up all packaging.',
+      },
+    ],
+    pricingFactors: [
+      'Whether a fan-rated junction box needs to be installed',
+      'Ceiling height and type (flat, sloped, vaulted)',
+      'Whether new wiring is required for the location',
+      'Fan complexity (remote, light kit, smart controls)',
+      'Outdoor vs. indoor installation (damp rating)',
+    ],
+    faqs: [
+      {
+        question: 'Can I install a ceiling fan where I currently have a light fixture?',
+        answer:
+          'In most cases, yes. However, the existing junction box must be fan-rated to support the weight and vibration of a ceiling fan. If it is not, we install a fan-rated brace and box as part of the installation.',
+      },
+      {
+        question: 'Can you install a fan on a vaulted or sloped ceiling?',
+        answer:
+          'Yes. Most ceiling fans come with an angled mounting adapter for sloped ceilings. We ensure the fan hangs correctly and operates smoothly regardless of ceiling pitch.',
+      },
+      {
+        question: 'How long does a ceiling fan installation take?',
+        answer:
+          'A straightforward replacement takes about 1 to 2 hours. If we need to install a fan-rated box, run new wiring, or work with a high or vaulted ceiling, it may take 2 to 3 hours.',
+      },
+      {
+        question: 'Do you install outdoor ceiling fans?',
+        answer:
+          'Yes. We install damp-rated and wet-rated fans on covered patios, pergolas, and outdoor living areas. These fans are designed to withstand moisture and are ideal for San Diego outdoor entertaining spaces.',
+      },
+      {
+        question: 'Why does my ceiling fan wobble?',
+        answer:
+          'Fan wobble is usually caused by unbalanced blades, a loose mounting bracket, or an improper junction box. We check and correct all three during installation. If your existing fan wobbles, we can diagnose and fix it during a service call.',
+      },
+      {
+        question: 'Can I supply my own fan for installation?',
+        answer:
+          'Absolutely. Most of our ceiling fan installations use customer-purchased fans. We install all major brands. Just make sure the fan is rated for the intended location if you plan to install it outdoors.',
+      },
+    ],
+    relatedServices: [
+      'light-fixture-installation',
+      'recessed-lighting-installation',
+      'service-calls-troubleshooting',
+    ],
+    subtopics: [
+      'Outdoor ceiling fan installation',
+      'Ceiling fan with light kit wiring',
+      'Fan-rated junction box upgrade',
+      'Smart ceiling fan control setup',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Ceiling fans are a natural fit for Carlsbad living, especially on covered patios and in bedrooms where a breeze supplements the mild coastal climate. Wheyland Electric installs fans throughout Carlsbad, ensuring every installation starts with a fan-rated box and ends with balanced blades and properly configured controls.',
+      encinitas:
+        'From Olivenhain great rooms with soaring ceilings to cozy Leucadia bedrooms, Wheyland Electric provides professional ceiling fan installation across Encinitas. We handle sloped ceilings, high-reach mounting, and outdoor-rated fans for your patio or pergola. Every fan we install is secure, balanced, and wired correctly.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe homes often feature high ceilings and expansive covered outdoor areas that benefit from quality ceiling fans. Wheyland Electric installs fans in these challenging locations safely, using proper scaffolding and fan-rated hardware. We work with your designer preferences on placement and controls.',
+      'san-marcos':
+        'Inland San Marcos temperatures can climb during summer, making ceiling fans a smart addition to any home. Wheyland Electric installs fans in bedrooms, living rooms, and outdoor patios across Lake San Marcos, San Elijo Hills, and surrounding neighborhoods. We make sure the mounting is solid and the fan runs quietly.',
+      'del-mar':
+        'A well-placed ceiling fan in a Del Mar home can extend the comfort of an ocean breeze and reduce reliance on air conditioning. Wheyland Electric installs indoor and outdoor fans across Del Mar with the attention to detail this community expects — from fan-rated box verification to blade balancing and remote programming.',
+      'solana-beach':
+        'Solana Beach homeowners appreciate the energy savings and comfort that a quality ceiling fan provides. Wheyland Electric handles the full installation — checking the junction box, mounting the fan securely, wiring the remote and light kit, and testing every speed. We serve Solana Beach from our nearby Carlsbad shop.',
+      oceanside:
+        'Ceiling fan installations are one of our most common requests from Oceanside homeowners looking to improve comfort and reduce cooling costs. Whether you are in a downtown condo, a Fire Mountain cottage, or a newer Arrowood home, Wheyland Electric installs your fan safely with a fan-rated box, balanced blades, and professional wiring.',
+    },
+  },
+
+  // 7. Spa, Jacuzzi & Sauna Electrical
+  {
+    slug: 'spa-jacuzzi-sauna-electrical',
+    name: 'Spa, Jacuzzi & Sauna Electrical',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'spa electrical installation',
+    secondaryKeywords: [
+      'hot tub electrician',
+      'jacuzzi wiring installation',
+      'sauna electrical hookup',
+      'spa disconnect installation',
+      'GFCI spa circuit',
+      'pool and spa wiring',
+    ],
+    shortDesc:
+      'Licensed spa, jacuzzi, and sauna electrical installation for North County San Diego homes. Dedicated circuits, GFCI protection, and code-compliant wiring for safe, reliable operation.',
+    includedBullets: [
+      'Electrical load assessment for spa or sauna equipment',
+      'Dedicated 240V circuit installation (40A or 50A)',
+      'GFCI breaker installation per NEC requirements',
+      'Outdoor disconnect switch within line-of-sight',
+      'Conduit and wiring run from panel to equipment',
+      'Final connection to manufacturer terminal block',
+      'City permit and inspection coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Site Evaluation',
+        description:
+          'We review the equipment specifications, planned placement, and your electrical panel capacity to determine circuit requirements and conduit routing.',
+      },
+      {
+        step: 2,
+        title: 'Permitting & Scheduling',
+        description:
+          'We pull the electrical permit, coordinate with your spa installer or contractor on timing, and schedule the rough-in and final connection.',
+      },
+      {
+        step: 3,
+        title: 'Circuit & Disconnect Installation',
+        description:
+          'Our electricians install the dedicated GFCI-protected circuit, run conduit to the equipment location, and mount the required disconnect switch.',
+      },
+      {
+        step: 4,
+        title: 'Final Connection & Inspection',
+        description:
+          'Once the spa or sauna is in place, we make the final wiring connection, test the circuit, and schedule the city inspection.',
+      },
+      {
+        step: 5,
+        title: 'Verification & Walkthrough',
+        description:
+          'After passing inspection, we verify equipment operation with you and review the disconnect switch location and GFCI test procedure.',
+      },
+    ],
+    pricingFactors: [
+      'Equipment voltage and amperage requirements (40A vs. 50A vs. 60A)',
+      'Distance from electrical panel to equipment location',
+      'Whether a panel upgrade is needed to support the new load',
+      'Conduit routing complexity (trenching, concrete, exterior walls)',
+      'Type of equipment (hot tub, swim spa, sauna, cold plunge)',
+      'Permit and inspection fees',
+    ],
+    faqs: [
+      {
+        question: 'Do I need a dedicated circuit for a hot tub?',
+        answer:
+          'Yes. Most hot tubs and spas require a dedicated 240V circuit with a GFCI breaker and a disconnect switch within line-of-sight of the equipment. This is a code requirement, not optional.',
+      },
+      {
+        question: 'How far can the electrical panel be from the spa?',
+        answer:
+          'There is no maximum distance, but longer runs require larger wire gauge to prevent voltage drop. The disconnect switch must be within line-of-sight and between 5 and 50 feet of the spa. We plan the routing to be efficient and code-compliant.',
+      },
+      {
+        question: 'What size breaker does a spa need?',
+        answer:
+          'Most residential hot tubs require either a 40-amp or 50-amp 240V GFCI breaker. Larger swim spas may require 60 amps. The exact requirement is listed on the equipment nameplate or in the installation manual. We verify this before starting.',
+      },
+      {
+        question: 'Can you wire a sauna?',
+        answer:
+          'Yes. We install dedicated circuits for both electric and infrared saunas. Electric saunas with heaters typically require 240V circuits ranging from 30A to 60A depending on the heater size. We handle the full installation from panel to heater terminal.',
+      },
+      {
+        question: 'Do I need a permit for spa electrical work?',
+        answer:
+          'Yes. A new dedicated circuit installation requires an electrical permit in all San Diego County jurisdictions. We handle the permit application and inspection scheduling.',
+      },
+      {
+        question: 'Can my existing panel handle a spa circuit?',
+        answer:
+          'It depends on your panel capacity and current electrical load. We perform a load calculation during the site evaluation to determine whether your panel can support the additional draw. If not, we can recommend a panel upgrade or sub-panel as part of the project.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'dedicated-circuits',
+      'outlet-switch-dimmer-gfci-repairs',
+    ],
+    subtopics: [
+      'Hot tub electrical hookup',
+      'Swim spa wiring installation',
+      'Sauna heater circuit',
+      'Cold plunge electrical requirements',
+      'Outdoor living electrical',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad backyards are made for outdoor living, and adding a spa, jacuzzi, or sauna requires proper electrical work from a licensed professional. Wheyland Electric installs dedicated circuits for hot tubs and saunas across Carlsbad — from Aviara estates with pool-and-spa combos to La Costa homes adding their first hot tub. We handle the permit and make sure the installation is safe and inspected.',
+      encinitas:
+        'Encinitas homeowners are increasingly adding spas, saunas, and cold plunges to their wellness routines. Wheyland Electric provides the electrical infrastructure these installations require — dedicated GFCI circuits, disconnect switches, and code-compliant wiring. We work throughout Encinitas from Cardiff to Olivenhain and coordinate with your spa contractor for a smooth installation.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe properties frequently feature elaborate outdoor living spaces with spas, swim spas, saunas, and heated pools. Wheyland Electric has the experience to handle the higher-amperage circuits and longer conduit runs these estates require. We work with your general contractor or pool builder to deliver electrical that is timed correctly and built to last.',
+      'san-marcos':
+        'Hot tub and spa installations are popular among San Marcos homeowners, especially in neighborhoods like San Elijo Hills and Lake San Marcos where outdoor entertaining is a way of life. Wheyland Electric provides the dedicated circuit, disconnect, and wiring you need — all permitted and inspected through the City of San Marcos.',
+      'del-mar':
+        'Adding a spa to a Del Mar home is a natural extension of the relaxed coastal lifestyle. Wheyland Electric ensures the electrical side of the installation is handled professionally — dedicated circuit, GFCI protection, line-of-sight disconnect, and a city inspection to confirm everything is safe and to code.',
+      'solana-beach':
+        'Solana Beach homeowners adding a hot tub, sauna, or outdoor spa rely on Wheyland Electric for the electrical hookup. We install the dedicated 240V circuit, GFCI breaker, and exterior disconnect required by code, and we coordinate with the City of Solana Beach for permitting and inspection.',
+      oceanside:
+        'Whether you are installing a hot tub behind your Oceanside home or wiring a sauna for your garage gym, Wheyland Electric provides professional spa electrical services throughout the city. We handle everything from the panel to the equipment — dedicated circuit, disconnect switch, conduit run, and city inspection.',
+    },
+  },
+
+  // 8. Outlet, Switch, Dimmer & GFCI Repairs
+  {
+    slug: 'outlet-switch-dimmer-gfci-repairs',
+    name: 'Outlet, Switch, Dimmer & GFCI Repairs',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'outlet and switch repair',
+    secondaryKeywords: [
+      'GFCI outlet installation',
+      'dimmer switch installation',
+      'electrical outlet repair',
+      'light switch replacement',
+      'USB outlet installation',
+      'smart switch electrician',
+    ],
+    shortDesc:
+      'Professional outlet, switch, dimmer, and GFCI installation and repair for North County San Diego homes and businesses. Fast, code-compliant work by licensed electricians.',
+    includedBullets: [
+      'Outlet, switch, or dimmer replacement or new installation',
+      'GFCI and AFCI outlet installation where required by code',
+      'USB outlet upgrades',
+      'Smart switch and dimmer setup and programming',
+      'Cover plate replacement and alignment',
+      'Circuit testing to confirm proper wiring and grounding',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Identify the Need',
+        description:
+          'You let us know what outlets, switches, or dimmers need attention. We can also do a walkthrough to identify code deficiencies or recommended upgrades.',
+      },
+      {
+        step: 2,
+        title: 'Provide a Quote',
+        description:
+          'We give you clear pricing for the work before starting — no surprises. For larger projects, we provide a written quote in advance.',
+      },
+      {
+        step: 3,
+        title: 'Install or Repair',
+        description:
+          'Our electricians complete the work efficiently, using commercial-grade devices and ensuring all connections are tight, grounded, and code-compliant.',
+      },
+      {
+        step: 4,
+        title: 'Test & Confirm',
+        description:
+          'We test every device after installation, verify GFCI trip function, confirm dimmer compatibility with your lighting, and leave the work area clean.',
+      },
+    ],
+    pricingFactors: [
+      'Number of outlets, switches, or dimmers to install or replace',
+      'Device type (standard, GFCI, AFCI, smart, USB)',
+      'Whether new wiring or a new box is required',
+      'Accessibility of the wiring (open wall vs. finished wall)',
+      'Commercial vs. residential specifications',
+    ],
+    faqs: [
+      {
+        question: 'Where are GFCI outlets required by code?',
+        answer:
+          'Current NEC code requires GFCI protection in bathrooms, kitchens (countertop outlets), garages, outdoors, laundry areas, basements, crawl spaces, and within 6 feet of any sink. Older homes may not have GFCI outlets in all required locations.',
+      },
+      {
+        question: 'What is the difference between GFCI and AFCI?',
+        answer:
+          'GFCI (Ground Fault Circuit Interrupter) protects against electrical shock from ground faults, typically near water. AFCI (Arc Fault Circuit Interrupter) protects against electrical fires caused by arcing in damaged or deteriorated wiring. Both are required in specific locations by current code.',
+      },
+      {
+        question: 'Can you install smart switches and dimmers in my home?',
+        answer:
+          'Yes. We install and program all major smart switch brands including Lutron Caseta, Leviton Decora Smart, and TP-Link Kasa. We verify that your switch box has a neutral wire (required by most smart switches) and configure the devices with your preferred app or home automation platform.',
+      },
+      {
+        question: 'Why do my outlets feel warm or show discoloration?',
+        answer:
+          'Warm outlets or discolored cover plates indicate a potentially dangerous issue — loose connections, an overloaded circuit, or failing device. Stop using the outlet immediately and call us for a service call. This should not be ignored.',
+      },
+      {
+        question: 'Can you add an outlet where there is not one currently?',
+        answer:
+          'Yes. We run new wiring from an existing circuit or the panel to install outlets in new locations. This is common in kitchens, home offices, garages, and outdoor areas where additional outlets are needed.',
+      },
+      {
+        question: 'How often should outlets and switches be replaced?',
+        answer:
+          'Quality outlets and switches last 15 to 25 years under normal use. If a device feels loose, does not hold a plug securely, sparks, makes noise, or shows scorch marks, it should be replaced promptly. GFCI outlets should be tested monthly.',
+      },
+    ],
+    relatedServices: [
+      'service-calls-troubleshooting',
+      'electrical-safety-inspections',
+      'dedicated-circuits',
+    ],
+    subtopics: [
+      'GFCI outlet installation and testing',
+      'Smart switch and dimmer installation',
+      'USB outlet upgrades',
+      'Outdoor outlet installation',
+      'AFCI protection upgrades',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Outlets and switches are the electrical components you interact with every day, and they need to work safely and reliably. Wheyland Electric handles outlet repairs, GFCI installations, dimmer upgrades, and smart switch setups across Carlsbad. Whether you need one GFCI outlet in a bathroom or a whole-house switch upgrade, we provide fast, professional service from right here in town.',
+      encinitas:
+        'Many older Encinitas homes — particularly in Leucadia and Cardiff — have outdated two-prong outlets, missing GFCI protection, and worn-out switches that should be replaced. Wheyland Electric upgrades these homes to current safety standards with new grounded outlets, GFCI protection in wet areas, and modern dimmer and smart switch options.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe homeowners expect electrical devices that work flawlessly and look refined. Wheyland Electric installs premium-grade outlets, decorator-style switches, and whole-house dimming systems from Lutron and Leviton. We work with your designer on finish selections and ensure every device is perfectly aligned and fully functional.',
+      'san-marcos':
+        'Whether you need a few GFCI outlets added in your San Marcos kitchen, a dimmer switch in the dining room, or USB outlets throughout the house, Wheyland Electric gets it done quickly and correctly. We serve San Marcos homes with the same detail-oriented approach we bring to every job — clean work, tested results, and fair pricing.',
+      'del-mar':
+        'Del Mar homes benefit from updated outlets and switches that improve both safety and convenience. Wheyland Electric installs GFCI outlets in kitchens and bathrooms, smart dimmers for living areas, and weather-rated outdoor outlets for patios and decks — all with the clean, professional results Del Mar homeowners expect.',
+      'solana-beach':
+        'Solana Beach homeowners looking to modernize their electrical devices trust Wheyland Electric for outlet, switch, and dimmer work. We install GFCI protection where code requires it, upgrade to tamper-resistant outlets for child safety, and add smart switches for convenience and energy savings.',
+      oceanside:
+        'From downtown Oceanside condos to Fire Mountain family homes, Wheyland Electric provides outlet and switch services that keep your electrical system safe and up to date. We install GFCI outlets, replace worn switches, add dimmers, and upgrade to USB outlets — fast, affordable, and done right by a licensed electrician.',
+    },
+  },
+
+  // ========================
+  // WAVE 2 — publish: false
+  // ========================
+
+  // 9. Dedicated Circuits
+  {
+    slug: 'dedicated-circuits',
+    name: 'Dedicated Circuits',
+    publish: false,
+    tier: 'wave2',
+    primaryKeyword: 'dedicated circuit installation',
+    secondaryKeywords: [
+      'dedicated electrical circuit',
+      'appliance circuit installation',
+      'home office dedicated circuit',
+      '20-amp dedicated circuit',
+      'kitchen appliance circuit',
+      'whole house fan circuit',
+    ],
+    shortDesc:
+      'Dedicated circuit installation for appliances, home offices, workshops, and specialty equipment. Licensed electricians serving North County San Diego with permitted, inspected work.',
+    includedBullets: [
+      'Load assessment to determine circuit amperage and wire gauge',
+      'Circuit run from panel to equipment location',
+      'Breaker installation and panel labeling',
+      'Outlet or hardwired connection at equipment end',
+      'Permit and inspection coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Equipment Review',
+        description:
+          'We review the equipment nameplate or specifications to determine voltage, amperage, and circuit type required for safe, dedicated operation.',
+      },
+      {
+        step: 2,
+        title: 'Routing & Quote',
+        description:
+          'We plan the wire routing from panel to equipment location, assess panel capacity, and provide a transparent quote.',
+      },
+      {
+        step: 3,
+        title: 'Installation',
+        description:
+          'Our electricians install the breaker, run the wiring, and terminate at the outlet or equipment connection point per code.',
+      },
+      {
+        step: 4,
+        title: 'Testing & Labeling',
+        description:
+          'We test the circuit under load, label the breaker in the panel directory, and ensure the installation is ready for inspection.',
+      },
+    ],
+    pricingFactors: [
+      'Circuit amperage (15A, 20A, 30A, 40A, 50A)',
+      'Wire run distance from panel to equipment',
+      'Conduit vs. Romex routing options',
+      'Number of dedicated circuits needed',
+      'Panel capacity and available breaker slots',
+    ],
+    faqs: [
+      {
+        question: 'What appliances need a dedicated circuit?',
+        answer:
+          'Refrigerators, dishwashers, microwaves, garbage disposals, washing machines, dryers, electric ranges, HVAC equipment, and hot tubs typically require dedicated circuits. Home offices with multiple devices and workshops with power tools also benefit from dedicated circuits.',
+      },
+      {
+        question: 'How do I know if I need a dedicated circuit?',
+        answer:
+          'If an appliance trips a breaker when it cycles on, or if your lights dim when equipment starts, the device likely needs its own circuit. We can evaluate your electrical load and recommend which circuits should be dedicated.',
+      },
+      {
+        question: 'Can you add a dedicated circuit without upgrading my panel?',
+        answer:
+          'It depends on whether your panel has available breaker slots and sufficient amperage capacity. Many panels can accommodate additional circuits. If not, we may recommend a sub-panel or panel upgrade.',
+      },
+      {
+        question: 'How much does a dedicated circuit cost?',
+        answer:
+          'Cost depends on the circuit amperage, wire run length, and routing complexity. A simple 20-amp circuit to a nearby location is the most affordable option. Longer runs or higher-amperage circuits for equipment like ranges or spas cost more.',
+      },
+      {
+        question: 'Do dedicated circuits require a permit?',
+        answer:
+          'New circuit installations typically require an electrical permit. We handle permitting and inspection coordination for all dedicated circuit projects.',
+      },
+      {
+        question: 'Can you install a circuit for a whole-house fan or generator transfer switch?',
+        answer:
+          'Yes. We install dedicated circuits for whole-house fans, generator interlock kits, transfer switches, and other specialty equipment. Each installation is sized and wired to the equipment specifications.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'ev-charger-installation',
+      'spa-jacuzzi-sauna-electrical',
+    ],
+    subtopics: [
+      'Kitchen appliance circuits',
+      'Home office power circuits',
+      'Workshop and garage circuits',
+      'Generator transfer switch circuits',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad homes built over the past several decades often need additional dedicated circuits as families add modern kitchen appliances, home office setups, and workshop equipment. Wheyland Electric installs dedicated circuits throughout Carlsbad with proper permitting and clean, professional wiring that keeps your panel organized and up to code.',
+      encinitas:
+        'From kitchen remodels in New Encinitas to home offices in Olivenhain, dedicated circuits are one of the most common upgrades we perform for Encinitas homeowners. Wheyland Electric ensures each circuit is properly sized, safely routed, and labeled in your panel for easy identification.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe properties often require dedicated circuits for specialty equipment — commercial-grade kitchen appliances, wine storage systems, home theaters, and workshop tools. Wheyland Electric provides the correctly sized circuits these high-demand installations require.',
+      'san-marcos':
+        'San Marcos homeowners adding EV chargers, hot tubs, workshop tools, or home office equipment frequently need one or more dedicated circuits. Wheyland Electric provides dedicated circuit installation throughout San Marcos, handling the permit and making sure your panel can support the new load.',
+      'del-mar':
+        'Del Mar homes with gourmet kitchens, home offices, and entertainment systems often need additional dedicated circuits to operate reliably. Wheyland Electric installs the circuits these premium appliances and systems require, keeping your electrical system safe and properly loaded.',
+      'solana-beach':
+        'Solana Beach homeowners upgrading their kitchens, adding home office equipment, or installing workshop tools benefit from properly installed dedicated circuits. Wheyland Electric provides this service with the same quality and professionalism we bring to every project.',
+      oceanside:
+        'Across Oceanside, homeowners and small businesses need dedicated circuits for new equipment, appliances, and technology. Wheyland Electric installs dedicated circuits for any application — from a single 20-amp home office circuit to multiple high-amperage feeds for commercial kitchen equipment.',
+    },
+  },
+
+  // 10. Remodel & Rewiring (incl. ADU)
+  {
+    slug: 'remodel-rewiring-adu',
+    name: 'Remodel & Rewiring (incl. ADU)',
+    publish: false,
+    tier: 'wave2',
+    primaryKeyword: 'electrical remodel rewiring',
+    secondaryKeywords: [
+      'whole house rewiring',
+      'ADU electrical wiring',
+      'kitchen remodel electrician',
+      'bathroom remodel wiring',
+      'home addition electrical',
+      'accessory dwelling unit electrical',
+    ],
+    shortDesc:
+      'Electrical wiring for home remodels, whole-house rewiring, and ADU construction in North County San Diego. From kitchen renovations to complete accessory dwelling units, we handle design through final inspection.',
+    includedBullets: [
+      'Electrical plan review and code compliance consultation',
+      'Complete rough-in wiring for new construction or remodel',
+      'Panel and sub-panel sizing for additional loads',
+      'Outlet, switch, and fixture placement per plan',
+      'Low-voltage pre-wire (data, audio, security)',
+      'Permit procurement and inspection coordination',
+      'Trim-out and device installation after drywall',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Plan Review & Consultation',
+        description:
+          'We review architectural plans, discuss your electrical needs, and recommend outlet placement, circuit layout, and panel requirements.',
+      },
+      {
+        step: 2,
+        title: 'Permitting',
+        description:
+          'We prepare the electrical permit application, coordinate with the building department, and ensure the plans meet current code requirements.',
+      },
+      {
+        step: 3,
+        title: 'Rough-In',
+        description:
+          'With walls open, we run all wiring, install boxes, and prepare for the rough-in inspection. We coordinate timing with your general contractor.',
+      },
+      {
+        step: 4,
+        title: 'Trim-Out & Final',
+        description:
+          'After drywall, we install all devices, fixtures, and cover plates. We test every circuit and schedule the final electrical inspection.',
+      },
+      {
+        step: 5,
+        title: 'Final Inspection & Handoff',
+        description:
+          'We attend the final inspection, confirm it passes, and walk you through the completed electrical system including panel directory and any smart controls.',
+      },
+    ],
+    pricingFactors: [
+      'Scope of the remodel (single room vs. whole house vs. ADU)',
+      'Number of circuits, outlets, and fixtures',
+      'Panel or sub-panel requirements',
+      'Low-voltage and smart home pre-wiring',
+      'Whether a new service entrance is required (ADUs)',
+      'Permit and inspection fees',
+    ],
+    faqs: [
+      {
+        question: 'How much does it cost to rewire a house?',
+        answer:
+          'Whole-house rewiring costs vary significantly based on home size, number of circuits, accessibility of walls and attic, and panel requirements. We provide a detailed written quote after reviewing your home and discussing your needs.',
+      },
+      {
+        question: 'Do ADUs need a separate electrical panel?',
+        answer:
+          'In most cases, yes. California building code typically requires a separate sub-panel for an ADU. Depending on the ADU size and your main panel capacity, you may also need a main panel upgrade or a separate meter.',
+      },
+      {
+        question: 'Can you work with my general contractor on a remodel?',
+        answer:
+          'Absolutely. We coordinate with general contractors daily on remodel projects. We schedule our rough-in and trim-out phases to align with the construction timeline and communicate directly with your GC to keep things on track.',
+      },
+      {
+        question: 'How long does electrical rough-in take for a remodel?',
+        answer:
+          'A kitchen or bathroom remodel rough-in typically takes 1 to 2 days. A whole-house rewire or ADU rough-in may take 3 to 5 days depending on scope. We provide a timeline estimate with every proposal.',
+      },
+      {
+        question: 'Do I need to rewire my entire house or just the remodeled area?',
+        answer:
+          'If you are remodeling a single room, you only need to wire that area to current code. However, if your home has knob-and-tube or deteriorated wiring, a whole-house rewire may be a smarter long-term investment.',
+      },
+      {
+        question: 'What code requirements apply to ADU electrical work?',
+        answer:
+          'ADUs must meet current California Electrical Code requirements including AFCI protection in living areas, GFCI in wet areas, tamper-resistant outlets, and Title 24 energy compliance. Wheyland Electric ensures your ADU electrical meets all of these standards.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'dedicated-circuits',
+      'recessed-lighting-installation',
+      'electrical-safety-inspections',
+    ],
+    subtopics: [
+      'Kitchen remodel electrical',
+      'Bathroom remodel wiring',
+      'ADU electrical requirements',
+      'Whole-house rewiring',
+      'New construction electrical',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad homeowners are actively remodeling kitchens, adding ADUs, and updating aging wiring to support modern lifestyles. Wheyland Electric provides complete electrical services for remodels and new construction across Carlsbad, working alongside general contractors and homeowners from plan review through final inspection.',
+      encinitas:
+        'The mix of older homes in Leucadia and Cardiff alongside newer construction in New Encinitas keeps Wheyland Electric busy with remodel wiring and ADU electrical projects. We understand the unique challenges of working in older structures and know how to bring them up to current code safely and efficiently.',
+      'rancho-santa-fe':
+        'Remodels in Rancho Santa Fe often involve high-end finishes, custom cabinetry, and sophisticated electrical requirements. Wheyland Electric delivers the precision wiring these projects demand — from concealed outlet placement in kitchen islands to integrated whole-house lighting control systems.',
+      'san-marcos':
+        'San Marcos is experiencing a wave of ADU construction and home remodeling, and Wheyland Electric is here to provide the electrical work. We handle everything from sub-panel installation and rough-in wiring to final trim-out and inspection, working within City of San Marcos permitting requirements.',
+      'del-mar':
+        'Remodeling a Del Mar home requires an electrician who understands premium construction standards and tight project timelines. Wheyland Electric provides the electrical expertise for kitchen renovations, whole-house upgrades, and ADU additions throughout Del Mar, coordinating seamlessly with your contractor and design team.',
+      'solana-beach':
+        'Solana Beach homeowners renovating kitchens, bathrooms, and living spaces need an electrician who shows up on time, coordinates with the general contractor, and delivers code-compliant wiring. Wheyland Electric provides remodel electrical services throughout Solana Beach with clear communication and reliable workmanship.',
+      oceanside:
+        'Oceanside remodeling and ADU activity is booming, and Wheyland Electric provides the electrical infrastructure these projects require. From downtown renovation projects to new ADU construction in the eastern neighborhoods, we handle permitting, rough-in, and trim-out with professional efficiency.',
+    },
+  },
+
+  // 11. Commercial Tenant Improvement (TI)
+  {
+    slug: 'commercial-tenant-improvement',
+    name: 'Commercial Tenant Improvement (TI)',
+    publish: false,
+    tier: 'wave2',
+    primaryKeyword: 'commercial tenant improvement electrician',
+    secondaryKeywords: [
+      'TI electrical contractor',
+      'commercial buildout electrical',
+      'office electrical remodel',
+      'retail electrical installation',
+      'restaurant electrical wiring',
+      'commercial electrical contractor San Diego',
+    ],
+    shortDesc:
+      'Electrical services for commercial tenant improvements, buildouts, and renovations across North County San Diego. Office, retail, restaurant, and medical — permitted and inspected to code.',
+    includedBullets: [
+      'Electrical plan review and value engineering',
+      'Permit application and building department coordination',
+      'Power distribution and panel installation',
+      'Lighting layout and fixture installation',
+      'Dedicated circuits for commercial equipment',
+      'Low-voltage rough-in (data, phone, security)',
+      'Title 24 compliance verification',
+      'Final inspection and closeout documentation',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Plan Review & Bid',
+        description:
+          'We review architectural and electrical plans, identify scope, and provide a competitive bid with clear line-item pricing.',
+      },
+      {
+        step: 2,
+        title: 'Permitting & Coordination',
+        description:
+          'We pull the electrical permit, coordinate with the general contractor and other trades, and establish the project schedule.',
+      },
+      {
+        step: 3,
+        title: 'Rough-In',
+        description:
+          'We install conduit, wire, panels, and boxes according to plan. We pass the rough-in inspection before walls are closed.',
+      },
+      {
+        step: 4,
+        title: 'Trim & Finish',
+        description:
+          'After drywall and paint, we install all fixtures, devices, and equipment connections. We test every circuit and prepare for final inspection.',
+      },
+      {
+        step: 5,
+        title: 'Final Inspection & Handoff',
+        description:
+          'We coordinate the final electrical inspection, provide as-built documentation, and ensure the space is ready for occupancy.',
+      },
+    ],
+    pricingFactors: [
+      'Square footage and complexity of the buildout',
+      'Number of circuits, fixtures, and devices',
+      'Equipment power requirements (3-phase, high-amperage)',
+      'Title 24 compliance scope',
+      'Low-voltage and data cabling requirements',
+      'Project timeline and phasing',
+    ],
+    faqs: [
+      {
+        question: 'Can you handle the electrical for our entire tenant improvement?',
+        answer:
+          'Yes. We provide complete TI electrical services from plan review and permitting through rough-in, trim-out, and final inspection. We work with general contractors, architects, and directly with tenants and landlords.',
+      },
+      {
+        question: 'Do you work with 3-phase commercial power?',
+        answer:
+          'Yes. We install and maintain 3-phase systems for commercial kitchens, HVAC equipment, manufacturing, and other applications requiring 3-phase service.',
+      },
+      {
+        question: 'Can you meet tight construction timelines?',
+        answer:
+          'We understand that TI timelines are often driven by lease start dates and business opening schedules. We staff projects appropriately and coordinate closely with the GC to meet milestones.',
+      },
+      {
+        question: 'Do you handle Title 24 compliance for commercial spaces?',
+        answer:
+          'Yes. We ensure all lighting and electrical controls meet California Title 24 energy requirements, including occupancy sensors, daylight harvesting, and lighting power density calculations.',
+      },
+      {
+        question: 'What types of commercial spaces do you work in?',
+        answer:
+          'We handle TI electrical for offices, retail stores, restaurants, medical and dental offices, salons, fitness studios, and other commercial spaces across North County San Diego.',
+      },
+      {
+        question: 'Can you provide a bid from plans before we start construction?',
+        answer:
+          'Absolutely. We review architectural and electrical drawings, provide a detailed line-item bid, and can also offer value engineering suggestions to optimize costs without sacrificing quality or code compliance.',
+      },
+    ],
+    relatedServices: [
+      'commercial-electrical-maintenance',
+      'electrical-panel-upgrades',
+      'light-fixture-installation',
+      'dedicated-circuits',
+    ],
+    subtopics: [
+      'Office buildout electrical',
+      'Restaurant and kitchen electrical',
+      'Retail space wiring',
+      'Medical office electrical requirements',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad commercial spaces along Palomar Airport Road, in the Village, and throughout the business parks require professional electrical work for tenant improvements. Wheyland Electric provides TI electrical services for offices, restaurants, retail, and medical spaces throughout Carlsbad with competitive pricing and reliable project execution.',
+      encinitas:
+        'Encinitas commercial properties — from Highway 101 retail spaces to the business parks along Encinitas Boulevard — need licensed electrical contractors for tenant buildouts and renovations. Wheyland Electric delivers the permitting, installation, and inspection coordination commercial tenants require.',
+      'rancho-santa-fe':
+        'The limited commercial space in Rancho Santa Fe demands electrical work that reflects the area high standards. Wheyland Electric provides tenant improvement electrical services for the boutique retail, office, and restaurant spaces that serve this community.',
+      'san-marcos':
+        'San Marcos has a growing commercial sector with business parks, restaurant corridors, and retail centers that frequently undergo tenant improvements. Wheyland Electric provides TI electrical services throughout San Marcos, working with commercial landlords, property managers, and general contractors.',
+      'del-mar':
+        'Del Mar commercial properties — from the Flower Hill and Del Mar Highlands centers to the offices along Camino Del Mar — require skilled electrical work for tenant improvements. Wheyland Electric provides the professional TI electrical services these premium commercial spaces demand.',
+      'solana-beach':
+        'The Cedros Design District and other Solana Beach commercial areas feature unique retail and office spaces that need thoughtful electrical work during buildouts and renovations. Wheyland Electric provides TI electrical services tailored to the character of these distinctive spaces.',
+      oceanside:
+        'Oceanside growing commercial landscape — from the revitalized downtown to the business parks along Mission Avenue and College Boulevard — generates steady demand for tenant improvement electrical work. Wheyland Electric serves Oceanside commercial tenants with professional electrical buildout services from permitting through final inspection.',
+    },
+  },
+
+  // 12. Commercial Electrical Maintenance
+  {
+    slug: 'commercial-electrical-maintenance',
+    name: 'Commercial Electrical Maintenance',
+    publish: false,
+    tier: 'wave2',
+    primaryKeyword: 'commercial electrical maintenance',
+    secondaryKeywords: [
+      'commercial electrician maintenance',
+      'property management electrician',
+      'HOA electrical maintenance',
+      'commercial lighting maintenance',
+      'preventative electrical maintenance',
+      'multi-family electrical services',
+    ],
+    shortDesc:
+      'Ongoing commercial and multi-family electrical maintenance for property managers, HOAs, and business owners in North County San Diego. Scheduled service, emergency response, and transparent documentation.',
+    includedBullets: [
+      'Scheduled electrical inspections and maintenance visits',
+      'Lighting maintenance and lamp replacement',
+      'Parking lot and common area lighting repairs',
+      'Emergency electrical response for commercial properties',
+      'Electrical system documentation and reporting',
+      'Code compliance monitoring',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Property Assessment',
+        description:
+          'We walk the property with you to document all electrical systems, identify maintenance needs, and establish a service baseline.',
+      },
+      {
+        step: 2,
+        title: 'Service Plan Development',
+        description:
+          'We create a maintenance schedule tailored to your property — monthly, quarterly, or as-needed — with transparent pricing and clear scope.',
+      },
+      {
+        step: 3,
+        title: 'Scheduled Maintenance',
+        description:
+          'Our electricians perform scheduled visits covering lighting, panels, common-area devices, and any tenant-reported issues. We document everything.',
+      },
+      {
+        step: 4,
+        title: 'Reporting & Recommendations',
+        description:
+          'After each visit, you receive a maintenance report detailing work completed, issues found, and recommended future actions.',
+      },
+    ],
+    pricingFactors: [
+      'Property size and number of units or suites',
+      'Frequency of scheduled visits (monthly, quarterly, annual)',
+      'Scope of systems covered (lighting, panels, common areas)',
+      'Emergency response inclusion',
+      'Age and condition of existing electrical systems',
+    ],
+    faqs: [
+      {
+        question: 'Do you offer ongoing maintenance contracts?',
+        answer:
+          'Yes. We provide monthly and quarterly maintenance agreements for commercial properties, HOA communities, and multi-family buildings. Each plan is customized to the property needs and budget.',
+      },
+      {
+        question: 'What does a commercial electrical maintenance visit include?',
+        answer:
+          'A typical visit includes inspection of panels and breakers, testing of GFCI outlets in common areas, lighting maintenance, emergency lighting verification, and resolution of any reported issues. We document everything and provide a written report.',
+      },
+      {
+        question: 'Can you handle emergency calls for our property?',
+        answer:
+          'Yes. Maintenance clients receive priority scheduling for emergency electrical issues. We respond promptly to power outages, safety hazards, and critical system failures.',
+      },
+      {
+        question: 'Do you service HOA common areas?',
+        answer:
+          'Absolutely. We maintain common area lighting, parking garage electrical systems, pool and spa equipment circuits, gate and access control power, and other shared electrical infrastructure for HOA communities.',
+      },
+      {
+        question: 'Can you provide documentation for our property management records?',
+        answer:
+          'Yes. Every maintenance visit includes a detailed report suitable for property management files, board meetings, and compliance records. We track recurring issues and provide capital improvement recommendations.',
+      },
+      {
+        question: 'Do you work with property management companies?',
+        answer:
+          'Yes. We partner with property management companies throughout North County to provide reliable electrical maintenance for their portfolio of properties. We work within your approval processes and communicate through your preferred channels.',
+      },
+    ],
+    relatedServices: [
+      'commercial-tenant-improvement',
+      'electrical-safety-inspections',
+      'light-fixture-installation',
+    ],
+    subtopics: [
+      'HOA lighting maintenance',
+      'Parking lot lighting repair',
+      'Multi-family electrical service',
+      'Property management electrical support',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad commercial properties, HOA communities, and multi-family buildings need dependable electrical maintenance to keep common areas safe and well-lit. Wheyland Electric provides scheduled maintenance services throughout Carlsbad, from the business parks near Palomar Airport to the coastal HOA communities.',
+      encinitas:
+        'Encinitas property managers and HOA boards rely on Wheyland Electric for ongoing electrical maintenance that keeps common areas functional and compliant. We provide scheduled service, emergency response, and detailed documentation for properties throughout Encinitas.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe HOA communities and estate properties require meticulous electrical maintenance to preserve property values and ensure safety. Wheyland Electric provides scheduled inspections, lighting maintenance, and prompt repairs for properties throughout the area.',
+      'san-marcos':
+        'San Marcos commercial properties and HOA communities benefit from Wheyland Electric scheduled maintenance programs. We keep common area lighting operational, address electrical issues proactively, and provide the documentation property managers need for budgeting and compliance.',
+      'del-mar':
+        'Del Mar condominium associations, commercial properties, and residential HOAs trust Wheyland Electric for professional electrical maintenance. We maintain lighting, panel systems, and common area electrical with the reliability and attention to detail this community demands.',
+      'solana-beach':
+        'Solana Beach property managers and HOA boards choose Wheyland Electric for commercial electrical maintenance because we show up on schedule, communicate clearly, and document our work thoroughly. We help keep Solana Beach properties safe, well-lit, and code-compliant.',
+      oceanside:
+        'Oceanside large inventory of commercial properties, multi-family buildings, and HOA communities creates significant demand for professional electrical maintenance. Wheyland Electric provides tailored maintenance programs for Oceanside property managers with consistent service and transparent reporting.',
+    },
+  },
+
+  // 13. Light Industrial Electrical
+  {
+    slug: 'light-industrial-electrical',
+    name: 'Light Industrial Electrical',
+    publish: false,
+    tier: 'wave2',
+    primaryKeyword: 'light industrial electrician',
+    secondaryKeywords: [
+      'industrial electrical contractor',
+      'warehouse electrical services',
+      'manufacturing electrical installation',
+      '3-phase power installation',
+      'industrial lighting installation',
+      'machinery electrical hookup',
+    ],
+    shortDesc:
+      'Light industrial electrical services for warehouses, manufacturing facilities, and industrial parks in North County San Diego. 3-phase power, equipment hookups, lighting, and maintenance.',
+    includedBullets: [
+      '3-phase power distribution and panel installation',
+      'Machinery and equipment electrical hookups',
+      'Industrial lighting installation and retrofit',
+      'Motor control and starter installations',
+      'Conduit and raceway systems',
+      'Emergency and exit lighting compliance',
+      'Code compliance and inspection coordination',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Facility Assessment',
+        description:
+          'We evaluate your facility electrical infrastructure, equipment requirements, and code compliance status to identify the scope of work.',
+      },
+      {
+        step: 2,
+        title: 'Engineering & Proposal',
+        description:
+          'We develop the electrical plan, size the distribution system, and provide a detailed proposal with timeline and pricing.',
+      },
+      {
+        step: 3,
+        title: 'Installation',
+        description:
+          'Our team installs power distribution, equipment feeds, lighting, and controls. We coordinate with your operations to minimize downtime.',
+      },
+      {
+        step: 4,
+        title: 'Testing & Commissioning',
+        description:
+          'We test all systems, verify equipment operation, and schedule inspections. We provide documentation for your facility records.',
+      },
+    ],
+    pricingFactors: [
+      'Facility size and power distribution requirements',
+      'Number and type of equipment connections',
+      'Voltage and amperage requirements (single-phase, 3-phase)',
+      'Conduit and raceway scope',
+      'Lighting fixture count and type',
+      'Project timeline and operational constraints',
+    ],
+    faqs: [
+      {
+        question: 'Do you install 3-phase power systems?',
+        answer:
+          'Yes. We install and maintain 3-phase power distribution systems for manufacturing equipment, commercial HVAC, compressors, and other industrial applications.',
+      },
+      {
+        question: 'Can you hook up industrial machinery?',
+        answer:
+          'Yes. We provide electrical hookups for CNC machines, compressors, welding equipment, packaging lines, and other industrial equipment. We verify the electrical supply matches manufacturer specifications before making connections.',
+      },
+      {
+        question: 'Do you work in occupied facilities?',
+        answer:
+          'Yes. We coordinate with facility managers to schedule work during off-hours or in phases that minimize disruption to operations.',
+      },
+      {
+        question: 'Can you upgrade warehouse lighting to LED?',
+        answer:
+          'Absolutely. LED retrofits for warehouses and industrial spaces reduce energy costs significantly and improve visibility. We handle fixture replacement, controls installation, and utility rebate paperwork.',
+      },
+      {
+        question: 'Do you provide temporary power for construction or events?',
+        answer:
+          'Yes. We install temporary power panels and distribution for construction sites, events, and seasonal operations.',
+      },
+      {
+        question: 'What industrial parks do you serve?',
+        answer:
+          'We serve industrial and business parks throughout North County San Diego, including facilities in Carlsbad, San Marcos, Vista, Oceanside, and Escondido.',
+      },
+    ],
+    relatedServices: [
+      'commercial-tenant-improvement',
+      'electrical-panel-upgrades',
+      'commercial-electrical-maintenance',
+    ],
+    subtopics: [
+      'Warehouse electrical services',
+      '3-phase power installation',
+      'Industrial LED lighting retrofit',
+      'Manufacturing equipment hookups',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad light industrial parks along Loker Avenue, Faraday Avenue, and the airport corridor house manufacturing, biotech, and distribution businesses that rely on professional electrical services. Wheyland Electric provides 3-phase power, equipment hookups, and industrial lighting for facilities throughout the Carlsbad industrial zone.',
+      encinitas:
+        'While primarily residential and retail, Encinitas has commercial and light industrial spaces along Encinitas Boulevard that require professional electrical services. Wheyland Electric serves these businesses with the same quality and reliability we bring to larger industrial projects.',
+      'rancho-santa-fe':
+        'Though Rancho Santa Fe is predominantly residential, nearby commercial and agricultural operations sometimes require light industrial electrical services. Wheyland Electric provides equipment hookups, agricultural lighting, and power distribution for these unique applications.',
+      'san-marcos':
+        'San Marcos has a thriving light industrial sector centered around Rancheros Drive, Grand Avenue, and the business parks east of the 78 freeway. Wheyland Electric serves these facilities with 3-phase power installation, machinery hookups, LED lighting retrofits, and ongoing maintenance.',
+      'del-mar':
+        'Del Mar limited industrial footprint means most light industrial electrical needs in the area are served through the adjacent Sorrento Valley and Carmel Valley business parks. Wheyland Electric provides industrial electrical services to facilities in the greater Del Mar area.',
+      'solana-beach':
+        'Solana Beach commercial and light industrial spaces — including businesses in the Cedros area and along Lomas Santa Fe Drive — benefit from Wheyland Electric professional electrical services for equipment power, lighting upgrades, and code compliance.',
+      oceanside:
+        'Oceanside industrial zones along Oceanside Boulevard, Mission Avenue, and in the inland business parks house a wide range of manufacturing and distribution operations. Wheyland Electric provides the industrial electrical services these businesses need — from 3-phase equipment hookups to LED warehouse lighting and panel distribution.',
+    },
+  },
+
+  // 14. Electrical Safety Inspections
+  {
+    slug: 'electrical-safety-inspections',
+    name: 'Electrical Safety Inspections',
+    publish: false,
+    tier: 'wave2',
+    primaryKeyword: 'electrical safety inspection',
+    secondaryKeywords: [
+      'home electrical inspection',
+      'electrical code compliance audit',
+      'pre-sale electrical inspection',
+      'electrical system evaluation',
+      'Title 24 energy compliance',
+      'electrical permit inspection',
+    ],
+    shortDesc:
+      'Comprehensive electrical safety inspections for homes, commercial properties, and real estate transactions in North County San Diego. We identify hazards, code deficiencies, and recommended upgrades.',
+    includedBullets: [
+      'Full panel inspection including breaker testing',
+      'Outlet and switch testing throughout the property',
+      'GFCI and AFCI function verification',
+      'Grounding system evaluation',
+      'Smoke and carbon monoxide detector verification',
+      'Written report with findings and recommendations',
+      'Priority scheduling for real estate transactions',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Schedule the Inspection',
+        description:
+          'We schedule a time that works for you and confirm the scope — whole-house, specific areas, or a pre-sale evaluation.',
+      },
+      {
+        step: 2,
+        title: 'On-Site Inspection',
+        description:
+          'Our electrician systematically inspects the panel, circuits, outlets, switches, grounding, and safety devices throughout the property.',
+      },
+      {
+        step: 3,
+        title: 'Written Report',
+        description:
+          'We provide a detailed written report documenting our findings, including safety hazards, code deficiencies, and recommended upgrades prioritized by urgency.',
+      },
+      {
+        step: 4,
+        title: 'Review & Next Steps',
+        description:
+          'We review the report with you, answer questions, and provide quotes for any recommended repairs or upgrades if you would like to proceed.',
+      },
+    ],
+    pricingFactors: [
+      'Property size and number of circuits',
+      'Scope of the inspection (full house vs. specific systems)',
+      'Purpose (general safety, pre-sale, insurance, code compliance)',
+      'Age of the electrical system',
+      'Turnaround time for the report',
+    ],
+    faqs: [
+      {
+        question: 'When should I get an electrical safety inspection?',
+        answer:
+          'We recommend an inspection when buying or selling a home, after purchasing an older home, if your system is more than 25 years old, after storm damage, or if you notice signs of electrical problems such as flickering lights, warm outlets, or frequent breaker trips.',
+      },
+      {
+        question: 'What does an electrical inspection cover?',
+        answer:
+          'Our inspection covers the main panel and sub-panels, breaker condition, wiring type and condition, outlet and switch function, GFCI and AFCI protection, grounding, smoke and CO detectors, and overall code compliance.',
+      },
+      {
+        question: 'Is this the same as a city building inspection?',
+        answer:
+          'No. Our inspection is a professional evaluation performed by a licensed electrician. City inspections are performed by building officials and are typically required when permitted work is completed. Our inspection is more comprehensive and includes written recommendations.',
+      },
+      {
+        question: 'How long does an inspection take?',
+        answer:
+          'A typical residential inspection takes 1 to 2 hours depending on the size of the home and the number of circuits. Commercial properties take longer. We schedule enough time to be thorough.',
+      },
+      {
+        question: 'Can you inspect for a real estate transaction?',
+        answer:
+          'Yes. We provide pre-sale and pre-purchase electrical inspections with fast turnaround on written reports. Agents and buyers appreciate our clear, professional documentation.',
+      },
+      {
+        question: 'Do you perform Title 24 energy compliance evaluations?',
+        answer:
+          'Yes. We can evaluate your property lighting and electrical controls for Title 24 compliance and recommend upgrades to meet current California energy standards.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'service-calls-troubleshooting',
+      'outlet-switch-dimmer-gfci-repairs',
+    ],
+    subtopics: [
+      'Pre-sale electrical inspection',
+      'Whole-house electrical safety audit',
+      'Code compliance evaluation',
+      'Title 24 energy inspection',
+    ],
+    localizedIntroSeedByCity: {
+      carlsbad:
+        'Carlsbad homeowners, buyers, and real estate agents rely on Wheyland Electric for thorough electrical safety inspections. Whether you are preparing to sell your La Costa home, purchasing a fixer in Olde Carlsbad, or simply want peace of mind about your electrical system, we provide a comprehensive written evaluation with clear recommendations.',
+      encinitas:
+        'Older homes in Leucadia and Cardiff-by-the-Sea particularly benefit from electrical safety inspections, as many were built before modern code requirements for GFCI, AFCI, and grounding. Wheyland Electric provides honest evaluations that help Encinitas homeowners understand their system condition and prioritize upgrades.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe real estate transactions often involve properties with complex electrical systems that warrant professional inspection. Wheyland Electric provides detailed safety evaluations for buyers, sellers, and estate managers, documenting every finding in a clear written report.',
+      'san-marcos':
+        'San Marcos homeowners and real estate professionals count on Wheyland Electric for reliable electrical inspections. We evaluate panels, outlets, grounding, and safety devices throughout the home and deliver a written report that helps buyers and sellers make informed decisions.',
+      'del-mar':
+        'Del Mar real estate moves quickly, and a professional electrical inspection helps buyers understand what they are purchasing and sellers present their property with confidence. Wheyland Electric provides fast-turnaround inspections with the detailed documentation Del Mar transactions demand.',
+      'solana-beach':
+        'Solana Beach homeowners considering upgrades or preparing for a sale benefit from a professional electrical inspection. Wheyland Electric evaluates the entire system, identifies any safety concerns or code deficiencies, and provides a clear report with prioritized recommendations.',
+      oceanside:
+        'Oceanside diverse housing stock means electrical system quality varies considerably from property to property. Wheyland Electric provides electrical safety inspections for homeowners, buyers, investors, and property managers across Oceanside, delivering honest assessments and actionable recommendations.',
+    },
+  },
+];
+
+// ============================================================
+// Extended Service Catalog (~90 services)
+// ============================================================
+
+export const extendedServices: ExtendedService[] = [
+  // --- Service Calls & Troubleshooting ---
+  { name: 'Emergency electrical services', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+  { name: 'Electrical troubleshooting and repairs', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+  { name: 'Power outage restoration', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+  { name: 'Residential electrical installations', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+  { name: 'Residential electrical services', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+  { name: 'Emergency electrical response services', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+
+  // --- Electrical Panel Upgrades ---
+  { name: 'Main electrical panel upgrades', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Main electrical panel replacements', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Sub-panel installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Sub-panel replacements', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Main service switchgear planning', category: 'commercial', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Multi-unit meter planning and design', category: 'commercial', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Electrical systems infrastructure upgrades', category: 'commercial', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Circuit breaker installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Circuit breaker replacements', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Whole-home surge protection installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Electrical grounding system installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
+  { name: 'Electrical load calculations', category: 'compliance', relatedPillarSlug: 'electrical-panel-upgrades' },
+
+  // --- EV Charger Installation ---
+  { name: 'Electric vehicle (EV) charger installations', category: 'ev', relatedPillarSlug: 'ev-charger-installation' },
+
+  // --- Recessed Lighting Installation ---
+  { name: 'Recessed lighting installations', category: 'residential', relatedPillarSlug: 'recessed-lighting-installation' },
+  { name: 'Under-cabinet lighting installations', category: 'residential', relatedPillarSlug: 'recessed-lighting-installation' },
+  { name: 'Accent lighting installations', category: 'residential', relatedPillarSlug: 'recessed-lighting-installation' },
+
+  // --- Light Fixture Installation ---
+  { name: 'Electrical fixture installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Lighting system design and installation', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'LED lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'LED lighting retrofits', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Commercial lighting installations', category: 'commercial', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Parking lot lighting installations', category: 'commercial', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Chandelier installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Decorative lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Track lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Security lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Low-voltage lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'High-reach lighting installations', category: 'commercial', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Mood lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Smart lighting control installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Energy-efficient lighting upgrades', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Lighting fixture replacements', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  { name: 'Home automation system installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+
+  // --- Ceiling Fan Installation ---
+  { name: 'Ceiling fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
+  { name: 'Ceiling fan lighting installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
+  { name: 'Exhaust fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
+  { name: 'Attic fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
+  { name: 'Whole house fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
+
+  // --- Spa, Jacuzzi & Sauna Electrical ---
+  { name: 'Hot tub electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  { name: 'Sauna electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  { name: 'Ice bath electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  { name: 'Pool and spa electrical wiring', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  { name: 'Outdoor living space electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  { name: 'Infratech heater installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  { name: 'Pergola electrical wiring', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+
+  // --- Outlet, Switch, Dimmer & GFCI Repairs ---
+  { name: 'Electrical outlet installations', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
+  { name: 'GFCI outlet installations', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
+  { name: 'AFCI outlet installations', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
+  { name: 'Bathroom electrical upgrades', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
+  { name: 'Electrical outlet relocation', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
+
+  // --- Dedicated Circuits ---
+  { name: 'Generator installations', category: 'residential', relatedPillarSlug: 'dedicated-circuits' },
+  { name: 'Home theater electrical installations', category: 'residential', relatedPillarSlug: 'dedicated-circuits' },
+  { name: 'Kitchen appliance electrical installations', category: 'residential', relatedPillarSlug: 'dedicated-circuits' },
+  { name: 'Commercial kitchen hood system installations', category: 'commercial', relatedPillarSlug: 'dedicated-circuits' },
+  { name: 'Voice and data cabling installations', category: 'commercial', relatedPillarSlug: 'dedicated-circuits' },
+
+  // --- Remodel & Rewiring (incl. ADU) ---
+  { name: 'New electrical wiring installations', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'Electrical rewiring', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'Complete electrical wiring for new constructions', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'Electrical rewiring for existing structures', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'Electrical engineering and design', category: 'commercial', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'Electrical remodeling services', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'New construction electrical services', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  { name: 'Accessory Dwelling Unit (ADU) electrical services', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+
+  // --- Commercial Tenant Improvement ---
+  { name: 'Tenant improvement electrical services', category: 'commercial', relatedPillarSlug: 'commercial-tenant-improvement' },
+  { name: '3-phase commercial equipment electrical hookups', category: 'commercial', relatedPillarSlug: 'commercial-tenant-improvement' },
+  { name: 'Commercial electrical services', category: 'commercial', relatedPillarSlug: 'commercial-tenant-improvement' },
+
+  // --- Commercial Electrical Maintenance ---
+  { name: 'Preventative electrical maintenance programs', category: 'commercial', relatedPillarSlug: 'commercial-electrical-maintenance' },
+  { name: 'Multi-family property electrical maintenance', category: 'hoa', relatedPillarSlug: 'commercial-electrical-maintenance' },
+  { name: 'Property management electrical services', category: 'hoa', relatedPillarSlug: 'commercial-electrical-maintenance' },
+  { name: 'Energy efficiency optimization services', category: 'compliance', relatedPillarSlug: 'commercial-electrical-maintenance' },
+
+  // --- Light Industrial Electrical ---
+  { name: 'Electrical control system installations', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
+  { name: 'Specialty electrical projects', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
+  { name: 'Industrial electrical services', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
+  { name: 'Temporary power installations', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
+
+  // --- Electrical Safety Inspections ---
+  { name: 'Electrical permitting and inspections', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
+  { name: 'Title 24 energy compliance controls', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
+  { name: 'Electrical code compliance audits', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
+  { name: 'Electrical safety inspections', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
+  { name: 'Smoke detector installations', category: 'residential', relatedPillarSlug: 'electrical-safety-inspections' },
+  { name: 'Carbon monoxide detector installations', category: 'residential', relatedPillarSlug: 'electrical-safety-inspections' },
+];
+
+// ============================================================
+// Helper Functions
+// ============================================================
+
+/** Get published pillars (respects Wave 2 flag) */
+export function getPublishedPillars(): ServicePillar[] {
+  return servicePillars.filter(
+    (p) => p.publish || (p.tier === 'wave2' && flags.publish_wave2)
+  );
+}
+
+/** Get a single pillar by slug */
+export function getPillarBySlug(slug: string): ServicePillar | undefined {
+  return servicePillars.find((p) => p.slug === slug);
+}
+
+/** Get Wave 1 pillars only */
+export function getWave1Pillars(): ServicePillar[] {
+  return servicePillars.filter((p) => p.tier === 'wave1');
+}
+
+export default servicePillars;

@@ -1,0 +1,92 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import Section from '../../components/ui/Section.astro';
+import { generateMeta } from '../../lib/seo';
+import { localBusinessSchema } from '../../lib/schema/localBusiness';
+import { site } from '../../data/site';
+
+const meta = generateMeta({
+  title: 'About Wheyland Electric | Family-Owned Carlsbad Electrician',
+  description: 'Meet Tim Wheyland — fourth generation San Diego County resident. Family-owned electrical services since 2008. Licensed, bonded & insured.',
+  path: '/about/',
+});
+---
+<PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'About', href: '/about/' }]}>
+  <Hero
+    title="About Wheyland Electric"
+    subtitle="Family-owned. Carlsbad-based. Serving San Diego County since 2008."
+    showCTAs={false}
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+  />
+
+  <TrustBar />
+
+  <!-- Owner Bio -->
+  <Section bg="white">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">Meet {site.owner.name}</h2>
+        <p class="text-lg text-brand-moonstone font-semibold mb-4 italic">{site.owner.generation}</p>
+        {site.owner.bio.map((paragraph) => (
+          <p class="text-text-muted leading-relaxed mb-4">{paragraph}</p>
+        ))}
+      </div>
+      <div class="bg-surface-subtle rounded-xl p-8 flex items-center justify-center min-h-[300px]">
+        <div class="text-center">
+          <div class="w-24 h-24 bg-brand-columbia/30 rounded-full flex items-center justify-center mx-auto mb-4">
+            <svg class="w-12 h-12 text-brand-moonstone" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+            </svg>
+          </div>
+          <p class="text-sm text-text-muted">Photo of Tim Wheyland — placeholder</p>
+        </div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Business Philosophy -->
+  <Section bg="subtle">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">Our Philosophy</h2>
+      <blockquote class="text-xl md:text-2xl text-brand-indigo font-heading italic mb-8">
+        "{site.businessModelLine}"
+      </blockquote>
+      <p class="text-text-muted leading-relaxed mb-6">
+        Wheyland Electric was founded on a simple principle: do the job right, treat customers with respect, and stand behind every project. As a family-owned business based in Carlsbad, we are big enough to handle any project yet small enough to care about every detail.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Customer Pledge -->
+  <Section bg="white">
+    <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-8 text-center">Our Pledge to You</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {site.pledge.map((pledgeItem) => (
+        <div class="flex items-start gap-4 bg-surface-subtle rounded-xl p-6">
+          <svg class="w-6 h-6 text-brand-moonstone shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          <p class="text-text-muted leading-relaxed">{pledgeItem}</p>
+        </div>
+      ))}
+    </div>
+  </Section>
+
+  <!-- Warranty -->
+  <Section bg="subtle">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-6">1-Year Labor Warranty</h2>
+      <p class="text-text-muted leading-relaxed mb-6">{site.warranty}</p>
+      <a href="/about/licenses/" class="text-brand-moonstone hover:text-brand-indigo font-semibold transition-colors underline">
+        View our licenses and credentials
+      </a>
+    </div>
+  </Section>
+
+  <CTASection />
+</PageLayout>
