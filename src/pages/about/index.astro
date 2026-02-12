@@ -36,15 +36,15 @@ const meta = generateMeta({
           <p class="text-text-muted leading-relaxed mb-4">{paragraph}</p>
         ))}
       </div>
-      <div class="bg-surface-subtle rounded-xl p-8 flex items-center justify-center min-h-[300px]">
-        <div class="text-center">
-          <div class="w-24 h-24 bg-surface/30 rounded-full flex items-center justify-center mx-auto mb-4">
-            <svg class="w-12 h-12 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-            </svg>
-          </div>
-          <p class="text-sm text-text-muted">Photo of Tim Wheyland — placeholder</p>
-        </div>
+      <div class="rounded-xl overflow-hidden shadow-lg">
+        <img
+          src="/images/about/wheyland-electric-family-portrait-carlsbad.webp"
+          alt="Tim Wheyland and the Wheyland Electric family in Carlsbad CA"
+          width="800"
+          height="628"
+          class="w-full h-auto object-cover"
+          loading="lazy"
+        />
       </div>
     </div>
   </Section>
