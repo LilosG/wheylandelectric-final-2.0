@@ -14,9 +14,9 @@ export default {
           'gold-light': '#D4B15C', // Light gold — subtle gold accents, badges
         },
         surface: {
-          DEFAULT: '#E8F0EE',     // Teal-tinted light — trust bar, icon containers
-          subtle: '#F2F4F3',      // Barely tinted off-white — alternating section backgrounds
-          warm: '#F5F0E6',        // Gold-tinted light — HOA section, warm accent backgrounds
+          DEFAULT: '#D4E4E1',     // Teal-tinted — trust bar, icon containers (more visible)
+          subtle: '#EEF1F0',      // Light cool gray — alternating section backgrounds
+          warm: '#F0EBDF',        // Gold-tinted warm — HOA section (distinct from cool surfaces)
           dark: '#0F2A3A',        // Alias for brand-navy — dark section backgrounds
         },
         text: {
