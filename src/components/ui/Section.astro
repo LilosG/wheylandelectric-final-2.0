@@ -1,6 +1,6 @@
 ---
 interface Props {
-  bg?: 'white' | 'subtle' | 'indigo' | 'surface';
+  bg?: 'white' | 'subtle' | 'warm' | 'indigo' | 'surface';
   class?: string;
   id?: string;
 }
@@ -10,6 +10,7 @@ const { bg = 'white', class: className = '', id } = Astro.props;
 const bgMap: Record<string, string> = {
   white: 'bg-white',
   subtle: 'bg-surface-subtle',
+  warm: 'bg-surface-warm',
   indigo: 'bg-brand-slate text-white',
   surface: 'bg-surface',
 };
