@@ -42,20 +42,20 @@ const schema = articleSchema(
         <time class="text-sm text-text-muted" datetime={post.data.date.toISOString()}>
           {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-indigo mt-3 mb-4">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-slate mt-3 mb-4">
           {post.data.title}
         </h1>
         <p class="text-lg text-text-muted">{post.data.description}</p>
         <div class="mt-4 text-sm text-text-muted">
-          By <span class="font-medium text-brand-indigo">{post.data.author}</span>
+          By <span class="font-medium text-brand-slate">{post.data.author}</span>
         </div>
       </header>
 
       <div class="prose prose-lg max-w-none
-        prose-headings:font-heading prose-headings:text-brand-indigo
+        prose-headings:font-heading prose-headings:text-brand-slate
         prose-p:text-text-muted prose-p:leading-relaxed
-        prose-a:text-brand-moonstone prose-a:no-underline hover:prose-a:text-brand-indigo
-        prose-strong:text-brand-indigo
+        prose-a:text-brand-teal prose-a:no-underline hover:prose-a:text-brand-slate
+        prose-strong:text-brand-slate
         prose-li:text-text-muted
         prose-ul:list-disc prose-ol:list-decimal
       ">

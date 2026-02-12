@@ -5,21 +5,24 @@ export default {
     extend: {
       colors: {
         brand: {
-          mint: '#BEE9E8',
-          moonstone: '#62B6CB',
-          indigo: '#1B4965',
-          columbia: '#CAE9FF',
-          picton: '#5FA8D3',
-          cta: '#D97706',
-          'cta-hover': '#B45309',
+          navy: '#0F2A3A',         // Deepest dark — footer, darkest backgrounds
+          slate: '#1F4E63',        // Primary dark — headings, hero overlay, dark section bgs
+          teal: '#2F7F7A',         // Accent — icons, links, borders, hover accents
+          'teal-light': '#3A9994', // Lighter teal — for hover states on teal elements
+          gold: '#C29A3A',         // Primary CTA — buttons, primary actions
+          'gold-hover': '#9E7C2F', // CTA hover — also used for gold text on white (contrast)
+          'gold-light': '#D4B15C', // Light gold — subtle gold accents, badges
         },
         surface: {
-          DEFAULT: '#CAE9FF',
-          subtle: '#F0F9FF',
+          DEFAULT: '#E8F0EE',     // Teal-tinted light — trust bar, icon containers
+          subtle: '#F2F4F3',      // Barely tinted off-white — alternating section backgrounds
+          warm: '#F5F0E6',        // Gold-tinted light — HOA section, warm accent backgrounds
+          dark: '#0F2A3A',        // Alias for brand-navy — dark section backgrounds
         },
         text: {
-          DEFAULT: '#1B4965',
-          muted: '#3D6B85',
+          DEFAULT: '#1F4E63',     // Primary text — headings, nav
+          muted: '#3D5A6E',       // Body copy, descriptions
+          light: '#5A7A8A',       // Lighter muted — timestamps, captions, tertiary text
         },
       },
       fontFamily: {

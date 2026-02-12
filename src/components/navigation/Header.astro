@@ -10,13 +10,13 @@ const nav = buildNavigation();
     <div class="flex items-center justify-between h-16 lg:h-20">
       <!-- Logo -->
       <a href="/" class="flex items-center gap-2.5 shrink-0">
-        <div class="w-9 h-9 bg-brand-indigo rounded-lg flex items-center justify-center">
+        <div class="w-9 h-9 bg-brand-slate rounded-lg flex items-center justify-center">
           <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
           </svg>
         </div>
         <div>
-          <span class="text-lg lg:text-xl font-heading font-bold text-brand-indigo leading-tight block">Wheyland Electric</span>
+          <span class="text-lg lg:text-xl font-heading font-bold text-brand-slate leading-tight block">Wheyland Electric</span>
           <span class="text-[10px] text-text-muted tracking-wider uppercase hidden sm:block">Licensed Electrician · Carlsbad, CA</span>
         </div>
       </a>
@@ -27,7 +27,7 @@ const nav = buildNavigation();
           <div class="relative group">
             <a
               href={item.href}
-              class="px-3 py-2 text-sm font-medium text-brand-indigo hover:text-brand-moonstone transition-colors inline-flex items-center gap-1"
+              class="px-3 py-2 text-sm font-medium text-brand-slate hover:text-brand-teal transition-colors inline-flex items-center gap-1"
             >
               {item.label}
               {item.children && (
@@ -38,11 +38,11 @@ const nav = buildNavigation();
             </a>
             {item.children && (
               <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div class="bg-white rounded-xl shadow-xl border border-brand-mint/50 py-2 min-w-[240px]">
+                <div class="bg-white rounded-xl shadow-xl border border-surface-warm/50 py-2 min-w-[240px]">
                   {item.children.map((child) => (
                     <a
                       href={child.href}
-                      class="block px-4 py-2.5 text-sm text-text hover:bg-surface-subtle hover:text-brand-moonstone transition-colors"
+                      class="block px-4 py-2.5 text-sm text-text hover:bg-surface-subtle hover:text-brand-teal transition-colors"
                     >
                       {child.label}
                     </a>
@@ -56,7 +56,7 @@ const nav = buildNavigation();
 
       <!-- CTA area (desktop) -->
       <div class="hidden lg:flex items-center gap-4">
-        <a href={`tel:${site.nap.phoneTel}`} class="text-sm font-semibold text-brand-indigo hover:text-brand-moonstone transition-colors">
+        <a href={`tel:${site.nap.phoneTel}`} class="text-sm font-semibold text-brand-slate hover:text-brand-teal transition-colors">
           {site.nap.phone}
         </a>
         <Button href={ctaNav.estimate.href} variant="primary" size="sm">
@@ -67,7 +67,7 @@ const nav = buildNavigation();
       <!-- Mobile hamburger -->
       <button
         id="mobile-menu-toggle"
-        class="lg:hidden p-2 text-brand-indigo hover:text-brand-moonstone transition-colors"
+        class="lg:hidden p-2 text-brand-slate hover:text-brand-teal transition-colors"
         aria-label="Open menu"
         aria-expanded="false"
       >
@@ -84,8 +84,8 @@ const nav = buildNavigation();
     <div class="fixed right-0 top-0 bottom-0 w-80 max-w-[85vw] bg-white shadow-2xl overflow-y-auto">
       <div class="p-5">
         <div class="flex items-center justify-between mb-8">
-          <span class="font-heading font-bold text-brand-indigo text-lg">Menu</span>
-          <button id="mobile-menu-close" class="p-2 text-text-muted hover:text-brand-indigo transition-colors" aria-label="Close menu">
+          <span class="font-heading font-bold text-brand-slate text-lg">Menu</span>
+          <button id="mobile-menu-close" class="p-2 text-text-muted hover:text-brand-slate transition-colors" aria-label="Close menu">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
             </svg>
@@ -94,13 +94,13 @@ const nav = buildNavigation();
         <nav class="space-y-1" aria-label="Mobile navigation">
           {nav.map((item) => (
             <div>
-              <a href={item.href} class="block px-3 py-3 text-base font-medium text-brand-indigo hover:bg-surface-subtle rounded-lg transition-colors">
+              <a href={item.href} class="block px-3 py-3 text-base font-medium text-brand-slate hover:bg-surface-subtle rounded-lg transition-colors">
                 {item.label}
               </a>
               {item.children && (
                 <div class="ml-4 space-y-0.5 mb-2">
                   {item.children.map((child) => (
-                    <a href={child.href} class="block px-3 py-2 text-sm text-text-muted hover:text-brand-moonstone transition-colors">
+                    <a href={child.href} class="block px-3 py-2 text-sm text-text-muted hover:text-brand-teal transition-colors">
                       {child.label}
                     </a>
                   ))}
@@ -110,10 +110,10 @@ const nav = buildNavigation();
           ))}
         </nav>
         <div class="mt-8 space-y-3 px-3">
-          <a href={`tel:${site.nap.phoneTel}`} class="block text-center font-semibold text-brand-indigo py-3 border-2 border-brand-indigo rounded-lg hover:bg-brand-indigo hover:text-white transition-colors">
+          <a href={`tel:${site.nap.phoneTel}`} class="block text-center font-semibold text-brand-slate py-3 border-2 border-brand-slate rounded-lg hover:bg-brand-slate hover:text-white transition-colors">
             Call {site.nap.phone}
           </a>
-          <a href={ctaNav.estimate.href} class="block text-center font-semibold text-white bg-brand-cta hover:bg-brand-cta-hover py-3 rounded-lg transition-colors shadow-md">
+          <a href={ctaNav.estimate.href} class="block text-center font-semibold text-white bg-brand-gold hover:bg-brand-gold-hover py-3 rounded-lg transition-colors shadow-md">
             Free Estimate
           </a>
         </div>

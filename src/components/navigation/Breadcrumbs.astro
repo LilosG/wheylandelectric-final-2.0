@@ -13,14 +13,14 @@ const allItems: BreadcrumbItem[] = [{ label: 'Home', href: '/' }, ...items];
     {allItems.map((item, index) => (
       <li class="flex items-center">
         {index > 0 && (
-          <svg class="w-4 h-4 mx-1 text-brand-mint" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4 mx-1 text-surface-warm" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
           </svg>
         )}
         {index === allItems.length - 1 ? (
-          <span class="text-brand-indigo font-medium" aria-current="page">{item.label}</span>
+          <span class="text-brand-slate font-medium" aria-current="page">{item.label}</span>
         ) : (
-          <a href={item.href} class="hover:text-brand-moonstone transition-colors">{item.label}</a>
+          <a href={item.href} class="hover:text-brand-teal transition-colors">{item.label}</a>
         )}
       </li>
     ))}

@@ -2,15 +2,15 @@ import type { BrandTokens } from '../types';
 
 export const brand: BrandTokens = {
   colors: {
-    mint: '#BEE9E8',
-    moonstone: '#62B6CB',
-    indigo: '#1B4965',
-    columbia: '#CAE9FF',
-    picton: '#5FA8D3',
-    cta: '#D97706',
-    ctaHover: '#B45309',
-    surfaceSubtle: '#F0F9FF',
-    textMuted: '#3D6B85',
+    mint: '#F5F0E6',
+    moonstone: '#2F7F7A',
+    indigo: '#1F4E63',
+    columbia: '#E8F0EE',
+    picton: '#3A9994',
+    cta: '#C29A3A',
+    ctaHover: '#9E7C2F',
+    surfaceSubtle: '#F2F4F3',
+    textMuted: '#3D5A6E',
     white: '#FFFFFF',
   },
   logoPaths: {

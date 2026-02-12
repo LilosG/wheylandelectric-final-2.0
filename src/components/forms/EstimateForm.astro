@@ -26,50 +26,50 @@ const services = getPublishedPillars();
   <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
     <!-- Name -->
     <div>
-      <label for="name" class="block text-sm font-semibold text-brand-indigo mb-2">Full Name *</label>
+      <label for="name" class="block text-sm font-semibold text-brand-slate mb-2">Full Name *</label>
       <input
         type="text"
         id="name"
         name="name"
         required
-        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text"
+        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
         placeholder="Your full name"
       />
     </div>
 
     <!-- Phone -->
     <div>
-      <label for="phone" class="block text-sm font-semibold text-brand-indigo mb-2">Phone *</label>
+      <label for="phone" class="block text-sm font-semibold text-brand-slate mb-2">Phone *</label>
       <input
         type="tel"
         id="phone"
         name="phone"
         required
-        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text"
+        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
         placeholder="(xxx) xxx-xxxx"
       />
     </div>
 
     <!-- Email -->
     <div>
-      <label for="email" class="block text-sm font-semibold text-brand-indigo mb-2">Email *</label>
+      <label for="email" class="block text-sm font-semibold text-brand-slate mb-2">Email *</label>
       <input
         type="email"
         id="email"
         name="email"
         required
-        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text"
+        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
         placeholder="you@example.com"
       />
     </div>
 
     <!-- City -->
     <div>
-      <label for="city" class="block text-sm font-semibold text-brand-indigo mb-2">City</label>
+      <label for="city" class="block text-sm font-semibold text-brand-slate mb-2">City</label>
       <select
         id="city"
         name="city"
-        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text bg-white"
+        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text bg-white"
       >
         <option value="">Select your city</option>
         {cities.map((city) => (
@@ -81,11 +81,11 @@ const services = getPublishedPillars();
 
     <!-- Service -->
     <div>
-      <label for="service" class="block text-sm font-semibold text-brand-indigo mb-2">Service Needed</label>
+      <label for="service" class="block text-sm font-semibold text-brand-slate mb-2">Service Needed</label>
       <select
         id="service"
         name="service"
-        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text bg-white"
+        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text bg-white"
       >
         <option value="">Select a service</option>
         {services.map((svc) => (
@@ -98,11 +98,11 @@ const services = getPublishedPillars();
 
     <!-- Preferred contact method -->
     <div>
-      <label for="contact-method" class="block text-sm font-semibold text-brand-indigo mb-2">Preferred Contact Method</label>
+      <label for="contact-method" class="block text-sm font-semibold text-brand-slate mb-2">Preferred Contact Method</label>
       <select
         id="contact-method"
         name="contact_method"
-        class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text bg-white"
+        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text bg-white"
       >
         <option value="phone">Phone</option>
         <option value="email">Email</option>
@@ -113,12 +113,12 @@ const services = getPublishedPillars();
 
   <!-- Message -->
   <div>
-    <label for="message" class="block text-sm font-semibold text-brand-indigo mb-2">Tell Us About Your Project</label>
+    <label for="message" class="block text-sm font-semibold text-brand-slate mb-2">Tell Us About Your Project</label>
     <textarea
       id="message"
       name="message"
       rows="4"
-      class="w-full px-4 py-3 rounded-lg border border-brand-mint focus:border-brand-moonstone focus:ring-2 focus:ring-brand-moonstone/20 outline-none transition-colors text-text resize-y"
+      class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text resize-y"
       placeholder="Describe what you need help with..."
     ></textarea>
   </div>
@@ -127,7 +127,7 @@ const services = getPublishedPillars();
   <div>
     <button
       type="submit"
-      class="w-full sm:w-auto bg-brand-cta hover:bg-brand-cta-hover text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-brand-moonstone focus:ring-offset-2"
+      class="w-full sm:w-auto bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
     >
       Request Free Estimate
     </button>

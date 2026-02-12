@@ -9,17 +9,17 @@ interface Props {
 const { faqs, heading = 'Frequently Asked Questions' } = Astro.props;
 ---
 <div>
-  <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-indigo mb-8">{heading}</h2>
+  <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-8">{heading}</h2>
   <div class="space-y-3">
     {faqs.map((faq, index) => (
-      <div class="border border-brand-mint/50 rounded-lg overflow-hidden faq-item">
+      <div class="border border-surface-warm/50 rounded-lg overflow-hidden faq-item">
         <button
-          class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-text hover:bg-surface-subtle transition-colors focus:outline-none focus:ring-2 focus:ring-brand-moonstone focus:ring-inset"
+          class="w-full flex items-center justify-between px-6 py-4 text-left font-semibold text-text hover:bg-surface-subtle transition-colors focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-inset"
           aria-expanded="false"
           data-faq-toggle={index}
         >
           <span class="pr-4">{faq.question}</span>
-          <svg class="w-5 h-5 text-brand-moonstone shrink-0 transition-transform faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 text-brand-teal shrink-0 transition-transform faq-chevron" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </button>
