@@ -21,7 +21,7 @@ const meta = homePageMeta();
 const services = getPublishedPillars();
 const cities = getPublishedCities();
 ---
-<PageLayout meta={meta} schemas={[localBusinessSchema()]}>
+<PageLayout meta={meta} schemas={[localBusinessSchema()]} preloadHero>
   {/* 1. Hero — dark indigo, full viewport, split layout */}
   <Hero
     eyebrow="Satisfaction Guaranteed"

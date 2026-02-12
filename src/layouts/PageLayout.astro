@@ -11,9 +11,10 @@ interface Props {
   meta: PageMeta;
   schemas?: Record<string, unknown>[];
   breadcrumbs?: BreadcrumbItem[];
+  preloadHero?: boolean;
 }
 
-const { meta, schemas = [], breadcrumbs } = Astro.props;
+const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -24,6 +25,14 @@ const { meta, schemas = [], breadcrumbs } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
+    {preloadHero && (
+      <link
+        rel="preload"
+        as="image"
+        href="/images/hero/wheyland-electric-edison-bulb-lighting-hero.webp"
+        type="image/webp"
+      />
+    )}
     <SEOHead meta={meta} schemas={schemas} />
   </head>
   <body class="min-h-screen flex flex-col">

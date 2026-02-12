@@ -1,346 +1,260 @@
 {
-  "generated": "2026-01-31",
-  "total_images": 82,
-  "categories": {
-    "team": [
-      {
-        "file": "team/team-equipment.webp",
-        "size_kb": 129
-      },
-      {
-        "file": "team/team-thumbs-up.webp",
-        "size_kb": 52
-      },
-      {
-        "file": "team/team-at-work.webp",
-        "size_kb": 60
-      },
-      {
-        "file": "team/team-photo.webp",
-        "size_kb": 83
-      },
-      {
-        "file": "team/team-on-site.webp",
-        "size_kb": 77
-      },
-      {
-        "file": "team/team-vehicle-rear.webp",
-        "size_kb": 85
-      },
-      {
-        "file": "team/truck-branding.webp",
-        "size_kb": 74
-      },
-      {
-        "file": "team/service-truck.webp",
-        "size_kb": 16
-      }
-    ],
-    "insurance": [
-      {
-        "file": "insurance/insurance-usaa.png",
-        "size_kb": 1
-      },
-      {
-        "file": "insurance/insurance-farmers.png",
-        "size_kb": 16
-      },
-      {
-        "file": "insurance/insurance-liberty-mutual.png",
-        "size_kb": 3
-      },
-      {
-        "file": "insurance/insurance-partners-banner.webp",
-        "size_kb": 65
-      },
-      {
-        "file": "insurance/insurance-state-farm.png",
-        "size_kb": 8
-      },
-      {
-        "file": "insurance/insurance-allstate.png",
-        "size_kb": 14
-      }
-    ],
-    "certifications": [
-      {
-        "file": "certifications/iicrc-asd-certified.webp",
-        "size_kb": 5
-      },
-      {
-        "file": "certifications/iicrc-wrt-certified.webp",
-        "size_kb": 7
-      },
-      {
-        "file": "certifications/certifications-banner.webp",
-        "size_kb": 41
-      },
-      {
-        "file": "certifications/homeadvisor-approved.webp",
-        "size_kb": 11
-      }
-    ],
-    "logo": [
-      {
-        "file": "logo/tamarack-logo.webp",
-        "size_kb": 1
-      },
-      {
-        "file": "logo/tamarack-logo-square.webp",
-        "size_kb": 17
-      },
-      {
-        "file": "logo/tamarack-logo-white.png",
-        "size_kb": 30
-      }
-    ],
-    "hero": [
-      {
-        "file": "hero/hero-restoration-services.webp",
-        "size_kb": 220
-      }
-    ],
-    "services": [
-      {
-        "file": "services/tamarack-restoration-oceanside-water-damage-restoration.webp",
-        "size_kb": 81
-      },
-      {
-        "file": "services/tamarack-restoration-oceanside-sewage-cleanup.webp",
-        "size_kb": 47
-      },
-      {
-        "file": "services/tamarack-restoration-fire-damage-restoration.webp",
-        "size_kb": 154
-      },
-      {
-        "file": "services/tamarack-restoration-rancho-santa-fe-water-leak-repair.webp",
-        "size_kb": 23
-      },
-      {
-        "file": "services/tamarack-restoration-encinitas-fire-damage-restoration.webp",
-        "size_kb": 154
-      },
-      {
-        "file": "services/tamarack-restoration-encinitas-sewage-cleanup.webp",
-        "size_kb": 98
-      },
-      {
-        "file": "services/tamarack-restoration-water-damage-restoration-card.webp",
-        "size_kb": 65
-      },
-      {
-        "file": "services/tamarack-restoration-rancho-santa-fe-water-damage-restoration.webp",
-        "size_kb": 65
-      },
-      {
-        "file": "services/tamarack-restoration-flood-cleanup-card.webp",
-        "size_kb": 93
-      },
-      {
-        "file": "services/tamarack-restoration-vista-flood-cleanup.webp",
-        "size_kb": 80
-      },
-      {
-        "file": "services/tamarack-restoration-encinitas-water-damage-restoration.webp",
-        "size_kb": 46
-      },
-      {
-        "file": "services/tamarack-restoration-oceanside-mold-removal.webp",
-        "size_kb": 70
-      },
-      {
-        "file": "services/tamarack-restoration-solana-beach-fire-damage-restoration.webp",
-        "size_kb": 51
-      },
-      {
-        "file": "services/tamarack-restoration-solana-beach-water-leak-repair.webp",
-        "size_kb": 22
-      },
-      {
-        "file": "services/tamarack-restoration-vista-fire-damage-restoration.webp",
-        "size_kb": 60
-      },
-      {
-        "file": "services/tamarack-restoration-carlsbad-flood-cleanup.webp",
-        "size_kb": 35
-      },
-      {
-        "file": "services/tamarack-restoration-vista-water-leak-repair.webp",
-        "size_kb": 22
-      },
-      {
-        "file": "services/tamarack-restoration-mold-removal.webp",
-        "size_kb": 235
-      },
-      {
-        "file": "services/tamarack-restoration-solana-beach-flood-cleanup.webp",
-        "size_kb": 24
-      },
-      {
-        "file": "services/tamarack-restoration-solana-beach-sewage-cleanup.webp",
-        "size_kb": 235
-      },
-      {
-        "file": "services/tamarack-restoration-carlsbad-water-damage-restoration.webp",
-        "size_kb": 63
-      },
-      {
-        "file": "services/tamarack-restoration-bressi-ranch-sewage-cleanup.webp",
-        "size_kb": 36
-      },
-      {
-        "file": "services/tamarack-restoration-vista-water-damage-restoration.webp",
-        "size_kb": 70
-      },
-      {
-        "file": "services/tamarack-restoration-encinitas-water-leak-repair.webp",
-        "size_kb": 15
-      },
-      {
-        "file": "services/tamarack-restoration-water-leak-repair.webp",
-        "size_kb": 41
-      },
-      {
-        "file": "services/tamarack-restoration-solana-beach-mold-removal.webp",
-        "size_kb": 79
-      },
-      {
-        "file": "services/tamarack-restoration-carlsbad-sewage-cleanup.webp",
-        "size_kb": 50
-      },
-      {
-        "file": "services/tamarack-restoration-san-marcos-mold-removal.webp",
-        "size_kb": 19
-      },
-      {
-        "file": "services/tamarack-restoration-bressi-ranch-water-leak-repair.webp",
-        "size_kb": 18
-      },
-      {
-        "file": "services/tamarack-restoration-san-marcos-sewage-cleanup.webp",
-        "size_kb": 110
-      },
-      {
-        "file": "services/tamarack-restoration-oceanside-flood-cleanup.webp",
-        "size_kb": 56
-      },
-      {
-        "file": "services/tamarack-restoration-sewage-cleanup.webp",
-        "size_kb": 235
-      },
-      {
-        "file": "services/tamarack-restoration-rancho-santa-fe-mold-removal.webp",
-        "size_kb": 235
-      },
-      {
-        "file": "services/tamarack-restoration-oceanside-fire-damage-restoration.webp",
-        "size_kb": 93
-      },
-      {
-        "file": "services/tamarack-restoration-vista-mold-removal.webp",
-        "size_kb": 108
-      },
-      {
-        "file": "services/tamarack-restoration-vista-sewage-cleanup.webp",
-        "size_kb": 235
-      },
-      {
-        "file": "services/tamarack-restoration-encinitas-mold-removal.webp",
-        "size_kb": 30
-      },
-      {
-        "file": "services/tamarack-restoration-san-marcos-water-leak-repair.webp",
-        "size_kb": 18
-      },
-      {
-        "file": "services/tamarack-restoration-bressi-ranch-water-damage-restoration.webp",
-        "size_kb": 58
-      },
-      {
-        "file": "services/tamarack-restoration-mold-removal-card.webp",
-        "size_kb": 110
-      },
-      {
-        "file": "services/tamarack-restoration-rancho-santa-fe-sewage-cleanup.webp",
-        "size_kb": 235
-      },
-      {
-        "file": "services/tamarack-restoration-oceanside-water-leak-repair.webp",
-        "size_kb": 25
-      },
-      {
-        "file": "services/tamarack-restoration-water-leak-repair-card.webp",
-        "size_kb": 29
-      },
-      {
-        "file": "services/tamarack-restoration-sewage-cleanup-card.webp",
-        "size_kb": 110
-      },
-      {
-        "file": "services/tamarack-restoration-solana-beach-water-damage-restoration.webp",
-        "size_kb": 52
-      },
-      {
-        "file": "services/tamarack-restoration-bressi-ranch-fire-damage-restoration.webp",
-        "size_kb": 154
-      },
-      {
-        "file": "services/tamarack-restoration-san-marcos-water-damage-restoration.webp",
-        "size_kb": 50
-      },
-      {
-        "file": "services/tamarack-restoration-encinitas-flood-cleanup.webp",
-        "size_kb": 93
-      },
-      {
-        "file": "services/tamarack-restoration-san-marcos-flood-cleanup.webp",
-        "size_kb": 30
-      },
-      {
-        "file": "services/tamarack-restoration-water-damage-restoration.webp",
-        "size_kb": 119
-      },
-      {
-        "file": "services/tamarack-restoration-bressi-ranch-mold-removal.webp",
-        "size_kb": 66
-      },
-      {
-        "file": "services/tamarack-restoration-carlsbad-water-leak-repair.webp",
-        "size_kb": 29
-      },
-      {
-        "file": "services/tamarack-restoration-san-marcos-fire-damage-restoration.webp",
-        "size_kb": 61
-      },
-      {
-        "file": "services/tamarack-restoration-carlsbad-fire-damage-restoration.webp",
-        "size_kb": 87
-      },
-      {
-        "file": "services/tamarack-restoration-rancho-santa-fe-fire-damage-restoration.webp",
-        "size_kb": 66
-      },
-      {
-        "file": "services/tamarack-restoration-flood-cleanup.webp",
-        "size_kb": 154
-      },
-      {
-        "file": "services/tamarack-restoration-bressi-ranch-flood-cleanup.webp",
-        "size_kb": 154
-      },
-      {
-        "file": "services/tamarack-restoration-carlsbad-mold-removal.webp",
-        "size_kb": 110
-      },
-      {
-        "file": "services/tamarack-restoration-fire-damage-restoration-card.webp",
-        "size_kb": 93
-      },
-      {
-        "file": "services/tamarack-restoration-rancho-santa-fe-flood-cleanup.webp",
-        "size_kb": 87
-      }
-    ]
+  "hero": {
+    "src": "images/hero/wheyland-electric-edison-bulb-lighting-hero.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "Warm Edison bulb lighting installation by Wheyland Electric in Carlsbad, CA"
+  },
+  "about_family": {
+    "src": "images/about/wheyland-electric-family-portrait.webp",
+    "width": 800,
+    "height": 627,
+    "alt": "The Wheyland Electric family \u2014 locally owned electrical contractor in Carlsbad, CA"
+  },
+  "about_team": {
+    "src": "images/about/wheyland-electric-technician-chandelier-install.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "Wheyland Electric electrician installing a chandelier in a North County San Diego home"
+  },
+  "ev_bmw_rsf": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-installation-rancho-santa-fe.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "BMW i Wall Box EV charger installed by Wheyland Electric in Rancho Santa Fe, CA"
+  },
+  "ev_tesla": {
+    "src": "images/services/ev-charger/wheyland-electric-tesla-wall-connector-installation.webp",
+    "width": 800,
+    "height": 1422,
+    "alt": "Tesla Wall Connector EV charger installation by Wheyland Electric in Carlsbad, CA"
+  },
+  "ev_porsche": {
+    "src": "images/services/ev-charger/wheyland-electric-porsche-ev-charger-garage.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Porsche Level 2 EV charger installed in a Carlsbad garage by Wheyland Electric"
+  },
+  "ev_charger_home_installation_1": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Level 2 EV charger installed by Wheyland Electric at a residential property in North County San Dieg"
+  },
+  "ev_charger_home_installation_2": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-home-installation-2.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Residential EV charging station installed by Wheyland Electric in San Diego County."
+  },
+  "ev_charger_garage_setup": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-garage-setup.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "EV charger wall installation in a residential garage by Wheyland Electric, North County San Diego."
+  },
+  "ev_charger_level2_install": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-level2-install.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Level 2 EV charger installation completed by Wheyland Electric for a San Diego homeowner."
+  },
+  "ev_charger_dedicated_circuit": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-dedicated-circuit.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Dedicated 240V circuit for Level 2 EV charging installed by Wheyland Electric."
+  },
+  "ev_charger_curbside_install": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-curbside-install.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "EV charger installation in a residential property by Wheyland Electric, North County San Diego."
+  },
+  "ev_charger_wall_mount_detail": {
+    "src": "images/services/ev-charger/wheyland-electric-ev-charger-wall-mount-detail.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Close-up of a Level 2 EV charger wall mount installation by Wheyland Electric."
+  },
+  "crystal_chandelier_foyer": {
+    "src": "images/services/lighting/wheyland-electric-crystal-chandelier-foyer.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Large three-tier crystal chandelier installed in a two-story residential foyer by Wheyland Electric, Carlsbad CA."
+  },
+  "kitchen_pendant_lighting": {
+    "src": "images/services/lighting/wheyland-electric-kitchen-pendant-lighting.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "High-end kitchen with pendant lighting over a marble island, installed by Wheyland Electric in North County San Diego."
+  },
+  "contemporary_chandelier_foyer": {
+    "src": "images/services/lighting/wheyland-electric-contemporary-chandelier-foyer.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Contemporary multi-globe brass chandelier installed in a Spanish-style residential entry foyer by Wheyland Electric."
+  },
+  "led_handrail_stair_lighting": {
+    "src": "images/services/lighting/wheyland-electric-led-handrail-stair-lighting.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "LED strip lighting integrated into a wooden stair handrail, installed by Wheyland Electric in a North County San Diego h"
+  },
+  "wet_bar_sconce_lighting": {
+    "src": "images/services/lighting/wheyland-electric-wet-bar-sconce-lighting.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Residential wet bar with wall sconce lighting and under-shelf LED strips, installed by Wheyland Electric."
+  },
+  "chandelier_breakfast_nook": {
+    "src": "images/services/lighting/wheyland-electric-chandelier-breakfast-nook.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Tiered smoky glass chandelier in a residential breakfast nook, installed by Wheyland Electric."
+  },
+  "home_theater_star_ceiling": {
+    "src": "images/services/lighting/wheyland-electric-home-theater-star-ceiling.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "Home theater with fiber optic star ceiling and LED cove lighting installed by Wheyland Electric in North County San Dieg"
+  },
+  "recessed_lighting_vaulted_ceiling": {
+    "src": "images/services/lighting/wheyland-electric-recessed-lighting-vaulted-ceiling.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Recessed lighting installed in a vaulted tongue-and-groove wood ceiling by Wheyland Electric."
+  },
+  "recessed_lighting_home_gym": {
+    "src": "images/services/lighting/wheyland-electric-recessed-lighting-home-gym.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "Recessed lighting in a coffered tray ceiling of a residential home gym, installed by Wheyland Electric."
+  },
+  "wagon_wheel_chandelier_install": {
+    "src": "images/services/lighting/wheyland-electric-wagon-wheel-chandelier-install.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Large ornate wagon-wheel chandelier being installed in a vaulted residential great room by Wheyland Electric."
+  },
+  "kitchen_under_cabinet_led": {
+    "src": "images/services/lighting/wheyland-electric-kitchen-under-cabinet-led.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Under-cabinet LED strip lighting and pendant sconce in a residential kitchen by Wheyland Electric."
+  },
+  "bathroom_led_mirror_lighting": {
+    "src": "images/services/lighting/wheyland-electric-bathroom-led-mirror-lighting.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "Backlit LED medicine cabinet mirrors in a master bathroom, installed by Wheyland Electric."
+  },
+  "rattan_pendant_lights_billiard": {
+    "src": "images/services/lighting/wheyland-electric-rattan-pendant-lights-billiard.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "Large rattan pendant lights over a billiard table in a Spanish Colonial home, installed by Wheyland Electric."
+  },
+  "coffee_station_shelf_lighting": {
+    "src": "images/services/lighting/wheyland-electric-coffee-station-shelf-lighting.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Built-in coffee station with warm LED shelf lighting, installed by Wheyland Electric."
+  },
+  "cove_lighting_tray_ceiling": {
+    "src": "images/services/lighting/wheyland-electric-cove-lighting-tray-ceiling.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "LED cove lighting in a tray ceiling with chandelier, installed by Wheyland Electric in a residential remodel."
+  },
+  "commercial_pendant_light_installation": {
+    "src": "images/services/lighting/wheyland-electric-commercial-pendant-light-installation.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Multiple decorative pendant lights installed in a commercial showroom space by Wheyland Electric."
+  },
+  "glass_bubble_chandelier_install": {
+    "src": "images/services/lighting/wheyland-electric-glass-bubble-chandelier-install.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Large glass bubble cluster chandelier installed in a vaulted living room by Wheyland Electric."
+  },
+  "dining_room_pendant_sconces": {
+    "src": "images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Formal dining room with pendant light and wall sconces installed by Wheyland Electric."
+  },
+  "home_office_ceiling_fan_lighting": {
+    "src": "images/services/lighting/wheyland-electric-home-office-ceiling-fan-lighting.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "High-end home office/study with ceiling fan light and recessed lighting by Wheyland Electric."
+  },
+  "commercial_meter_stack_panel": {
+    "src": "images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Commercial multi-unit electric meter stack and distribution panel installed by Wheyland Electric."
+  },
+  "service_entrance_wiring": {
+    "src": "images/services/panel/wheyland-electric-service-entrance-wiring.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Main service entrance conductors connected to the main bus in an electrical panel, installed by Wheyland Electric."
+  },
+  "outdoor_meter_panel_new_construction": {
+    "src": "images/services/panel/wheyland-electric-outdoor-meter-panel-new-construction.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "New construction outdoor meter socket and panel by Wheyland Electric, Carlsbad CA."
+  },
+  "outdoor_service_disconnect": {
+    "src": "images/services/panel/wheyland-electric-outdoor-service-disconnect.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Exterior service entrance disconnect and meter can on a residential property, work by Wheyland Electric."
+  },
+  "barrel_sauna_exterior": {
+    "src": "images/services/spa-sauna/wheyland-electric-barrel-sauna-exterior.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Outdoor cedar barrel sauna with electrical installation by Wheyland Electric, North County San Diego."
+  },
+  "barrel_sauna_interior_heater": {
+    "src": "images/services/spa-sauna/wheyland-electric-barrel-sauna-interior-heater.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Interior of a cedar barrel sauna showing the Helo electric sauna heater, wired by Wheyland Electric."
+  },
+  "indoor_sauna_heater_wiring": {
+    "src": "images/services/spa-sauna/wheyland-electric-indoor-sauna-heater-wiring.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Indoor cedar sauna with electric heater and stone basket, installed and wired by Wheyland Electric."
+  },
+  "commercial_control_panel_vfd": {
+    "src": "images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "Industrial electrical control cabinet with variable frequency drives installed by Wheyland Electric."
+  },
+  "commercial_food_processing_electrical": {
+    "src": "images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Commercial food processing equipment with electrical installation by Wheyland Electric."
+  },
+  "specialty_garage_shop_lights": {
+    "src": "images/gallery/wheyland-electric-specialty-garage-shop-lights.webp",
+    "width": 800,
+    "height": 600,
+    "alt": "High-end residential garage with LED shop lighting installation by Wheyland Electric, featuring classic cars."
+  },
+  "foyer_pendant_lights_staircase": {
+    "src": "images/gallery/wheyland-electric-foyer-pendant-lights-staircase.webp",
+    "width": 800,
+    "height": 1066,
+    "alt": "Residential foyer with curved staircase and rattan pendant lights, electrical installation by Wheyland Electric."
   }
 }
