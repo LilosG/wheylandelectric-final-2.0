@@ -35,8 +35,19 @@ const trustItems = [
   'relative overflow-hidden bg-brand-slate',
   compact ? 'py-16 md:py-20' : 'min-h-[85vh] flex items-center',
 ]}>
-  {/* Background with gradient overlay */}
+  {/* Background with photo + gradient overlay */}
   <div class="absolute inset-0">
+    {!compact && (
+      <img
+        src="/images/hero/wheyland-electric-edison-bulb-lighting-hero.webp"
+        alt="Warm Edison bulb lighting installation by Wheyland Electric in Carlsbad, CA"
+        width="1920"
+        height="1080"
+        class="absolute inset-0 w-full h-full object-cover object-center"
+        loading="eager"
+        fetchpriority="high"
+      />
+    )}
     <div class="absolute inset-0 bg-gradient-to-br from-brand-slate via-brand-slate/95 to-brand-slate/80"></div>
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(31,78,99,0.97) 0%, rgba(31,78,99,0.85) 40%, rgba(58,153,148,0.15) 100%)"></div>
   </div>
