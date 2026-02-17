@@ -95,7 +95,12 @@ export interface City {
   has_zip_pdf: boolean;
   zips: string[];
   neighborhoods: string[];
+  /** Primary intro paragraph. */
   localIntroSeed: string;
+  /** Second intro paragraph with building demographics, electrical context, and ZIP references. */
+  localIntroExtended?: string;
+  /** Brief descriptions keyed by neighborhood name. */
+  neighborhoodDescriptions?: Record<string, string>;
   localCues: string[];
   nearbyCities: string[];
   serviceCategories: string[];
@@ -130,6 +135,31 @@ export interface ServicePillar {
   relatedServices: string[];
   subtopics: string[];
   localizedIntroSeedByCity: Record<string, string>;
+  /** Unique H1 tagline per city. Keyed by city slug. Wave 1 services only. */
+  h1TaglineByCity?: Record<string, string>;
+  /** Signs the customer needs this service — "When to Call" section. Wave 1 services only. */
+  whenToCallSigns?: string[];
+}
+
+// --- City-Service Content ---
+
+export interface CityServiceContent {
+  /** Intro paragraph with city-specific neighborhoods/ZIPs/permit authority. */
+  uniqueIntro: string;
+  /** "Understanding [Service] in [City]" section body. 200-300 words. */
+  understandingSection: string;
+  /** City-scoped "What's Included" bullets (6-8). */
+  scopedWhatsIncluded: string[];
+  /** Process steps with city permit authority context. */
+  scopedProcessSteps: { title: string; description: string }[];
+  /** Pricing factors paragraph with city-specific notes. */
+  pricingContext: string;
+  /** 6+ FAQs per combination with city neighborhoods/ZIPs in Q&A. */
+  faqs: FAQ[];
+  /** Neighborhoods referenced in content. */
+  neighborhoodMentions: string[];
+  /** ZIP codes served in this city. */
+  zipCodes: string[];
 }
 
 export type ExtendedServiceCategory = 'residential' | 'commercial' | 'industrial' | 'hoa' | 'ev' | 'compliance';
