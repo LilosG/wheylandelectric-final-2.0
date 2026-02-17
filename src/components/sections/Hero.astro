@@ -1,5 +1,6 @@
 ---
 import { site } from '../../data/site';
+import { getServiceHeroImage, getCityHeroImage } from '../../data/heroImages';
 import Button from '../ui/Button.astro';
 
 interface Props {
@@ -11,6 +12,9 @@ interface Props {
   showTrustCard?: boolean;
   showStatChips?: boolean;
   compact?: boolean;
+  imageSource?: 'service' | 'city' | 'default';
+  imageKey?: string;
+  backgroundImage?: string;
 }
 
 const {
@@ -22,7 +26,20 @@ const {
   showTrustCard = true,
   showStatChips = true,
   compact = false,
+  imageSource = 'default',
+  imageKey,
+  backgroundImage,
 } = Astro.props;
+
+// Determine which image to use
+let finalBackgroundImage = backgroundImage;
+if (imageSource === 'service' && imageKey) {
+  finalBackgroundImage = getServiceHeroImage(imageKey).src;
+} else if (imageSource === 'city' && imageKey) {
+  finalBackgroundImage = getCityHeroImage(imageKey).src;
+} else if (!finalBackgroundImage) {
+  finalBackgroundImage = '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp';
+}
 
 const trustItems = [
   `CA License #940291`,
@@ -39,8 +56,8 @@ const trustItems = [
   <div class="absolute inset-0">
     {!compact && (
       <img
-        src="/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp"
-        alt="Warm Edison bulb lighting installation by Wheyland Electric in Carlsbad, CA"
+        src={finalBackgroundImage}
+        alt="Professional electrician services background image"
         width="1920"
         height="1080"
         class="absolute inset-0 w-full h-full object-cover object-center"

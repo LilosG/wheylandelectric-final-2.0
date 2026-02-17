@@ -1,0 +1,61 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number;
+  height?: number;
+  rounded?: 'none' | 'sm' | 'md' | 'lg' | 'full';
+  containerClass?: string;
+  loading?: 'eager' | 'lazy';
+  objectFit?: 'cover' | 'contain' | 'fill' | 'scale-down';
+}
+
+const {
+  src,
+  alt,
+  caption,
+  width,
+  height,
+  rounded = 'md',
+  containerClass = '',
+  loading = 'lazy',
+  objectFit = 'cover',
+} = Astro.props;
+
+const roundedClass: Record<string, string> = {
+  none: 'rounded-none',
+  sm: 'rounded-sm',
+  md: 'rounded-md',
+  lg: 'rounded-lg',
+  full: 'rounded-full',
+};
+
+const objectFitClass: Record<string, string> = {
+  cover: 'object-cover',
+  contain: 'object-contain',
+  fill: 'object-fill',
+  'scale-down': 'object-scale-down',
+};
+
+const aspectRatio = width && height ? `${width}/${height}` : undefined;
+const roundedCls = roundedClass[rounded] || roundedClass.md;
+const objectFitCls = objectFitClass[objectFit] || objectFitClass.cover;
+---
+
+<figure class={containerClass}>
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    class={`w-full h-auto ${roundedCls} ${objectFitCls} shadow-md`}
+    style={aspectRatio ? { aspectRatio } : {}}
+  />
+  {caption && (
+    <figcaption class="text-sm text-slate-600 mt-2 text-center italic">
+      {caption}
+    </figcaption>
+  )}
+</figure>
