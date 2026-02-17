@@ -1,11 +1,14 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
 import HOAOfferBlock from '../components/sections/HOAOfferBlock.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
 import { generateMeta } from '../lib/seo';
+import { getWhoWeServeImage } from '../data/heroImages';
 
 const meta = generateMeta({
   title: 'Who We Work With | Wheyland Electric',
@@ -56,30 +59,56 @@ const segments = [
     showStatChips={false}
   />
 
-  {segments.map((segment, index) => (
-    <Section bg={index % 2 === 0 ? 'white' : 'subtle'}>
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4">{segment.title}</h2>
-          <p class="text-text-muted leading-relaxed mb-6">{segment.description}</p>
-          <ul class="space-y-2 mb-6">
-            {segment.services.map((svc) => (
-              <li class="flex items-center gap-2 text-text-muted">
-                <svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                {svc}
-              </li>
-            ))}
-          </ul>
-          <Button href={segment.cta.href} variant="secondary">{segment.cta.label}</Button>
+  <TrustBar />
+
+  {segments.map((segment, index) => {
+    const imageKey = segment.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
+    const heroImage = getWhoWeServeImage(imageKey);
+    const hasImage = heroImage && !heroImage.src.includes('placeholder');
+
+    return (
+      <Section bg={index % 2 === 0 ? 'white' : 'subtle'}>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+          <div class="flex flex-col justify-center">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4">{segment.title}</h2>
+            <p class="text-text-muted leading-relaxed mb-6">{segment.description}</p>
+            <ul class="space-y-2 mb-6">
+              {segment.services.map((svc) => (
+                <li class="flex items-center gap-2 text-text-muted">
+                  <svg class="w-4 h-4 text-brand-teal shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {svc}
+                </li>
+              ))}
+            </ul>
+            <div>
+              <Button href={segment.cta.href} variant="secondary">{segment.cta.label}</Button>
+            </div>
+          </div>
+
+          <div class="flex flex-col justify-center">
+            {hasImage ? (
+              <ResponsiveImage
+                src={heroImage.src}
+                alt={heroImage.alt}
+                rounded="lg"
+                containerClass="h-80 md:h-96"
+              />
+            ) : (
+              <div class="bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg p-8 flex items-center justify-center h-80 md:h-96 shadow-md">
+                <div class="text-center">
+                  <div class="text-5xl mb-4">📷</div>
+                  <p class="text-slate-600 font-medium">{segment.title}</p>
+                  <p class="text-xs text-slate-500 mt-2">Upload image to: /public/images/who-we-serve/{imageKey}.jpg</p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-        <div class="bg-surface-subtle rounded-xl p-8 flex items-center justify-center min-h-[200px]">
-          <p class="text-sm text-text-muted">Image placeholder — {segment.title}</p>
-        </div>
-      </div>
-    </Section>
-  ))}
+      </Section>
+    );
+  })}
 
   <!-- HOA Offer Block -->
   <Section bg="subtle">

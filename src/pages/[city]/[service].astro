@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
+import CTABlock from '../../components/sections/CTABlock.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
@@ -181,7 +182,7 @@ const moneyPageFaqs: FAQ[] = [
     <div class="absolute inset-0 opacity-10">
       <div class="absolute top-0 right-0 w-96 h-96 bg-brand-teal rounded-full -translate-y-1/2 translate-x-1/3"></div>
     </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
+    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
       <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
         {h1Tagline}
       </h1>
@@ -276,10 +277,13 @@ const moneyPageFaqs: FAQ[] = [
         </li>
       ))}
     </ul>
-    <div class="bg-surface-subtle rounded-xl p-6 text-center">
-      <p class="text-text-muted mb-3">Get a precise estimate for your {city.name} project.</p>
-      <Button href="/free-estimates/" variant="primary">Request Free Estimate</Button>
-    </div>
+    <CTABlock
+      heading={`Get a precise estimate for your ${city.name} project.`}
+      description=""
+      primaryText="Request Free Estimate"
+      secondaryText={`Call ${site.nap.phone}`}
+      secondaryHref={`tel:${site.nap.phoneTel}`}
+    />
   </Section>
 
   <!-- 8. TrustBar -->
