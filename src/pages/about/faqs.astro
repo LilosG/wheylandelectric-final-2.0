@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
@@ -45,6 +46,8 @@ const meta = generateMeta({
       <FAQAccordion faqs={globalFaqs} heading="" />
     </div>
   </Section>
+
+  <TrustBar />
 
   <CTASection title="Still Have Questions?" subtitle="Give us a call or request a free estimate. We are happy to help." />
 </PageLayout>

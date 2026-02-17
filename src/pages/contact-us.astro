@@ -2,6 +2,7 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 import GBPEmbed from '../components/sections/GBPEmbed.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
 import Section from '../components/ui/Section.astro';
 import { generateMeta } from '../lib/seo';
 import { localBusinessSchema } from '../lib/schema/localBusiness';
@@ -22,6 +23,8 @@ const meta = generateMeta({
       </p>
     </div>
   </Section>
+
+  <TrustBar />
 
   <Section bg="subtle">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">

@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero.astro';
+import TrustBar from '../components/sections/TrustBar.astro';
 import HOAOfferBlock from '../components/sections/HOAOfferBlock.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import Section from '../components/ui/Section.astro';
@@ -57,6 +58,8 @@ const segments = [
     showTrustCard={false}
     showStatChips={false}
   />
+
+  <TrustBar />
 
   {segments.map((segment, index) => {
     const imageKey = segment.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
