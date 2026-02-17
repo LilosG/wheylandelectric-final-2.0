@@ -79,47 +79,48 @@ export const serviceHeroImages: HeroImageMap = {
 /**
  * City Hero Images
  * Map city slugs to their hero background images
+ * Uses varied, well-optimized service images for visual diversity while maintaining brand consistency
  */
 export const cityHeroImages: HeroImageMap = {
   carlsbad: {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Carlsbad electrician - Wheyland Electric serving Carlsbad, CA and surrounding areas',
+    src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
+    alt: 'Carlsbad electrician - EV charger installation and electrical services in Carlsbad, CA',
   },
   encinitas: {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Encinitas electrician - Wheyland Electric serving Encinitas, CA with professional electrical services',
+    src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
+    alt: 'Encinitas electrician - Residential lighting and electrical services in Encinitas, CA',
   },
   'rancho-santa-fe': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Rancho Santa Fe electrician - Wheyland Electric serving luxury estates in Rancho Santa Fe, CA',
+    src: '/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp',
+    alt: 'Rancho Santa Fe electrician - Panel upgrades and electrical services for luxury estates in Rancho Santa Fe, CA',
   },
   'san-marcos': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'San Marcos electrician - Wheyland Electric serving San Marcos, CA with professional electrical services',
+    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
+    alt: 'San Marcos electrician - Commercial electrical services in San Marcos, CA',
   },
   'del-mar': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Del Mar electrician - Wheyland Electric serving Del Mar, CA with professional electrical services',
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-installation.webp',
+    alt: 'Del Mar electrician - EV charger installation and electrical services in Del Mar, CA',
   },
   'solana-beach': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Solana Beach electrician - Wheyland Electric serving Solana Beach, CA with professional electrical services',
+    src: '/images/services/lighting/wheyland-electric-crystal-chandelier-foyer.webp',
+    alt: 'Solana Beach electrician - Lighting installation and electrical services in Solana Beach, CA',
   },
   oceanside: {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Oceanside electrician - Wheyland Electric serving Oceanside, CA with professional electrical services',
+    src: '/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp',
+    alt: 'Oceanside electrician - Lighting and electrical services in Oceanside, CA',
   },
   'vista': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Vista electrician - Wheyland Electric serving Vista, CA with professional electrical services',
+    src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
+    alt: 'Vista electrician - Electrical panel and service upgrades in Vista, CA',
   },
   'escondido': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Escondido electrician - Wheyland Electric serving Escondido, CA with professional electrical services',
+    src: '/images/services/lighting/wheyland-electric-kitchen-pendant-lighting.webp',
+    alt: 'Escondido electrician - Lighting and electrical services in Escondido, CA',
   },
   'poway': {
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Poway electrician - Wheyland Electric serving Poway, CA with professional electrical services',
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-garage-setup.webp',
+    alt: 'Poway electrician - EV charger installation and electrical services in Poway, CA',
   },
 };
 
