@@ -132,6 +132,30 @@ const relatedPillars = pillar.relatedServices
 
   <TrustBar />
 
+  <!-- When to Call -->
+  {pillar.whenToCallSigns && pillar.whenToCallSigns.length > 0 && (
+    <Section bg="white">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4">
+          Signs You Need {pillar.name}
+        </h2>
+        <p class="text-text-muted mb-6">
+          If any of the following situations apply to you, it is a good time to call Wheyland Electric for a free assessment.
+        </p>
+        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {pillar.whenToCallSigns.map((sign) => (
+            <li class="flex items-start gap-3 bg-surface-subtle rounded-lg p-4">
+              <svg class="w-5 h-5 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-text-muted text-sm">{sign}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+  )}
+
   <!-- What's Included -->
   <Section bg="white">
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
@@ -210,23 +234,28 @@ const relatedPillars = pillar.relatedServices
     </Section>
   )}
 
-  <!-- City Links -->
+  <!-- City Links — North County San Diego Coverage -->
   <Section bg="subtle">
-    <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6 text-center">
-      We Offer {pillar.name} In
-    </h2>
-    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-4xl mx-auto mb-6">
-      {cities.map((city) => (
-        <a
-          href={`/${city.slug}/${pillar.slug}/`}
-          class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4 text-center text-brand-slate hover:text-brand-teal font-medium"
-        >
-          {city.name}, CA
-        </a>
-      ))}
-    </div>
-    <div class="text-center">
-      <Button href="/service-areas/" variant="ghost">All Service Areas</Button>
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4 text-center">
+        {pillar.name} Across North County San Diego
+      </h2>
+      <p class="text-text-muted text-center mb-8 max-w-2xl mx-auto">
+        Wheyland Electric is based in Carlsbad and serves all of North County San Diego with the same commitment to quality, transparent pricing, and complete permit handling. Select your city below to learn about {pillar.name.toLowerCase()} specific to your area.
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+        {cities.map((city) => (
+          <a
+            href={`/${city.slug}/${pillar.slug}/`}
+            class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4 text-center text-brand-slate hover:text-brand-teal font-medium"
+          >
+            {city.name}
+          </a>
+        ))}
+      </div>
+      <div class="text-center">
+        <Button href="/service-areas/" variant="ghost">All Service Areas →</Button>
+      </div>
     </div>
   </Section>
 

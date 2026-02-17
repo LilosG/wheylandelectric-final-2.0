@@ -129,6 +129,25 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Oceanside is one of the largest and fastest-growing cities in North County, and EV adoption is rising across every neighborhood from downtown to Rancho Del Oro and Arrowood. Wheyland Electric provides EV charger installation for single-family homes, townhomes, and multi-unit properties throughout Oceanside. We handle the City of Oceanside permit process and ensure your installation meets all current code requirements.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'EV Charger Installation in Carlsbad — Permitted, Local, Same-Day Scheduling',
+      encinitas: 'EV Charger Installation in Encinitas — From Leucadia to Olivenhain',
+      'rancho-santa-fe': 'EV Charger Installation in Rancho Santa Fe — Estate-Scale Circuit Work',
+      'san-marcos': 'EV Charger Installation in San Marcos — San Elijo Hills to Twin Oaks Valley',
+      'del-mar': 'EV Charger Installation in Del Mar — Coastal Precision, Full Permit Handling',
+      'solana-beach': 'EV Charger Installation in Solana Beach — Fast Scheduling From Carlsbad',
+      oceanside: 'EV Charger Installation in Oceanside — Serving All Neighborhoods, All ZIP Codes',
+    },
+    whenToCallSigns: [
+      'You purchased or leased an electric vehicle and rely on slow Level 1 outlet charging',
+      'Your daily commute distance exceeds what Level 1 charging restores overnight',
+      'You want to take advantage of SDG&E off-peak electricity rates for overnight charging',
+      'You are buying a home and want EV charging ready at move-in',
+      'Your workplace does not offer EV charging and you need a reliable home solution',
+      'You are adding a second EV to your household',
+      'Your HOA or property manager is planning community EV charger infrastructure',
+      'You want a dedicated 240V circuit instead of sharing outlets with other appliances',
+    ],
   },
 
   // 2. Electrical Panel Upgrades
@@ -253,6 +272,26 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Oceanside diverse housing stock — from 1950s-era homes near the coast to new construction in Arrowood — means panel needs vary widely. Wheyland Electric performs panel upgrades across Oceanside, from straightforward 200-amp replacements to complex multi-meter commercial setups. We work with the City of Oceanside permitting office and keep the process on schedule.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Electrical Panel Upgrades in Carlsbad — Serving La Costa to the Village Since 2008',
+      encinitas: 'Electrical Panel Upgrades in Encinitas — Leucadia, Cardiff, Olivenhain & Beyond',
+      'rancho-santa-fe': 'Electrical Panel Upgrades in Rancho Santa Fe — Estate-Grade Panel Work, Permitted',
+      'san-marcos': 'Electrical Panel Upgrades in San Marcos — 100A to 200A, Same-Day Assessment',
+      'del-mar': 'Electrical Panel Upgrades in Del Mar — Code-Compliant Work for Coastal Properties',
+      'solana-beach': 'Electrical Panel Upgrades in Solana Beach — Licensed, SDG&E Coordinated',
+      oceanside: 'Electrical Panel Upgrades in Oceanside — From Vintage Beach Homes to New Construction',
+    },
+    whenToCallSigns: [
+      'Your circuit breakers trip frequently under normal household use',
+      'You are adding a major appliance such as an EV charger, hot tub, or HVAC system',
+      'Your home was built before 1990 and still has the original 100-amp panel',
+      'You have a Federal Pacific, Zinsco, or Pushmatic panel identified as a fire risk',
+      'Your homeowner insurance is flagging your panel during renewal or a home sale',
+      'You are planning a kitchen remodel, ADU, or room addition that requires more electrical capacity',
+      'You hear buzzing or smell something burning near the electrical panel',
+      'You are running extension cords because you do not have enough outlets',
+      'Your lights dim noticeably when large appliances start up',
+    ],
   },
 
   // 3. Service Calls & Troubleshooting
@@ -373,6 +412,26 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Oceanside covers a lot of ground and a wide range of home styles, from the older pier-area houses to brand-new construction in the eastern neighborhoods. Wheyland Electric provides electrical service calls throughout Oceanside with the same thorough diagnostic approach and transparent communication no matter where you are in the city.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Electrical Service Calls in Carlsbad — Prompt Diagnosis, Honest Answers',
+      encinitas: 'Electrical Troubleshooting in Encinitas — Same-Day Service, Root-Cause Diagnosis',
+      'rancho-santa-fe': 'Electrical Service Calls in Rancho Santa Fe — Discreet, Professional, Thorough',
+      'san-marcos': 'Electrical Troubleshooting in San Marcos — Honest Diagnosis, No Upselling',
+      'del-mar': 'Electrical Service Calls in Del Mar — Coastal Home Specialists, Licensed',
+      'solana-beach': 'Electrical Service Calls in Solana Beach — Fast Response From Local Carlsbad Crew',
+      oceanside: 'Electrical Troubleshooting in Oceanside — Serving All ZIP Codes, Prompt Response',
+    },
+    whenToCallSigns: [
+      'Outlets or switches feel warm to the touch when nothing is plugged in',
+      'You see sparks when plugging in a device',
+      'Circuit breakers trip repeatedly even after being reset',
+      'Lights flicker or dim without any apparent reason',
+      'You smell burning plastic or see discolored outlet covers',
+      'Part of your home has lost power unexpectedly',
+      'Your GFCI outlets in the kitchen or bathroom will not reset',
+      'You hear buzzing or humming from walls, panels, or fixtures',
+      'A storm, flooding, or water intrusion event may have affected your wiring',
+    ],
   },
 
   // 4. Recessed Lighting Installation
@@ -493,6 +552,24 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Recessed lighting transforms a room, and Oceanside homeowners across Fire Mountain, South O, and Rancho Del Oro are upgrading in record numbers. Wheyland Electric installs both new-construction and retrofit recessed lighting throughout Oceanside, helping each homeowner choose the right fixture count, spacing, and color temperature for their space.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Recessed Lighting Installation in Carlsbad — LED Layouts From La Costa to the Village',
+      encinitas: 'Recessed Lighting Installation in Encinitas — Modern Fixtures for Coastal Homes',
+      'rancho-santa-fe': 'Recessed Lighting Installation in Rancho Santa Fe — Estate Lighting, Precision Install',
+      'san-marcos': 'Recessed Lighting Installation in San Marcos — Clean, Even Light, Licensed Electricians',
+      'del-mar': 'Recessed Lighting Installation in Del Mar — Trim Selection, Layout Design, Full Install',
+      'solana-beach': 'Recessed Lighting Installation in Solana Beach — LED Retrofits & New Installs',
+      oceanside: 'Recessed Lighting Installation in Oceanside — From Beach Cottages to New Construction',
+    },
+    whenToCallSigns: [
+      'Your rooms feel dark even with ceiling fixtures on',
+      'You want clean, modern lighting without visible fixture bodies or dangling pendants',
+      'You are remodeling a kitchen, bathroom, hallway, or living area',
+      'Your current can lights are old, inefficient incandescents or non-LED fixtures',
+      'You want adjustable task lighting over counters, desks, or reading areas',
+      'Your ceilings are low and pendant or chandelier fixtures hang too close',
+      'You are setting up a home office and need even, glare-free illumination',
+    ],
   },
 
   // 5. Light Fixture Installation
@@ -614,6 +691,24 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Across Oceanside — from the renovated downtown lofts to the family homes in Rancho Del Oro — Wheyland Electric provides professional light fixture installation services. We install everything from simple flush mounts and bathroom vanity lights to large outdoor fixtures and commercial lighting. Every installation includes junction box verification and a clean, code-compliant result.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Light Fixture Installation in Carlsbad — Chandeliers, Pendants & Outdoor Fixtures',
+      encinitas: 'Light Fixture Installation in Encinitas — Coastal Style, Code-Compliant Wiring',
+      'rancho-santa-fe': 'Light Fixture Installation in Rancho Santa Fe — Statement Fixtures, Flawless Execution',
+      'san-marcos': 'Light Fixture Installation in San Marcos — Any Fixture, Any Room, Licensed Install',
+      'del-mar': 'Light Fixture Installation in Del Mar — Luxury Fixtures, Coastal-Grade Connections',
+      'solana-beach': 'Light Fixture Installation in Solana Beach — Pendants, Sconces & Outdoor Lights',
+      oceanside: 'Light Fixture Installation in Oceanside — Fast, Clean, Code-Compliant Installs',
+    },
+    whenToCallSigns: [
+      'You are hanging a heavy chandelier (30 lbs or more requires a fan-rated or fixture support box)',
+      'The wiring on your new fixture does not match what is in your ceiling junction box',
+      'You need a new or upgraded electrical box to support the fixture weight or style',
+      'You are installing outdoor fixtures that require weatherproof connections and boxes',
+      'You are converting a room from a switch-controlled outlet to a ceiling fixture with a dimmer',
+      'You want multiple fixtures on a new circuit rather than using the existing switch',
+      'Your existing fixtures are flickering, buzzing, or burning out bulbs prematurely',
+    ],
   },
 
   // 6. Ceiling Fan Installation
@@ -734,6 +829,23 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Ceiling fan installations are one of our most common requests from Oceanside homeowners looking to improve comfort and reduce cooling costs. Whether you are in a downtown condo, a Fire Mountain cottage, or a newer Arrowood home, Wheyland Electric installs your fan safely with a fan-rated box, balanced blades, and professional wiring.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Ceiling Fan Installation in Carlsbad — New Install or Replacement, Same-Day Scheduling',
+      encinitas: 'Ceiling Fan Installation in Encinitas — Indoor & Covered Patio Fan Installs',
+      'rancho-santa-fe': 'Ceiling Fan Installation in Rancho Santa Fe — Statement Fans for Large Spaces',
+      'san-marcos': 'Ceiling Fan Installation in San Marcos — Efficient Fans, Energy Savings, Clean Install',
+      'del-mar': 'Ceiling Fan Installation in Del Mar — Coastal-Rated Fans for Salt-Air Environments',
+      'solana-beach': 'Ceiling Fan Installation in Solana Beach — Fast Installs, Outdoor-Rated Options',
+      oceanside: 'Ceiling Fan Installation in Oceanside — From Harbor Homes to Inland New Construction',
+    },
+    whenToCallSigns: [
+      'Your rooms are stuffy and uncomfortable even when the air conditioner is running',
+      'Your energy bills are higher than expected and you want to reduce AC runtime',
+      'You want to add a fan where only a ceiling light fixture currently exists',
+      'Your current fan wobbles, makes noise, runs slowly on all speeds, or has stopped working',
+      'You are finishing a covered patio or pergola and want outdoor-rated airflow',
+      'You are converting a spare room and want both a light and a fan on the same switch',
+    ],
   },
 
   // 7. Spa, Jacuzzi & Sauna Electrical
@@ -863,6 +975,23 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'Whether you are installing a hot tub behind your Oceanside home or wiring a sauna for your garage gym, Wheyland Electric provides professional spa electrical services throughout the city. We handle everything from the panel to the equipment — dedicated circuit, disconnect switch, conduit run, and city inspection.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Hot Tub & Spa Electrical in Carlsbad — 240V Circuits, Permitted, Same-Week Scheduling',
+      encinitas: 'Spa & Hot Tub Electrical in Encinitas — From Cardiff to Olivenhain, Fully Permitted',
+      'rancho-santa-fe': 'Spa & Sauna Electrical in Rancho Santa Fe — Estate-Grade Outdoor Electrical',
+      'san-marcos': 'Hot Tub Electrical in San Marcos — Dedicated 240V Circuit, Permit Included',
+      'del-mar': 'Spa & Hot Tub Electrical in Del Mar — Code-Compliant Circuits for Coastal Luxury',
+      'solana-beach': 'Hot Tub & Spa Electrical in Solana Beach — Fast Permitting, Local Crew',
+      oceanside: 'Spa & Hot Tub Electrical in Oceanside — All Neighborhoods, Licensed & Permitted',
+    },
+    whenToCallSigns: [
+      'You are purchasing a hot tub and need a dedicated 240V, 50-amp GFCI-protected circuit installed',
+      'Your existing spa circuit is undersized or tripping the breaker under normal load',
+      'You are adding a sauna that requires its own dedicated electrical service',
+      'You want outdoor lighting, heaters, or audio wired for your spa or patio area',
+      'Your pergola or outdoor living structure needs electrical for a planned hot tub setup',
+      'You are installing an ice bath, cold plunge, or other spa equipment with electrical requirements',
+    ],
   },
 
   // 8. Outlet, Switch, Dimmer & GFCI Repairs
@@ -984,6 +1113,25 @@ export const servicePillars: ServicePillar[] = [
       oceanside:
         'From downtown Oceanside condos to Fire Mountain family homes, Wheyland Electric provides outlet and switch services that keep your electrical system safe and up to date. We install GFCI outlets, replace worn switches, add dimmers, and upgrade to USB outlets — fast, affordable, and done right by a licensed electrician.',
     },
+    h1TaglineByCity: {
+      carlsbad: 'Outlet & Switch Repairs in Carlsbad — GFCI, Dimmers & More, Same-Day Available',
+      encinitas: 'Outlet & GFCI Repairs in Encinitas — Fast, Honest Service for Coastal Homes',
+      'rancho-santa-fe': 'Outlet & Switch Repairs in Rancho Santa Fe — Precision Work for High-End Homes',
+      'san-marcos': 'Outlet, Switch & GFCI Repairs in San Marcos — No Job Too Small',
+      'del-mar': 'GFCI & Outlet Repairs in Del Mar — Coastal-Grade Repairs, Properly Permitted',
+      'solana-beach': 'Outlet & Switch Repairs in Solana Beach — Fast Response From Local Carlsbad Team',
+      oceanside: 'Outlet, Dimmer & GFCI Repairs in Oceanside — Serving All Neighborhoods',
+    },
+    whenToCallSigns: [
+      'Outlets are loose, cracked, discolored, or will not hold plugs securely',
+      'You have ungrounded two-prong outlets in older rooms that need updating',
+      'Your GFCI outlets in the kitchen, bathroom, garage, or exterior will not test or reset',
+      'Switches feel warm to the touch, spark when toggled, or make buzzing or clicking noises',
+      'You want dimmer switches installed for living rooms, bedrooms, or dining areas',
+      'You need outlets relocated or added for a furniture rearrangement or remodel',
+      'Your smoke or carbon monoxide detectors are older than 10 years or chirping constantly',
+      'Your outdoor outlets lack GFCI protection as required by current code',
+    ],
   },
 
   // ========================

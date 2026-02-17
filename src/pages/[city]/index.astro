@@ -44,12 +44,34 @@ const categoryLabels: Record<string, string> = {
 };
 
 const cityFaqs: FAQ[] = [
-  { question: `What electrical services does Wheyland Electric offer in ${city.name}?`, answer: `We provide comprehensive electrical services in ${city.name} including EV charger installation, electrical panel upgrades, recessed lighting, light fixture installation, ceiling fan installation, spa and hot tub wiring, outlet and switch repairs, and troubleshooting. All work is performed by licensed electricians and backed by our 1-year labor warranty.` },
-  { question: `Is Wheyland Electric licensed to work in ${city.name}?`, answer: `Yes. Wheyland Electric holds California Contractor License #940291 and is fully licensed, bonded, and insured to perform electrical work throughout ${city.name} and all of San Diego County.` },
-  { question: `How do I get a free estimate for electrical work in ${city.name}?`, answer: `Call us at (858) 663-5564 or fill out our online estimate request form at wheylandelectric.com/free-estimates. We will discuss your project and provide a no-obligation estimate.` },
-  { question: `Does Wheyland Electric serve HOA communities in ${city.name}?`, answer: `Yes. We offer flat-rate monthly lighting and electrical maintenance services for HOA communities in ${city.name}. This includes scheduled inspections, documentation, and transparent pricing.` },
-  { question: `Can you install an EV charger at my ${city.name} home?`, answer: `Yes. We install Level 2 EV chargers for all makes including Tesla, Rivian, and Ford at homes throughout ${city.name}. We handle the complete process from panel assessment to permitting, installation, and inspection.` },
-  { question: `What areas near ${city.name} does Wheyland Electric serve?`, answer: `In addition to ${city.name}, we serve ${nearbyCities.map((c) => c.name).join(', ')} and all of San Diego County. Our main office is in Carlsbad.` },
+  {
+    question: `What electrical services does Wheyland Electric offer in ${city.name}?`,
+    answer: `We provide comprehensive electrical services in ${city.name} including EV charger installation, electrical panel upgrades, recessed lighting installation, light fixture installation, ceiling fan installation, spa and hot tub wiring, outlet and switch repairs, and electrical troubleshooting. All work is performed by licensed electricians, permitted through the City of ${city.name}, and backed by our 1-year labor warranty on workmanship.`,
+  },
+  {
+    question: `Is Wheyland Electric licensed to work in ${city.name}, CA?`,
+    answer: `Yes. Wheyland Electric holds California Contractor License #940291 and is fully licensed, bonded, and insured to perform electrical work throughout ${city.name} and all of San Diego County. We pull permits directly with the City of ${city.name} building department on every job that requires one.`,
+  },
+  {
+    question: `How do I get a free estimate for electrical work in ${city.name}?`,
+    answer: `Call us at (858) 663-5564 or fill out the estimate request form at wheylandelectric.com/free-estimates. We will discuss your project, answer questions, and schedule an on-site assessment at no cost or obligation.`,
+  },
+  {
+    question: `Does Wheyland Electric handle building permits for work in ${city.name}?`,
+    answer: `Yes. We manage the entire permit process — application, plan submission where required, and inspection scheduling — with the City of ${city.name} building department. You do not need to visit the permit office or manage any paperwork.`,
+  },
+  {
+    question: `Does Wheyland Electric serve HOA communities in ${city.name}?`,
+    answer: `Yes. We offer flat-rate monthly lighting and electrical maintenance services for HOA communities in ${city.name}. This includes scheduled common-area inspections, written documentation for board records, and transparent predictable pricing — no surprise invoices.`,
+  },
+  {
+    question: `Can you install an EV charger at my ${city.name} home?`,
+    answer: `Yes. We install Level 2 EV chargers for all makes and models — Tesla, Rivian, Ford, Chevy, BMW, and others — at homes throughout ${city.name}. We handle the complete process from panel capacity assessment and permit filing to installation and final city inspection.`,
+  },
+  {
+    question: `What areas near ${city.name} does Wheyland Electric serve?`,
+    answer: `In addition to ${city.name}, we serve ${nearbyCities.map((c) => c.name).join(', ')}, and all of North County San Diego. Our main office is at 3536 Woodland Way in Carlsbad. Call (858) 663-5564 to discuss your project.`,
+  },
 ];
 ---
 <PageLayout
@@ -75,6 +97,9 @@ const cityFaqs: FAQ[] = [
   <Section bg="white">
     <div class="max-w-3xl mx-auto">
       <p class="text-lg text-text-muted leading-relaxed mb-6">{city.localIntroSeed}</p>
+      {city.localIntroExtended && (
+        <p class="text-text-muted leading-relaxed mb-6">{city.localIntroExtended}</p>
+      )}
 
       <!-- Service categories -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
@@ -106,12 +131,17 @@ const cityFaqs: FAQ[] = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
       {city.neighborhoods.length > 0 && (
         <div>
-          <h3 class="text-lg font-semibold text-brand-slate mb-3">Neighborhoods We Serve</h3>
-          <ul class="space-y-1">
+          <h3 class="text-lg font-semibold text-brand-slate mb-3">Neighborhoods We Serve in {city.name}</h3>
+          <ul class="space-y-3">
             {city.neighborhoods.map((n) => (
-              <li class="text-text-muted text-sm flex items-center gap-2">
-                <svg class="w-3 h-3 text-brand-teal" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
-                {n}
+              <li class="flex items-start gap-2">
+                <svg class="w-3 h-3 text-brand-teal shrink-0 mt-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
+                <span>
+                  <span class="text-brand-slate font-medium text-sm">{n}</span>
+                  {city.neighborhoodDescriptions?.[n] && (
+                    <span class="text-text-muted text-sm"> — {city.neighborhoodDescriptions[n]}</span>
+                  )}
+                </span>
               </li>
             ))}
           </ul>
