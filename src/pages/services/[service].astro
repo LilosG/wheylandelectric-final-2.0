@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import ServiceDetailSplit from '../../components/sections/ServiceDetailSplit.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
 import { servicePageMeta } from '../../lib/seo';
@@ -20,72 +21,86 @@ const serviceImages: Record<string, { src: string; alt: string; width: number; h
   'ev-charger-installation': {
     src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
     alt: 'Level 2 EV charger installed by Wheyland Electric in San Diego County',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'electrical-panel-upgrades': {
     src: '/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp',
     alt: 'Commercial electrical meter stack and panel upgrade by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'recessed-lighting-installation': {
     src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
     alt: 'Recessed lighting and kitchen pendant lights installed by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'light-fixture-installation': {
     src: '/images/services/lighting/wheyland-electric-crystal-chandelier-foyer.webp',
     alt: 'Crystal chandelier installed in a two-story foyer by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'ceiling-fan-installation': {
     src: '/images/services/lighting/wheyland-electric-home-office-ceiling-fan-lighting.webp',
     alt: 'Ceiling fan and recessed lighting installation by Wheyland Electric',
-    width: 711, height: 533,
+    width: 711,
+    height: 533,
   },
   'spa-jacuzzi-sauna-electrical': {
     src: '/images/services/spa-sauna/wheyland-electric-barrel-sauna-exterior.webp',
     alt: 'Outdoor barrel sauna electrical installation by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'service-calls-troubleshooting': {
     src: '/images/services/panel/wheyland-electric-service-entrance-wiring.webp',
     alt: 'Electrical service wiring and troubleshooting by Wheyland Electric',
-    width: 711, height: 533,
+    width: 711,
+    height: 533,
   },
   'outlet-switch-dimmer-gfci-repairs': {
     src: '/images/services/lighting/wheyland-electric-wet-bar-sconce-lighting.webp',
     alt: 'Sconce lighting and outlet installation in a residential home by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'dedicated-circuits': {
     src: '/images/services/ev-charger/wheyland-electric-ev-charger-installation.webp',
     alt: 'Dedicated 240V circuit for EV charging installed by Wheyland Electric',
-    width: 711, height: 533,
+    width: 711,
+    height: 533,
   },
   'commercial-tenant-improvement': {
     src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
     alt: 'Commercial electrical control panel installed by Wheyland Electric',
-    width: 711, height: 533,
+    width: 711,
+    height: 533,
   },
   'commercial-electrical-maintenance': {
     src: '/images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp',
     alt: 'Commercial food processing electrical maintenance by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
   'light-industrial-electrical': {
     src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
     alt: 'Industrial electrical panel and VFD installation by Wheyland Electric',
-    width: 711, height: 533,
+    width: 711,
+    height: 533,
   },
   'remodel-rewiring-adu': {
     src: '/images/services/lighting/wheyland-electric-cove-lighting-tray-ceiling.webp',
     alt: 'Residential remodel with cove lighting and chandelier by Wheyland Electric',
-    width: 711, height: 533,
+    width: 711,
+    height: 533,
   },
   'electrical-safety-inspections': {
     src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
     alt: 'Electrical safety inspection of outdoor service entrance by Wheyland Electric',
-    width: 533, height: 711,
+    width: 533,
+    height: 711,
   },
 };
 
@@ -113,6 +128,7 @@ const relatedPillars = pillar.relatedServices
   .map((slug) => getPillarBySlug(slug))
   .filter((p): p is ServicePillar => p !== undefined && p.publish);
 ---
+
 <PageLayout
   meta={meta}
   schemas={[
@@ -135,125 +151,146 @@ const relatedPillars = pillar.relatedServices
   <TrustBar />
 
   <!-- When to Call -->
-  {pillar.whenToCallSigns && pillar.whenToCallSigns.length > 0 && (
-    <Section bg="white">
-      <div class="max-w-4xl mx-auto">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4">
-          Signs You Need {pillar.name}
-        </h2>
-        <p class="text-text-muted mb-6">
-          If any of the following situations apply to you, it is a good time to call Wheyland Electric for a free assessment.
-        </p>
-        <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {pillar.whenToCallSigns.map((sign) => (
-            <li class="flex items-start gap-3 bg-surface-subtle rounded-lg p-4">
-              <svg class="w-5 h-5 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span class="text-text-muted text-sm">{sign}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Section>
-  )}
+  {
+    pillar.whenToCallSigns && pillar.whenToCallSigns.length > 0 && (
+      <Section bg="white">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="mb-4 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+            Signs You Need {pillar.name}
+          </h2>
+          <p class="mb-6 text-text-muted">
+            If any of the following situations apply to you, it is a good time to call Wheyland
+            Electric for a free assessment.
+          </p>
+          <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {pillar.whenToCallSigns.map((sign) => (
+              <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
+                <svg
+                  class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                <span class="text-sm text-text-muted">{sign}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </Section>
+    )
+  }
 
   <!-- What's Included -->
-  <Section bg="white">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">What's Included</h2>
-        <ul class="space-y-3">
-          {pillar.includedBullets.map((bullet) => (
-            <li class="flex items-start gap-3">
-              <svg class="w-5 h-5 text-brand-teal shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+  <ServiceDetailSplit
+    heading="What's Included"
+    bullets={pillar.includedBullets}
+    imageSrc={serviceImg?.src}
+    imageAlt={serviceImg?.alt}
+    imageWidth={serviceImg?.width}
+    imageHeight={serviceImg?.height}
+    layoutVariant="textWide"
+    imagePosition="right"
+    imageAspect="auto"
+  />
+
+  <!-- Process Steps -->
+  {
+    pillar.processSteps.length > 0 && (
+      <Section bg="subtle">
+        <h2 class="mb-8 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          Our Process
+        </h2>
+        <div class="mx-auto max-w-3xl space-y-6">
+          {pillar.processSteps.map((step) => (
+            <div class="flex items-start gap-4">
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-teal text-lg font-bold text-white">
+                {step.step}
+              </div>
+              <div>
+                <h3 class="mb-1 font-semibold text-brand-slate">{step.title}</h3>
+                <p class="text-text-muted">{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
+  <!-- Pricing Factors -->
+  {
+    pillar.pricingFactors.length > 0 && (
+      <Section bg="white">
+        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          What Affects Pricing
+        </h2>
+        <p class="mb-6 text-text-muted">
+          Every project is unique. These are the factors that typically influence the cost of{' '}
+          {pillar.name.toLowerCase()}:
+        </p>
+        <ul class="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {pillar.pricingFactors.map((factor) => (
+            <li class="flex items-start gap-2 text-text-muted">
+              <svg
+                class="mt-1 h-4 w-4 shrink-0 text-brand-teal-light"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
               </svg>
-              <span class="text-text-muted">{bullet}</span>
+              {factor}
             </li>
           ))}
         </ul>
-      </div>
-      <div class="rounded-xl overflow-hidden shadow-lg bg-surface-subtle">
-        {serviceImg ? (
-          <img
-            src={serviceImg.src}
-            alt={serviceImg.alt}
-            width={serviceImg.width}
-            height={serviceImg.height}
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div class="flex items-center justify-center min-h-[200px]">
-            <p class="text-sm text-text-muted">{pillar.name}</p>
-          </div>
-        )}
-      </div>
-    </div>
-  </Section>
-
-  <!-- Process Steps -->
-  {pillar.processSteps.length > 0 && (
-    <Section bg="subtle">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-8 text-center">Our Process</h2>
-      <div class="max-w-3xl mx-auto space-y-6">
-        {pillar.processSteps.map((step) => (
-          <div class="flex items-start gap-4">
-            <div class="w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center shrink-0 font-bold text-lg">
-              {step.step}
-            </div>
-            <div>
-              <h3 class="font-semibold text-brand-slate mb-1">{step.title}</h3>
-              <p class="text-text-muted">{step.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  )}
-
-  <!-- Pricing Factors -->
-  {pillar.pricingFactors.length > 0 && (
-    <Section bg="white">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">What Affects Pricing</h2>
-      <p class="text-text-muted mb-6">
-        Every project is unique. These are the factors that typically influence the cost of {pillar.name.toLowerCase()}:
-      </p>
-      <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-6">
-        {pillar.pricingFactors.map((factor) => (
-          <li class="flex items-start gap-2 text-text-muted">
-            <svg class="w-4 h-4 text-brand-teal-light shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            {factor}
-          </li>
-        ))}
-      </ul>
-      <p class="text-text-muted italic">
-        Call <a href="tel:8586635564" class="text-brand-teal font-semibold hover:text-brand-slate transition-colors">(858) 663-5564</a> for a free estimate tailored to your specific project.
-      </p>
-    </Section>
-  )}
+        <p class="italic text-text-muted">
+          Call{' '}
+          <a
+            href="tel:8586635564"
+            class="font-semibold text-brand-teal transition-colors hover:text-brand-slate"
+          >
+            (858) 663-5564
+          </a>{' '}
+          for a free estimate tailored to your specific project.
+        </p>
+      </Section>
+    )
+  }
 
   <!-- City Links — North County San Diego Coverage -->
   <Section bg="subtle">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4 text-center">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-4 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
         {pillar.name} Across North County San Diego
       </h2>
-      <p class="text-text-muted text-center mb-8 max-w-2xl mx-auto">
-        Wheyland Electric is based in Carlsbad and serves all of North County San Diego with the same commitment to quality, transparent pricing, and complete permit handling. Select your city below to learn about {pillar.name.toLowerCase()} specific to your area.
+      <p class="mx-auto mb-8 max-w-2xl text-center text-text-muted">
+        Wheyland Electric is based in Carlsbad and serves all of North County San Diego with the
+        same commitment to quality, transparent pricing, and complete permit handling. Select your
+        city below to learn about {pillar.name.toLowerCase()} specific to your area.
       </p>
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
-        {cities.map((city) => (
-          <a
-            href={`/${city.slug}/${pillar.slug}/`}
-            class="block bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow p-4 text-center text-brand-slate hover:text-brand-teal font-medium"
-          >
-            {city.name}
-          </a>
-        ))}
+      <div class="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+        {
+          cities.map((city) => (
+            <a
+              href={`/${city.slug}/${pillar.slug}/`}
+              class="block rounded-lg bg-white p-4 text-center font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+            >
+              {city.name}
+            </a>
+          ))
+        }
       </div>
       <div class="text-center">
         <Button href="/service-areas/" variant="ghost">All Service Areas →</Button>
@@ -262,23 +299,30 @@ const relatedPillars = pillar.relatedServices
   </Section>
 
   <!-- Related Services -->
-  {relatedPillars.length > 0 && (
-    <Section bg="white">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">Related Services</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {relatedPillars.map((related) => (
-          <a href={`/services/${related.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
-            <h3 class="font-semibold text-brand-slate mb-2">{related.name}</h3>
-            <p class="text-sm text-text-muted">{related.shortDesc}</p>
-          </a>
-        ))}
-      </div>
-    </Section>
-  )}
+  {
+    relatedPillars.length > 0 && (
+      <Section bg="white">
+        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          Related Services
+        </h2>
+        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {relatedPillars.map((related) => (
+            <a
+              href={`/services/${related.slug}/`}
+              class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
+            >
+              <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
+              <p class="text-sm text-text-muted">{related.shortDesc}</p>
+            </a>
+          ))}
+        </div>
+      </Section>
+    )
+  }
 
   <!-- FAQs -->
   <Section bg="subtle">
-    <div class="max-w-3xl mx-auto">
+    <div class="mx-auto max-w-3xl">
       <FAQAccordion faqs={pillar.faqs} heading={`${pillar.name} FAQs`} />
     </div>
   </Section>
@@ -286,5 +330,7 @@ const relatedPillars = pillar.relatedServices
   <!-- Testimonials -->
   <TestimonialBlock serviceTag={pillar.slug} />
 
-  <CTASection subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`} />
+  <CTASection
+    subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`}
+  />
 </PageLayout>
