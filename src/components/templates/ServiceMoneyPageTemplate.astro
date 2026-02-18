@@ -1,0 +1,277 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../sections/Hero.astro';
+import TrustBar from '../sections/TrustBar.astro';
+import FAQAccordion from '../sections/FAQAccordion.astro';
+import Section from '../ui/Section.astro';
+import type { FAQ, PageMeta, BreadcrumbItem } from '../../types';
+import type { ServiceHeroImage } from '../../data/serviceHeroImages';
+
+/**
+ * Required props:
+ * - meta: SEO metadata object consumed by PageLayout.
+ * - schemas: schema array for structured data.
+ * - breadcrumbs: breadcrumb links consumed by PageLayout.
+ * - heroTitle / heroSubtitle: hero text content.
+ * - imageSource / imageKey: Hero image selector inputs.
+ * - detailHeading / detailBody / includedBullets: service detail section copy and bullets.
+ * - pricingHeading / pricingIntro / pricingFactors: pricing section content.
+ * - faqHeading / faqs: FAQ block content.
+ *
+ * Optional props and defaults:
+ * - serviceImg: `undefined` (falls back to `fallbackImageLabel` text block).
+ * - fallbackImageLabel: ''.
+ * - inlineCtaSectionClass: ''.
+ * - showTopTrustBar: true.
+ * - showTrustBarAfterPricing: false.
+ * - processHeading: '' (process section hidden if empty or no steps).
+ * - processSteps: [] (process section hidden when empty).
+ * - processStepCardClass: 'flex items-start gap-4'.
+ * - processDescriptionClass: 'text-text-muted'.
+ * - showPricingSection: true.
+ * - pricingSectionBg: 'white'.
+ * - relatedSectionBg: 'subtle'.
+ * - faqSectionBg: 'white'.
+ * - showFaqSection: true.
+ * - heroShowCTAs: true.
+ *
+ * Named slots:
+ * - inlineCta, detailBeforeBullets, pricingCta, relatedContent, testimonial, fullCta, afterFullCta.
+ */
+interface Props {
+  meta: PageMeta;
+  schemas: Record<string, unknown>[];
+  breadcrumbs: BreadcrumbItem[];
+  heroTitle: string;
+  heroSubtitle: string;
+  heroShowCTAs?: boolean;
+  imageSource?: 'service' | 'city' | 'default';
+  imageKey?: string;
+  showTopTrustBar?: boolean;
+  inlineCtaSectionClass?: string;
+  detailHeading: string;
+  detailBody: string;
+  includedBullets: string[];
+  includedListClass?: string;
+  includedItemClass?: string;
+  includedIconClass?: string;
+  serviceImg?: ServiceHeroImage;
+  fallbackImageLabel?: string;
+  processHeading?: string;
+  processSteps?: { step: number | string; title: string; description: string }[];
+  processStepCardClass?: string;
+  processDescriptionClass?: string;
+  showPricingSection?: boolean;
+  pricingSectionBg?: 'white' | 'subtle';
+  pricingHeading: string;
+  pricingIntro: string;
+  pricingFactors: string[];
+  pricingItemClass?: string;
+  showTrustBarAfterPricing?: boolean;
+  relatedSectionBg?: 'white' | 'subtle';
+  faqSectionBg?: 'white' | 'subtle';
+  showFaqSection?: boolean;
+  faqHeading: string;
+  faqs: FAQ[];
+}
+
+const {
+  meta,
+  schemas,
+  breadcrumbs,
+  heroTitle,
+  heroSubtitle,
+  heroShowCTAs = true,
+  imageSource = 'service',
+  imageKey,
+  showTopTrustBar = true,
+  inlineCtaSectionClass = '',
+  detailHeading,
+  detailBody,
+  includedBullets,
+  includedListClass = 'space-y-2',
+  includedItemClass = 'flex items-start gap-2 text-text-muted',
+  includedIconClass = 'w-4 h-4 text-brand-teal shrink-0 mt-1',
+  serviceImg,
+  fallbackImageLabel = '',
+  processHeading = '',
+  processSteps = [],
+  processStepCardClass = 'flex items-start gap-4',
+  processDescriptionClass = 'text-text-muted',
+  showPricingSection = true,
+  pricingSectionBg = 'white',
+  pricingHeading,
+  pricingIntro,
+  pricingFactors,
+  pricingItemClass = 'flex items-start gap-2 text-text-muted',
+  showTrustBarAfterPricing = false,
+  relatedSectionBg = 'subtle',
+  faqSectionBg = 'white',
+  showFaqSection = true,
+  faqHeading,
+  faqs,
+} = Astro.props;
+
+const hasInlineCta = Astro.slots.has('inlineCta');
+const hasDetailBeforeBullets = Astro.slots.has('detailBeforeBullets');
+const hasPricingCta = Astro.slots.has('pricingCta');
+const hasRelatedContent = Astro.slots.has('relatedContent');
+const hasTestimonial = Astro.slots.has('testimonial');
+const hasFullCta = Astro.slots.has('fullCta');
+const hasAfterFullCta = Astro.slots.has('afterFullCta');
+---
+
+<PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
+  <Hero
+    title={heroTitle}
+    subtitle={heroSubtitle}
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={heroShowCTAs}
+    imageSource={imageSource}
+    imageKey={imageKey}
+  />
+
+  {showTopTrustBar && <TrustBar />}
+
+  {
+    hasInlineCta && (
+      <Section bg="white" class={inlineCtaSectionClass}>
+        <slot name="inlineCta" />
+      </Section>
+    )
+  }
+
+  <Section bg="white">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+      <div>
+        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          {detailHeading}
+        </h2>
+        {detailBody && <p class="mb-6 leading-relaxed text-text-muted">{detailBody}</p>}
+        {hasDetailBeforeBullets && <slot name="detailBeforeBullets" />}
+        <h3 class="mb-3 text-lg font-semibold text-brand-slate">What's Included</h3>
+        <ul class={includedListClass}>
+          {
+            includedBullets.map((bullet) => (
+              <li class={includedItemClass}>
+                <svg
+                  class={includedIconClass}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                {bullet}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <div class="overflow-hidden rounded-xl bg-surface-subtle shadow-lg">
+        {
+          serviceImg ? (
+            <img
+              src={serviceImg.src}
+              alt={serviceImg.alt}
+              width={serviceImg.width}
+              height={serviceImg.height}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <div class="flex min-h-[250px] items-center justify-center">
+              <p class="text-sm text-text-muted">{fallbackImageLabel}</p>
+            </div>
+          )
+        }
+      </div>
+    </div>
+  </Section>
+
+  {
+    processHeading && processSteps.length > 0 && (
+      <Section bg="subtle">
+        <h2 class="mb-8 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          {processHeading}
+        </h2>
+        <div class="mx-auto max-w-3xl space-y-6">
+          {processSteps.map((step) => (
+            <div class={processStepCardClass}>
+              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-teal text-lg font-bold text-white">
+                {step.step}
+              </div>
+              <div>
+                <h3 class="mb-1 font-semibold text-brand-slate">{step.title}</h3>
+                <p class={processDescriptionClass}>{step.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </Section>
+    )
+  }
+
+  {
+    showPricingSection && (
+      <Section bg={pricingSectionBg}>
+        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          {pricingHeading}
+        </h2>
+        <p class="mb-6 text-text-muted">{pricingIntro}</p>
+        <ul class="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
+          {pricingFactors.map((factor) => (
+            <li class={pricingItemClass}>
+              <svg
+                class="mt-1 h-4 w-4 shrink-0 text-brand-teal-light"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+              {factor}
+            </li>
+          ))}
+        </ul>
+        {hasPricingCta && <slot name="pricingCta" />}
+      </Section>
+    )
+  }
+
+  {showTrustBarAfterPricing && <TrustBar />}
+
+  {
+    hasRelatedContent && (
+      <Section bg={relatedSectionBg}>
+        <slot name="relatedContent" />
+      </Section>
+    )
+  }
+
+  {
+    showFaqSection && (
+      <Section bg={faqSectionBg}>
+        <div class="mx-auto max-w-3xl">
+          <FAQAccordion faqs={faqs} heading={faqHeading} />
+        </div>
+      </Section>
+    )
+  }
+
+  {hasTestimonial && <slot name="testimonial" />}
+  {hasFullCta && <slot name="fullCta" />}
+  {hasAfterFullCta && <slot name="afterFullCta" />}
+</PageLayout>
