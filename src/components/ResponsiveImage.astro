@@ -9,6 +9,7 @@ interface Props {
   containerClass?: string;
   loading?: 'eager' | 'lazy';
   objectFit?: 'cover' | 'contain' | 'fill' | 'scale-down';
+  fillContainer?: boolean;
 }
 
 const {
@@ -21,6 +22,7 @@ const {
   containerClass = '',
   loading = 'lazy',
   objectFit = 'cover',
+  fillContainer = false,
 } = Astro.props;
 
 const roundedClass: Record<string, string> = {
@@ -43,14 +45,14 @@ const roundedCls = roundedClass[rounded] || roundedClass.md;
 const objectFitCls = objectFitClass[objectFit] || objectFitClass.cover;
 ---
 
-<figure class={containerClass}>
+<figure class={`w-full ${containerClass}`}>
   <img
     src={src}
     alt={alt}
     width={width}
     height={height}
     loading={loading}
-    class={`w-full h-auto ${roundedCls} ${objectFitCls} shadow-md`}
+    class={`block w-full ${fillContainer ? 'h-full' : 'h-auto'} ${roundedCls} ${objectFitCls} shadow-md`}
     style={aspectRatio ? { aspectRatio } : {}}
   />
   {caption && (
