@@ -3,16 +3,22 @@ import Button from '../ui/Button.astro';
 import { site } from '../../data/site';
 
 interface Props {
+  // Current API
   title?: string;
   helperText?: string;
   formLabel?: string;
+
+  // Alias API used by pages
+  heading?: string;
+  description?: string;
+  compact?: boolean;
 }
 
-const {
-  title = 'Ready to plan your electrical project?',
-  helperText = 'Share a couple details and start your estimate in under a minute.',
-  formLabel = 'Start estimate',
-} = Astro.props;
+const props = Astro.props as Props;
+const title = props.heading ?? props.title ?? 'Ready to plan your electrical project?';
+const helperText = props.description ?? props.helperText ?? 'Share a couple details and start your estimate in under a minute.';
+const formLabel = props.formLabel ?? 'Start estimate';
+const compact = props.compact ?? false;
 ---
 <section class="py-12 md:py-16 bg-white border-t border-surface">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
