@@ -3,6 +3,7 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../../components/sections/Hero.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import ServiceGrid from '../../components/sections/ServiceGrid.astro';
+import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
@@ -48,6 +49,8 @@ const servicesHero = getPageHeroImage('services');
       </p>
     </div>
   </Section>
+
+  <LeadCaptureSection />
 
   <CTASection />
 </PageLayout>

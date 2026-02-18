@@ -12,6 +12,7 @@ import CTASection from '../components/sections/CTASection.astro';
 import MapSection from '../components/sections/MapSection.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
+import InlineLeadForm from '../components/forms/InlineLeadForm.astro';
 import { homePageMeta } from '../lib/seo';
 import { localBusinessSchema } from '../lib/schema/localBusiness';
 import { getPublishedPillars } from '../data/services';
@@ -43,6 +44,18 @@ const cities = getPublishedCities();
 
   {/* 4. Service Areas — dark indigo bg (self-contained) */}
   <CityGrid cities={cities} />
+
+  <Section bg="subtle" class="py-10 md:py-12">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center mb-3">
+        Need an electrician fast?
+      </h2>
+      <p class="text-text-muted text-center mb-6">
+        Share a few details and we&apos;ll follow up with the next steps for your project.
+      </p>
+      <InlineLeadForm formId="home-inline-lead" />
+    </div>
+  </Section>
 
   {/* 5. Who We Work With — surface-subtle bg */}
   <Section bg="subtle">

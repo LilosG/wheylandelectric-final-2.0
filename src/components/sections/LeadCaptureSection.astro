@@ -1,0 +1,71 @@
+---
+import Button from '../ui/Button.astro';
+import { site } from '../../data/site';
+
+interface Props {
+  // Current API
+  title?: string;
+  helperText?: string;
+  formLabel?: string;
+
+  // Alias API used by pages
+  heading?: string;
+  description?: string;
+  compact?: boolean;
+}
+
+const props = Astro.props as Props;
+const title = props.heading ?? props.title ?? 'Ready to plan your electrical project?';
+const helperText = props.description ?? props.helperText ?? 'Share a couple details and start your estimate in under a minute.';
+const formLabel = props.formLabel ?? 'Start estimate';
+const compact = props.compact ?? false;
+---
+<section class="py-12 md:py-16 bg-white border-t border-surface">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="rounded-xl border border-surface-warm bg-surface-subtle p-5 md:p-7">
+      <div class="mb-4 md:mb-5">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate">{title}</h2>
+        <p class="mt-2 text-text-muted">{helperText}</p>
+      </div>
+
+      <form action="/free-estimates/" method="GET" class="form-shell form-shell--compact" novalidate>
+        <div class="form-row--inline">
+          <div class="form-field flex-1 min-w-0">
+            <label for="lead-name" class="sr-only">Name</label>
+            <input
+              id="lead-name"
+              type="text"
+              name="name"
+              class="form-control form-control--compact"
+              placeholder="Your name"
+              autocomplete="name"
+            />
+          </div>
+
+          <div class="form-field flex-1 min-w-0">
+            <label for="lead-phone" class="sr-only">Phone</label>
+            <input
+              id="lead-phone"
+              type="tel"
+              name="phone"
+              class="form-control form-control--compact"
+              placeholder="Phone number"
+              autocomplete="tel"
+            />
+          </div>
+
+          <div class="form-submit-group form-submit-group--inline">
+            <Button type="submit" size="sm" class="w-full sm:w-auto">
+              {formLabel}
+            </Button>
+          </div>
+        </div>
+      </form>
+
+      <div class="mt-4 pt-4 border-t border-surface-warm flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+        <p class="text-sm text-text-muted">Prefer a quick answer now? Call our office directly.</p>
+        <Button href={`tel:${site.nap.phoneTel}`} variant="outline-teal" size="sm">Call {site.nap.phone}</Button>
+      </div>
+    </div>
+  </div>
+</section>
