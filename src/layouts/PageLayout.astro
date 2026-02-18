@@ -3,7 +3,7 @@ import '../styles/global.css';
 import type { PageMeta, BreadcrumbItem } from '../types';
 import Header from '../components/navigation/Header.astro';
 import Footer from '../components/navigation/Footer.astro';
-import MobileCTA from '../components/navigation/MobileCTA.astro';
+import MobileStickyCTA from '../components/sections/MobileStickyCTA.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 import SEOHead from '../components/seo/SEOHead.astro';
 
@@ -15,6 +15,8 @@ interface Props {
 }
 
 const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
+
+const hideMobileStickyCTA = ['/404/', '/thank-you/'].includes(Astro.url.pathname);
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -38,7 +40,7 @@ const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
-    <main class="flex-1 pb-20 lg:pb-0">
+    <main class={`flex-1 ${hideMobileStickyCTA ? "" : "pb-20 lg:pb-0"}`}>
       {breadcrumbs && breadcrumbs.length > 0 && (
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Breadcrumbs items={breadcrumbs} />
@@ -47,6 +49,6 @@ const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
       <slot />
     </main>
     <Footer />
-    <MobileCTA />
+    {!hideMobileStickyCTA && <MobileStickyCTA />}
   </body>
 </html>
