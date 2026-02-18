@@ -7,6 +7,7 @@ import HOAOfferBlock from '../../components/sections/HOAOfferBlock.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import CityIntroSection from '../../components/sections/CityIntroSection.astro';
 import Section from '../../components/ui/Section.astro';
 import { cityPageMeta } from '../../lib/seo';
 import { localBusinessSchema } from '../../lib/schema/localBusiness';
@@ -36,12 +37,6 @@ const nearbyCities = city.nearbyCities
   .map((slug) => getCityBySlug(slug))
   .filter((c): c is City => c !== undefined && c.publish);
 
-const categoryLabels: Record<string, string> = {
-  residential: 'Residential',
-  commercial: 'Commercial',
-  hoa: 'HOA Communities',
-  ev: 'EV Charging',
-};
 
 const cityFaqs: FAQ[] = [
   {
@@ -98,41 +93,7 @@ const cityFaqs: FAQ[] = [
 
   <!-- City-specific intro -->
   <Section bg="white">
-    <div class="max-w-5xl mx-auto">
-      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
-        <div class="lg:col-span-3 bg-white rounded-xl border border-surface-subtle shadow-sm p-6 md:p-8">
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4">
-            Trusted Electrical Service in {city.name}
-          </h2>
-          <p class="text-lg text-text-muted leading-relaxed mb-5">{city.localIntroSeed}</p>
-          {city.localIntroExtended && (
-            <p class="text-text-muted leading-relaxed">{city.localIntroExtended}</p>
-          )}
-        </div>
-
-        <div class="lg:col-span-2 space-y-5">
-          <div class="bg-surface-subtle rounded-xl p-5">
-            <h3 class="text-sm font-semibold uppercase tracking-wide text-brand-slate mb-3">Quick Area Snapshot</h3>
-            <ul class="space-y-2 text-sm text-text-muted">
-              <li><span class="font-semibold text-brand-slate">ZIP Codes:</span> {city.zips.join(', ')}</li>
-              <li><span class="font-semibold text-brand-slate">Neighborhoods:</span> {city.neighborhoods.length} served</li>
-              <li><span class="font-semibold text-brand-slate">Nearby Coverage:</span> {nearbyCities.length} surrounding cities</li>
-            </ul>
-          </div>
-
-          <div>
-            <h3 class="text-sm font-semibold uppercase tracking-wide text-brand-slate mb-3">Service Categories</h3>
-            <div class="grid grid-cols-2 gap-3">
-              {city.serviceCategories.map((cat) => (
-                  <div class="bg-surface-subtle rounded-lg p-3 text-center border border-white">
-                    <p class="font-semibold text-brand-slate text-sm">{categoryLabels[cat] ?? cat}</p>
-                  </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <CityIntroSection city={city} nearbyCount={nearbyCities.length} />
   </Section>
 
   <!-- Services in this city -->
