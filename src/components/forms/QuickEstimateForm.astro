@@ -1,0 +1,59 @@
+---
+interface Props {
+  serviceNeed?: string;
+}
+
+const { serviceNeed = '' } = Astro.props;
+---
+
+<form
+  id="quick-estimate-form"
+  action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
+  method="POST"
+  class="space-y-4"
+>
+  <input type="hidden" name="_next" value="/thank-you/" />
+
+  <div>
+    <label for="quick-name" class="block text-sm font-semibold text-brand-slate mb-2">Name *</label>
+    <input
+      type="text"
+      id="quick-name"
+      name="name"
+      required
+      class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+      placeholder="Your name"
+    />
+  </div>
+
+  <div>
+    <label for="quick-phone" class="block text-sm font-semibold text-brand-slate mb-2">Phone *</label>
+    <input
+      type="tel"
+      id="quick-phone"
+      name="phone"
+      required
+      class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+      placeholder="(xxx) xxx-xxxx"
+    />
+  </div>
+
+  <div>
+    <label for="quick-service" class="block text-sm font-semibold text-brand-slate mb-2">Service Need</label>
+    <input
+      type="text"
+      id="quick-service"
+      name="service"
+      value={serviceNeed}
+      class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+      placeholder="What do you need help with?"
+    />
+  </div>
+
+  <button
+    type="submit"
+    class="w-full bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold px-6 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
+  >
+    Submit
+  </button>
+</form>
