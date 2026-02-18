@@ -24,7 +24,10 @@ const services = getPublishedPillars();
   <!-- Redirect -->
   <input type="hidden" name="_next" value="/thank-you/" />
 
-  <p class="form-helper">Fields marked with * are required.</p>
+  <p class="form-helper">Only three fields are required: name, best contact, and project summary.</p>
+  <p class="form-helper">
+    We typically respond within 1 business day, and we never share your information outside our team.
+  </p>
 
   <div class="form-grid">
     <!-- Name -->
@@ -41,39 +44,28 @@ const services = getPublishedPillars();
       />
     </div>
 
-    <!-- Phone -->
+    <!-- Preferred contact -->
     <div class="form-field">
-      <label for="phone" class="form-label">Phone *</label>
+      <label for="contact" class="form-label">Best Contact (Email or Phone) *</label>
       <input
-        type="tel"
-        id="phone"
-        name="phone"
+        type="text"
+        id="contact"
+        name="contact"
         required
         class="form-control"
-        placeholder="(xxx) xxx-xxxx"
-        autocomplete="tel"
-        aria-describedby="estimate-phone-help"
-      />
-      <p id="estimate-phone-help" class="form-helper">Include area code for a faster callback.</p>
-    </div>
-
-    <!-- Email -->
-    <div class="form-field">
-      <label for="email" class="form-label">Email *</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="form-control"
-        placeholder="you@example.com"
+        placeholder="you@example.com or (555) 123-4567"
         autocomplete="email"
+        aria-describedby="estimate-contact-help estimate-contact-error"
       />
+      <p id="estimate-contact-help" class="form-helper">Share whichever contact method you prefer us to use.</p>
+      <p id="estimate-contact-error" class="form-helper" data-error-for="contact" hidden>
+        Please add an email address or phone number so we can reach you.
+      </p>
     </div>
 
     <!-- City -->
     <div class="form-field">
-      <label for="city" class="form-label">City</label>
+      <label for="city" class="form-label">City (optional)</label>
       <select
         id="city"
         name="city"
@@ -89,7 +81,7 @@ const services = getPublishedPillars();
 
     <!-- Service -->
     <div class="form-field">
-      <label for="service" class="form-label">Service Needed</label>
+      <label for="service" class="form-label">Service Needed (optional)</label>
       <select
         id="service"
         name="service"
@@ -106,7 +98,7 @@ const services = getPublishedPillars();
 
     <!-- Preferred contact method -->
     <div class="form-field">
-      <label for="contact-method" class="form-label">Preferred Contact Method</label>
+      <label for="contact-method" class="form-label">Preferred Contact Method (optional)</label>
       <select
         id="contact-method"
         name="contact_method"
@@ -121,14 +113,20 @@ const services = getPublishedPillars();
 
   <!-- Message -->
   <div class="form-field">
-    <label for="message" class="form-label">Tell Us About Your Project</label>
+    <label for="message" class="form-label">Project Summary *</label>
     <textarea
       id="message"
       name="message"
       rows="4"
+      required
       class="form-control form-textarea"
       placeholder="Describe what you need help with..."
+      aria-describedby="estimate-message-help estimate-message-error"
     ></textarea>
+    <p id="estimate-message-help" class="form-helper">A short summary is enough — we can gather details in follow-up.</p>
+    <p id="estimate-message-error" class="form-helper" data-error-for="message" hidden>
+      Please add a brief project summary so we can prepare your estimate.
+    </p>
   </div>
 
   <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
@@ -166,7 +164,18 @@ const services = getPublishedPillars();
     if (!form.checkValidity()) {
       e.preventDefault();
       form.reportValidity();
-      showFeedback('error', 'Please complete all required fields before submitting.');
+      const requiredFields = form.querySelectorAll('input[required], textarea[required]');
+      requiredFields.forEach((field) => {
+        const input = field as HTMLInputElement | HTMLTextAreaElement;
+        const errorEl = form.querySelector(`[data-error-for="${input.name}"]`) as HTMLParagraphElement | null;
+        const hasValue = input.value.trim().length > 0;
+        input.setAttribute('aria-invalid', hasValue ? 'false' : 'true');
+        if (errorEl) errorEl.hidden = hasValue;
+      });
+
+      const firstInvalid = form.querySelector(':invalid') as HTMLInputElement | HTMLTextAreaElement | null;
+      const fieldName = firstInvalid?.labels?.[0]?.textContent?.replace('*', '').trim() || 'required fields';
+      showFeedback('error', `Please check ${fieldName.toLowerCase()} and try again.`);
       return;
     }
 
@@ -188,6 +197,19 @@ const services = getPublishedPillars();
       return;
     }
 
-    showFeedback('success', 'Looks good — sending your estimate request...');
+    showFeedback(
+      'success',
+      'Thanks! Your request is on the way. We will review it and follow up with next steps within 1 business day.',
+    );
+  });
+
+  form?.querySelectorAll('input[required], textarea[required]').forEach((field) => {
+    field.addEventListener('input', () => {
+      const input = field as HTMLInputElement | HTMLTextAreaElement;
+      const errorEl = form.querySelector(`[data-error-for="${input.name}"]`) as HTMLParagraphElement | null;
+      const hasValue = input.value.trim().length > 0;
+      input.setAttribute('aria-invalid', hasValue ? 'false' : 'true');
+      if (errorEl) errorEl.hidden = hasValue;
+    });
   });
 </script>
