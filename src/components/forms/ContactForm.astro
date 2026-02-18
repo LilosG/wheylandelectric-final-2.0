@@ -4,7 +4,8 @@
   id="contact-form"
   action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
   method="POST"
-  class="space-y-6"
+  class="form-shell"
+  novalidate
 >
   <!-- Honeypot -->
   <div class="hidden" aria-hidden="true">
@@ -15,51 +16,59 @@
   <input type="hidden" name="_timestamp" id="contact-timestamp" />
   <input type="hidden" name="_next" value="/thank-you/" />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    <div>
-      <label for="contact-name" class="block text-sm font-semibold text-brand-slate mb-2">Name *</label>
+  <p class="form-helper">Fields marked with * are required.</p>
+
+  <div class="form-grid">
+    <div class="form-field">
+      <label for="contact-name" class="form-label">Name *</label>
       <input
         type="text"
         id="contact-name"
         name="name"
         required
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+        class="form-control"
+        autocomplete="name"
       />
     </div>
-    <div>
-      <label for="contact-email" class="block text-sm font-semibold text-brand-slate mb-2">Email *</label>
+    <div class="form-field">
+      <label for="contact-email" class="form-label">Email *</label>
       <input
         type="email"
         id="contact-email"
         name="email"
         required
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+        class="form-control"
+        autocomplete="email"
       />
     </div>
-    <div>
-      <label for="contact-phone" class="block text-sm font-semibold text-brand-slate mb-2">Phone</label>
+    <div class="form-field">
+      <label for="contact-phone" class="form-label">Phone</label>
       <input
         type="tel"
         id="contact-phone"
         name="phone"
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+        class="form-control"
+        autocomplete="tel"
+        aria-describedby="contact-phone-help"
       />
+      <p id="contact-phone-help" class="form-helper">Optional, but helpful for urgent requests.</p>
     </div>
   </div>
-  <div>
-    <label for="contact-message" class="block text-sm font-semibold text-brand-slate mb-2">Message *</label>
+  <div class="form-field">
+    <label for="contact-message" class="form-label">Message *</label>
     <textarea
       id="contact-message"
       name="message"
       rows="4"
       required
-      class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text resize-y"
+      class="form-control form-textarea"
     ></textarea>
   </div>
-  <div>
+  <p id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+  <div class="form-submit-group">
     <button
       type="submit"
-      class="bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold px-6 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
+      class="form-submit"
     >
       Send Message
     </button>
@@ -71,10 +80,36 @@
   if (timestampField) timestampField.value = String(Date.now());
 
   const form = document.getElementById('contact-form') as HTMLFormElement;
+  const feedback = document.getElementById('contact-feedback') as HTMLParagraphElement;
+
+  const showFeedback = (state: 'error' | 'success', message: string) => {
+    if (!feedback) return;
+    feedback.dataset.state = state;
+    feedback.textContent = message;
+    feedback.role = state === 'error' ? 'alert' : 'status';
+  };
+
   form?.addEventListener('submit', (e) => {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      form.reportValidity();
+      showFeedback('error', 'Please complete all required fields before submitting.');
+      return;
+    }
+
     const timestamp = parseInt(timestampField?.value || '0', 10);
-    if (Date.now() - timestamp < 3000) { e.preventDefault(); return; }
+    if (Date.now() - timestamp < 3000) {
+      e.preventDefault();
+      showFeedback('error', 'Please wait a moment, then submit again.');
+      return;
+    }
     const honeypot = (form.querySelector('[name="_gotcha"]') as HTMLInputElement)?.value;
-    if (honeypot) { e.preventDefault(); return; }
+    if (honeypot) {
+      e.preventDefault();
+      showFeedback('error', 'We could not submit your message. Please refresh and try again.');
+      return;
+    }
+
+    showFeedback('success', 'Looks good — sending your message...');
   });
 </script>

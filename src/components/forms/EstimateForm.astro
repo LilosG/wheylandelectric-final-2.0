@@ -9,7 +9,8 @@ const services = getPublishedPillars();
   id="estimate-form"
   action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
   method="POST"
-  class="space-y-6"
+  class="form-shell"
+  novalidate
 >
   <!-- Honeypot -->
   <div class="hidden" aria-hidden="true">
@@ -23,53 +24,60 @@ const services = getPublishedPillars();
   <!-- Redirect -->
   <input type="hidden" name="_next" value="/thank-you/" />
 
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+  <p class="form-helper">Fields marked with * are required.</p>
+
+  <div class="form-grid">
     <!-- Name -->
-    <div>
-      <label for="name" class="block text-sm font-semibold text-brand-slate mb-2">Full Name *</label>
+    <div class="form-field">
+      <label for="name" class="form-label">Full Name *</label>
       <input
         type="text"
         id="name"
         name="name"
         required
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+        class="form-control"
         placeholder="Your full name"
+        autocomplete="name"
       />
     </div>
 
     <!-- Phone -->
-    <div>
-      <label for="phone" class="block text-sm font-semibold text-brand-slate mb-2">Phone *</label>
+    <div class="form-field">
+      <label for="phone" class="form-label">Phone *</label>
       <input
         type="tel"
         id="phone"
         name="phone"
         required
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+        class="form-control"
         placeholder="(xxx) xxx-xxxx"
+        autocomplete="tel"
+        aria-describedby="estimate-phone-help"
       />
+      <p id="estimate-phone-help" class="form-helper">Include area code for a faster callback.</p>
     </div>
 
     <!-- Email -->
-    <div>
-      <label for="email" class="block text-sm font-semibold text-brand-slate mb-2">Email *</label>
+    <div class="form-field">
+      <label for="email" class="form-label">Email *</label>
       <input
         type="email"
         id="email"
         name="email"
         required
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+        class="form-control"
         placeholder="you@example.com"
+        autocomplete="email"
       />
     </div>
 
     <!-- City -->
-    <div>
-      <label for="city" class="block text-sm font-semibold text-brand-slate mb-2">City</label>
+    <div class="form-field">
+      <label for="city" class="form-label">City</label>
       <select
         id="city"
         name="city"
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text bg-white"
+        class="form-control"
       >
         <option value="">Select your city</option>
         {cities.map((city) => (
@@ -80,12 +88,12 @@ const services = getPublishedPillars();
     </div>
 
     <!-- Service -->
-    <div>
-      <label for="service" class="block text-sm font-semibold text-brand-slate mb-2">Service Needed</label>
+    <div class="form-field">
+      <label for="service" class="form-label">Service Needed</label>
       <select
         id="service"
         name="service"
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text bg-white"
+        class="form-control"
       >
         <option value="">Select a service</option>
         {services.map((svc) => (
@@ -97,12 +105,12 @@ const services = getPublishedPillars();
     </div>
 
     <!-- Preferred contact method -->
-    <div>
-      <label for="contact-method" class="block text-sm font-semibold text-brand-slate mb-2">Preferred Contact Method</label>
+    <div class="form-field">
+      <label for="contact-method" class="form-label">Preferred Contact Method</label>
       <select
         id="contact-method"
         name="contact_method"
-        class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text bg-white"
+        class="form-control"
       >
         <option value="phone">Phone</option>
         <option value="email">Email</option>
@@ -112,22 +120,24 @@ const services = getPublishedPillars();
   </div>
 
   <!-- Message -->
-  <div>
-    <label for="message" class="block text-sm font-semibold text-brand-slate mb-2">Tell Us About Your Project</label>
+  <div class="form-field">
+    <label for="message" class="form-label">Tell Us About Your Project</label>
     <textarea
       id="message"
       name="message"
       rows="4"
-      class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text resize-y"
+      class="form-control form-textarea"
       placeholder="Describe what you need help with..."
     ></textarea>
   </div>
 
+  <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
   <!-- Submit -->
-  <div>
+  <div class="form-submit-group">
     <button
       type="submit"
-      class="w-full sm:w-auto bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold px-8 py-4 rounded-lg transition-colors text-lg focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
+      class="form-submit text-lg"
     >
       Request Free Estimate
     </button>
@@ -143,13 +153,30 @@ const services = getPublishedPillars();
 
   // Client-side validation
   const form = document.getElementById('estimate-form') as HTMLFormElement;
+  const feedback = document.getElementById('estimate-feedback') as HTMLParagraphElement;
+
+  const showFeedback = (state: 'error' | 'success', message: string) => {
+    if (!feedback) return;
+    feedback.dataset.state = state;
+    feedback.textContent = message;
+    feedback.role = state === 'error' ? 'alert' : 'status';
+  };
+
   form?.addEventListener('submit', (e) => {
+    if (!form.checkValidity()) {
+      e.preventDefault();
+      form.reportValidity();
+      showFeedback('error', 'Please complete all required fields before submitting.');
+      return;
+    }
+
     const timestamp = parseInt(timestampField?.value || '0', 10);
     const elapsed = Date.now() - timestamp;
 
     // Reject if submitted in under 3 seconds (likely bot)
     if (elapsed < 3000) {
       e.preventDefault();
+      showFeedback('error', 'Please wait a moment, then submit again.');
       return;
     }
 
@@ -157,7 +184,10 @@ const services = getPublishedPillars();
     const honeypot = (form.querySelector('[name="_gotcha"]') as HTMLInputElement)?.value;
     if (honeypot) {
       e.preventDefault();
+      showFeedback('error', 'We could not submit your request. Please refresh and try again.');
       return;
     }
+
+    showFeedback('success', 'Looks good — sending your estimate request...');
   });
 </script>
