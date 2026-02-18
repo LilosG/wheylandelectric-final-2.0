@@ -8,6 +8,7 @@ import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import CityIntroSection from '../../components/sections/CityIntroSection.astro';
+import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
 import Section from '../../components/ui/Section.astro';
 import { cityPageMeta } from '../../lib/seo';
 import { localBusinessSchema } from '../../lib/schema/localBusiness';
@@ -36,7 +37,6 @@ const breadcrumbs = [{ label: city.name, href: `/${city.slug}/` }];
 const nearbyCities = city.nearbyCities
   .map((slug) => getCityBySlug(slug))
   .filter((c): c is City => c !== undefined && c.publish);
-
 
 const cityFaqs: FAQ[] = [
   {
@@ -69,13 +69,10 @@ const cityFaqs: FAQ[] = [
   },
 ];
 ---
+
 <PageLayout
   meta={meta}
-  schemas={[
-    localBusinessSchema(),
-    faqPageSchema(cityFaqs),
-    breadcrumbSchema(breadcrumbs),
-  ]}
+  schemas={[localBusinessSchema(), faqPageSchema(cityFaqs), breadcrumbSchema(breadcrumbs)]}
   breadcrumbs={breadcrumbs}
 >
   <Hero
@@ -112,75 +109,104 @@ const cityFaqs: FAQ[] = [
 
   <!-- City details -->
   <Section bg="subtle">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      {city.neighborhoods.length > 0 && (
-        <div>
-          <h3 class="text-lg font-semibold text-brand-slate mb-3">Neighborhoods We Serve in {city.name}</h3>
-          <ul class="space-y-3">
-            {city.neighborhoods.map((n) => (
-              <li class="flex items-start gap-2">
-                <svg class="w-3 h-3 text-brand-teal shrink-0 mt-1.5" fill="currentColor" viewBox="0 0 8 8"><circle cx="4" cy="4" r="3"/></svg>
-                <span>
-                  <span class="text-brand-slate font-medium text-sm">{n}</span>
-                  {city.neighborhoodDescriptions?.[n] && (
-                    <span class="text-text-muted text-sm"> — {city.neighborhoodDescriptions[n]}</span>
-                  )}
-                </span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      {city.zips.length > 0 && (
-        <div>
-          <h3 class="text-lg font-semibold text-brand-slate mb-3">ZIP Codes Served</h3>
-          <div class="flex flex-wrap gap-2">
-            {city.zips.map((zip) => (
-              <span class="inline-block bg-white rounded-lg px-3 py-1.5 text-sm text-text-muted border border-surface-warm/50">{zip}</span>
-            ))}
+    <div class="mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+      {
+        city.neighborhoods.length > 0 && (
+          <div>
+            <h3 class="mb-3 text-lg font-semibold text-brand-slate">
+              Neighborhoods We Serve in {city.name}
+            </h3>
+            <ul class="space-y-3">
+              {city.neighborhoods.map((n) => (
+                <li class="flex items-start gap-2">
+                  <svg
+                    class="mt-1.5 h-3 w-3 shrink-0 text-brand-teal"
+                    fill="currentColor"
+                    viewBox="0 0 8 8"
+                  >
+                    <circle cx="4" cy="4" r="3" />
+                  </svg>
+                  <span>
+                    <span class="text-sm font-medium text-brand-slate">{n}</span>
+                    {city.neighborhoodDescriptions?.[n] && (
+                      <span class="text-sm text-text-muted">
+                        {' '}
+                        — {city.neighborhoodDescriptions[n]}
+                      </span>
+                    )}
+                  </span>
+                </li>
+              ))}
+            </ul>
           </div>
-          {city.localCues.length > 0 && (
-            <div class="mt-6">
-              <h3 class="text-lg font-semibold text-brand-slate mb-3">Local Landmarks</h3>
-              <ul class="space-y-1">
-                {city.localCues.map((cue) => (
-                  <li class="text-text-muted text-sm">{cue}</li>
-                ))}
-              </ul>
+        )
+      }
+      {
+        city.zips.length > 0 && (
+          <div>
+            <h3 class="mb-3 text-lg font-semibold text-brand-slate">ZIP Codes Served</h3>
+            <div class="flex flex-wrap gap-2">
+              {city.zips.map((zip) => (
+                <span class="inline-block rounded-lg border border-surface-warm/50 bg-white px-3 py-1.5 text-sm text-text-muted">
+                  {zip}
+                </span>
+              ))}
             </div>
-          )}
-        </div>
-      )}
+            {city.localCues.length > 0 && (
+              <div class="mt-6">
+                <h3 class="mb-3 text-lg font-semibold text-brand-slate">Local Landmarks</h3>
+                <ul class="space-y-1">
+                  {city.localCues.map((cue) => (
+                    <li class="text-sm text-text-muted">{cue}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )
+      }
     </div>
   </Section>
 
   <!-- Testimonials -->
   <TestimonialBlock cityTag={city.slug} heading={`Reviews from ${city.name} Customers`} />
 
+  <!-- Compact lead capture -->
+  <Section bg="white">
+    <LeadCaptureSection
+      heading={`Get a Free Electrical Estimate in ${city.name}`}
+      description={`Planning a project in ${city.name}? Send a few details and our team will follow up with pricing guidance and next steps.`}
+      compact
+    />
+  </Section>
+
   <!-- FAQs -->
   <Section bg="subtle">
-    <div class="max-w-3xl mx-auto">
+    <div class="mx-auto max-w-3xl">
       <FAQAccordion faqs={cityFaqs} heading={`${city.name} Electrician FAQs`} />
     </div>
   </Section>
 
   <!-- Nearby cities -->
-  {nearbyCities.length > 0 && (
-    <Section bg="white">
-      <h2 class="text-2xl font-heading font-bold text-brand-slate mb-6 text-center">Nearby Service Areas</h2>
-      <div class="flex flex-wrap justify-center gap-4">
-        {nearbyCities.map((nearby) => (
-          <a
-            href={`/${nearby.slug}/`}
-            class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow px-6 py-3 text-brand-slate hover:text-brand-teal font-medium"
-          >
-            {nearby.name}, CA
-          </a>
-        ))}
-      </div>
-    </Section>
-  )}
+  {
+    nearbyCities.length > 0 && (
+      <Section bg="white">
+        <h2 class="mb-6 text-center font-heading text-2xl font-bold text-brand-slate">
+          Nearby Service Areas
+        </h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          {nearbyCities.map((nearby) => (
+            <a
+              href={`/${nearby.slug}/`}
+              class="rounded-lg bg-white px-6 py-3 font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+            >
+              {nearby.name}, CA
+            </a>
+          ))}
+        </div>
+      </Section>
+    )
+  }
 
   <CTASection cityName={city.name} />
-
 </PageLayout>
