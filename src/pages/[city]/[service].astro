@@ -6,7 +6,6 @@ import CTABlock from '../../components/sections/CTABlock.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
-import Button from '../../components/ui/Button.astro';
 import { moneyPageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
@@ -185,17 +184,11 @@ const moneyPageFaqs: FAQ[] = [
     compact
     showTrustCard={false}
     showStatChips={false}
-    showCTAs={false}
+    showCTAs={true}
+    heroCtaVariant="money"
     imageSource="service"
     imageKey={pillar.slug}
   />
-
-  <Section bg="white" class="pt-8 md:pt-12">
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
-    </div>
-  </Section>
 
   <!-- 5. Scoped Service Detail -->
   <Section bg="white">

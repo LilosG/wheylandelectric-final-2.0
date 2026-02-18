@@ -17,6 +17,7 @@ interface Props {
   backgroundImage?: string;
   imagePosition?: 'center' | 'top' | 'bottom';
   backgroundImageAlt?: string;
+  heroCtaVariant?: 'default' | 'money';
 }
 
 const {
@@ -33,7 +34,18 @@ const {
   backgroundImage,
   imagePosition = 'center',
   backgroundImageAlt,
+  heroCtaVariant = 'default',
 } = Astro.props;
+
+const ctaConfig = heroCtaVariant === 'money'
+  ? {
+      estimateLabel: 'Get a Free Estimate',
+      callVariant: 'secondary' as const,
+    }
+  : {
+      estimateLabel: 'Get Free Estimate',
+      callVariant: 'outline-white' as const,
+    };
 
 // Determine which image to use
 let finalBackgroundImage = backgroundImage;
@@ -150,14 +162,14 @@ const trustItems = [
 
         {showCTAs && (
           <div class:list={[
-            'flex flex-wrap gap-4',
+            'flex flex-col sm:flex-row gap-4',
             showTrustCard && !compact ? 'justify-start' : 'justify-center',
             compact ? 'mt-6' : 'mt-8'
           ]}>
-            <Button href="/free-estimates/" variant="primary" size="lg">
-              Get Free Estimate
+            <Button href="/free-estimates/" variant="primary" size="lg" class="w-full sm:w-auto">
+              {ctaConfig.estimateLabel}
             </Button>
-            <Button href={`tel:${site.nap.phoneTel}`} variant="outline-white" size="lg">
+            <Button href={`tel:${site.nap.phoneTel}`} variant={ctaConfig.callVariant} size="lg" class="w-full sm:w-auto">
               Call {site.nap.phone}
             </Button>
           </div>
