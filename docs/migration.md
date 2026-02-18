@@ -113,6 +113,10 @@ Add discovered legacy URLs to `vercel.json` as they are found.
 - [ ] Phone number `tel:` links work on mobile (click-to-call)
 - [ ] GBP embed map loads correctly on city pages and contact page
 - [ ] Mobile nav and sticky CTA bar function properly
+- [ ] Run inline conversion block QA guardrail: `npm run qa:conversion`
+  - Confirms conversion marker/component exists for representative routes: `/carlsbad/ev-charger-installation/`, `/services/ev-charger-installation/`, `/carlsbad/`
+  - Confirms each route exposes visible heading copy and a conversion submit action (free estimate CTA and/or call action)
+  - Confirms mobile-first stacked CTA layout (`flex-col sm:flex-row`) is present so conversion actions stay usable without horizontal squeeze
 
 ### Performance
 
