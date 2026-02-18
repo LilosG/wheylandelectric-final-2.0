@@ -1,9 +1,6 @@
 ---
-import PageLayout from '../../layouts/PageLayout.astro';
-import Hero from '../../components/sections/Hero.astro';
-import TrustBar from '../../components/sections/TrustBar.astro';
+import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPageTemplate.astro';
 import CTABlock from '../../components/sections/CTABlock.astro';
-import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
@@ -16,93 +13,15 @@ import { getPublishedPillars, getPillarBySlug } from '../../data/services';
 import { site } from '../../data/site';
 import type { City, ServicePillar, FAQ } from '../../types';
 
-// Map service slugs to their primary hero images
-const serviceImages: Record<string, { src: string; alt: string; width: number; height: number }> = {
-  'ev-charger-installation': {
-    src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
-    alt: 'Level 2 EV charger installed by Wheyland Electric in San Diego County',
-    width: 533, height: 711,
-  },
-  'electrical-panel-upgrades': {
-    src: '/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp',
-    alt: 'Commercial electrical meter stack and panel upgrade by Wheyland Electric',
-    width: 533, height: 711,
-  },
-  'recessed-lighting-installation': {
-    src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
-    alt: 'Recessed lighting and kitchen pendant lights installed by Wheyland Electric',
-    width: 533, height: 711,
-  },
-  'light-fixture-installation': {
-    src: '/images/services/lighting/wheyland-electric-crystal-chandelier-foyer.webp',
-    alt: 'Crystal chandelier installed in a two-story foyer by Wheyland Electric',
-    width: 533, height: 711,
-  },
-  'ceiling-fan-installation': {
-    src: '/images/services/lighting/wheyland-electric-home-office-ceiling-fan-lighting.webp',
-    alt: 'Ceiling fan and recessed lighting installation by Wheyland Electric',
-    width: 711, height: 533,
-  },
-  'spa-jacuzzi-sauna-electrical': {
-    src: '/images/services/spa-sauna/wheyland-electric-barrel-sauna-exterior.webp',
-    alt: 'Outdoor barrel sauna electrical installation by Wheyland Electric',
-    width: 533, height: 711,
-  },
-  'service-calls-troubleshooting': {
-    src: '/images/services/panel/wheyland-electric-service-entrance-wiring.webp',
-    alt: 'Electrical service wiring and troubleshooting by Wheyland Electric',
-    width: 711, height: 533,
-  },
-  'outlet-switch-dimmer-gfci-repairs': {
-    src: '/images/services/lighting/wheyland-electric-wet-bar-sconce-lighting.webp',
-    alt: 'Sconce lighting and outlet installation by Wheyland Electric',
-    width: 533, height: 711,
-  },
-  'dedicated-circuits': {
-    src: '/images/services/ev-charger/wheyland-electric-ev-charger-installation.webp',
-    alt: 'Dedicated 240V circuit for EV charging by Wheyland Electric',
-    width: 711, height: 533,
-  },
-  'commercial-tenant-improvement': {
-    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
-    alt: 'Commercial electrical control panel by Wheyland Electric',
-    width: 711, height: 533,
-  },
-  'commercial-electrical-maintenance': {
-    src: '/images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp',
-    alt: 'Commercial electrical maintenance by Wheyland Electric',
-    width: 533, height: 711,
-  },
-  'light-industrial-electrical': {
-    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
-    alt: 'Industrial electrical panel and VFD installation by Wheyland Electric',
-    width: 711, height: 533,
-  },
-  'remodel-rewiring-adu': {
-    src: '/images/services/lighting/wheyland-electric-cove-lighting-tray-ceiling.webp',
-    alt: 'Residential remodel with cove lighting by Wheyland Electric',
-    width: 711, height: 533,
-  },
-  'electrical-safety-inspections': {
-    src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
-    alt: 'Electrical safety inspection by Wheyland Electric',
-    width: 533, height: 711,
-  },
-};
-
-// City-specific image overrides (city slug + service slug → image)
-const cityServiceImages: Record<string, { src: string; alt: string; width: number; height: number }> = {
-  'rancho-santa-fe:ev-charger-installation': {
-    src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
-    alt: 'BMW i Level 2 EV charger installed by Wheyland Electric in Rancho Santa Fe, CA',
-    width: 533, height: 711,
-  },
-};
+import { getServiceHeroImage } from '../../data/serviceHeroImages';
 
 export function getStaticPaths() {
   const cities = getPublishedCities();
   const pillars = getPublishedPillars();
-  const paths: { params: { city: string; service: string }; props: { city: City; pillar: ServicePillar } }[] = [];
+  const paths: {
+    params: { city: string; service: string };
+    props: { city: City; pillar: ServicePillar };
+  }[] = [];
 
   for (const city of cities) {
     for (const pillar of pillars) {
@@ -121,19 +40,22 @@ interface Props {
 }
 
 const { city, pillar } = Astro.props;
-const cityKey = `${city.slug}:${pillar.slug}`;
-const serviceImg = cityServiceImages[cityKey] ?? serviceImages[pillar.slug];
+const serviceImg = getServiceHeroImage({
+  serviceSlug: pillar.slug,
+  citySlug: city.slug,
+  variant: 'money',
+});
 const meta = moneyPageMeta(pillar.name, city.name, city.slug, pillar.slug);
 const breadcrumbs = [
   { label: city.name, href: `/${city.slug}/` },
   { label: pillar.name, href: `/${city.slug}/${pillar.slug}/` },
 ];
 
-const localizedIntro = pillar.localizedIntroSeedByCity[city.slug]
-  ?? `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
+const localizedIntro =
+  pillar.localizedIntroSeedByCity[city.slug] ??
+  `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
 
-const h1Tagline = pillar.h1TaglineByCity?.[city.slug]
-  ?? `${pillar.name} in ${city.name}, CA`;
+const h1Tagline = pillar.h1TaglineByCity?.[city.slug] ?? `${pillar.name} in ${city.name}, CA`;
 
 const relatedPillars = pillar.relatedServices
   .map((slug) => getPillarBySlug(slug))
@@ -168,116 +90,55 @@ const moneyPageFaqs: FAQ[] = [
   ...pillar.faqs.slice(0, Math.max(2, 6 - citySpecificFaqs.length)),
 ];
 ---
-<PageLayout
+
+<ServiceMoneyPageTemplate
   meta={meta}
   schemas={[
-    serviceSchema(pillar.name, pillar.shortDesc, `/${city.slug}/${pillar.slug}/`, `${city.name}, CA`),
+    serviceSchema(
+      pillar.name,
+      pillar.shortDesc,
+      `/${city.slug}/${pillar.slug}/`,
+      `${city.name}, CA`
+    ),
     faqPageSchema(moneyPageFaqs),
     breadcrumbSchema(breadcrumbs),
   ]}
   breadcrumbs={breadcrumbs}
+  heroTitle={h1Tagline}
+  heroSubtitle={localizedIntro}
+  heroShowCTAs={false}
+  imageSource="service"
+  imageKey={pillar.slug}
+  showTopTrustBar={false}
+  inlineCtaSectionClass="pt-8 md:pt-12"
+  detailHeading={`Professional ${pillar.name} in ${city.name}`}
+  detailBody={`When you choose Wheyland Electric for ${pillar.name.toLowerCase()} in ${city.name}, you get a team that knows this community and delivers work you can trust. We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.`}
+  includedBullets={pillar.includedBullets}
+  serviceImg={serviceImg}
+  fallbackImageLabel={`${pillar.name} in ${city.name}`}
+  processHeading={`How ${pillar.name} Works in ${city.name}`}
+  processSteps={pillar.processSteps}
+  processStepCardClass="flex items-start gap-4 bg-white rounded-xl shadow-sm p-6"
+  processDescriptionClass="text-text-muted text-sm"
+  pricingHeading={`What Affects the Cost of ${pillar.name} in ${city.name}`}
+  pricingIntro={`Every ${pillar.name.toLowerCase()} project in ${city.name} is unique. Here are the factors that typically influence pricing:`}
+  pricingFactors={pillar.pricingFactors}
+  showTrustBarAfterPricing
+  relatedSectionBg="subtle"
+  faqSectionBg="white"
+  faqHeading={`${pillar.name} in ${city.name} — FAQs`}
+  faqs={moneyPageFaqs}
 >
-  <!-- 1. Breadcrumbs rendered by PageLayout above -->
-  <!-- 2. H1 + 3. Localized Intro + 4. Inline CTA (above the fold) -->
-  <Hero
-    title={h1Tagline}
-    subtitle={localizedIntro}
-    compact
-    showTrustCard={false}
-    showStatChips={false}
-    showCTAs={false}
-    imageSource="service"
-    imageKey={pillar.slug}
-  />
-
-  <Section bg="white" class="pt-8 md:pt-12">
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+  <Fragment slot="inlineCta">
+    <div class="flex flex-col justify-center gap-4 sm:flex-row">
       <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg"
+        >Call {site.nap.phone}</Button
+      >
     </div>
-  </Section>
+  </Fragment>
 
-  <!-- 5. Scoped Service Detail -->
-  <Section bg="white">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">
-          Professional {pillar.name} in {city.name}
-        </h2>
-        <p class="text-text-muted leading-relaxed mb-6">
-          When you choose Wheyland Electric for {pillar.name.toLowerCase()} in {city.name}, you get a team that knows this community and delivers work you can trust. We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
-        </p>
-        <h3 class="text-lg font-semibold text-brand-slate mb-3">What's Included</h3>
-        <ul class="space-y-2">
-          {pillar.includedBullets.map((bullet) => (
-            <li class="flex items-start gap-2 text-text-muted">
-              <svg class="w-4 h-4 text-brand-teal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              {bullet}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div class="rounded-xl overflow-hidden shadow-lg bg-surface-subtle">
-        {serviceImg ? (
-          <img
-            src={serviceImg.src}
-            alt={serviceImg.alt}
-            width={serviceImg.width}
-            height={serviceImg.height}
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div class="flex items-center justify-center min-h-[250px]">
-            <p class="text-sm text-text-muted">{pillar.name} in {city.name}</p>
-          </div>
-        )}
-      </div>
-    </div>
-  </Section>
-
-  <!-- 6. Process Steps -->
-  {pillar.processSteps.length > 0 && (
-    <Section bg="subtle">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-8 text-center">
-        How {pillar.name} Works in {city.name}
-      </h2>
-      <div class="max-w-3xl mx-auto space-y-6">
-        {pillar.processSteps.map((step) => (
-          <div class="flex items-start gap-4 bg-white rounded-xl shadow-sm p-6">
-            <div class="w-10 h-10 bg-brand-teal text-white rounded-full flex items-center justify-center shrink-0 font-bold text-lg">
-              {step.step}
-            </div>
-            <div>
-              <h3 class="font-semibold text-brand-slate mb-1">{step.title}</h3>
-              <p class="text-text-muted text-sm">{step.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </Section>
-  )}
-
-  <!-- 7. Pricing Factors -->
-  <Section bg="white">
-    <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">
-      What Affects the Cost of {pillar.name} in {city.name}
-    </h2>
-    <p class="text-text-muted mb-6">
-      Every {pillar.name.toLowerCase()} project in {city.name} is unique. Here are the factors that typically influence pricing:
-    </p>
-    <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
-      {pillar.pricingFactors.map((factor) => (
-        <li class="flex items-start gap-2 text-text-muted">
-          <svg class="w-4 h-4 text-brand-teal-light shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
-          {factor}
-        </li>
-      ))}
-    </ul>
+  <Fragment slot="pricingCta">
     <CTABlock
       heading={`Get a precise estimate for your ${city.name} project.`}
       description=""
@@ -285,69 +146,73 @@ const moneyPageFaqs: FAQ[] = [
       secondaryText={`Call ${site.nap.phone}`}
       secondaryHref={`tel:${site.nap.phoneTel}`}
     />
-  </Section>
+  </Fragment>
 
-  <!-- 8. TrustBar -->
-  <TrustBar />
+  <Fragment slot="relatedContent">
+    {
+      relatedPillars.length > 0 && (
+        <>
+          <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate">You May Also Need</h2>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPillars.map((related) => (
+              <a
+                href={`/${city.slug}/${related.slug}/`}
+                class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
+              >
+                <h3 class="mb-2 font-semibold text-brand-slate">
+                  {related.name} in {city.name}
+                </h3>
+                <p class="text-sm text-text-muted">{related.shortDesc}</p>
+              </a>
+            ))}
+          </div>
+        </>
+      )
+    }
+  </Fragment>
 
-  <!-- 9. Related Services -->
-  {relatedPillars.length > 0 && (
-    <Section bg="subtle">
-      <h2 class="text-2xl font-heading font-bold text-brand-slate mb-6">You May Also Need</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {relatedPillars.map((related) => (
-          <a href={`/${city.slug}/${related.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6">
-            <h3 class="font-semibold text-brand-slate mb-2">{related.name} in {city.name}</h3>
-            <p class="text-sm text-text-muted">{related.shortDesc}</p>
-          </a>
-        ))}
+  <Fragment slot="fullCta">
+    <CTASection
+      title={`Need ${pillar.name} in ${city.name}?`}
+      subtitle={`Contact Wheyland Electric today for a free estimate. Licensed, bonded & insured with a 1-year labor warranty.`}
+      cityName={city.name}
+    />
+  </Fragment>
+
+  <Fragment slot="afterFullCta">
+    {
+      nearbyCities.length > 0 && (
+        <Section bg="subtle">
+          <h2 class="mb-4 text-center font-heading text-xl font-bold text-brand-slate">
+            Also Serving
+          </h2>
+          <div class="flex flex-wrap justify-center gap-3">
+            {nearbyCities.map((nearby) => (
+              <a
+                href={`/${nearby.slug}/${pillar.slug}/`}
+                class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+              >
+                {pillar.name} in {nearby.name}
+              </a>
+            ))}
+          </div>
+        </Section>
+      )
+    }
+
+    <Section bg="white">
+      <div class="flex flex-wrap justify-center gap-4 text-sm">
+        <a href={`/${city.slug}/`} class="text-brand-teal transition-colors hover:text-brand-slate">
+          ← All services in {city.name}
+        </a>
+        <span class="text-surface-warm">|</span>
+        <a
+          href={`/services/${pillar.slug}/`}
+          class="text-brand-teal transition-colors hover:text-brand-slate"
+        >
+          {pillar.name} across all areas →
+        </a>
       </div>
     </Section>
-  )}
-
-  <!-- 10. FAQs -->
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto">
-      <FAQAccordion faqs={moneyPageFaqs} heading={`${pillar.name} in ${city.name} — FAQs`} />
-    </div>
-  </Section>
-
-  <!-- 11. Full CTA Section -->
-  <CTASection
-    title={`Need ${pillar.name} in ${city.name}?`}
-    subtitle={`Contact Wheyland Electric today for a free estimate. Licensed, bonded & insured with a 1-year labor warranty.`}
-    cityName={city.name}
-  />
-
-  <!-- 12. Nearby city links for same service -->
-  {nearbyCities.length > 0 && (
-    <Section bg="subtle">
-      <h2 class="text-xl font-heading font-bold text-brand-slate mb-4 text-center">
-        Also Serving
-      </h2>
-      <div class="flex flex-wrap justify-center gap-3">
-        {nearbyCities.map((nearby) => (
-          <a
-            href={`/${nearby.slug}/${pillar.slug}/`}
-            class="bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow px-4 py-2 text-sm text-brand-slate hover:text-brand-teal font-medium"
-          >
-            {pillar.name} in {nearby.name}
-          </a>
-        ))}
-      </div>
-    </Section>
-  )}
-
-  <!-- 13. Breadcrumb links back -->
-  <Section bg="white">
-    <div class="flex flex-wrap justify-center gap-4 text-sm">
-      <a href={`/${city.slug}/`} class="text-brand-teal hover:text-brand-slate transition-colors">
-        ← All services in {city.name}
-      </a>
-      <span class="text-surface-warm">|</span>
-      <a href={`/services/${pillar.slug}/`} class="text-brand-teal hover:text-brand-slate transition-colors">
-        {pillar.name} across all areas →
-      </a>
-    </div>
-  </Section>
-</PageLayout>
+  </Fragment>
+</ServiceMoneyPageTemplate>
