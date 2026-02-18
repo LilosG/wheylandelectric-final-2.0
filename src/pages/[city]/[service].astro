@@ -120,6 +120,41 @@ interface Props {
   pillar: ServicePillar;
 }
 
+function trimHeroSubtitleCopy(
+  copy: string,
+  { minChars = 140, maxChars = 190, maxSentences = 2 }: { minChars?: number; maxChars?: number; maxSentences?: number } = {},
+) {
+  const normalized = copy.replace(/\s+/g, ' ').trim();
+  if (!normalized) return '';
+
+  const sentences = normalized.split(/(?<=[.!?])\s+/).filter(Boolean);
+  if (sentences.length === 0) return normalized;
+
+  let selected = '';
+  for (const sentence of sentences) {
+    const candidate = selected ? `${selected} ${sentence}` : sentence;
+    const selectedCount = selected ? selected.split(/(?<=[.!?])\s+/).length : 0;
+
+    if (selectedCount + 1 > maxSentences) break;
+
+    if (candidate.length <= maxChars || selected.length < minChars) {
+      selected = candidate;
+      if (selected.length >= minChars && selectedCount + 1 >= maxSentences) break;
+      continue;
+    }
+    break;
+  }
+
+  const candidate = selected || sentences[0] || normalized;
+  if (candidate.length <= maxChars) return candidate;
+
+  const truncated = candidate.slice(0, maxChars + 1);
+  const softCut = truncated.lastIndexOf(' ');
+  const cutoff = softCut > Math.floor(maxChars * 0.75) ? softCut : maxChars;
+
+  return `${candidate.slice(0, cutoff).trimEnd()}…`;
+}
+
 const { city, pillar } = Astro.props;
 const cityKey = `${city.slug}:${pillar.slug}`;
 const serviceImg = cityServiceImages[cityKey] ?? serviceImages[pillar.slug];
@@ -129,8 +164,9 @@ const breadcrumbs = [
   { label: pillar.name, href: `/${city.slug}/${pillar.slug}/` },
 ];
 
-const localizedIntro = pillar.localizedIntroSeedByCity[city.slug]
+const fullLocalizedIntro = pillar.localizedIntroSeedByCity[city.slug]
   ?? `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
+const localizedIntro = trimHeroSubtitleCopy(fullLocalizedIntro);
 
 const h1Tagline = pillar.h1TaglineByCity?.[city.slug]
   ?? `${pillar.name} in ${city.name}, CA`;
@@ -182,6 +218,7 @@ const moneyPageFaqs: FAQ[] = [
   <Hero
     title={h1Tagline}
     subtitle={localizedIntro}
+    subtitleMaxWidthClass="max-w-lg mx-auto text-center"
     compact
     showTrustCard={false}
     showStatChips={false}
@@ -205,7 +242,10 @@ const moneyPageFaqs: FAQ[] = [
           Professional {pillar.name} in {city.name}
         </h2>
         <p class="text-text-muted leading-relaxed mb-6">
-          When you choose Wheyland Electric for {pillar.name.toLowerCase()} in {city.name}, you get a team that knows this community and delivers work you can trust. We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
+          {fullLocalizedIntro}
+        </p>
+        <p class="text-text-muted leading-relaxed mb-6">
+          We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
         </p>
         <h3 class="text-lg font-semibold text-brand-slate mb-3">What's Included</h3>
         <ul class="space-y-2">
