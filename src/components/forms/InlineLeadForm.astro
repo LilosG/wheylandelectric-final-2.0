@@ -1,0 +1,122 @@
+---
+interface Props {
+  formId?: string;
+  serviceLabel?: string;
+  submitLabel?: string;
+}
+
+const { formId = 'inline-lead-form', serviceLabel = 'Service Interest', submitLabel = 'Get My Free Estimate' } = Astro.props;
+const timestampId = `${formId}-timestamp`;
+const statusId = `${formId}-status`;
+const honeypotId = `${formId}-website`;
+---
+
+<form
+  id={formId}
+  action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
+  method="POST"
+  class="form-shell--compact"
+  aria-describedby={statusId}
+>
+  <div class="hidden" aria-hidden="true">
+    <label for={honeypotId}>Website</label>
+    <input type="text" id={honeypotId} name="_gotcha" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <input type="hidden" name="_timestamp" id={timestampId} />
+  <input type="hidden" name="_next" value="/thank-you/" />
+
+  <div class="form-row--inline">
+    <div>
+      <label for={`${formId}-name`} class="block text-sm font-semibold text-brand-slate mb-1.5">Name *</label>
+      <input
+        id={`${formId}-name`}
+        name="name"
+        type="text"
+        required
+        autocomplete="name"
+        class="form-control--compact"
+        placeholder="Your name"
+      />
+    </div>
+
+    <div>
+      <label for={`${formId}-contact`} class="block text-sm font-semibold text-brand-slate mb-1.5">Phone or Email *</label>
+      <input
+        id={`${formId}-contact`}
+        name="contact"
+        type="text"
+        required
+        autocomplete="email"
+        class="form-control--compact"
+        placeholder="(858) 555-1234 or you@example.com"
+      />
+    </div>
+
+    <div>
+      <label for={`${formId}-message`} class="block text-sm font-semibold text-brand-slate mb-1.5">{serviceLabel} *</label>
+      <input
+        id={`${formId}-message`}
+        name="message"
+        type="text"
+        required
+        class="form-control--compact"
+        placeholder="EV charger install in Encinitas"
+      />
+    </div>
+
+    <div class="sm:self-end">
+      <button
+        type="submit"
+        class="w-full whitespace-nowrap rounded-lg bg-brand-gold px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
+      >
+        {submitLabel}
+      </button>
+    </div>
+  </div>
+
+  <p id={statusId} class="text-sm text-text-muted min-h-5" aria-live="polite"></p>
+</form>
+
+<script define:vars={{ formId, timestampId, statusId }} is:inline>
+  const form = document.getElementById(formId);
+  const timestampField = document.getElementById(timestampId);
+  const statusRegion = document.getElementById(statusId);
+
+  if (timestampField) {
+    timestampField.value = String(Date.now());
+  }
+
+  form?.addEventListener('submit', (event) => {
+    if (!timestampField) return;
+
+    statusRegion?.removeAttribute('data-state');
+    statusRegion && (statusRegion.textContent = '');
+
+    const elapsed = Date.now() - Number.parseInt(timestampField.value || '0', 10);
+    if (elapsed < 3000) {
+      event.preventDefault();
+      if (statusRegion) {
+        statusRegion.textContent = 'Please wait a few seconds, then submit the form again.';
+        statusRegion.setAttribute('data-state', 'error');
+      }
+      return;
+    }
+
+    const honeypotField = form.querySelector('[name="_gotcha"]');
+    const honeypot = honeypotField ? honeypotField.value : '';
+    if (honeypot) {
+      event.preventDefault();
+      if (statusRegion) {
+        statusRegion.textContent = 'Unable to submit right now. Please call us for immediate help.';
+        statusRegion.setAttribute('data-state', 'error');
+      }
+      return;
+    }
+
+    if (statusRegion) {
+      statusRegion.textContent = 'Sending your request...';
+      statusRegion.setAttribute('data-state', 'pending');
+    }
+  });
+</script>

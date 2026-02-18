@@ -7,6 +7,7 @@ import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
+import InlineLeadForm from '../../components/forms/InlineLeadForm.astro';
 import { moneyPageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
@@ -194,6 +195,16 @@ const moneyPageFaqs: FAQ[] = [
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
       <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+    </div>
+  </Section>
+
+  <Section bg="subtle" class="pt-0 pb-10 md:pb-12">
+    <div class="max-w-5xl mx-auto">
+      <InlineLeadForm
+        formId={`${city.slug}-${pillar.slug}-inline-lead`}
+        serviceLabel={`What do you need for ${pillar.name}?`}
+        submitLabel="Request a Quick Callback"
+      />
     </div>
   </Section>
 
