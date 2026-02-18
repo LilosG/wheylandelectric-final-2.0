@@ -17,6 +17,7 @@ interface Props {
   backgroundImage?: string;
   imagePosition?: 'center' | 'top' | 'bottom';
   backgroundImageAlt?: string;
+  primaryHref?: string;
 }
 
 const {
@@ -33,6 +34,7 @@ const {
   backgroundImage,
   imagePosition = 'center',
   backgroundImageAlt,
+  primaryHref = '/free-estimates/',
 } = Astro.props;
 
 // Determine which image to use
@@ -154,7 +156,7 @@ const trustItems = [
             showTrustCard && !compact ? 'justify-start' : 'justify-center',
             compact ? 'mt-6' : 'mt-8'
           ]}>
-            <Button href="/free-estimates/" variant="primary" size="lg">
+            <Button href={primaryHref} variant="primary" size="lg">
               Get Free Estimate
             </Button>
             <Button href={`tel:${site.nap.phoneTel}`} variant="outline-white" size="lg">
