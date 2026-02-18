@@ -130,24 +130,87 @@ export const cityHeroImages: HeroImageMap = {
  */
 export const whoWeServeImages: HeroImageMap = {
   homeowners: {
-    src: '/images/who-we-serve/homeowners.jpg',
+    src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
     alt: 'Homeowners - residential electrical services for families and home improvement',
   },
   'property-managers': {
-    src: '/images/who-we-serve/property-managers.jpg',
+    src: '/images/services/panel/wheyland-electric-service-entrance-wiring.webp',
     alt: 'Property managers - reliable electrical maintenance for managed properties',
   },
   'hoa-communities': {
-    src: '/images/who-we-serve/hoa-communities.jpg',
+    src: '/images/services/lighting/wheyland-electric-led-handrail-stair-lighting.webp',
     alt: 'HOA communities - monthly electrical maintenance and safety inspections',
   },
   commercial: {
-    src: '/images/who-we-serve/commercial.jpg',
+    src: '/images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp',
     alt: 'Commercial and business - tenant improvements and commercial electrical services',
   },
   'ev-owners': {
-    src: '/images/who-we-serve/ev-owners.jpg',
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-level2-install.webp',
     alt: 'EV owners - Level 2 home charger installation for Tesla and all EV makes',
+  },
+};
+
+/**
+ * Static page hero images
+ * Used for pages that are not city/service slug-driven.
+ */
+export const pageHeroImages: HeroImageMap = {
+  services: {
+    src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
+    alt: 'Professional electrical services from Wheyland Electric',
+  },
+  'service-areas': {
+    src: '/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp',
+    alt: 'Electrical services available across North County San Diego',
+  },
+  about: {
+    src: '/images/about/wheyland-electric-family-portrait-carlsbad.webp',
+    alt: 'Wheyland Electric family-owned team based in Carlsbad',
+  },
+  'who-we-work-with': {
+    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
+    alt: 'Electrical services for homeowners, HOAs, and businesses',
+  },
+  blog: {
+    src: '/images/services/lighting/wheyland-electric-kitchen-pendant-lighting.webp',
+    alt: 'Electrical tips and insights from Wheyland Electric',
+  },
+  'blog-post': {
+    src: '/images/services/lighting/wheyland-electric-home-theater-star-ceiling.webp',
+    alt: 'In-depth electrical guidance and articles by Wheyland Electric',
+  },
+  'not-found': {
+    src: '/images/services/panel/wheyland-electric-outdoor-meter-panel-new-construction.webp',
+    alt: 'Wheyland Electric page not found fallback',
+  },
+  'thank-you': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-wall-mount-detail.webp',
+    alt: 'Thank you for contacting Wheyland Electric',
+  },
+  reviews: {
+    src: '/images/services/lighting/wheyland-electric-contemporary-chandelier-foyer.webp',
+    alt: 'Customer-focused electrical work by Wheyland Electric in North County San Diego',
+  },
+  contact: {
+    src: '/images/services/panel/wheyland-electric-outdoor-meter-panel-new-construction.webp',
+    alt: 'Licensed electrician ready to help with electrical projects in San Diego County',
+  },
+  'free-estimates': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp',
+    alt: 'Free estimate for electrical services from Wheyland Electric',
+  },
+  faqs: {
+    src: '/images/services/lighting/wheyland-electric-recessed-lighting-vaulted-ceiling.webp',
+    alt: 'Frequently asked questions about electrical services and safety',
+  },
+  licenses: {
+    src: '/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp',
+    alt: 'Licensed, bonded, and insured electrical contractor credentials',
+  },
+  projects: {
+    src: '/images/gallery/wheyland-electric-specialty-garage-shop-lights.webp',
+    alt: 'Completed Wheyland Electric projects in homes and businesses',
   },
 };
 
@@ -179,4 +242,11 @@ export function getCityHeroImage(citySlug: string): HeroImage {
  */
 export function getWhoWeServeImage(segmentKey: string): HeroImage {
   return whoWeServeImages[segmentKey] || fallbackHeroImage;
+}
+
+/**
+ * Helper function to get static page hero image
+ */
+export function getPageHeroImage(pageKey: string): HeroImage {
+  return pageHeroImages[pageKey] || fallbackHeroImage;
 }

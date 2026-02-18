@@ -1,10 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
 import ProjectGallery from '../../components/sections/ProjectGallery.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
+import { getPageHeroImage } from '../../data/heroImages';
+
+const projectsHero = getPageHeroImage('projects');
 
 const meta = generateMeta({
   title: 'Our Projects | Wheyland Electric',
@@ -19,13 +23,18 @@ const meta = generateMeta({
     { label: 'Projects', href: '/about/projects/' },
   ]}
 >
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Our Projects</h1>
-      <p class="text-lg text-text-muted">
-        A look at the electrical work we have completed for homeowners, businesses, and HOA communities across San Diego County.
-      </p>
-    </div>
+  <Hero
+    title="Our Projects"
+    subtitle="A look at the electrical work we have completed for homeowners, businesses, and HOA communities across San Diego County."
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={projectsHero.src}
+    imagePosition="center"
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
     <ProjectGallery heading="" />
   </Section>
 

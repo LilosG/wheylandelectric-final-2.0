@@ -2,11 +2,15 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
 import GBPEmbed from '../components/sections/GBPEmbed.astro';
+import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Section from '../components/ui/Section.astro';
 import { generateMeta } from '../lib/seo';
 import { localBusinessSchema } from '../lib/schema/localBusiness';
 import { site } from '../data/site';
+import { getPageHeroImage } from '../data/heroImages';
+
+const contactHero = getPageHeroImage('contact');
 
 const meta = generateMeta({
   title: 'Contact Us | Wheyland Electric',
@@ -15,14 +19,16 @@ const meta = generateMeta({
 });
 ---
 <PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'Contact', href: '/contact-us/' }]}>
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Contact Us</h1>
-      <p class="text-lg text-text-muted">
-        Have a question or need electrical service? We are here to help.
-      </p>
-    </div>
-  </Section>
+  <Hero
+    title="Contact Us"
+    subtitle="Have a question or need electrical service? We are here to help."
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={contactHero.src}
+    imagePosition="center"
+  />
 
   <TrustBar />
 

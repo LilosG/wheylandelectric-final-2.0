@@ -3,6 +3,7 @@ title: "EV Charger Installation in San Diego: What Homeowners Need to Know"
 description: "A practical guide to EV charger installation for San Diego County homeowners — covering charger types, electrical requirements, permit process, and what to expect."
 date: 2024-11-15
 author: "Tim Wheyland"
+image: "/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
 draft: false
 ---

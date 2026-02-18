@@ -7,6 +7,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { getPublishedPillars } from '../../data/services';
+import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = generateMeta({
   title: 'Electrical Services | San Diego County',
@@ -15,6 +16,7 @@ const meta = generateMeta({
 });
 
 const services = getPublishedPillars();
+const servicesHero = getPageHeroImage('services');
 ---
 <PageLayout meta={meta} breadcrumbs={[{ label: 'Services', href: '/services/' }]}>
   <Hero
@@ -24,6 +26,7 @@ const services = getPublishedPillars();
     compact
     showTrustCard={false}
     showStatChips={false}
+    backgroundImage={servicesHero.src}
   />
 
   <TrustBar />

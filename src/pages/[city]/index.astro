@@ -7,6 +7,7 @@ import HOAOfferBlock from '../../components/sections/HOAOfferBlock.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import CityIntroSection from '../../components/sections/CityIntroSection.astro';
 import Section from '../../components/ui/Section.astro';
 import { cityPageMeta } from '../../lib/seo';
 import { localBusinessSchema } from '../../lib/schema/localBusiness';
@@ -36,12 +37,6 @@ const nearbyCities = city.nearbyCities
   .map((slug) => getCityBySlug(slug))
   .filter((c): c is City => c !== undefined && c.publish);
 
-const categoryLabels: Record<string, string> = {
-  residential: 'Residential',
-  commercial: 'Commercial',
-  hoa: 'HOA Communities',
-  ev: 'EV Charging',
-};
 
 const cityFaqs: FAQ[] = [
   {
@@ -98,21 +93,7 @@ const cityFaqs: FAQ[] = [
 
   <!-- City-specific intro -->
   <Section bg="white">
-    <div class="max-w-3xl mx-auto">
-      <p class="text-lg text-text-muted leading-relaxed mb-6">{city.localIntroSeed}</p>
-      {city.localIntroExtended && (
-        <p class="text-text-muted leading-relaxed mb-6">{city.localIntroExtended}</p>
-      )}
-
-      <!-- Service categories -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-        {city.serviceCategories.map((cat) => (
-            <div class="bg-surface-subtle rounded-lg p-4 text-center">
-              <p class="font-semibold text-brand-slate text-sm">{categoryLabels[cat] ?? cat}</p>
-            </div>
-        ))}
-      </div>
-    </div>
+    <CityIntroSection city={city} nearbyCount={nearbyCities.length} />
   </Section>
 
   <!-- Services in this city -->

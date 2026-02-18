@@ -9,6 +9,7 @@ import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { getPublishedCities } from '../../data/cities';
 import { site } from '../../data/site';
+import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = generateMeta({
   title: 'Service Areas | Electrician in San Diego County',
@@ -17,6 +18,7 @@ const meta = generateMeta({
 });
 
 const cities = getPublishedCities();
+const serviceAreasHero = getPageHeroImage('service-areas');
 ---
 <PageLayout meta={meta} breadcrumbs={[{ label: 'Service Areas', href: '/service-areas/' }]}>
   <Hero
@@ -26,6 +28,7 @@ const cities = getPublishedCities();
     compact
     showTrustCard={false}
     showStatChips={false}
+    backgroundImage={serviceAreasHero.src}
   />
 
   <TrustBar />

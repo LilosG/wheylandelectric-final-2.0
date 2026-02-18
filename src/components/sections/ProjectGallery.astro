@@ -19,15 +19,22 @@ if (serviceSlug) projects = getProjectsByService(serviceSlug);
   {projects.length > 0 ? (
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.map((project) => (
-        <div class="bg-white rounded-xl shadow-md overflow-hidden">
-          <div class="aspect-video bg-surface-subtle flex items-center justify-center">
-            <span class="text-sm text-text-muted">Project photo</span>
+        <article class="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden border border-surface-subtle">
+          <div class="aspect-[4/3] overflow-hidden bg-surface-subtle">
+            <img
+              src={project.images[0]}
+              alt={project.title}
+              class="w-full h-full object-cover"
+              loading="lazy"
+              width="1200"
+              height="900"
+            />
           </div>
-          <div class="p-4">
-            <h3 class="font-semibold text-brand-slate mb-1">{project.title}</h3>
-            <p class="text-sm text-text-muted">{project.description}</p>
+          <div class="p-5">
+            <h3 class="font-semibold text-brand-slate mb-2">{project.title}</h3>
+            <p class="text-sm text-text-muted leading-relaxed">{project.description}</p>
           </div>
-        </div>
+        </article>
       ))}
     </div>
   ) : (
