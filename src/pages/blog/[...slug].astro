@@ -1,10 +1,12 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { blogPostMeta } from '../../lib/seo';
 import { articleSchema } from '../../lib/schema/article';
 import { getCollection } from 'astro:content';
+import { getPageHeroImage } from '../../data/heroImages';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -20,6 +22,8 @@ const { post } = Astro.props;
 const { Content } = await post.render();
 
 const meta = blogPostMeta(post.data.title, post.data.description, post.slug);
+const blogPostHero = getPageHeroImage('blog-post');
+
 const schema = articleSchema(
   post.data.title,
   post.data.description,
@@ -36,16 +40,22 @@ const schema = articleSchema(
     { label: post.data.title, href: `/blog/${post.slug}/` },
   ]}
 >
-  <Section bg="white">
+  <Hero
+    title={post.data.title}
+    subtitle={post.data.description}
+    compact
+    showCTAs={false}
+    showTrustCard={false}
+    showStatChips={false}
+    backgroundImage={blogPostHero.src}
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
     <article class="max-w-3xl mx-auto">
       <header class="mb-8">
         <time class="text-sm text-text-muted" datetime={post.data.date.toISOString()}>
           {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
         </time>
-        <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-brand-slate mt-3 mb-4">
-          {post.data.title}
-        </h1>
-        <p class="text-lg text-text-muted">{post.data.description}</p>
         <div class="mt-4 text-sm text-text-muted">
           By <span class="font-medium text-brand-slate">{post.data.author}</span>
         </div>

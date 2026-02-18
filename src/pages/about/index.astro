@@ -7,6 +7,9 @@ import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { localBusinessSchema } from '../../lib/schema/localBusiness';
 import { site } from '../../data/site';
+import { getPageHeroImage } from '../../data/heroImages';
+
+const aboutHero = getPageHeroImage('about');
 
 const meta = generateMeta({
   title: 'About Wheyland Electric | Family-Owned Carlsbad Electrician',
@@ -22,6 +25,7 @@ const meta = generateMeta({
     compact
     showTrustCard={false}
     showStatChips={false}
+    backgroundImage={aboutHero.src}
   />
 
   <TrustBar />

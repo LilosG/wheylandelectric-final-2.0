@@ -8,13 +8,15 @@ import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import { generateMeta } from '../lib/seo';
-import { getWhoWeServeImage } from '../data/heroImages';
+import { getWhoWeServeImage, getPageHeroImage } from '../data/heroImages';
 
 const meta = generateMeta({
   title: 'Who We Work With | Wheyland Electric',
   description: 'Wheyland Electric serves homeowners, property managers, HOA communities, commercial businesses, and EV owners across San Diego County.',
   path: '/who-we-work-with/',
 });
+
+const whoWeServeHero = getPageHeroImage('who-we-work-with');
 
 const segments = [
   {
@@ -62,6 +64,7 @@ const segments = [
     compact
     showTrustCard={false}
     showStatChips={false}
+    backgroundImage={whoWeServeHero.src}
   />
 
   <TrustBar />

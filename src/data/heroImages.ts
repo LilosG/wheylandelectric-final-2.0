@@ -156,6 +156,38 @@ export const whoWeServeImages: HeroImageMap = {
  * Used for pages that are not city/service slug-driven.
  */
 export const pageHeroImages: HeroImageMap = {
+  services: {
+    src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
+    alt: 'Professional electrical services from Wheyland Electric',
+  },
+  'service-areas': {
+    src: '/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp',
+    alt: 'Electrical services available across North County San Diego',
+  },
+  about: {
+    src: '/images/about/wheyland-electric-family-portrait-carlsbad.webp',
+    alt: 'Wheyland Electric family-owned team based in Carlsbad',
+  },
+  'who-we-work-with': {
+    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
+    alt: 'Electrical services for homeowners, HOAs, and businesses',
+  },
+  blog: {
+    src: '/images/services/lighting/wheyland-electric-kitchen-pendant-lighting.webp',
+    alt: 'Electrical tips and insights from Wheyland Electric',
+  },
+  'blog-post': {
+    src: '/images/services/lighting/wheyland-electric-home-theater-star-ceiling.webp',
+    alt: 'In-depth electrical guidance and articles by Wheyland Electric',
+  },
+  'not-found': {
+    src: '/images/services/panel/wheyland-electric-outdoor-meter-panel-new-construction.webp',
+    alt: 'Wheyland Electric page not found fallback',
+  },
+  'thank-you': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-wall-mount-detail.webp',
+    alt: 'Thank you for contacting Wheyland Electric',
+  },
   reviews: {
     src: '/images/services/lighting/wheyland-electric-contemporary-chandelier-foyer.webp',
     alt: 'Customer-focused electrical work by Wheyland Electric in North County San Diego',

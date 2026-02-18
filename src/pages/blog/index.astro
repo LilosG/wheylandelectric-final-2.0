@@ -1,9 +1,11 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Section from '../../components/ui/Section.astro';
+import Hero from '../../components/sections/Hero.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import { generateMeta } from '../../lib/seo';
 import { getCollection } from 'astro:content';
+import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = generateMeta({
   title: 'Electrical Tips & Insights | Wheyland Electric Blog',
@@ -11,18 +13,24 @@ const meta = generateMeta({
   path: '/blog/',
 });
 
+const blogHero = getPageHeroImage('blog');
+
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
 <PageLayout meta={meta} breadcrumbs={[{ label: 'Blog', href: '/blog/' }]}>
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Electrical Tips & Insights</h1>
-      <p class="text-lg text-text-muted">
-        Practical guides and information from the Wheyland Electric team.
-      </p>
-    </div>
+  <Hero
+    title="Electrical Tips & Insights"
+    subtitle="Practical guides and information from the Wheyland Electric team."
+    compact
+    showCTAs={false}
+    showTrustCard={false}
+    showStatChips={false}
+    backgroundImage={blogHero.src}
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {posts.map((post) => (
