@@ -13,6 +13,73 @@
 
 
 @layer components {
+  .form-shell {
+    @apply space-y-6;
+  }
+
+  .form-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-6;
+  }
+
+  .form-field {
+    @apply space-y-2;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-brand-slate;
+  }
+
+  .form-control {
+    @apply w-full min-h-[3rem] px-4 py-3 rounded-lg border border-surface-warm bg-white text-text outline-none transition-colors;
+    @apply focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20;
+    @apply disabled:opacity-60 disabled:cursor-not-allowed;
+  }
+
+  .form-textarea {
+    @apply min-h-[7rem] resize-y;
+  }
+
+  .form-helper {
+    @apply text-sm text-text-muted;
+  }
+
+  .form-feedback {
+    @apply hidden rounded-lg border px-4 py-3 text-sm;
+  }
+
+  .form-feedback[data-state='error'] {
+    @apply block border-brand-slate bg-surface-subtle text-brand-slate;
+  }
+
+  .form-feedback[data-state='success'] {
+    @apply block border-brand-teal bg-surface-subtle text-brand-slate;
+  }
+
+  .form-submit-group {
+    @apply pt-2;
+  }
+
+  .form-submit {
+    @apply w-full sm:w-auto bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold px-8 py-4 rounded-lg transition-colors;
+    @apply focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2;
+  }
+
+  .form-shell--compact {
+    @apply space-y-4;
+  }
+
+  .form-control--compact {
+    @apply min-h-[2.75rem] px-3 py-2;
+  }
+
+  .form-row--inline {
+    @apply flex flex-col gap-3 sm:flex-row sm:items-start;
+  }
+
+  .form-submit-group--inline {
+    @apply pt-0 sm:self-end;
+  }
+
   .rich-content {
     @apply text-base md:text-lg text-text-muted leading-8;
   }
@@ -56,5 +123,17 @@
 
   .rich-content a {
     @apply text-brand-teal underline hover:text-brand-slate;
+  }
+
+  .form-shell--compact {
+    @apply rounded-xl border border-surface bg-white p-4 shadow-sm md:p-5;
+  }
+
+  .form-row--inline {
+    @apply grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-[minmax(0,1fr)_minmax(0,1fr)_minmax(0,1.2fr)_auto] xl:items-end;
+  }
+
+  .form-control--compact {
+    @apply w-full rounded-lg border border-surface-warm bg-white px-3 py-2.5 text-sm text-text outline-none transition-colors focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20;
   }
 }
