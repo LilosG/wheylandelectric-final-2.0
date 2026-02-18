@@ -4,6 +4,7 @@ import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import HOAOfferBlock from '../components/sections/HOAOfferBlock.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import InlineLeadCapture from '../components/sections/InlineLeadCapture.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
@@ -121,6 +122,12 @@ const segments = [
   <Section bg="subtle">
     <HOAOfferBlock />
   </Section>
+
+  <InlineLeadCapture
+    heading="Get a Fast Estimate"
+    buttonText="Get Fast Estimate"
+    source="who-we-work-with-inline"
+  />
 
   <CTASection />
 </PageLayout>
