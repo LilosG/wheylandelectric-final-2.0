@@ -6,6 +6,8 @@ import Footer from '../components/navigation/Footer.astro';
 import MobileCTA from '../components/navigation/MobileCTA.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 import SEOHead from '../components/seo/SEOHead.astro';
+import EventTracking from '../components/analytics/EventTracking.astro';
+import { getTrackingContext } from '../lib/tracking';
 
 interface Props {
   meta: PageMeta;
@@ -15,8 +17,10 @@ interface Props {
 }
 
 const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
+const tracking = getTrackingContext(Astro.url.pathname);
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,28 +29,40 @@ const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet" />
-    {preloadHero && (
-      <link
-        rel="preload"
-        as="image"
-        href="/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp"
-        type="image/webp"
-      />
-    )}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    {
+      preloadHero && (
+        <link
+          rel="preload"
+          as="image"
+          href="/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp"
+          type="image/webp"
+        />
+      )
+    }
     <SEOHead meta={meta} schemas={schemas} />
   </head>
-  <body class="min-h-screen flex flex-col">
+  <body class="flex min-h-screen flex-col">
     <Header />
     <main class="flex-1 pb-20 lg:pb-0">
-      {breadcrumbs && breadcrumbs.length > 0 && (
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <Breadcrumbs items={breadcrumbs} />
-        </div>
-      )}
+      {
+        breadcrumbs && breadcrumbs.length > 0 && (
+          <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <Breadcrumbs items={breadcrumbs} />
+          </div>
+        )
+      }
       <slot />
     </main>
     <Footer />
     <MobileCTA />
+    <EventTracking
+      pageTemplate={tracking.pageTemplate}
+      routeType={tracking.routeType}
+      phase={tracking.phase}
+    />
   </body>
 </html>

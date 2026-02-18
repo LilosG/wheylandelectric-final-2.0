@@ -1,0 +1,79 @@
+---
+interface Props {
+  pageTemplate: string;
+  routeType: string;
+  phase: 'phase-1' | 'future';
+}
+
+const { pageTemplate, routeType, phase } = Astro.props;
+---
+
+<script is:inline define:vars={{ pageTemplate, routeType, phase }}>
+  (() => {
+    const body = document.body;
+    if (!body) return;
+
+    body.dataset.pageTemplate = pageTemplate;
+    body.dataset.routeType = routeType;
+    body.dataset.trackingPhase = phase;
+
+    const shouldTrack = phase === 'phase-1';
+    const getBasePayload = () => ({
+      page_template: body.dataset.pageTemplate || 'generic-page',
+      route_type: body.dataset.routeType || 'generic',
+      route_path: window.location.pathname,
+      rollout_phase: body.dataset.trackingPhase || 'future',
+    });
+
+    const track = (eventName, details = {}) => {
+      if (!shouldTrack) return;
+
+      const payload = {
+        event: eventName,
+        ...getBasePayload(),
+        ...details,
+      };
+
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push(payload);
+
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', eventName, payload);
+      }
+
+      window.dispatchEvent(new CustomEvent('wheyland:tracking', { detail: payload }));
+    };
+
+    window.WheylandTracking = { track };
+
+    document.addEventListener('click', (event) => {
+      const target = event.target;
+      if (!(target instanceof Element)) return;
+
+      const anchor = target.closest('a[href]');
+      if (!(anchor instanceof HTMLAnchorElement)) return;
+
+      const href = anchor.getAttribute('href') || '';
+      if (!href) return;
+
+      const linkText = (anchor.textContent || '').trim().slice(0, 120);
+
+      if (href.startsWith('tel:')) {
+        track('tap_to_call_click', {
+          click_text: linkText,
+          click_target: href,
+        });
+        return;
+      }
+
+      const targetUrl = new URL(href, window.location.origin);
+      if (targetUrl.pathname === '/free-estimates/') {
+        track('cta_click_free_estimates', {
+          click_text: linkText,
+          click_target: targetUrl.pathname,
+          click_source_path: window.location.pathname,
+        });
+      }
+    });
+  })();
+</script>
