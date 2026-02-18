@@ -40,6 +40,41 @@ interface Props {
   pillar: ServicePillar;
 }
 
+function trimHeroSubtitleCopy(
+  copy: string,
+  { minChars = 140, maxChars = 190, maxSentences = 2 }: { minChars?: number; maxChars?: number; maxSentences?: number } = {},
+) {
+  const normalized = copy.replace(/\s+/g, ' ').trim();
+  if (!normalized) return '';
+
+  const sentences = normalized.split(/(?<=[.!?])\s+/).filter(Boolean);
+  if (sentences.length === 0) return normalized;
+
+  let selected = '';
+  for (const sentence of sentences) {
+    const candidate = selected ? `${selected} ${sentence}` : sentence;
+    const selectedCount = selected ? selected.split(/(?<=[.!?])\s+/).length : 0;
+
+    if (selectedCount + 1 > maxSentences) break;
+
+    if (candidate.length <= maxChars || selected.length < minChars) {
+      selected = candidate;
+      if (selected.length >= minChars && selectedCount + 1 >= maxSentences) break;
+      continue;
+    }
+    break;
+  }
+
+  const candidate = selected || sentences[0] || normalized;
+  if (candidate.length <= maxChars) return candidate;
+
+  const truncated = candidate.slice(0, maxChars + 1);
+  const softCut = truncated.lastIndexOf(' ');
+  const cutoff = softCut > Math.floor(maxChars * 0.75) ? softCut : maxChars;
+
+  return `${candidate.slice(0, cutoff).trimEnd()}…`;
+}
+
 const { city, pillar } = Astro.props;
 const serviceImg = getServiceHeroImage({
   serviceSlug: pillar.slug,
@@ -52,9 +87,9 @@ const breadcrumbs = [
   { label: pillar.name, href: `/${city.slug}/${pillar.slug}/` },
 ];
 
-const localizedIntro =
-  pillar.localizedIntroSeedByCity[city.slug] ??
-  `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
+const fullLocalizedIntro = pillar.localizedIntroSeedByCity[city.slug]
+  ?? `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
+const localizedIntro = trimHeroSubtitleCopy(fullLocalizedIntro);
 
 const h1Tagline = pillar.h1TaglineByCity?.[city.slug] ?? `${pillar.name} in ${city.name}, CA`;
 
@@ -130,12 +165,68 @@ const moneyPageFaqs: FAQ[] = [
   faqHeading={`${pillar.name} in ${city.name} — FAQs`}
   faqs={moneyPageFaqs}
 >
-  <Fragment slot="inlineCta">
-    <div class="flex flex-col justify-center gap-4 sm:flex-row">
+  <!-- 1. Breadcrumbs rendered by PageLayout above -->
+  <!-- 2. H1 + 3. Localized Intro + 4. Inline CTA (above the fold) -->
+  <Hero
+    title={h1Tagline}
+    subtitle={localizedIntro}
+    subtitleMaxWidthClass="max-w-lg mx-auto text-center"
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    imageSource="service"
+    imageKey={pillar.slug}
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg"
-        >Call {site.nap.phone}</Button
-      >
+      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+    </div>
+  </Section>
+
+  <!-- 5. Scoped Service Detail -->
+  <Section bg="white">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <div>
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">
+          Professional {pillar.name} in {city.name}
+        </h2>
+        <p class="text-text-muted leading-relaxed mb-6">
+          {fullLocalizedIntro}
+        </p>
+        <p class="text-text-muted leading-relaxed mb-6">
+          We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
+        </p>
+        <h3 class="text-lg font-semibold text-brand-slate mb-3">What's Included</h3>
+        <ul class="space-y-2">
+          {pillar.includedBullets.map((bullet) => (
+            <li class="flex items-start gap-2 text-text-muted">
+              <svg class="w-4 h-4 text-brand-teal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              {bullet}
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="rounded-xl overflow-hidden shadow-lg bg-surface-subtle">
+        {serviceImg ? (
+          <img
+            src={serviceImg.src}
+            alt={serviceImg.alt}
+            width={serviceImg.width}
+            height={serviceImg.height}
+            class="w-full h-full object-cover"
+            loading="lazy"
+          />
+        ) : (
+          <div class="flex items-center justify-center min-h-[250px]">
+            <p class="text-sm text-text-muted">{pillar.name} in {city.name}</p>
+          </div>
+        )}
+      </div>
     </div>
   </Fragment>
 
