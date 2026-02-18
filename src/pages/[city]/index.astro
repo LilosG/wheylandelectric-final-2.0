@@ -98,19 +98,39 @@ const cityFaqs: FAQ[] = [
 
   <!-- City-specific intro -->
   <Section bg="white">
-    <div class="max-w-3xl mx-auto">
-      <p class="text-lg text-text-muted leading-relaxed mb-6">{city.localIntroSeed}</p>
-      {city.localIntroExtended && (
-        <p class="text-text-muted leading-relaxed mb-6">{city.localIntroExtended}</p>
-      )}
+    <div class="max-w-5xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+        <div class="lg:col-span-3 bg-white rounded-xl border border-surface-subtle shadow-sm p-6 md:p-8">
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-4">
+            Trusted Electrical Service in {city.name}
+          </h2>
+          <p class="text-lg text-text-muted leading-relaxed mb-5">{city.localIntroSeed}</p>
+          {city.localIntroExtended && (
+            <p class="text-text-muted leading-relaxed">{city.localIntroExtended}</p>
+          )}
+        </div>
 
-      <!-- Service categories -->
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
-        {city.serviceCategories.map((cat) => (
-            <div class="bg-surface-subtle rounded-lg p-4 text-center">
-              <p class="font-semibold text-brand-slate text-sm">{categoryLabels[cat] ?? cat}</p>
+        <div class="lg:col-span-2 space-y-5">
+          <div class="bg-surface-subtle rounded-xl p-5">
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-brand-slate mb-3">Quick Area Snapshot</h3>
+            <ul class="space-y-2 text-sm text-text-muted">
+              <li><span class="font-semibold text-brand-slate">ZIP Codes:</span> {city.zips.join(', ')}</li>
+              <li><span class="font-semibold text-brand-slate">Neighborhoods:</span> {city.neighborhoods.length} served</li>
+              <li><span class="font-semibold text-brand-slate">Nearby Coverage:</span> {nearbyCities.length} surrounding cities</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-sm font-semibold uppercase tracking-wide text-brand-slate mb-3">Service Categories</h3>
+            <div class="grid grid-cols-2 gap-3">
+              {city.serviceCategories.map((cat) => (
+                  <div class="bg-surface-subtle rounded-lg p-3 text-center border border-white">
+                    <p class="font-semibold text-brand-slate text-sm">{categoryLabels[cat] ?? cat}</p>
+                  </div>
+              ))}
             </div>
-        ))}
+          </div>
+        </div>
       </div>
     </div>
   </Section>

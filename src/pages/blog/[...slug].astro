@@ -23,6 +23,7 @@ const { Content } = await post.render();
 
 const meta = blogPostMeta(post.data.title, post.data.description, post.slug);
 const blogPostHero = getPageHeroImage('blog-post');
+const blogHeroImage = post.data.image || blogPostHero.src;
 
 const schema = articleSchema(
   post.data.title,
@@ -47,7 +48,7 @@ const schema = articleSchema(
     showCTAs={false}
     showTrustCard={false}
     showStatChips={false}
-    backgroundImage={blogPostHero.src}
+    backgroundImage={blogHeroImage}
   />
 
   <Section bg="white" class="pt-8 md:pt-12">
@@ -61,14 +62,7 @@ const schema = articleSchema(
         </div>
       </header>
 
-      <div class="prose prose-lg max-w-none
-        prose-headings:font-heading prose-headings:text-brand-slate
-        prose-p:text-text-muted prose-p:leading-relaxed
-        prose-a:text-brand-teal prose-a:no-underline hover:prose-a:text-brand-slate
-        prose-strong:text-brand-slate
-        prose-li:text-text-muted
-        prose-ul:list-disc prose-ol:list-decimal
-      ">
+      <div class="rich-content">
         <Content />
       </div>
     </article>
