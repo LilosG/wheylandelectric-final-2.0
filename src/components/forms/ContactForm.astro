@@ -1,5 +1,7 @@
 ---
+
 ---
+
 <form
   id="contact-form"
   action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
@@ -61,17 +63,11 @@
       name="message"
       rows="4"
       required
-      class="form-control form-textarea"
-    ></textarea>
+      class="form-control form-textarea"></textarea>
   </div>
   <p id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></p>
   <div class="form-submit-group">
-    <button
-      type="submit"
-      class="form-submit"
-    >
-      Send Message
-    </button>
+    <button type="submit" class="form-submit"> Send Message </button>
   </div>
 </form>
 
@@ -89,10 +85,22 @@
     feedback.role = state === 'error' ? 'alert' : 'status';
   };
 
+  let hasStarted = false;
+
+  form?.addEventListener('focusin', () => {
+    if (hasStarted) return;
+    hasStarted = true;
+    window.WheylandTracking?.track('form_start', { form_id: 'contact-form' });
+  });
+
   form?.addEventListener('submit', (e) => {
     if (!form.checkValidity()) {
       e.preventDefault();
       form.reportValidity();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: 'contact-form',
+        fail_reason: 'validation',
+      });
       showFeedback('error', 'Please complete all required fields before submitting.');
       return;
     }
@@ -100,16 +108,25 @@
     const timestamp = parseInt(timestampField?.value || '0', 10);
     if (Date.now() - timestamp < 3000) {
       e.preventDefault();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: 'contact-form',
+        fail_reason: 'submission_too_fast',
+      });
       showFeedback('error', 'Please wait a moment, then submit again.');
       return;
     }
     const honeypot = (form.querySelector('[name="_gotcha"]') as HTMLInputElement)?.value;
     if (honeypot) {
       e.preventDefault();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: 'contact-form',
+        fail_reason: 'honeypot',
+      });
       showFeedback('error', 'We could not submit your message. Please refresh and try again.');
       return;
     }
 
+    window.WheylandTracking?.track('form_submit_success', { form_id: 'contact-form' });
     showFeedback('success', 'Looks good — sending your message...');
   });
 </script>

@@ -5,6 +5,7 @@ import { getPublishedPillars } from '../../data/services';
 const cities = getPublishedCities();
 const services = getPublishedPillars();
 ---
+
 <form
   id="estimate-form"
   action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
@@ -74,15 +75,9 @@ const services = getPublishedPillars();
     <!-- City -->
     <div class="form-field">
       <label for="city" class="form-label">City</label>
-      <select
-        id="city"
-        name="city"
-        class="form-control"
-      >
+      <select id="city" name="city" class="form-control">
         <option value="">Select your city</option>
-        {cities.map((city) => (
-          <option value={city.name}>{city.name}, CA</option>
-        ))}
+        {cities.map((city) => <option value={city.name}>{city.name}, CA</option>)}
         <option value="Other">Other</option>
       </select>
     </div>
@@ -90,15 +85,9 @@ const services = getPublishedPillars();
     <!-- Service -->
     <div class="form-field">
       <label for="service" class="form-label">Service Needed</label>
-      <select
-        id="service"
-        name="service"
-        class="form-control"
-      >
+      <select id="service" name="service" class="form-control">
         <option value="">Select a service</option>
-        {services.map((svc) => (
-          <option value={svc.name}>{svc.name}</option>
-        ))}
+        {services.map((svc) => <option value={svc.name}>{svc.name}</option>)}
         <option value="HOA Maintenance Quote">HOA Maintenance Quote</option>
         <option value="Other">Other</option>
       </select>
@@ -107,11 +96,7 @@ const services = getPublishedPillars();
     <!-- Preferred contact method -->
     <div class="form-field">
       <label for="contact-method" class="form-label">Preferred Contact Method</label>
-      <select
-        id="contact-method"
-        name="contact_method"
-        class="form-control"
-      >
+      <select id="contact-method" name="contact_method" class="form-control">
         <option value="phone">Phone</option>
         <option value="email">Email</option>
         <option value="text">Text</option>
@@ -127,20 +112,14 @@ const services = getPublishedPillars();
       name="message"
       rows="4"
       class="form-control form-textarea"
-      placeholder="Describe what you need help with..."
-    ></textarea>
+      placeholder="Describe what you need help with..."></textarea>
   </div>
 
   <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
 
   <!-- Submit -->
   <div class="form-submit-group">
-    <button
-      type="submit"
-      class="form-submit text-lg"
-    >
-      Request Free Estimate
-    </button>
+    <button type="submit" class="form-submit text-lg"> Request Free Estimate </button>
   </div>
 </form>
 
@@ -162,10 +141,22 @@ const services = getPublishedPillars();
     feedback.role = state === 'error' ? 'alert' : 'status';
   };
 
+  let hasStarted = false;
+
+  form?.addEventListener('focusin', () => {
+    if (hasStarted) return;
+    hasStarted = true;
+    window.WheylandTracking?.track('form_start', { form_id: 'estimate-form' });
+  });
+
   form?.addEventListener('submit', (e) => {
     if (!form.checkValidity()) {
       e.preventDefault();
       form.reportValidity();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: 'estimate-form',
+        fail_reason: 'validation',
+      });
       showFeedback('error', 'Please complete all required fields before submitting.');
       return;
     }
@@ -176,6 +167,10 @@ const services = getPublishedPillars();
     // Reject if submitted in under 3 seconds (likely bot)
     if (elapsed < 3000) {
       e.preventDefault();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: 'estimate-form',
+        fail_reason: 'submission_too_fast',
+      });
       showFeedback('error', 'Please wait a moment, then submit again.');
       return;
     }
@@ -184,10 +179,15 @@ const services = getPublishedPillars();
     const honeypot = (form.querySelector('[name="_gotcha"]') as HTMLInputElement)?.value;
     if (honeypot) {
       e.preventDefault();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: 'estimate-form',
+        fail_reason: 'honeypot',
+      });
       showFeedback('error', 'We could not submit your request. Please refresh and try again.');
       return;
     }
 
+    window.WheylandTracking?.track('form_submit_success', { form_id: 'estimate-form' });
     showFeedback('success', 'Looks good — sending your estimate request...');
   });
 </script>
