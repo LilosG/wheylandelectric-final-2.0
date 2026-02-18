@@ -1,0 +1,103 @@
+---
+import { site } from '../../data/site';
+import ContactForm from '../forms/ContactForm.astro';
+import EstimateForm from '../forms/EstimateForm.astro';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  variant?: 'full' | 'compact';
+  title?: string;
+  subtitle?: string;
+  showTrustSignals?: boolean;
+  formType?: 'estimate' | 'contact';
+  showCallCta?: boolean;
+}
+
+const {
+  variant = 'full',
+  title,
+  subtitle,
+  showTrustSignals = true,
+  formType = 'estimate',
+  showCallCta = variant === 'full',
+} = Astro.props;
+
+const isCompact = variant === 'compact';
+const containerClasses = isCompact
+  ? 'bg-white rounded-xl shadow-md border border-surface-subtle p-5 md:p-6 space-y-5'
+  : 'bg-white rounded-xl shadow-md border border-surface-subtle p-6 md:p-8 lg:p-10 space-y-8';
+
+const trustItems = [site.license, '1-Year Labor Warranty', 'Fast response during business hours'];
+---
+
+<section class="bg-surface-subtle py-12 md:py-16">
+  <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+    <article class={containerClasses}>
+      {
+        (title || subtitle || Astro.slots.has('heading') || Astro.slots.has('subheading')) && (
+          <header class="space-y-3 text-center">
+            <slot name="heading">
+              {title && (
+                <h2 class="font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+                  {title}
+                </h2>
+              )}
+            </slot>
+            <slot name="subheading">
+              {subtitle && (
+                <p class="mx-auto max-w-2xl text-base text-text-muted md:text-lg">{subtitle}</p>
+              )}
+            </slot>
+          </header>
+        )
+      }
+
+      {
+        showTrustSignals && (
+          <div class="rounded-lg bg-surface-subtle px-4 py-3 md:px-5 md:py-4">
+            <ul class="flex flex-wrap items-center justify-center gap-x-5 gap-y-3">
+              {trustItems.map((item) => (
+                <li class="flex items-center gap-2 text-sm font-semibold text-brand-slate">
+                  <svg
+                    class="h-4 w-4 text-brand-teal"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+
+      {formType === 'estimate' ? <EstimateForm /> : <ContactForm />}
+
+      {
+        showCallCta && (
+          <div class="border-t border-surface-subtle pt-2">
+            <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <p class="text-sm text-text-muted">Prefer to speak with our team directly?</p>
+              <Button
+                href={`tel:${site.nap.phoneTel}`}
+                variant="outline-teal"
+                size={isCompact ? 'sm' : 'md'}
+              >
+                Call {site.nap.phone}
+              </Button>
+            </div>
+          </div>
+        )
+      }
+    </article>
+  </div>
+</section>
