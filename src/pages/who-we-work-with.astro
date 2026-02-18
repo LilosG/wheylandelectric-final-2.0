@@ -18,30 +18,35 @@ const meta = generateMeta({
 
 const segments = [
   {
+    key: 'homeowners',
     title: 'Homeowners',
     description: 'From panel upgrades and recessed lighting to ceiling fan installation and outlet repairs, we handle all residential electrical needs with the care and craftsmanship your home deserves.',
     services: ['Electrical Panel Upgrades', 'Recessed Lighting', 'Ceiling Fan Installation', 'Outlet & Switch Repairs', 'EV Charger Installation'],
     cta: { label: 'Residential Services', href: '/services/' },
   },
   {
+    key: 'property-managers',
     title: 'Property Managers',
     description: 'Reliable, responsive electrical service for managed properties. We understand the urgency of tenant issues and the importance of maintaining safe, code-compliant electrical systems across your portfolio.',
     services: ['Service Calls & Troubleshooting', 'Electrical Maintenance', 'Panel Upgrades', 'Lighting Repairs', 'Safety Inspections'],
     cta: { label: 'Service Calls', href: '/services/service-calls-troubleshooting/' },
   },
   {
+    key: 'hoa-communities',
     title: 'HOA Communities',
     description: 'Predictable monthly maintenance with flat-rate pricing, scheduled inspections, and transparent documentation. We help HOA boards reduce emergency calls and maintain consistent electrical standards.',
     services: ['Monthly Lighting Maintenance', 'Electrical Inspections', 'Common Area Lighting', 'Parking Lot Lighting', 'Emergency Response'],
     cta: { label: 'HOA Services', href: '/free-estimates/' },
   },
   {
+    key: 'commercial',
     title: 'Commercial & Business',
     description: 'Tenant improvements, commercial lighting, 3-phase equipment hookups, and code compliance. We bring the same integrity and professionalism to commercial projects that we bring to residential work.',
     services: ['Tenant Improvements', 'Commercial Lighting', 'Equipment Hookups', 'Code Compliance', 'Maintenance Programs'],
     cta: { label: 'Commercial Services', href: '/services/' },
   },
   {
+    key: 'ev-owners',
     title: 'EV Owners',
     description: 'Level 2 home charger installation for Tesla, Rivian, Ford, Chevrolet, and all EV makes. We handle panel assessment, permitting, installation, and inspection — the full process from start to finish.',
     services: ['Level 2 Charger Installation', 'Panel Capacity Assessment', 'Dedicated Circuit Installation', 'Permit & Inspection Coordination'],
@@ -62,8 +67,7 @@ const segments = [
   <TrustBar />
 
   {segments.map((segment, index) => {
-    const imageKey = segment.title.toLowerCase().replace(/\s+/g, '-').replace(/&/g, 'and');
-    const heroImage = getWhoWeServeImage(imageKey);
+    const heroImage = getWhoWeServeImage(segment.key);
     const hasImage = heroImage && !heroImage.src.includes('placeholder');
 
     return (
@@ -100,7 +104,7 @@ const segments = [
                 <div class="text-center">
                   <div class="text-5xl mb-4">📷</div>
                   <p class="text-slate-600 font-medium">{segment.title}</p>
-                  <p class="text-xs text-slate-500 mt-2">Upload image to: /public/images/who-we-serve/{imageKey}.jpg</p>
+                  <p class="text-xs text-slate-500 mt-2">Upload image to: /public/images/who-we-serve/{segment.key}.jpg</p>
                 </div>
               </div>
             )}

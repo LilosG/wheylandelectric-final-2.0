@@ -1,10 +1,14 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { site } from '../../data/site';
+import { getPageHeroImage } from '../../data/heroImages';
+
+const licensesHero = getPageHeroImage('licenses');
 
 const meta = generateMeta({
   title: 'Licenses & Credentials | Wheyland Electric',
@@ -19,14 +23,16 @@ const meta = generateMeta({
     { label: 'Licenses & Trust', href: '/about/licenses/' },
   ]}
 >
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Licenses & Credentials</h1>
-      <p class="text-lg text-text-muted mb-12">
-        Wheyland Electric is fully licensed, bonded, and insured. We stand behind our work with transparency and accountability.
-      </p>
-    </div>
-  </Section>
+  <Hero
+    title="Licenses & Credentials"
+    subtitle="Wheyland Electric is fully licensed, bonded, and insured. We stand behind our work with transparency and accountability."
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={licensesHero.src}
+    imagePosition="center"
+  />
 
   <TrustBar />
 
