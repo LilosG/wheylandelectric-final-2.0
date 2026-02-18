@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import MoneyPageAuthorityStack from '../../components/sections/MoneyPageAuthorityStack.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
 import { servicePageMeta } from '../../lib/seo';
@@ -192,6 +193,9 @@ const relatedPillars = pillar.relatedServices
       </div>
     </div>
   </Section>
+
+  <!-- Authority + proof modules (shared money-page order) -->
+  <MoneyPageAuthorityStack pillar={pillar} />
 
   <!-- Process Steps -->
   {pillar.processSteps.length > 0 && (

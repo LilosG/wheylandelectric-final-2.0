@@ -1,0 +1,15 @@
+---
+import AuthorityHighlights from './AuthorityHighlights.astro';
+import ProjectProofStrip from './ProjectProofStrip.astro';
+import type { City, ServicePillar } from '../../types';
+
+interface Props {
+  pillar: ServicePillar;
+  city?: City;
+}
+
+const { pillar, city } = Astro.props;
+---
+
+<AuthorityHighlights pillar={pillar} city={city} />
+<ProjectProofStrip pillar={pillar} city={city} />

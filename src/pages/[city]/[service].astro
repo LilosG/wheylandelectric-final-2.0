@@ -5,6 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTABlock from '../../components/sections/CTABlock.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import MoneyPageAuthorityStack from '../../components/sections/MoneyPageAuthorityStack.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
 import { moneyPageMeta } from '../../lib/seo';
@@ -238,7 +239,10 @@ const moneyPageFaqs: FAQ[] = [
     </div>
   </Section>
 
-  <!-- 6. Process Steps -->
+  <!-- 6. Authority + proof modules (shared money-page order) -->
+  <MoneyPageAuthorityStack pillar={pillar} city={city} />
+
+  <!-- 7. Process Steps -->
   {pillar.processSteps.length > 0 && (
     <Section bg="subtle">
       <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-8 text-center">
@@ -260,7 +264,7 @@ const moneyPageFaqs: FAQ[] = [
     </Section>
   )}
 
-  <!-- 7. Pricing Factors -->
+  <!-- 8. Pricing Factors -->
   <Section bg="white">
     <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">
       What Affects the Cost of {pillar.name} in {city.name}
@@ -287,10 +291,10 @@ const moneyPageFaqs: FAQ[] = [
     />
   </Section>
 
-  <!-- 8. TrustBar -->
+  <!-- 9. TrustBar -->
   <TrustBar />
 
-  <!-- 9. Related Services -->
+  <!-- 10. Related Services -->
   {relatedPillars.length > 0 && (
     <Section bg="subtle">
       <h2 class="text-2xl font-heading font-bold text-brand-slate mb-6">You May Also Need</h2>
@@ -305,21 +309,21 @@ const moneyPageFaqs: FAQ[] = [
     </Section>
   )}
 
-  <!-- 10. FAQs -->
+  <!-- 11. FAQs -->
   <Section bg="white">
     <div class="max-w-3xl mx-auto">
       <FAQAccordion faqs={moneyPageFaqs} heading={`${pillar.name} in ${city.name} — FAQs`} />
     </div>
   </Section>
 
-  <!-- 11. Full CTA Section -->
+  <!-- 12. Full CTA Section -->
   <CTASection
     title={`Need ${pillar.name} in ${city.name}?`}
     subtitle={`Contact Wheyland Electric today for a free estimate. Licensed, bonded & insured with a 1-year labor warranty.`}
     cityName={city.name}
   />
 
-  <!-- 12. Nearby city links for same service -->
+  <!-- 13. Nearby city links for same service -->
   {nearbyCities.length > 0 && (
     <Section bg="subtle">
       <h2 class="text-xl font-heading font-bold text-brand-slate mb-4 text-center">
@@ -338,7 +342,7 @@ const moneyPageFaqs: FAQ[] = [
     </Section>
   )}
 
-  <!-- 13. Breadcrumb links back -->
+  <!-- 14. Breadcrumb links back -->
   <Section bg="white">
     <div class="flex flex-wrap justify-center gap-4 text-sm">
       <a href={`/${city.slug}/`} class="text-brand-teal hover:text-brand-slate transition-colors">
