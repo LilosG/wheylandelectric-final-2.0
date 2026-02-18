@@ -2,6 +2,7 @@
 import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPageTemplate.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
 import Button from '../../components/ui/Button.astro';
 import { servicePageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
@@ -115,51 +116,58 @@ const relatedPillars = pillar.relatedServices
   </Fragment>
 
   <Fragment slot="relatedContent">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-4 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-        {pillar.name} Across North County San Diego
-      </h2>
-      <p class="mx-auto mb-8 max-w-2xl text-center text-text-muted">
-        Wheyland Electric is based in Carlsbad and serves all of North County San Diego with the
-        same commitment to quality, transparent pricing, and complete permit handling. Select your
-        city below to learn about {pillar.name.toLowerCase()} specific to your area.
-      </p>
-      <div class="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+    <div class="mx-auto max-w-4xl space-y-12">
+      <LeadCaptureSection
+        heading={`Request a Free ${pillar.name} Estimate`}
+        description={`Share your project details and get a no-pressure estimate for ${pillar.name.toLowerCase()} anywhere in North County San Diego.`}
+      />
+
+      <div>
+        <h2 class="mb-4 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+          {pillar.name} Across North County San Diego
+        </h2>
+        <p class="mx-auto mb-8 max-w-2xl text-center text-text-muted">
+          Wheyland Electric is based in Carlsbad and serves all of North County San Diego with the
+          same commitment to quality, transparent pricing, and complete permit handling. Select your
+          city below to learn about {pillar.name.toLowerCase()} specific to your area.
+        </p>
+        <div class="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
+          {
+            cities.map((city) => (
+              <a
+                href={`/${city.slug}/${pillar.slug}/`}
+                class="block rounded-lg bg-white p-4 text-center font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+              >
+                {city.name}
+              </a>
+            ))
+          }
+        </div>
+        <div class="mb-12 text-center">
+          <Button href="/service-areas/" variant="ghost">All Service Areas →</Button>
+        </div>
+
         {
-          cities.map((city) => (
-            <a
-              href={`/${city.slug}/${pillar.slug}/`}
-              class="block rounded-lg bg-white p-4 text-center font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
-            >
-              {city.name}
-            </a>
-          ))
+          relatedPillars.length > 0 && (
+            <>
+              <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+                Related Services
+              </h2>
+              <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {relatedPillars.map((related) => (
+                  <a
+                    href={`/services/${related.slug}/`}
+                    class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
+                  >
+                    <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
+                    <p class="text-sm text-text-muted">{related.shortDesc}</p>
+                  </a>
+                ))}
+              </div>
+            </>
+          )
         }
       </div>
-      <div class="mb-12 text-center">
-        <Button href="/service-areas/" variant="ghost">All Service Areas →</Button>
-      </div>
-
-      {
-        relatedPillars.length > 0 && (
-          <>
-            <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-              Related Services
-            </h2>
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedPillars.map((related) => (
-                <a
-                  href={`/services/${related.slug}/`}
-                  class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
-                >
-                  <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
-                  <p class="text-sm text-text-muted">{related.shortDesc}</p>
-                </a>
-              ))}
-            </div>
-          </>
-        )
-      }
     </div>
   </Fragment>
 

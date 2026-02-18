@@ -2,6 +2,7 @@
 import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPageTemplate.astro';
 import CTABlock from '../../components/sections/CTABlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
 import { moneyPageMeta } from '../../lib/seo';
@@ -149,26 +150,33 @@ const moneyPageFaqs: FAQ[] = [
   </Fragment>
 
   <Fragment slot="relatedContent">
-    {
-      relatedPillars.length > 0 && (
-        <>
-          <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate">You May Also Need</h2>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedPillars.map((related) => (
-              <a
-                href={`/${city.slug}/${related.slug}/`}
-                class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
-              >
-                <h3 class="mb-2 font-semibold text-brand-slate">
-                  {related.name} in {city.name}
-                </h3>
-                <p class="text-sm text-text-muted">{related.shortDesc}</p>
-              </a>
-            ))}
-          </div>
-        </>
-      )
-    }
+    <div class="space-y-12">
+      <LeadCaptureSection
+        heading={`Get a Free ${pillar.name} Estimate in ${city.name}`}
+        description={`Tell us about your ${pillar.name.toLowerCase()} project in ${city.name} and we will send a clear estimate with next steps.`}
+      />
+
+      {
+        relatedPillars.length > 0 && (
+          <>
+            <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate">You May Also Need</h2>
+            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {relatedPillars.map((related) => (
+                <a
+                  href={`/${city.slug}/${related.slug}/`}
+                  class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
+                >
+                  <h3 class="mb-2 font-semibold text-brand-slate">
+                    {related.name} in {city.name}
+                  </h3>
+                  <p class="text-sm text-text-muted">{related.shortDesc}</p>
+                </a>
+              ))}
+            </div>
+          </>
+        )
+      }
+    </div>
   </Fragment>
 
   <Fragment slot="fullCta">
