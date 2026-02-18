@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTABlock from '../../components/sections/CTABlock.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
@@ -178,23 +179,23 @@ const moneyPageFaqs: FAQ[] = [
 >
   <!-- 1. Breadcrumbs rendered by PageLayout above -->
   <!-- 2. H1 + 3. Localized Intro + 4. Inline CTA (above the fold) -->
-  <section class="bg-brand-slate relative overflow-hidden">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-0 right-0 w-96 h-96 bg-brand-teal rounded-full -translate-y-1/2 translate-x-1/3"></div>
-    </div>
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
-      <h1 class="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-white mb-6">
-        {h1Tagline}
-      </h1>
-      <p class="text-lg text-surface mb-8 max-w-3xl">{localizedIntro}</p>
+  <Hero
+    title={h1Tagline}
+    subtitle={localizedIntro}
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    imageSource="service"
+    imageKey={pillar.slug}
+  />
 
-      <!-- 4. Inline CTA (above the fold) -->
-      <div class="flex flex-col sm:flex-row gap-4">
-        <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-        <Button href={`tel:${site.nap.phoneTel}`} variant="outline-white" size="lg">Call {site.nap.phone}</Button>
-      </div>
+  <Section bg="white" class="pt-8 md:pt-12">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
+      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
     </div>
-  </section>
+  </Section>
 
   <!-- 5. Scoped Service Detail -->
   <Section bg="white">

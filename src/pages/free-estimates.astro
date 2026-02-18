@@ -2,9 +2,13 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import EstimateForm from '../components/forms/EstimateForm.astro';
+import Hero from '../components/sections/Hero.astro';
 import Section from '../components/ui/Section.astro';
 import { generateMeta } from '../lib/seo';
 import { site } from '../data/site';
+import { getPageHeroImage } from '../data/heroImages';
+
+const estimateHero = getPageHeroImage('free-estimates');
 
 const meta = generateMeta({
   title: 'Free Estimate | Wheyland Electric',
@@ -13,12 +17,19 @@ const meta = generateMeta({
 });
 ---
 <PageLayout meta={meta} breadcrumbs={[{ label: 'Free Estimate', href: '/free-estimates/' }]}>
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Request Your Free Estimate</h1>
-      <p class="text-lg text-text-muted mb-6">
-        Tell us about your project and we will get back to you promptly with a free estimate. No obligation, no pressure.
-      </p>
+  <Hero
+    title="Request Your Free Estimate"
+    subtitle="Tell us about your project and we will get back to you promptly with a free estimate. No obligation, no pressure."
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={estimateHero.src}
+    imagePosition="center"
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
+    <div class="max-w-3xl mx-auto text-center">
       <p class="text-text-muted">
         Prefer to call? Reach us at{' '}
         <a href={`tel:${site.nap.phoneTel}`} class="text-brand-teal font-semibold hover:text-brand-slate transition-colors">

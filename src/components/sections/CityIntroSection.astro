@@ -1,0 +1,91 @@
+---
+import type { City } from '../../types';
+import { getCityHeroImage } from '../../data/heroImages';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  city: City;
+  nearbyCount: number;
+}
+
+const { city, nearbyCount } = Astro.props;
+
+const cityImage = getCityHeroImage(city.slug);
+
+const categoryLabels: Record<string, { label: string; icon: string }> = {
+  residential: { label: 'Residential', icon: '🏠' },
+  commercial: { label: 'Commercial', icon: '🏢' },
+  hoa: { label: 'HOA Communities', icon: '🏘️' },
+  ev: { label: 'EV Charging', icon: '⚡' },
+};
+---
+<div class="max-w-6xl mx-auto">
+  <div class="grid grid-cols-1 xl:grid-cols-12 gap-8 xl:gap-10 items-start">
+    <article class="xl:col-span-7 bg-white rounded-2xl border border-surface-subtle shadow-sm p-6 md:p-8 lg:p-10">
+      <p class="text-xs font-semibold uppercase tracking-[0.14em] text-brand-teal mb-3">Local Expertise</p>
+      <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-brand-slate mb-5">
+        Trusted Electrical Service in {city.name}
+      </h2>
+      <p class="text-lg text-text-muted leading-relaxed mb-5">{city.localIntroSeed}</p>
+      {city.localIntroExtended && (
+        <p class="text-text-muted leading-relaxed">{city.localIntroExtended}</p>
+      )}
+
+      <div class="mt-8 pt-6 border-t border-surface-subtle flex flex-wrap gap-3">
+        <Button href="/free-estimates/" variant="primary" size="sm">Request Free Estimate</Button>
+        <Button href="/services/" variant="secondary" size="sm">View Services</Button>
+      </div>
+    </article>
+
+    <aside class="xl:col-span-5 space-y-5">
+      <div class="rounded-2xl overflow-hidden shadow-sm border border-surface-subtle bg-white">
+        <div class="aspect-[16/9] overflow-hidden">
+          <img
+            src={cityImage.src}
+            alt={cityImage.alt}
+            class="w-full h-full object-cover"
+            loading="lazy"
+            width="1200"
+            height="675"
+          />
+        </div>
+        <div class="p-5 bg-surface-subtle/60">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.12em] text-brand-slate mb-3">Quick Area Snapshot</h3>
+          <ul class="space-y-2 text-sm text-text-muted">
+            <li><span class="font-semibold text-brand-slate">ZIP Codes:</span> {city.zips.join(', ')}</li>
+            <li><span class="font-semibold text-brand-slate">Neighborhoods:</span> {city.neighborhoods.length} served</li>
+            <li><span class="font-semibold text-brand-slate">Nearby Coverage:</span> {nearbyCount} surrounding cities</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-surface-subtle shadow-sm p-5">
+        <h3 class="text-sm font-semibold uppercase tracking-[0.12em] text-brand-slate mb-4">Service Categories</h3>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {city.serviceCategories.map((cat) => {
+            const item = categoryLabels[cat] ?? { label: cat, icon: '•' };
+            return (
+              <div class="bg-surface-subtle rounded-lg px-4 py-3 border border-white flex items-center gap-2">
+                <span aria-hidden="true" class="text-base">{item.icon}</span>
+                <span class="font-semibold text-brand-slate text-sm">{item.label}</span>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {city.localCues.length > 0 && (
+        <div class="bg-white rounded-2xl border border-surface-subtle shadow-sm p-5">
+          <h3 class="text-sm font-semibold uppercase tracking-[0.12em] text-brand-slate mb-3">Local Landmarks</h3>
+          <div class="flex flex-wrap gap-2">
+            {city.localCues.slice(0, 6).map((cue) => (
+              <span class="inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium bg-surface-subtle text-text-muted border border-white">
+                {cue}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+    </aside>
+  </div>
+</div>

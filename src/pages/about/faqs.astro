@@ -1,5 +1,6 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
@@ -7,6 +8,7 @@ import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { faqPageSchema } from '../../lib/schema/faq';
 import type { FAQ } from '../../types';
+import { getPageHeroImage } from '../../data/heroImages';
 
 const globalFaqs: FAQ[] = [
   { question: 'What areas does Wheyland Electric serve?', answer: 'We serve all of San Diego County with a focus on North County communities including Carlsbad, Encinitas, Oceanside, San Marcos, Del Mar, Solana Beach, and Rancho Santa Fe. We also serve Orange County and Western Riverside County.' },
@@ -20,6 +22,8 @@ const globalFaqs: FAQ[] = [
   { question: 'Can you install EV chargers?', answer: 'Yes. We install Level 2 EV chargers for all makes including Tesla, Rivian, Ford, Chevrolet, and more. We handle the full process from panel assessment to permitting, installation, and inspection.' },
   { question: 'Do you offer HOA maintenance services?', answer: 'Yes. We offer flat-rate monthly lighting and electrical maintenance services for HOA communities. This includes scheduled inspections, documentation, and transparent pricing to reduce emergencies and support consistent maintenance planning.' },
 ];
+
+const faqsHero = getPageHeroImage('faqs');
 
 const meta = generateMeta({
   title: 'Frequently Asked Questions | Wheyland Electric',
@@ -35,13 +39,18 @@ const meta = generateMeta({
     { label: 'FAQs', href: '/about/faqs/' },
   ]}
 >
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Frequently Asked Questions</h1>
-      <p class="text-lg text-text-muted">
-        Have a question about our electrical services? Find answers below or contact us directly.
-      </p>
-    </div>
+  <Hero
+    title="Frequently Asked Questions"
+    subtitle="Have a question about our electrical services? Find answers below or contact us directly."
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={faqsHero.src}
+    imagePosition="center"
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
     <div class="max-w-3xl mx-auto">
       <FAQAccordion faqs={globalFaqs} heading="" />
     </div>

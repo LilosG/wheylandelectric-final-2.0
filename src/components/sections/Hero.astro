@@ -16,12 +16,13 @@ interface Props {
   imageKey?: string;
   backgroundImage?: string;
   imagePosition?: 'center' | 'top' | 'bottom';
+  backgroundImageAlt?: string;
 }
 
 const {
   eyebrow = 'Satisfaction Guaranteed',
   title = 'An Innovative Electrician',
-  titleAccent = 'You Can Trust.',
+  titleAccent = '',
   subtitle = 'We offer electrical installation, repair, and maintenance to residential, commercial, and industrial customers across San Diego County.',
   showCTAs = true,
   showTrustCard = true,
@@ -31,14 +32,20 @@ const {
   imageKey,
   backgroundImage,
   imagePosition = 'center',
+  backgroundImageAlt,
 } = Astro.props;
 
 // Determine which image to use
 let finalBackgroundImage = backgroundImage;
+let finalBackgroundImageAlt = backgroundImageAlt || 'Professional electrician services background image';
 if (imageSource === 'service' && imageKey) {
-  finalBackgroundImage = getServiceHeroImage(imageKey).src;
+  const serviceHero = getServiceHeroImage(imageKey);
+  finalBackgroundImage = serviceHero.src;
+  finalBackgroundImageAlt = serviceHero.alt;
 } else if (imageSource === 'city' && imageKey) {
-  finalBackgroundImage = getCityHeroImage(imageKey).src;
+  const cityHero = getCityHeroImage(imageKey);
+  finalBackgroundImage = cityHero.src;
+  finalBackgroundImageAlt = cityHero.alt;
 } else if (!finalBackgroundImage) {
   finalBackgroundImage = '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp';
 }
@@ -58,7 +65,7 @@ const trustItems = [
   <div class="absolute inset-0">
     <img
       src={finalBackgroundImage}
-      alt="Professional electrician services background image"
+      alt={finalBackgroundImageAlt}
       width="1920"
       height="1080"
       class:list={[
@@ -70,8 +77,6 @@ const trustItems = [
     />
     {/* Primary dark overlay for contrast */}
     <div class="absolute inset-0" style="background: linear-gradient(135deg, rgba(31,78,99,0.95) 0%, rgba(31,78,99,0.92) 50%, rgba(47,127,122,0.15) 100%)"></div>
-    {/* Fallback solid overlay for compact mode without background */}
-    {compact && <div class="absolute inset-0 bg-brand-slate/95"></div>}
   </div>
 
   {/* Decorative light effects */}
@@ -113,7 +118,8 @@ const trustItems = [
 
         {subtitle && (
           <p class:list={[
-            'text-white leading-relaxed max-w-xl mx-auto text-center',
+            'text-white leading-relaxed',
+            showTrustCard && !compact ? 'max-w-2xl text-left' : 'max-w-xl mx-auto text-center',
             compact ? 'text-base sm:text-lg mt-4' : 'text-lg mt-6'
           ]}>
             {subtitle}
@@ -121,7 +127,10 @@ const trustItems = [
         )}
 
         {showStatChips && (
-          <div class="flex flex-wrap gap-3 mt-6 justify-center">
+          <div class:list={[
+            'flex flex-wrap gap-3 mt-6',
+            showTrustCard && !compact ? 'justify-start' : 'justify-center',
+          ]}>
             {[
               { icon: 'calendar', label: '17+ Years' },
               { icon: 'shield', label: 'Licensed & Insured' },
@@ -141,7 +150,8 @@ const trustItems = [
 
         {showCTAs && (
           <div class:list={[
-            'flex flex-wrap gap-4 justify-center',
+            'flex flex-wrap gap-4',
+            showTrustCard && !compact ? 'justify-start' : 'justify-center',
             compact ? 'mt-6' : 'mt-8'
           ]}>
             <Button href="/free-estimates/" variant="primary" size="lg">

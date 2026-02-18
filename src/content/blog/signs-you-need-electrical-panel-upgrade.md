@@ -3,6 +3,7 @@ title: "9 Signs You Need an Electrical Panel Upgrade in North County San Diego"
 description: "Is your electrical panel keeping up with your home's demands? Learn the warning signs and what a panel upgrade involves for North County San Diego homeowners."
 date: 2024-10-01
 author: "Tim Wheyland"
+image: "/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp"
 relatedServices: ["electrical-panel-upgrades", "service-calls-troubleshooting", "ev-charger-installation"]
 draft: false
 ---

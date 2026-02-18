@@ -3,9 +3,13 @@ import PageLayout from '../layouts/PageLayout.astro';
 import TestimonialBlock from '../components/sections/TestimonialBlock.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import Hero from '../components/sections/Hero.astro';
 import Section from '../components/ui/Section.astro';
 import { generateMeta } from '../lib/seo';
 import { site } from '../data/site';
+import { getPageHeroImage } from '../data/heroImages';
+
+const reviewsHero = getPageHeroImage('reviews');
 
 const meta = generateMeta({
   title: 'Customer Reviews | Wheyland Electric',
@@ -14,12 +18,19 @@ const meta = generateMeta({
 });
 ---
 <PageLayout meta={meta} breadcrumbs={[{ label: 'Reviews', href: '/reviews/' }]}>
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <h1 class="text-4xl md:text-5xl font-heading font-bold text-brand-slate mb-6">Customer Reviews</h1>
-      <p class="text-lg text-text-muted mb-8">
-        We are proud of the relationships we build with every customer. Our reputation is built on honest work, fair pricing, and standing behind every project.
-      </p>
+  <Hero
+    title="Customer Reviews"
+    subtitle="We are proud of the relationships we build with every customer. Our reputation is built on honest work, fair pricing, and standing behind every project."
+    compact
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={reviewsHero.src}
+    imagePosition="center"
+  />
+
+  <Section bg="white" class="pt-8 md:pt-12">
+    <div class="max-w-3xl mx-auto text-center">
       <a
         href={site.gbp.url}
         target="_blank"

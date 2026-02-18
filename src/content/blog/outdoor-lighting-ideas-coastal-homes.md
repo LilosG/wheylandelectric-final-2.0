@@ -3,6 +3,7 @@ title: "Outdoor Lighting Ideas for Coastal San Diego Homes"
 description: "Practical outdoor lighting ideas for North County San Diego homes — from security lighting and landscape accents to coastal-rated fixtures and permit requirements."
 date: 2024-09-15
 author: "Tim Wheyland"
+image: "/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp"
 relatedServices: ["light-fixture-installation", "recessed-lighting-installation", "outlet-switch-dimmer-gfci-repairs"]
 draft: false
 ---
