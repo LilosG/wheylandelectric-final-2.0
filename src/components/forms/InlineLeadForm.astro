@@ -86,7 +86,9 @@ const honeypotId = `${formId}-website`;
   const timestampField = form.querySelector('input[name="_timestamp"]');
   const statusRegionId = form.getAttribute('aria-describedby');
   const statusRegion = statusRegionId ? document.getElementById(statusRegionId) : null;
+
   let hasStarted = false;
+
   form.addEventListener('focusin', () => {
     if (hasStarted) return;
     hasStarted = true;
