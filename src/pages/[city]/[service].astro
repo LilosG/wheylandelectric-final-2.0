@@ -43,7 +43,11 @@ interface Props {
 
 function trimHeroSubtitleCopy(
   copy: string,
-  { minChars = 140, maxChars = 190, maxSentences = 2 }: { minChars?: number; maxChars?: number; maxSentences?: number } = {},
+  {
+    minChars = 140,
+    maxChars = 190,
+    maxSentences = 2,
+  }: { minChars?: number; maxChars?: number; maxSentences?: number } = {}
 ) {
   const normalized = copy.replace(/\s+/g, ' ').trim();
   if (!normalized) return '';
@@ -88,8 +92,9 @@ const breadcrumbs = [
   { label: pillar.name, href: `/${city.slug}/${pillar.slug}/` },
 ];
 
-const fullLocalizedIntro = pillar.localizedIntroSeedByCity[city.slug]
-  ?? `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
+const fullLocalizedIntro =
+  pillar.localizedIntroSeedByCity[city.slug] ??
+  `Wheyland Electric provides professional ${pillar.name.toLowerCase()} in ${city.name}, CA. Our licensed team delivers reliable, code-compliant electrical work backed by our 1-year labor warranty.`;
 const localizedIntro = trimHeroSubtitleCopy(fullLocalizedIntro);
 
 const h1Tagline = pillar.h1TaglineByCity?.[city.slug] ?? `${pillar.name} in ${city.name}, CA`;
@@ -170,25 +175,32 @@ const moneyPageFaqs: FAQ[] = [
   <!-- 2. H1 + 3. Localized Intro + 4. Inline CTA (above the fold) -->
 
   <Section bg="white" class="pt-8 md:pt-12">
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+    <div class="flex flex-col justify-center gap-4 sm:flex-row">
       <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg"
+        >Call {site.nap.phone}</Button
+      >
     </div>
   </Section>
 
   <Section bg="subtle" class="pt-0 md:pt-0">
-    <div class="max-w-2xl mx-auto">
-      <div class="rounded-xl shadow-md bg-white p-6 md:p-8 space-y-4">
+    <div class="mx-auto max-w-2xl">
+      <div class="space-y-4 rounded-xl bg-white p-6 shadow-md md:p-8">
         <div>
-          <h2 class="text-2xl font-heading font-bold text-brand-slate">Quick Estimate Request</h2>
-          <p class="text-text-muted mt-2">Send your details and we will follow up promptly.</p>
+          <h2 class="font-heading text-2xl font-bold text-brand-slate">Quick Estimate Request</h2>
+          <p class="mt-2 text-text-muted">Send your details and we will follow up promptly.</p>
         </div>
 
         <QuickEstimateForm serviceNeed={pillar.name} />
 
         <p class="text-sm text-text-muted">
           Need to share more project details? Use our
-          <a href="/free-estimates/" class="text-brand-teal font-semibold hover:text-brand-slate transition-colors"> full estimate form</a>
+          <a
+            href="/free-estimates/"
+            class="font-semibold text-brand-teal transition-colors hover:text-brand-slate"
+          >
+            full estimate form</a
+          >
           .
         </p>
       </div>
@@ -197,47 +209,64 @@ const moneyPageFaqs: FAQ[] = [
 
   <!-- 5. Scoped Service Detail -->
   <Section bg="white">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">
+        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
           Professional {pillar.name} in {city.name}
         </h2>
-        <p class="text-text-muted leading-relaxed mb-6">
+        <p class="mb-6 leading-relaxed text-text-muted">
           {fullLocalizedIntro}
         </p>
-        <p class="text-text-muted leading-relaxed mb-6">
-          We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
+        <p class="mb-6 leading-relaxed text-text-muted">
+          We handle every aspect of the job — from initial assessment through permitting,
+          installation, and final inspection.
         </p>
-        <h3 class="text-lg font-semibold text-brand-slate mb-3">What's Included</h3>
+        <h3 class="mb-3 text-lg font-semibold text-brand-slate">What's Included</h3>
         <ul class="space-y-2">
-          {pillar.includedBullets.map((bullet) => (
-            <li class="flex items-start gap-2 text-text-muted">
-              <svg class="w-4 h-4 text-brand-teal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              {bullet}
-            </li>
-          ))}
+          {
+            pillar.includedBullets.map((bullet) => (
+              <li class="flex items-start gap-2 text-text-muted">
+                <svg
+                  class="mt-1 h-4 w-4 shrink-0 text-brand-teal"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                {bullet}
+              </li>
+            ))
+          }
         </ul>
       </div>
-      <div class="rounded-xl overflow-hidden shadow-lg bg-surface-subtle">
-        {serviceImg ? (
-          <img
-            src={serviceImg.src}
-            alt={serviceImg.alt}
-            width={serviceImg.width}
-            height={serviceImg.height}
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div class="flex items-center justify-center min-h-[250px]">
-            <p class="text-sm text-text-muted">{pillar.name} in {city.name}</p>
-          </div>
-        )}
+      <div class="overflow-hidden rounded-xl bg-surface-subtle shadow-lg">
+        {
+          serviceImg ? (
+            <img
+              src={serviceImg.src}
+              alt={serviceImg.alt}
+              width={serviceImg.width}
+              height={serviceImg.height}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <div class="flex min-h-[250px] items-center justify-center">
+              <p class="text-sm text-text-muted">
+                {pillar.name} in {city.name}
+              </p>
+            </div>
+          )
+        }
       </div>
     </div>
-  </Fragment>
+  </Section>
 
   <Fragment slot="pricingCta">
     <CTABlock
