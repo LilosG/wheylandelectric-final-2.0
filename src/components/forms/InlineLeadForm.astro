@@ -9,6 +9,11 @@ const { formId = 'inline-lead-form', serviceLabel = 'Service Interest', submitLa
 const timestampId = `${formId}-timestamp`;
 const statusId = `${formId}-status`;
 const honeypotId = `${formId}-website`;
+const citySlugId = `${formId}-city-slug`;
+const cityNameId = `${formId}-city-name`;
+const serviceSlugId = `${formId}-service-slug`;
+const serviceNameId = `${formId}-service-name`;
+const pageUrlId = `${formId}-page-url`;
 ---
 
 <form
@@ -25,9 +30,14 @@ const honeypotId = `${formId}-website`;
 
   <input type="hidden" name="_timestamp" id={timestampId} />
   <input type="hidden" name="_next" value="/thank-you/" />
+  <input type="hidden" name="city_slug" id={citySlugId} />
+  <input type="hidden" name="city_name" id={cityNameId} />
+  <input type="hidden" name="service_slug" id={serviceSlugId} />
+  <input type="hidden" name="service_name" id={serviceNameId} />
+  <input type="hidden" name="page_url" id={pageUrlId} />
 
-  <div class="form-row--inline">
-    <div>
+  <div class="form-row--inline grid grid-cols-2 gap-3 md:gap-4">
+    <div class="col-span-1">
       <label for={`${formId}-name`} class="block text-sm font-semibold text-brand-slate mb-1.5">Name *</label>
       <input
         id={`${formId}-name`}
@@ -40,20 +50,41 @@ const honeypotId = `${formId}-website`;
       />
     </div>
 
-    <div>
-      <label for={`${formId}-contact`} class="block text-sm font-semibold text-brand-slate mb-1.5">Phone or Email *</label>
+    <div class="col-span-1">
+      <label for={`${formId}-phone`} class="block text-sm font-semibold text-brand-slate mb-1.5">Phone *</label>
       <input
-        id={`${formId}-contact`}
-        name="contact"
-        type="text"
+        id={`${formId}-phone`}
+        name="phone"
+        type="tel"
         required
-        autocomplete="email"
+        autocomplete="tel"
         class="form-control--compact"
-        placeholder="(858) 555-1234 or you@example.com"
+        placeholder="(858) 555-1234"
       />
     </div>
 
-    <div>
+    <div class="col-span-1">
+      <label for={`${formId}-email`} class="block text-sm font-semibold text-brand-slate mb-1.5">Email (optional)</label>
+      <input
+        id={`${formId}-email`}
+        name="email"
+        type="email"
+        autocomplete="email"
+        class="form-control--compact"
+        placeholder="you@example.com"
+      />
+    </div>
+
+    <div class="col-span-1">
+      <label for={`${formId}-urgency`} class="block text-sm font-semibold text-brand-slate mb-1.5">Urgency</label>
+      <select id={`${formId}-urgency`} name="urgency" class="form-control--compact">
+        <option value="ASAP">ASAP</option>
+        <option value="This week">This week</option>
+        <option value="Planning">Planning</option>
+      </select>
+    </div>
+
+    <div class="col-span-2">
       <label for={`${formId}-message`} class="block text-sm font-semibold text-brand-slate mb-1.5">{serviceLabel} *</label>
       <input
         id={`${formId}-message`}
@@ -65,7 +96,7 @@ const honeypotId = `${formId}-website`;
       />
     </div>
 
-    <div class="sm:self-end">
+    <div class="col-span-2 sm:self-end">
       <button
         type="submit"
         class="w-full whitespace-nowrap rounded-lg bg-brand-gold px-5 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
@@ -78,45 +109,69 @@ const honeypotId = `${formId}-website`;
   <p id={statusId} class="text-sm text-text-muted min-h-5" aria-live="polite"></p>
 </form>
 
-<script define:vars={{ formId, timestampId, statusId }} is:inline>
-  const form = document.getElementById(formId);
-  const timestampField = document.getElementById(timestampId);
-  const statusRegion = document.getElementById(statusId);
+<script is:inline>
+  const scriptTag = document.currentScript;
+  const form = scriptTag?.previousElementSibling instanceof HTMLFormElement ? scriptTag.previousElementSibling : null;
+  const timestampField = form?.querySelector('[name="_timestamp"]');
+  const statusRegion = form?.querySelector('[aria-live="polite"]');
+  const citySlugField = form?.querySelector('[name="city_slug"]');
+  const cityNameField = form?.querySelector('[name="city_name"]');
+  const serviceSlugField = form?.querySelector('[name="service_slug"]');
+  const serviceNameField = form?.querySelector('[name="service_name"]');
+  const pageUrlField = form?.querySelector('[name="page_url"]');
 
-  if (timestampField) {
+  const toTitleCase = (value) => value
+    .split('-')
+    .filter(Boolean)
+    .map((segment) => segment.charAt(0).toUpperCase() + segment.slice(1))
+    .join(' ');
+
+  if (timestampField instanceof HTMLInputElement) {
     timestampField.value = String(Date.now());
   }
 
+  if (pageUrlField instanceof HTMLInputElement) {
+    pageUrlField.value = window.location.href;
+  }
+
+  const pathParts = window.location.pathname.split('/').filter(Boolean);
+  const [citySlug, serviceSlug] = pathParts;
+
+  if (citySlugField instanceof HTMLInputElement) citySlugField.value = citySlug || '';
+  if (cityNameField instanceof HTMLInputElement) cityNameField.value = citySlug ? toTitleCase(citySlug) : '';
+  if (serviceSlugField instanceof HTMLInputElement) serviceSlugField.value = serviceSlug || '';
+  if (serviceNameField instanceof HTMLInputElement) serviceNameField.value = serviceSlug ? toTitleCase(serviceSlug) : '';
+
   form?.addEventListener('submit', (event) => {
-    if (!timestampField) return;
+    if (!(timestampField instanceof HTMLInputElement)) return;
 
     statusRegion?.removeAttribute('data-state');
-    statusRegion && (statusRegion.textContent = '');
+    if (statusRegion) statusRegion.textContent = '';
 
     const elapsed = Date.now() - Number.parseInt(timestampField.value || '0', 10);
     if (elapsed < 3000) {
       event.preventDefault();
       if (statusRegion) {
-        statusRegion.textContent = 'Please wait a few seconds, then submit the form again.';
+        statusRegion.textContent = 'Please wait a moment so we can route your request correctly, then submit again.';
         statusRegion.setAttribute('data-state', 'error');
       }
       return;
     }
 
     const honeypotField = form.querySelector('[name="_gotcha"]');
-    const honeypot = honeypotField ? honeypotField.value : '';
+    const honeypot = honeypotField instanceof HTMLInputElement ? honeypotField.value : '';
     if (honeypot) {
       event.preventDefault();
       if (statusRegion) {
-        statusRegion.textContent = 'Unable to submit right now. Please call us for immediate help.';
+        statusRegion.textContent = 'We could not submit this request right now. Please call us for immediate help.';
         statusRegion.setAttribute('data-state', 'error');
       }
       return;
     }
 
     if (statusRegion) {
-      statusRegion.textContent = 'Sending your request...';
-      statusRegion.setAttribute('data-state', 'pending');
+      statusRegion.textContent = 'Thanks — your request is on the way. Our team will follow up shortly.';
+      statusRegion.setAttribute('data-state', 'success');
     }
   });
 </script>
