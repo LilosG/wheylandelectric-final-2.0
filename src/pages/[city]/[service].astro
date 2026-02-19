@@ -102,6 +102,7 @@ const nearbyCities = city.nearbyCities
   .map((slug) => getCityBySlug(slug))
   .filter((c): c is City => c !== undefined && c.publish);
 
+
 // Generate city-specific FAQs — city-scoped questions + pillar FAQs
 const citySpecificFaqs: FAQ[] = [
   {
@@ -179,6 +180,15 @@ const moneyPageFaqs: FAQ[] = [
       </p>
 
       <InlineLeadForm formId={`inline-lead-${city.slug}-${pillar.slug}`} serviceLabel={`${pillar.name} details`} />
+
+      <ul class="mt-4 grid grid-cols-1 gap-2 text-xs text-text-muted sm:grid-cols-2" aria-label="Trust signals">
+        {[site.license, 'Licensed, Bonded & Insured', '1-Year Labor Warranty', 'Free Estimates'].map((item) => (
+          <li class="flex items-center gap-2">
+            <span class="h-1.5 w-1.5 rounded-full bg-brand-teal/70" aria-hidden="true"></span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
 
       <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
         <Button href="/free-estimates/" variant="primary" size="lg">Get a Full Free Estimate</Button>
