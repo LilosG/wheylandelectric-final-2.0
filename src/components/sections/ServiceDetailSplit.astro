@@ -1,0 +1,124 @@
+---
+import Section from '../ui/Section.astro';
+
+interface Props {
+  heading: string;
+  intro?: string;
+  bullets: string[];
+  listHeading?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
+  imagePosition?: 'left' | 'right';
+  imageAspect?: 'portrait' | 'landscape' | 'square' | 'auto';
+  layoutVariant?: 'balanced' | 'textWide' | 'imageWide';
+  bg?: 'white' | 'subtle' | 'warm' | 'indigo' | 'surface';
+  class?: string;
+}
+
+const {
+  heading,
+  intro,
+  bullets,
+  listHeading,
+  imageSrc,
+  imageAlt,
+  imageWidth,
+  imageHeight,
+  imagePosition = 'right',
+  imageAspect = 'auto',
+  layoutVariant = 'textWide',
+  bg = 'white',
+  class: className = '',
+} = Astro.props;
+
+const layoutMap: Record<NonNullable<Props['layoutVariant']>, { text: string; image: string }> = {
+  balanced: { text: 'lg:col-span-6', image: 'lg:col-span-6' },
+  textWide: { text: 'lg:col-span-7', image: 'lg:col-span-5' },
+  imageWide: { text: 'lg:col-span-5', image: 'lg:col-span-7' },
+};
+
+const inferredAspect =
+  imageAspect === 'auto'
+    ? imageWidth && imageHeight
+      ? imageWidth >= imageHeight
+        ? 'landscape'
+        : 'portrait'
+      : 'portrait'
+    : imageAspect;
+
+const aspectMap: Record<'portrait' | 'landscape' | 'square', string> = {
+  portrait: 'aspect-[4/5] md:aspect-[3/4]',
+  landscape: 'aspect-[16/10] md:aspect-[16/9]',
+  square: 'aspect-square',
+};
+
+const textOrderClass = imagePosition === 'left' ? 'lg:order-2' : 'lg:order-1';
+const imageOrderClass = imagePosition === 'left' ? 'lg:order-1' : 'lg:order-2';
+---
+
+<Section bg={bg} class={className}>
+  <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-12 lg:gap-12">
+    <div class:list={['space-y-6', layoutMap[layoutVariant].text, textOrderClass]}>
+      <h2 class="font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+        {heading}
+      </h2>
+
+      {intro && <p class="leading-relaxed text-text-muted">{intro}</p>}
+
+      <div>
+        {listHeading && <h3 class="mb-3 text-lg font-semibold text-brand-slate">{listHeading}</h3>}
+        <ul class="space-y-3">
+          {
+            bullets.map((bullet) => (
+              <li class="flex items-start gap-3">
+                <svg
+                  class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span class="text-text-muted">{bullet}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div
+      class:list={[
+        'overflow-hidden rounded-xl bg-surface-subtle shadow-lg',
+        layoutMap[layoutVariant].image,
+        imageOrderClass,
+      ]}
+    >
+      {
+        imageSrc ? (
+          <div class:list={['w-full', aspectMap[inferredAspect]]}>
+            <img
+              src={imageSrc}
+              alt={imageAlt ?? heading}
+              width={imageWidth}
+              height={imageHeight}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          </div>
+        ) : (
+          <div class="flex min-h-[250px] items-center justify-center">
+            <p class="text-sm text-text-muted">{heading}</p>
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Section>
