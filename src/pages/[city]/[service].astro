@@ -3,6 +3,7 @@ import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPag
 import CTABlock from '../../components/sections/CTABlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
+import InlineLeadForm from '../../components/forms/InlineLeadForm.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
 import InlineLeadForm from '../../components/forms/InlineLeadForm.astro';
@@ -127,6 +128,13 @@ const moneyPageFaqs: FAQ[] = [
   ...citySpecificFaqs,
   ...pillar.faqs.slice(0, Math.max(2, 6 - citySpecificFaqs.length)),
 ];
+
+const inlineTrustBullets = [
+  site.license,
+  'Licensed, Bonded & Insured',
+  '1-Year Labor Warranty',
+  `Most ${city.name} requests are scheduled within 1 to 2 business days.`,
+];
 ---
 
 <ServiceMoneyPageTemplate
@@ -171,6 +179,7 @@ const moneyPageFaqs: FAQ[] = [
   <!-- 2. H1 + 3. Localized Intro + 4. Inline CTA (above the fold) -->
 
   <Fragment slot="inlineCta">
+<<<<<<< HEAD
     <div class="mx-auto max-w-5xl rounded-xl border border-surface-warm bg-surface-subtle p-5 md:p-7">
       <h2 class="mb-2 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
         Request a Fast {pillar.name} Estimate in {city.name}
@@ -185,15 +194,37 @@ const moneyPageFaqs: FAQ[] = [
         {[site.license, 'Licensed, Bonded & Insured', '1-Year Labor Warranty', 'Free Estimates'].map((item) => (
           <li class="flex items-center gap-2">
             <span class="h-1.5 w-1.5 rounded-full bg-brand-teal/70" aria-hidden="true"></span>
+=======
+    <div class="mx-auto max-w-5xl rounded-xl border border-brand-teal/15 bg-white p-4 shadow-sm md:p-6">
+      <InlineLeadForm
+        formId={`money-inline-lead-${city.slug}-${pillar.slug}`}
+        serviceLabel={`${pillar.name} in ${city.name}`}
+        submitLabel="Get My Free Estimate"
+      />
+      <ul class="mt-2 grid grid-cols-1 gap-1.5 text-xs text-text-muted sm:grid-cols-2">
+        {inlineTrustBullets.map((item) => (
+          <li class="flex items-start gap-2">
+            <span class="mt-0.5 text-brand-teal" aria-hidden="true">•</span>
+>>>>>>> origin/codex/enhance-inline-cta-block-with-trust-bullets
             <span>{item}</span>
           </li>
         ))}
       </ul>
+<<<<<<< HEAD
 
       <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
         <Button href="/free-estimates/" variant="primary" size="lg">Get a Full Free Estimate</Button>
         <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
       </div>
+=======
+    </div>
+  </Fragment>
+
+  <Section bg="white" class="pt-8 md:pt-12">
+    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
+      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+>>>>>>> origin/codex/enhance-inline-cta-block-with-trust-bullets
     </div>
   </Fragment>
 
