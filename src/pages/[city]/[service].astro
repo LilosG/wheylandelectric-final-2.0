@@ -5,6 +5,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
+import InlineLeadForm from '../../components/forms/InlineLeadForm.astro';
 import { moneyPageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
@@ -168,55 +169,32 @@ const moneyPageFaqs: FAQ[] = [
   <!-- 1. Breadcrumbs rendered by PageLayout above -->
   <!-- 2. H1 + 3. Localized Intro + 4. Inline CTA (above the fold) -->
 
-  <Section bg="white" class="pt-8 md:pt-12">
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-      <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+  <Fragment slot="inlineCta">
+    <div class="mx-auto max-w-5xl rounded-xl border border-surface-warm bg-surface-subtle p-5 md:p-7">
+      <h2 class="mb-2 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+        Request a Fast {pillar.name} Estimate in {city.name}
+      </h2>
+      <p class="mb-5 text-center text-text-muted">
+        Tell us what you need, and our team will follow up with scope, timeline, and next steps.
+      </p>
+
+      <InlineLeadForm formId={`inline-lead-${city.slug}-${pillar.slug}`} serviceLabel={`${pillar.name} details`} />
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-4 justify-center">
+        <Button href="/free-estimates/" variant="primary" size="lg">Get a Full Free Estimate</Button>
+        <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+      </div>
     </div>
-  </Section>
+  </Fragment>
 
   <!-- 5. Scoped Service Detail -->
-  <Section bg="white">
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6">
-          Professional {pillar.name} in {city.name}
-        </h2>
-        <p class="text-text-muted leading-relaxed mb-6">
-          {fullLocalizedIntro}
-        </p>
-        <p class="text-text-muted leading-relaxed mb-6">
-          We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
-        </p>
-        <h3 class="text-lg font-semibold text-brand-slate mb-3">What's Included</h3>
-        <ul class="space-y-2">
-          {pillar.includedBullets.map((bullet) => (
-            <li class="flex items-start gap-2 text-text-muted">
-              <svg class="w-4 h-4 text-brand-teal shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              {bullet}
-            </li>
-          ))}
-        </ul>
-      </div>
-      <div class="rounded-xl overflow-hidden shadow-lg bg-surface-subtle">
-        {serviceImg ? (
-          <img
-            src={serviceImg.src}
-            alt={serviceImg.alt}
-            width={serviceImg.width}
-            height={serviceImg.height}
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        ) : (
-          <div class="flex items-center justify-center min-h-[250px]">
-            <p class="text-sm text-text-muted">{pillar.name} in {city.name}</p>
-          </div>
-        )}
-      </div>
-    </div>
+  <Fragment slot="detailBeforeBullets">
+    <p class="mb-6 leading-relaxed text-text-muted">
+      {fullLocalizedIntro}
+    </p>
+    <p class="mb-6 leading-relaxed text-text-muted">
+      We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.
+    </p>
   </Fragment>
 
   <Fragment slot="pricingCta">
