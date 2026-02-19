@@ -78,42 +78,52 @@ const honeypotId = `${formId}-website`;
   <p id={statusId} class="text-sm text-text-muted min-h-5" aria-live="polite"></p>
 </form>
 
-<script define:vars={{ formId, timestampId, statusId }} is:inline>
-  const form = document.getElementById(formId);
-  const timestampField = document.getElementById(timestampId);
-  const statusRegion = document.getElementById(statusId);
+<script is:inline>
+  const script = document.currentScript;
+  const form = script?.previousElementSibling;
+  if (!(form instanceof HTMLFormElement)) {
+    throw new Error('InlineLeadForm: expected form element.');
+  }
+
+  const formId = form.id || 'inline-lead-form';
+
+  const timestampField = form.querySelector('input[name="_timestamp"]');
+  const statusRegionId = form.getAttribute('aria-describedby');
+  const statusRegion = statusRegionId ? document.getElementById(statusRegionId) : null;
 
   let hasStarted = false;
 
-  form?.addEventListener('focusin', () => {
+  form.addEventListener('focusin', () => {
     if (hasStarted) return;
     hasStarted = true;
     window.WheylandTracking?.track('form_start', { form_id: formId });
   });
 
-  if (timestampField) {
+  if (timestampField instanceof HTMLInputElement) {
     timestampField.value = String(Date.now());
   }
 
-  form?.addEventListener('submit', (event) => {
-    if (!form?.checkValidity()) {
+  form.addEventListener('submit', (event) => {
+    if (!form.checkValidity()) {
       event.preventDefault();
-      form?.reportValidity();
+      form.reportValidity();
       window.WheylandTracking?.track('form_submit_fail', {
         form_id: formId,
         fail_reason: 'validation',
       });
-      if (statusRegion) {
+      if (statusRegion instanceof HTMLElement) {
         statusRegion.textContent = 'Please complete all required fields before submitting.';
         statusRegion.setAttribute('data-state', 'error');
       }
       return;
     }
 
-    if (!timestampField) return;
+    if (!(timestampField instanceof HTMLInputElement)) return;
 
-    statusRegion?.removeAttribute('data-state');
-    statusRegion && (statusRegion.textContent = '');
+    if (statusRegion instanceof HTMLElement) {
+      statusRegion.removeAttribute('data-state');
+      statusRegion.textContent = '';
+    }
 
     const elapsed = Date.now() - Number.parseInt(timestampField.value || '0', 10);
     if (elapsed < 3000) {
@@ -122,7 +132,7 @@ const honeypotId = `${formId}-website`;
         form_id: formId,
         fail_reason: 'submission_too_fast',
       });
-      if (statusRegion) {
+      if (statusRegion instanceof HTMLElement) {
         statusRegion.textContent = 'Please wait a few seconds, then submit the form again.';
         statusRegion.setAttribute('data-state', 'error');
       }
@@ -137,7 +147,7 @@ const honeypotId = `${formId}-website`;
         form_id: formId,
         fail_reason: 'honeypot',
       });
-      if (statusRegion) {
+      if (statusRegion instanceof HTMLElement) {
         statusRegion.textContent = 'Unable to submit right now. Please call us for immediate help.';
         statusRegion.setAttribute('data-state', 'error');
       }
@@ -146,7 +156,7 @@ const honeypotId = `${formId}-website`;
 
     window.WheylandTracking?.track('form_submit_success', { form_id: formId });
 
-    if (statusRegion) {
+    if (statusRegion instanceof HTMLElement) {
       statusRegion.textContent = 'Sending your request...';
       statusRegion.setAttribute('data-state', 'pending');
     }
