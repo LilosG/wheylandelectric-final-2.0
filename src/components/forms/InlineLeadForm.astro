@@ -110,16 +110,31 @@ const pageUrlId = `${formId}-page-url`;
 </form>
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 <script define:vars={{ formId, timestampId, statusId }} is:inline>
   const form = document.getElementById(formId);
   if (!(form instanceof HTMLFormElement)) {
     throw new Error('InlineLeadForm: expected form element.');
   }
 
+=======
+<script is:inline>
+  const currentScript = document.currentScript;
+  if (!(currentScript instanceof HTMLScriptElement)) {
+    throw new Error('InlineLeadForm: script context unavailable.');
+  }
+
+  const form = currentScript.previousElementSibling;
+  if (!(form instanceof HTMLFormElement)) {
+    throw new Error('InlineLeadForm: expected preceding form element.');
+  }
+
+>>>>>>> origin/codex/clean-up-diagnostics-for-maintainability
   const timestampField = form.querySelector('input[name="_timestamp"]');
   const statusRegionId = form.getAttribute('aria-describedby');
   const statusRegion = statusRegionId ? document.getElementById(statusRegionId) : null;
 
+<<<<<<< HEAD
   let hasStarted = false;
 
   form.addEventListener('focusin', () => {
@@ -146,10 +161,13 @@ const pageUrlId = `${formId}-page-url`;
     .join(' ');
 >>>>>>> origin/codex/refine-inlineleadform-for-improved-quality
 
+=======
+>>>>>>> origin/codex/clean-up-diagnostics-for-maintainability
   if (timestampField instanceof HTMLInputElement) {
     timestampField.value = String(Date.now());
   }
 
+<<<<<<< HEAD
 <<<<<<< HEAD
   form.addEventListener('submit', (event) => {
     if (!form.checkValidity()) {
@@ -191,6 +209,15 @@ const pageUrlId = `${formId}-page-url`;
     statusRegion?.removeAttribute('data-state');
     if (statusRegion) statusRegion.textContent = '';
 >>>>>>> origin/codex/refine-inlineleadform-for-improved-quality
+=======
+  form.addEventListener('submit', (event) => {
+    if (!(timestampField instanceof HTMLInputElement)) return;
+
+    statusRegion?.removeAttribute('data-state');
+    if (statusRegion) {
+      statusRegion.textContent = '';
+    }
+>>>>>>> origin/codex/clean-up-diagnostics-for-maintainability
 
     const elapsed = Date.now() - Number.parseInt(timestampField.value || '0', 10);
     if (elapsed < 3000) {
