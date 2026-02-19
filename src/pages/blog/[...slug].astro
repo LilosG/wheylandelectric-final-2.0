@@ -2,6 +2,7 @@
 import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../../components/sections/Hero.astro';
 import CTASection from '../../components/sections/CTASection.astro';
+import InlineLeadCapture from '../../components/sections/InlineLeadCapture.astro';
 import Section from '../../components/ui/Section.astro';
 import { blogPostMeta } from '../../lib/seo';
 import { articleSchema } from '../../lib/schema/article';
@@ -67,6 +68,12 @@ const schema = articleSchema(
       </div>
     </article>
   </Section>
+
+  <InlineLeadCapture
+    heading="Request Service for Your Home"
+    buttonText="Request Service"
+    source="blog-post-inline"
+  />
 
   <CTASection title="Need Electrical Service?" subtitle="Contact Wheyland Electric for a free estimate on your next project." />
 </PageLayout>

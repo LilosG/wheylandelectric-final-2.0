@@ -1,0 +1,84 @@
+---
+import Section from '../ui/Section.astro';
+
+interface Props {
+  heading: string;
+  buttonText?: string;
+  source?: string;
+}
+
+const {
+  heading,
+  buttonText = 'Get My Estimate',
+  source = 'inline-lead-capture',
+} = Astro.props as Props;
+
+const formId = `inline-lead-capture-${source.replace(/[^a-zA-Z0-9_-]/g, '-')}`;
+const timestampId = `${formId}-timestamp`;
+const honeypotId = `${formId}-website`;
+---
+<Section bg="subtle" class="py-10 md:py-14">
+  <div class="max-w-4xl mx-auto rounded-2xl bg-white border border-surface-warm p-6 md:p-8 shadow-sm">
+    <div class="mb-6">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate">{heading}</h2>
+      <p class="mt-2 text-text-muted">Tell us a few details and we’ll follow up quickly.</p>
+    </div>
+
+    <form id={formId} action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'} method="POST" class="space-y-5">
+      <div class="hidden" aria-hidden="true">
+        <label for={honeypotId}>Website</label>
+        <input type="text" id={honeypotId} name="_gotcha" tabindex="-1" autocomplete="off" />
+      </div>
+
+      <input type="hidden" name="_timestamp" id={timestampId} />
+      <input type="hidden" name="_next" value="/thank-you/" />
+      <input type="hidden" name="source" value={source} />
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div>
+          <label for={`${formId}-name`} class="block text-sm font-semibold text-brand-slate mb-2">Name *</label>
+          <input
+            type="text"
+            id={`${formId}-name`}
+            name="name"
+            required
+            class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+            placeholder="Your name"
+          />
+        </div>
+
+        <div>
+          <label for={`${formId}-phone`} class="block text-sm font-semibold text-brand-slate mb-2">Phone *</label>
+          <input
+            type="tel"
+            id={`${formId}-phone`}
+            name="phone"
+            required
+            class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+            placeholder="(xxx) xxx-xxxx"
+          />
+        </div>
+
+        <div>
+          <label for={`${formId}-email`} class="block text-sm font-semibold text-brand-slate mb-2">Email</label>
+          <input
+            type="email"
+            id={`${formId}-email`}
+            name="email"
+            class="w-full px-4 py-3 rounded-lg border border-surface-warm focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20 outline-none transition-colors text-text"
+            placeholder="you@example.com"
+          />
+        </div>
+      </div>
+
+      <div>
+        <button
+          type="submit"
+          class="w-full sm:w-auto bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold px-6 py-3 rounded-lg transition-colors focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2"
+        >
+          {buttonText}
+        </button>
+      </div>
+    </form>
+  </div>
+</Section>
