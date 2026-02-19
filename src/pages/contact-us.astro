@@ -20,8 +20,8 @@ const meta = generateMeta({
 ---
 <PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'Contact', href: '/contact-us/' }]}>
   <Hero
-    title="Contact Us"
-    subtitle="Have a question or need electrical service? We are here to help."
+    title="Request Service or an Estimate"
+    subtitle="Tell us about your project and we'll follow up with next steps, scheduling, or a quote."
     compact
     showTrustCard={false}
     showStatChips={false}
@@ -92,7 +92,8 @@ const meta = generateMeta({
 
       <!-- Contact Form -->
       <div class="bg-white rounded-xl shadow-md p-6 md:p-8">
-        <h2 class="text-xl font-heading font-bold text-brand-slate mb-6">Send Us a Message</h2>
+        <h2 class="text-xl font-heading font-bold text-brand-slate mb-2">Request Service or an Estimate</h2>
+        <p class="text-text-muted mb-6">Need electrical service, pricing, or have a quick question? Share the details below and our team will get back to you.</p>
         <ContactForm />
       </div>
     </div>
