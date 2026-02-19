@@ -139,6 +139,8 @@ export interface ServicePillar {
   h1TaglineByCity?: Record<string, string>;
   /** Signs the customer needs this service — "When to Call" section. Wave 1 services only. */
   whenToCallSigns?: string[];
+  /** Optional credibility bullets specific to this service (used in authority/proof modules). */
+  credibilityBullets?: string[];
 }
 
 // --- City-Service Content ---

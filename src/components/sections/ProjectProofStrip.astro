@@ -1,0 +1,55 @@
+---
+import Section from '../ui/Section.astro';
+import { getProjectsByService } from '../../data/projects';
+import type { City, ServicePillar } from '../../types';
+
+interface Props {
+  pillar: ServicePillar;
+  city?: City;
+}
+
+const { pillar, city } = Astro.props;
+const serviceProjects = getProjectsByService(pillar.slug);
+const scopedProjects = city
+  ? serviceProjects.filter((project) => project.citySlug === city.slug)
+  : serviceProjects;
+const projectSnippets = (scopedProjects.length > 0 ? scopedProjects : serviceProjects).slice(0, 2);
+const neighborhoods = city?.neighborhoods?.slice(0, 3) ?? [];
+const zips = city?.zips?.slice(0, 3) ?? [];
+
+const credibilityBullets = pillar.credibilityBullets ?? [
+  'Permit and inspection steps are documented before closeout.',
+  'Installations are completed to current NEC and local code standards.',
+  'Scope, materials, and final walkthrough are documented in writing.',
+];
+---
+
+<Section bg="white" class="pt-0">
+  <div class="max-w-5xl mx-auto rounded-2xl border border-surface-warm/40 p-6 md:p-8">
+    <h2 class="text-xl md:text-2xl font-heading font-bold text-brand-slate mb-5">Project Proof</h2>
+
+    {projectSnippets.length > 0 && (
+      <div class="mb-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+        {projectSnippets.map((project) => (
+          <div class="bg-surface-subtle rounded-lg p-4">
+            <p class="font-semibold text-brand-slate text-sm mb-1">{project.title}</p>
+            <p class="text-sm text-text-muted">{project.description}</p>
+          </div>
+        ))}
+      </div>
+    )}
+
+    {(neighborhoods.length > 0 || zips.length > 0) && (
+      <p class="text-sm text-text-muted mb-4">
+        {neighborhoods.length > 0 && <span>Common service areas: {neighborhoods.join(', ')}.</span>}
+        {zips.length > 0 && <span class="ml-1">ZIPs: {zips.join(', ')}.</span>}
+      </p>
+    )}
+
+    <ul class="grid grid-cols-1 md:grid-cols-3 gap-3">
+      {credibilityBullets.map((bullet) => (
+        <li class="text-sm text-text-muted bg-surface-subtle rounded-lg p-3">{bullet}</li>
+      ))}
+    </ul>
+  </div>
+</Section>

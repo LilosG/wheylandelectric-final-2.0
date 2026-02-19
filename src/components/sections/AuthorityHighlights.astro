@@ -1,0 +1,51 @@
+---
+import Section from '../ui/Section.astro';
+import { site } from '../../data/site';
+import type { City, ServicePillar } from '../../types';
+
+interface Props {
+  pillar: ServicePillar;
+  city?: City;
+}
+
+const { pillar, city } = Astro.props;
+const inspectionStep = pillar.processSteps.find((step) => /inspection/i.test(step.title));
+const permitLine = city
+  ? `Permit applications and department coordination for ${city.name} are handled by our team.`
+  : 'Permit applications and department coordination are handled by our team.';
+
+const highlights = [
+  {
+    title: 'License & Insurance',
+    detail: `${site.license} • Licensed, bonded, and insured.`,
+  },
+  {
+    title: 'Warranty',
+    detail: '1-year labor warranty on workmanship.',
+  },
+  {
+    title: 'Permit Handling',
+    detail: permitLine,
+  },
+  {
+    title: 'Inspection Process',
+    detail: inspectionStep?.description ?? 'We schedule final inspection and closeout before project completion.',
+  },
+];
+---
+
+<Section bg="subtle">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-6 text-center">
+      Why Homeowners Trust Our {pillar.name}
+    </h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+      {highlights.map((item) => (
+        <div class="bg-white rounded-xl shadow-sm p-5">
+          <h3 class="font-semibold text-brand-slate mb-2">{item.title}</h3>
+          <p class="text-sm text-text-muted leading-relaxed">{item.detail}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Section>

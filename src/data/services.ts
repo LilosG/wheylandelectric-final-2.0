@@ -148,6 +148,11 @@ export const servicePillars: ServicePillar[] = [
       'Your HOA or property manager is planning community EV charger infrastructure',
       'You want a dedicated 240V circuit instead of sharing outlets with other appliances',
     ],
+    credibilityBullets: [
+      'Permit package and final inspection scheduling handled by our team',
+      'Load calculation documented before circuit sizing and breaker selection',
+      'Final activation completed only after inspection approval when required',
+    ],
   },
 
   // 2. Electrical Panel Upgrades
@@ -291,6 +296,11 @@ export const servicePillars: ServicePillar[] = [
       'You hear buzzing or smell something burning near the electrical panel',
       'You are running extension cords because you do not have enough outlets',
       'Your lights dim noticeably when large appliances start up',
+    ],
+    credibilityBullets: [
+      'City permit filing, SDG&E coordination, and inspection closeout managed end-to-end',
+      'Circuit labeling and panel schedule documentation provided at handoff',
+      'Service upgrades built to current NEC and local code requirements',
     ],
   },
 
