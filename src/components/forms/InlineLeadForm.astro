@@ -83,8 +83,6 @@ const honeypotId = `${formId}-website`;
   if (!(form instanceof HTMLFormElement)) {
     throw new Error('InlineLeadForm: expected form element.');
   }
-
-
   const timestampField = form.querySelector('input[name="_timestamp"]');
   const statusRegionId = form.getAttribute('aria-describedby');
   const statusRegion = statusRegionId ? document.getElementById(statusRegionId) : null;
