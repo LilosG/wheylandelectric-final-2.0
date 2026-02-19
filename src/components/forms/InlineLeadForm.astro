@@ -78,14 +78,12 @@ const honeypotId = `${formId}-website`;
   <p id={statusId} class="text-sm text-text-muted min-h-5" aria-live="polite"></p>
 </form>
 
-<script is:inline>
-  const script = document.currentScript;
-  const form = script?.previousElementSibling;
+<script define:vars={{ formId, timestampId, statusId }} is:inline>
+  const form = document.getElementById(formId);
   if (!(form instanceof HTMLFormElement)) {
     throw new Error('InlineLeadForm: expected form element.');
   }
 
-  const formId = form.id || 'inline-lead-form';
 
   const timestampField = form.querySelector('input[name="_timestamp"]');
   const statusRegionId = form.getAttribute('aria-describedby');
