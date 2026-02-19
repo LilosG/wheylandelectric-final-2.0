@@ -22,13 +22,18 @@ const compact = props.compact ?? false;
 ---
 <section class="py-12 md:py-16 bg-white border-t border-surface">
   <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="rounded-xl border border-surface-warm bg-surface-subtle p-5 md:p-7">
+    <div class:list={['rounded-xl border border-surface-warm bg-surface-subtle', compact ? 'p-4 md:p-5' : 'p-5 md:p-7']}>
       <div class="mb-4 md:mb-5">
         <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate">{title}</h2>
         <p class="mt-2 text-text-muted">{helperText}</p>
       </div>
 
-      <form action="/free-estimates/" method="GET" class="form-shell form-shell--compact" novalidate>
+      <form
+        action="/free-estimates/"
+        method="GET"
+        class:list={['form-shell', compact && 'form-shell--compact']}
+        novalidate
+      >
         <div class="form-row--inline">
           <div class="form-field flex-1 min-w-0">
             <label for="lead-name" class="sr-only">Name</label>

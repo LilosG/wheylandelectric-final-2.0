@@ -78,20 +78,32 @@ const honeypotId = `${formId}-website`;
   <p id={statusId} class="text-sm text-text-muted min-h-5" aria-live="polite"></p>
 </form>
 
-<script define:vars={{ formId, timestampId, statusId }} is:inline>
-  const form = document.getElementById(formId);
-  const timestampField = document.getElementById(timestampId);
-  const statusRegion = document.getElementById(statusId);
+<script is:inline>
+  const currentScript = document.currentScript;
+  if (!(currentScript instanceof HTMLScriptElement)) {
+    throw new Error('InlineLeadForm: script context unavailable.');
+  }
 
-  if (timestampField) {
+  const form = currentScript.previousElementSibling;
+  if (!(form instanceof HTMLFormElement)) {
+    throw new Error('InlineLeadForm: expected preceding form element.');
+  }
+
+  const timestampField = form.querySelector('input[name="_timestamp"]');
+  const statusRegionId = form.getAttribute('aria-describedby');
+  const statusRegion = statusRegionId ? document.getElementById(statusRegionId) : null;
+
+  if (timestampField instanceof HTMLInputElement) {
     timestampField.value = String(Date.now());
   }
 
-  form?.addEventListener('submit', (event) => {
-    if (!timestampField) return;
+  form.addEventListener('submit', (event) => {
+    if (!(timestampField instanceof HTMLInputElement)) return;
 
     statusRegion?.removeAttribute('data-state');
-    statusRegion && (statusRegion.textContent = '');
+    if (statusRegion) {
+      statusRegion.textContent = '';
+    }
 
     const elapsed = Date.now() - Number.parseInt(timestampField.value || '0', 10);
     if (elapsed < 3000) {
@@ -104,7 +116,7 @@ const honeypotId = `${formId}-website`;
     }
 
     const honeypotField = form.querySelector('[name="_gotcha"]');
-    const honeypot = honeypotField ? honeypotField.value : '';
+    const honeypot = honeypotField instanceof HTMLInputElement ? honeypotField.value : '';
     if (honeypot) {
       event.preventDefault();
       if (statusRegion) {
