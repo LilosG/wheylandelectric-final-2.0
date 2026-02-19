@@ -8,7 +8,6 @@ interface Props {
   title?: string;
   titleAccent?: string;
   subtitle?: string;
-  subtitleMaxWidthClass?: string;
   showCTAs?: boolean;
   showTrustCard?: boolean;
   showStatChips?: boolean;
@@ -18,7 +17,7 @@ interface Props {
   backgroundImage?: string;
   imagePosition?: 'center' | 'top' | 'bottom';
   backgroundImageAlt?: string;
-  primaryHref?: string;
+  heroCtaVariant?: 'default' | 'money';
 }
 
 const {
@@ -26,7 +25,6 @@ const {
   title = 'An Innovative Electrician',
   titleAccent = '',
   subtitle = 'We offer electrical installation, repair, and maintenance to residential, commercial, and industrial customers across San Diego County.',
-  subtitleMaxWidthClass,
   showCTAs = true,
   showTrustCard = true,
   showStatChips = true,
@@ -36,8 +34,18 @@ const {
   backgroundImage,
   imagePosition = 'center',
   backgroundImageAlt,
-  primaryHref = '/free-estimates/',
+  heroCtaVariant = 'default',
 } = Astro.props;
+
+const ctaConfig = heroCtaVariant === 'money'
+  ? {
+      estimateLabel: 'Get a Free Estimate',
+      callVariant: 'secondary' as const,
+    }
+  : {
+      estimateLabel: 'Get Free Estimate',
+      callVariant: 'outline-white' as const,
+    };
 
 // Determine which image to use
 let finalBackgroundImage = backgroundImage;
@@ -123,8 +131,7 @@ const trustItems = [
         {subtitle && (
           <p class:list={[
             'text-white leading-relaxed',
-            subtitleMaxWidthClass
-              ?? (showTrustCard && !compact ? 'max-w-2xl text-left' : 'max-w-xl mx-auto text-center'),
+            showTrustCard && !compact ? 'max-w-2xl text-left' : 'max-w-xl mx-auto text-center',
             compact ? 'text-base sm:text-lg mt-4' : 'text-lg mt-6'
           ]}>
             {subtitle}
@@ -155,14 +162,14 @@ const trustItems = [
 
         {showCTAs && (
           <div class:list={[
-            'flex flex-wrap gap-4',
+            'flex flex-col sm:flex-row gap-4',
             showTrustCard && !compact ? 'justify-start' : 'justify-center',
             compact ? 'mt-6' : 'mt-8'
           ]}>
-            <Button href={primaryHref} variant="primary" size="lg">
-              Get Free Estimate
+            <Button href="/free-estimates/" variant="primary" size="lg" class="w-full sm:w-auto">
+              {ctaConfig.estimateLabel}
             </Button>
-            <Button href={`tel:${site.nap.phoneTel}`} variant="outline-white" size="lg">
+            <Button href={`tel:${site.nap.phoneTel}`} variant={ctaConfig.callVariant} size="lg" class="w-full sm:w-auto">
               Call {site.nap.phone}
             </Button>
           </div>
