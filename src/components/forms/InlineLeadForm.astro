@@ -83,11 +83,33 @@ const honeypotId = `${formId}-website`;
   const timestampField = document.getElementById(timestampId);
   const statusRegion = document.getElementById(statusId);
 
+  let hasStarted = false;
+
+  form?.addEventListener('focusin', () => {
+    if (hasStarted) return;
+    hasStarted = true;
+    window.WheylandTracking?.track('form_start', { form_id: formId });
+  });
+
   if (timestampField) {
     timestampField.value = String(Date.now());
   }
 
   form?.addEventListener('submit', (event) => {
+    if (!form?.checkValidity()) {
+      event.preventDefault();
+      form?.reportValidity();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: formId,
+        fail_reason: 'validation',
+      });
+      if (statusRegion) {
+        statusRegion.textContent = 'Please complete all required fields before submitting.';
+        statusRegion.setAttribute('data-state', 'error');
+      }
+      return;
+    }
+
     if (!timestampField) return;
 
     statusRegion?.removeAttribute('data-state');
@@ -96,6 +118,10 @@ const honeypotId = `${formId}-website`;
     const elapsed = Date.now() - Number.parseInt(timestampField.value || '0', 10);
     if (elapsed < 3000) {
       event.preventDefault();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: formId,
+        fail_reason: 'submission_too_fast',
+      });
       if (statusRegion) {
         statusRegion.textContent = 'Please wait a few seconds, then submit the form again.';
         statusRegion.setAttribute('data-state', 'error');
@@ -107,12 +133,18 @@ const honeypotId = `${formId}-website`;
     const honeypot = honeypotField ? honeypotField.value : '';
     if (honeypot) {
       event.preventDefault();
+      window.WheylandTracking?.track('form_submit_fail', {
+        form_id: formId,
+        fail_reason: 'honeypot',
+      });
       if (statusRegion) {
         statusRegion.textContent = 'Unable to submit right now. Please call us for immediate help.';
         statusRegion.setAttribute('data-state', 'error');
       }
       return;
     }
+
+    window.WheylandTracking?.track('form_submit_success', { form_id: formId });
 
     if (statusRegion) {
       statusRegion.textContent = 'Sending your request...';
