@@ -5,6 +5,7 @@ import CTASection from '../../components/sections/CTASection.astro';
 import LeadCaptureSection from '../../components/sections/LeadCaptureSection.astro';
 import Section from '../../components/ui/Section.astro';
 import Button from '../../components/ui/Button.astro';
+import QuickEstimateForm from '../../components/forms/QuickEstimateForm.astro';
 import { moneyPageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
@@ -183,6 +184,25 @@ const moneyPageFaqs: FAQ[] = [
     <div class="flex flex-col sm:flex-row gap-4 justify-center">
       <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
       <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+    </div>
+  </Section>
+
+  <Section bg="subtle" class="pt-0 md:pt-0">
+    <div class="max-w-2xl mx-auto">
+      <div class="rounded-xl shadow-md bg-white p-6 md:p-8 space-y-4">
+        <div>
+          <h2 class="text-2xl font-heading font-bold text-brand-slate">Quick Estimate Request</h2>
+          <p class="text-text-muted mt-2">Send your details and we will follow up promptly.</p>
+        </div>
+
+        <QuickEstimateForm serviceNeed={pillar.name} />
+
+        <p class="text-sm text-text-muted">
+          Need to share more project details? Use our
+          <a href="/free-estimates/" class="text-brand-teal font-semibold hover:text-brand-slate transition-colors"> full estimate form</a>
+          .
+        </p>
+      </div>
     </div>
   </Section>
 
