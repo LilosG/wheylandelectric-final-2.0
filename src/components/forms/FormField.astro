@@ -68,7 +68,7 @@ const controlClasses = [
         placeholder={placeholder}
         autocomplete={autocomplete}
         aria-describedby={describedBy}
-        aria-invalid={isInvalid ? 'true' : 'false'}
+        aria-invalid={isInvalid ? 'true' : undefined}
         class:list={[...controlClasses, 'h-auto min-h-[7.5rem] py-2.5']}
       >{value}</textarea>
     ) : as === 'select' ? (
@@ -77,11 +77,11 @@ const controlClasses = [
         name={name}
         required={required}
         aria-describedby={describedBy}
-        aria-invalid={isInvalid ? 'true' : 'false'}
+        aria-invalid={isInvalid ? 'true' : undefined}
         class:list={[...controlClasses, 'pr-10']}
       >
         {options.map((option: SelectOption) => (
-          <option value={option.value}>{option.label}</option>
+          <option value={option.value} selected={value === option.value}>{option.label}</option>
         ))}
       </select>
     ) : (
@@ -94,7 +94,7 @@ const controlClasses = [
         autocomplete={autocomplete}
         value={value}
         aria-describedby={describedBy}
-        aria-invalid={isInvalid ? 'true' : 'false'}
+        aria-invalid={isInvalid ? 'true' : undefined}
         class:list={controlClasses}
       />
     )
@@ -107,7 +107,7 @@ const controlClasses = [
   )}
 
   {error && (
-    <p id={errorId} class="mt-1.5 text-xs font-medium text-brand-slate/85" role="alert">
+    <p id={errorId} class="mt-1.5 text-xs font-medium text-red-600" role="alert">
       {error}
     </p>
   )}

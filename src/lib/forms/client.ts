@@ -36,7 +36,6 @@ export function initLeadForm({
   const honeypotInput = form.querySelector('[name="_gotcha"]') as HTMLInputElement | null;
   const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
   const normalizedPhoneInput = form.querySelector('[name="phone_digits"]') as HTMLInputElement | null;
-  const emailInput = form.querySelector('input[name="email"]') as HTMLInputElement | null;
   const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
   const fields = Array.from(
     form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement>(
@@ -107,9 +106,13 @@ export function initLeadForm({
     }
 
     if (requireOneOf.length > 0) {
-      const hasEmail = !!emailInput?.value?.trim();
-      const hasPhone = !!phoneInput?.value?.trim();
-      if (requireOneOf.includes('email') && requireOneOf.includes('phone') && !hasEmail && !hasPhone) {
+      const hasAnyRequired = requireOneOf.some((fieldName) => {
+        const targetField = form.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+          `[name="${fieldName}"]`
+        );
+        return !!targetField?.value?.trim();
+      });
+      if (!hasAnyRequired) {
         showFeedback('error', 'Please provide at least a phone number or an email address.');
         return;
       }
@@ -117,7 +120,6 @@ export function initLeadForm({
 
     if (phoneInput) {
       const digits = getDigits(phoneInput.value);
-      phoneInput.value = digits;
       if (normalizedPhoneInput) normalizedPhoneInput.value = digits;
     }
 
