@@ -4,6 +4,7 @@ import Hero from '../sections/Hero.astro';
 import TrustBar from '../sections/TrustBar.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import Section from '../ui/Section.astro';
+import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
 import type { FAQ, PageMeta, BreadcrumbItem } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
 
@@ -47,6 +48,9 @@ interface Props {
   imageSource?: 'service' | 'city' | 'default';
   imageKey?: string;
   trustBarPlacement?: 'none' | 'afterHero' | 'afterPricing';
+  showInlineLeadCapture?: boolean;
+  inlineLeadCity?: string;
+  inlineLeadService?: string;
   inlineCtaSectionClass?: string;
   detailHeading: string;
   detailBody: string;
@@ -83,6 +87,9 @@ const {
   imageSource = 'service',
   imageKey,
   trustBarPlacement = 'afterHero',
+  showInlineLeadCapture = true,
+  inlineLeadCity,
+  inlineLeadService,
   inlineCtaSectionClass = '',
   detailHeading,
   detailBody,
@@ -249,6 +256,21 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
   }
 
   {trustBarPlacement === 'afterPricing' && <TrustBar />}
+
+  {showInlineLeadCapture && !hasInlineCta && (
+    <Section bg="white">
+      <div class="mx-auto max-w-4xl">
+        <InlineLeadCapture
+          formId={`inline-lead-${inlineLeadCity ? `${inlineLeadCity}-` : ''}${imageKey || 'general'}`}
+          heading="Need Help Choosing the Right Option?"
+          subheading="Share a few details and we’ll recommend the best next step for your project."
+          city={inlineLeadCity}
+          service={inlineLeadService}
+          variant="compact"
+        />
+      </div>
+    </Section>
+  )}
 
   {
     hasRelatedContent && (

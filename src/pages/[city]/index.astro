@@ -8,6 +8,7 @@ import FAQAccordion from '../../components/sections/FAQAccordion.astro';
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
+import InlineLeadCapture from '../../components/forms/InlineLeadCapture.astro';
 import { cityPageMeta } from '../../lib/seo';
 import { localBusinessSchema } from '../../lib/schema/localBusiness';
 import { faqPageSchema } from '../../lib/schema/faq';
@@ -106,6 +107,18 @@ const cityFaqs: FAQ[] = [
       citySlug={city.slug}
       heading={`Electrical Services in ${city.name}`}
     />
+  </Section>
+
+  <Section bg="white">
+    <div class="mx-auto max-w-4xl">
+      <InlineLeadCapture
+        formId={`inline-lead-city-${city.slug}`}
+        heading={`Need an Electrician in ${city.name}?`}
+        subheading="Share your project details and we’ll call you back with clear next steps."
+        city={city.name}
+        variant="compact"
+      />
+    </div>
   </Section>
 
   <!-- HOA Offer -->
