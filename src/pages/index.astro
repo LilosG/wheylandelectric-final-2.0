@@ -27,7 +27,7 @@ const cities = getPublishedCities();
     eyebrow="Satisfaction Guaranteed"
     title="An Innovative Electrician"
     titleAccent="You Can Trust."
-    subtitle="We offer electrical installation, repair, and maintenance to residential, commercial, and industrial customers across San Diego County."
+    subtitle="Licensed electricians for safe, code-compliant residential and commercial projects across San Diego County."
   />
 
   {/* 2. TrustBar — columbia blue strip */}
@@ -38,6 +38,19 @@ const cities = getPublishedCities();
     <ServiceGrid services={services} heading="Electrical Services You Can Count On" />
     <div class="text-center mt-8">
       <Button href="/services/" variant="secondary">View All Services</Button>
+    </div>
+  </Section>
+
+  <Section bg="white" class="pt-0">
+    <div class="max-w-4xl mx-auto">
+      <p class="text-text-muted text-lg leading-relaxed mb-5">
+        Wheyland Electric delivers full-service installation, repairs, and maintenance with transparent communication from estimate through final walkthrough.
+      </p>
+      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Residential service upgrades, rewiring, and lighting improvements.</li>
+        <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Commercial tenant improvements and dependable troubleshooting support.</li>
+        <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Permit-ready workmanship backed by licensing, insurance, and warranty coverage.</li>
+      </ul>
     </div>
   </Section>
 
