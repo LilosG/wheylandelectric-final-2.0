@@ -4,6 +4,7 @@ import Hero from '../sections/Hero.astro';
 import TrustBar from '../sections/TrustBar.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import Section from '../ui/Section.astro';
+import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
 import type { FAQ, PageMeta, BreadcrumbItem } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
 
@@ -22,8 +23,7 @@ import type { ServiceHeroImage } from '../../data/serviceHeroImages';
  * - serviceImg: `undefined` (falls back to `fallbackImageLabel` text block).
  * - fallbackImageLabel: ''.
  * - inlineCtaSectionClass: ''.
- * - showTopTrustBar: true.
- * - showTrustBarAfterPricing: false.
+ * - trustBarPlacement: 'afterHero'.
  * - processHeading: '' (process section hidden if empty or no steps).
  * - processSteps: [] (process section hidden when empty).
  * - processStepCardClass: 'flex items-start gap-4'.
@@ -47,8 +47,12 @@ interface Props {
   heroShowCTAs?: boolean;
   imageSource?: 'service' | 'city' | 'default';
   imageKey?: string;
-  showTopTrustBar?: boolean;
+  trustBarPlacement?: 'none' | 'afterHero' | 'afterPricing';
+  showInlineLeadCapture?: boolean;
+  inlineLeadCity?: string;
+  inlineLeadService?: string;
   inlineCtaSectionClass?: string;
+  inlineCtaSectionSize?: 'none' | 'tight' | 'normal' | 'loose';
   detailHeading: string;
   detailBody: string;
   includedBullets: string[];
@@ -67,7 +71,6 @@ interface Props {
   pricingIntro: string;
   pricingFactors: string[];
   pricingItemClass?: string;
-  showTrustBarAfterPricing?: boolean;
   relatedSectionBg?: 'white' | 'subtle';
   faqSectionBg?: 'white' | 'subtle';
   showFaqSection?: boolean;
@@ -84,8 +87,12 @@ const {
   heroShowCTAs = true,
   imageSource = 'service',
   imageKey,
-  showTopTrustBar = true,
+  trustBarPlacement = 'afterHero',
+  showInlineLeadCapture = true,
+  inlineLeadCity,
+  inlineLeadService,
   inlineCtaSectionClass = '',
+  inlineCtaSectionSize = 'normal',
   detailHeading,
   detailBody,
   includedBullets,
@@ -104,7 +111,6 @@ const {
   pricingIntro,
   pricingFactors,
   pricingItemClass = 'flex items-start gap-2 text-text-muted',
-  showTrustBarAfterPricing = false,
   relatedSectionBg = 'subtle',
   faqSectionBg = 'white',
   showFaqSection = true,
@@ -133,11 +139,11 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
     imageKey={imageKey}
   />
 
-  {showTopTrustBar && <TrustBar />}
+  {trustBarPlacement === 'afterHero' && <TrustBar />}
 
   {
     hasInlineCta && (
-      <Section bg="white" class={inlineCtaSectionClass}>
+      <Section bg="white" size={inlineCtaSectionSize} class={inlineCtaSectionClass}>
         <slot name="inlineCta" />
       </Section>
     )
@@ -251,7 +257,22 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
     )
   }
 
-  {showTrustBarAfterPricing && <TrustBar />}
+  {trustBarPlacement === 'afterPricing' && <TrustBar />}
+
+  {showInlineLeadCapture && !hasInlineCta && (
+    <Section bg="white">
+      <div class="mx-auto max-w-4xl">
+        <InlineLeadCapture
+          formId={`inline-lead-${inlineLeadCity ? `${inlineLeadCity}-` : ''}${imageKey || 'general'}`}
+          heading="Need Help Choosing the Right Option?"
+          subheading="Share a few details and we’ll recommend the best next step for your project."
+          city={inlineLeadCity}
+          service={inlineLeadService}
+          variant="compact"
+        />
+      </div>
+    </Section>
+  )}
 
   {
     hasRelatedContent && (

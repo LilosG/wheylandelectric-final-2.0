@@ -1,11 +1,12 @@
 ---
 interface Props {
   bg?: 'white' | 'subtle' | 'warm' | 'indigo' | 'surface';
+  size?: 'none' | 'tight' | 'normal' | 'loose';
   class?: string;
   id?: string;
 }
 
-const { bg = 'white', class: className = '', id } = Astro.props;
+const { bg = 'white', size = 'normal', class: className = '', id } = Astro.props;
 
 const bgMap: Record<string, string> = {
   white: 'bg-white',
@@ -15,9 +16,17 @@ const bgMap: Record<string, string> = {
   surface: 'bg-surface',
 };
 
+const sizeMap: Record<NonNullable<Props['size']>, string> = {
+  none: '',
+  tight: 'py-10 md:py-14',
+  normal: 'py-14 md:py-20',
+  loose: 'py-16 md:py-24',
+};
+
 const bgClass = bgMap[bg] ?? 'bg-white';
+const sizeClass = sizeMap[size] ?? sizeMap.normal;
 ---
-<section class:list={['py-16 md:py-24', bgClass, className]} id={id}>
+<section class:list={[sizeClass, bgClass, className]} id={id}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <slot />
   </div>

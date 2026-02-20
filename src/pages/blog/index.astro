@@ -30,7 +30,7 @@ const posts = (await getCollection('blog'))
     backgroundImage={blogHero.src}
   />
 
-  <Section bg="white" class="pt-8 md:pt-12">
+  <Section bg="white" size="tight">
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
       {posts.map((post) => (

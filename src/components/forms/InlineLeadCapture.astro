@@ -1,0 +1,166 @@
+---
+import FormField from './FormField.astro';
+
+interface Props {
+  formId?: string;
+  heading?: string;
+  subheading?: string;
+  city?: string;
+  service?: string;
+  variant?: 'compact' | 'card';
+  requireOneOf?: Array<'email' | 'phone'>;
+}
+
+const {
+  formId = 'inline-lead',
+  heading = 'Get a Fast Callback',
+  subheading = 'Tell us what you need and we’ll follow up with next-step options.',
+  city,
+  service,
+  variant = 'card',
+  requireOneOf = ['phone', 'email'],
+} = Astro.props;
+
+const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+const isEndpointMissing = !endpoint;
+const feedbackId = `${formId}-feedback`;
+const pageUrlId = `${formId}-page-url`;
+---
+<div class:list={[
+  'rounded-2xl border border-surface-subtle bg-white shadow-sm',
+  variant === 'compact' ? 'p-4 md:p-5' : 'p-5 md:p-7'
+]}>
+  <div class="mb-4 space-y-1.5">
+    <h3 class="text-xl font-heading font-bold text-brand-slate">{heading}</h3>
+    <p class="text-sm leading-relaxed text-text-muted">{subheading}</p>
+    {import.meta.env.DEV && isEndpointMissing && (
+      <p class="text-xs text-text-muted">Dev note: set <code>PUBLIC_FORMSPREE_ENDPOINT</code> to enable submissions.</p>
+    )}
+  </div>
+
+  <form
+    id={formId}
+    action={endpoint || '#'}
+    method="POST"
+    class="form-shell form-shell--compact"
+    data-endpoint={endpoint || ''}
+    data-inline-lead-form
+    data-feedback-id={feedbackId}
+    data-require-one-of={JSON.stringify(requireOneOf)}
+    novalidate
+  >
+    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+      <label for={`${formId}-website`}>Leave this field empty</label>
+      <input type="text" id={`${formId}-website`} name="_gotcha" tabindex="-1" autocomplete="off" />
+    </div>
+
+    <input type="hidden" name="_timestamp" id={`${formId}-timestamp`} />
+    <input type="hidden" name="_next" value="/thank-you/" />
+    <input type="hidden" name="form_type" value="inline" />
+    <input type="hidden" name="phone_digits" value="" />
+    <input type="hidden" name="page_url" id={pageUrlId} value="" />
+    {city && <input type="hidden" name="city" value={city} />}
+    {service && <input type="hidden" name="service" value={service} />}
+
+    <fieldset class="space-y-4" disabled={!import.meta.env.DEV && isEndpointMissing}>
+      <div class:list={[
+        'grid gap-4',
+        variant === 'compact' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'
+      ]}>
+        <FormField
+          id={`${formId}-name`}
+          name="name"
+          label="Full Name"
+          required
+          placeholder="Your full name"
+          autocomplete="name"
+          fieldClass={variant === 'compact' ? 'md:col-span-1' : ''}
+        />
+        <FormField
+          id={`${formId}-phone`}
+          name="phone"
+          label="Phone"
+          type="tel"
+          placeholder="(858) 555-1234"
+          autocomplete="tel"
+          helper={variant === 'compact' ? undefined : 'Phone or email is required.'}
+        />
+        <FormField
+          id={`${formId}-email`}
+          name="email"
+          label="Email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          fieldClass={variant === 'compact' ? 'md:col-span-1' : ''}
+        />
+      </div>
+
+      {
+        variant === 'card' && (
+          <FormField
+            id={`${formId}-message`}
+            name="message"
+            label="Project Details (Optional)"
+            as="textarea"
+            rows={4}
+            placeholder="Share your scope, timing, or any important details."
+          />
+        )
+      }
+
+      <p id={feedbackId} class="form-feedback" role="status" aria-live="polite"></p>
+
+      <div class="form-submit-group space-y-2">
+        {!import.meta.env.DEV && isEndpointMissing && (
+          <p class="text-sm text-text-muted">
+            Online submission is temporarily unavailable. Please call
+            <a href="tel:8586635564" class="font-medium text-brand-teal hover:text-brand-slate"> (858) 663-5564</a>.
+          </p>
+        )}
+        <button
+          type="submit"
+          class="w-full rounded-lg bg-brand-gold px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted md:w-auto"
+          data-loading-label="Sending Request..."
+          disabled={!import.meta.env.DEV && isEndpointMissing}
+        >
+          Request Free Estimate
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</div>
+
+<script>
+  import { initLeadForm } from '../../lib/forms/client';
+
+  const parseRequireOneOf = (value: string | null) => {
+    try {
+      const parsed = JSON.parse(value || '[]');
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  };
+
+  const inlineForms = document.querySelectorAll('form[data-inline-lead-form]');
+  inlineForms.forEach((form) => {
+    const formId = form.getAttribute('id');
+    const feedbackId = form.getAttribute('data-feedback-id');
+    const pageUrlField = form.querySelector('input[name="page_url"]');
+
+    if (!formId || !feedbackId) return;
+
+    if (pageUrlField instanceof HTMLInputElement) {
+      pageUrlField.value = window.location.href;
+    }
+
+    initLeadForm({
+      formId,
+      feedbackId,
+      endpoint: form.getAttribute('data-endpoint') || '',
+      thankYouPath: '/thank-you/',
+      requireOneOf: parseRequireOneOf(form.getAttribute('data-require-one-of')),
+    });
+  });
+</script>

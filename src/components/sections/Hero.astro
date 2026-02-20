@@ -27,7 +27,7 @@ const {
   showCTAs = true,
   showTrustCard = true,
   showStatChips = true,
-  compact = false,
+  compact = true,
   imageSource = 'default',
   imageKey,
   backgroundImage,
@@ -59,7 +59,7 @@ const trustItems = [
 ---
 <section class:list={[
   'relative overflow-hidden bg-brand-slate',
-  compact ? 'py-10 sm:py-14 md:py-16' : 'min-h-[85vh] flex items-center',
+  compact ? 'py-10 sm:py-14 md:py-16' : 'pt-28 pb-16 md:pt-32 md:pb-20 lg:pt-36 lg:pb-24',
 ]}>
   {/* Background with photo + gradient overlay */}
   <div class="absolute inset-0">
@@ -85,14 +85,14 @@ const trustItems = [
 
   <div class:list={[
     'relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full',
-    compact ? 'py-8 sm:py-10 md:py-12' : 'py-16 md:py-24'
+    compact ? 'py-6 sm:py-8 md:py-10' : ''
   ]}>
     <div class:list={[
       showTrustCard && !compact ? 'grid lg:grid-cols-5 gap-8 lg:gap-12 items-center' : '',
     ]}>
       {/* Left content */}
       <div class:list={[
-        showTrustCard && !compact ? 'lg:col-span-3' : 'w-full max-w-3xl mx-auto text-center',
+        showTrustCard && !compact ? 'lg:col-span-3 max-w-3xl' : 'w-full max-w-3xl mx-auto text-center',
       ]}>
         {eyebrow && (
           <span class="inline-flex items-center bg-brand-teal text-white text-xs font-semibold px-4 py-2 rounded-full mb-6 tracking-wide uppercase">
@@ -120,7 +120,7 @@ const trustItems = [
           <p class:list={[
             'text-white leading-relaxed',
             showTrustCard && !compact ? 'max-w-2xl text-left' : 'max-w-xl mx-auto text-center',
-            compact ? 'text-base sm:text-lg mt-4' : 'text-lg mt-6'
+            'mt-5 text-base sm:text-lg'
           ]}>
             {subtitle}
           </p>
