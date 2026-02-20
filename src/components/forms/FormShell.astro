@@ -1,0 +1,64 @@
+---
+interface Props {
+  heading: string;
+  subheading?: string;
+  showTrustPanel?: boolean;
+}
+
+const { heading, subheading = '', showTrustPanel = true } = Astro.props;
+---
+<div class="mx-auto max-w-6xl">
+  <div class="grid grid-cols-12 gap-5 md:gap-6">
+    <section
+      class:list={[
+        'col-span-12 rounded-2xl border border-surface-subtle bg-white p-5 shadow-sm md:p-7',
+        showTrustPanel ? 'lg:col-span-7' : 'lg:col-span-12',
+      ]}
+    >
+      <header class="mb-4 space-y-1.5 md:mb-5">
+        <h2 class="text-2xl font-heading font-bold text-brand-slate md:text-3xl">{heading}</h2>
+        {subheading && <p class="text-sm leading-relaxed text-text-muted md:text-base">{subheading}</p>}
+        <slot name="metaNote" />
+      </header>
+      <slot />
+    </section>
+
+    {showTrustPanel && (
+      <aside class="col-span-12 rounded-2xl border border-surface-subtle bg-white p-5 shadow-sm md:p-7 lg:col-span-5">
+        <slot name="trustPanel">
+          <h3 class="mb-4 text-lg font-semibold text-brand-slate">What Happens Next</h3>
+          <ul class="space-y-3 text-sm text-text-muted">
+            <li class="flex items-start gap-2.5">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v18m9-9H3"/></svg>
+              <span>We review your request and confirm project details.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+              <span>You’ll hear back within one business day.</span>
+            </li>
+            <li class="flex items-start gap-2.5">
+              <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8 2v4m8-4v4M3 10h18M5 6h14a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2z"/></svg>
+              <span>We schedule the soonest available estimate or service visit.</span>
+            </li>
+          </ul>
+
+          <div class="mt-6 rounded-xl border border-surface-subtle bg-surface-subtle/40 p-4">
+            <p class="text-xs font-semibold uppercase tracking-wide text-brand-slate">Trust Facts</p>
+            <ul class="mt-2 space-y-1.5 text-sm text-text-muted">
+              <li><span class="font-semibold text-brand-slate">License:</span> CA #940291</li>
+              <li><span class="font-semibold text-brand-slate">Warranty:</span> 1-year labor warranty</li>
+              <li><span class="font-semibold text-brand-slate">Hours:</span> Mon–Fri, 8am–5pm</li>
+            </ul>
+          </div>
+
+          <div class="mt-5 rounded-xl border border-brand-teal/20 bg-brand-teal/5 p-4">
+            <p class="text-sm font-semibold text-brand-slate">Prefer to call?</p>
+            <a href="tel:8586635564" class="mt-1 inline-flex text-sm font-medium text-brand-teal transition-colors hover:text-brand-slate">
+              (858) 663-5564
+            </a>
+          </div>
+        </slot>
+      </aside>
+    )}
+  </div>
+</div>

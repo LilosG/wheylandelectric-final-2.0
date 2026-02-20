@@ -1,0 +1,114 @@
+---
+interface SelectOption {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  id: string;
+  name: string;
+  label: string;
+  as?: 'input' | 'select' | 'textarea';
+  type?: 'text' | 'email' | 'tel' | 'number' | 'url';
+  required?: boolean;
+  placeholder?: string;
+  autocomplete?: string;
+  helper?: string;
+  error?: string;
+  rows?: number;
+  value?: string;
+  options?: SelectOption[];
+  fieldClass?: string;
+  inputClass?: string;
+}
+
+const {
+  id,
+  name,
+  label,
+  as = 'input',
+  type = 'text',
+  required = false,
+  placeholder,
+  autocomplete,
+  helper,
+  error,
+  rows = 4,
+  value = '',
+  options = [],
+  fieldClass = '',
+  inputClass = '',
+} = Astro.props as Props;
+
+const helperId = helper ? `${id}-helper` : undefined;
+const errorId = error ? `${id}-error` : undefined;
+const describedBy = [helperId, errorId].filter(Boolean).join(' ') || undefined;
+const isInvalid = Boolean(error);
+const controlClasses = [
+  'w-full rounded-xl border bg-white px-3.5 text-[15px] text-brand-slate shadow-sm transition duration-150',
+  'h-11 border-surface focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/25',
+  'placeholder:text-text-muted/80 disabled:cursor-not-allowed disabled:bg-surface-subtle/70 disabled:text-text-muted',
+  isInvalid ? 'border-red-300 focus:border-red-400 focus:ring-red-200' : '',
+  inputClass,
+];
+---
+<div class:list={['form-field', fieldClass]}>
+  <label for={id} class="mb-1.5 block text-sm font-semibold text-brand-slate">
+    {label}
+    {required && ' *'}
+  </label>
+
+  {
+    as === 'textarea' ? (
+      <textarea
+        id={id}
+        name={name}
+        rows={rows}
+        required={required}
+        placeholder={placeholder}
+        autocomplete={autocomplete}
+        aria-describedby={describedBy}
+        aria-invalid={isInvalid ? 'true' : 'false'}
+        class:list={[...controlClasses, 'h-auto min-h-[7.5rem] py-2.5']}
+      >{value}</textarea>
+    ) : as === 'select' ? (
+      <select
+        id={id}
+        name={name}
+        required={required}
+        aria-describedby={describedBy}
+        aria-invalid={isInvalid ? 'true' : 'false'}
+        class:list={[...controlClasses, 'pr-10']}
+      >
+        {options.map((option: SelectOption) => (
+          <option value={option.value}>{option.label}</option>
+        ))}
+      </select>
+    ) : (
+      <input
+        id={id}
+        name={name}
+        type={type}
+        required={required}
+        placeholder={placeholder}
+        autocomplete={autocomplete}
+        value={value}
+        aria-describedby={describedBy}
+        aria-invalid={isInvalid ? 'true' : 'false'}
+        class:list={controlClasses}
+      />
+    )
+  }
+
+  {helper && (
+    <p id={helperId} class="mt-1.5 text-xs text-text-muted">
+      {helper}
+    </p>
+  )}
+
+  {error && (
+    <p id={errorId} class="mt-1.5 text-xs font-medium text-brand-slate/85" role="alert">
+      {error}
+    </p>
+  )}
+</div>
