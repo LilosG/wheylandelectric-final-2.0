@@ -1,193 +1,154 @@
 ---
+import FormField from './FormField.astro';
+import FormShell from './FormShell.astro';
 import { getPublishedCities } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
 
+const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+const isEndpointMissing = !endpoint;
 const cities = getPublishedCities();
 const services = getPublishedPillars();
+
+const cityOptions = [
+  { value: '', label: 'Select your city' },
+  ...cities.map((city) => ({ value: city.name, label: `${city.name}, CA` })),
+  { value: 'Other', label: 'Other' },
+];
+
+const serviceOptions = [
+  { value: '', label: 'Select a service' },
+  ...services.map((service) => ({ value: service.name, label: service.name })),
+  { value: 'HOA Maintenance Quote', label: 'HOA Maintenance Quote' },
+  { value: 'Other', label: 'Other' },
+];
 ---
-<form
-  id="estimate-form"
-  action={import.meta.env.PUBLIC_FORMSPREE_ENDPOINT || '#'}
-  method="POST"
-  class="form-shell"
-  novalidate
+<FormShell
+  heading="Request a Free Estimate"
+  subheading="Tell us about your project and we’ll follow up with next steps and scheduling options."
 >
-  <!-- Honeypot -->
-  <div class="hidden" aria-hidden="true">
-    <label for="website">Website</label>
-    <input type="text" id="website" name="_gotcha" tabindex="-1" autocomplete="off" />
-  </div>
+  {import.meta.env.DEV && isEndpointMissing && (
+    <p slot="metaNote" class="text-sm text-text-muted">
+      Dev note: set <code>PUBLIC_FORMSPREE_ENDPOINT</code> to enable submissions.
+    </p>
+  )}
 
-  <!-- Timestamp for spam guard -->
-  <input type="hidden" name="_timestamp" id="form-timestamp" />
+  <form
+    id="estimate-form"
+    action={endpoint || '#'}
+    method="POST"
+    class="form-shell"
+    data-endpoint={endpoint || ''}
+    novalidate
+  >
+    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+      <label for="estimate-website">Leave this field empty</label>
+      <input type="text" id="estimate-website" name="_gotcha" tabindex="-1" autocomplete="off" />
+    </div>
 
-  <!-- Redirect -->
-  <input type="hidden" name="_next" value="/thank-you/" />
+    <input type="hidden" name="_timestamp" id="estimate-timestamp" />
+    <input type="hidden" name="_next" value="/thank-you/" />
+    <input type="hidden" name="form_type" value="estimate" />
+    <input type="hidden" name="phone_digits" value="" />
 
-  <p class="form-helper">Fields marked with * are required.</p>
+    <fieldset class="space-y-5" disabled={!import.meta.env.DEV && isEndpointMissing}>
+      <p class="text-sm text-text-muted">Required fields are marked with *.</p>
 
-  <div class="form-grid">
-    <!-- Name -->
-    <div class="form-field">
-      <label for="name" class="form-label">Full Name *</label>
-      <input
-        type="text"
-        id="name"
-        name="name"
-        required
-        class="form-control"
-        placeholder="Your full name"
-        autocomplete="name"
+      <div class="form-grid gap-5">
+        <FormField
+          id="estimate-name"
+          name="name"
+          label="Full Name"
+          required
+          placeholder="Your full name"
+          autocomplete="name"
+        />
+
+        <FormField
+          id="estimate-phone"
+          name="phone"
+          label="Phone"
+          required
+          type="tel"
+          placeholder="(858) 555-1234"
+          autocomplete="tel"
+          helper="Include area code so we can reach you faster."
+        />
+
+        <FormField
+          id="estimate-email"
+          name="email"
+          label="Email"
+          type="email"
+          placeholder="you@example.com"
+          autocomplete="email"
+          helper="Optional, but useful for sending estimate notes."
+        />
+
+        <FormField
+          id="estimate-city"
+          name="city"
+          label="City / Service Area"
+          as="select"
+          options={cityOptions}
+        />
+
+        <FormField
+          id="estimate-service"
+          name="service"
+          label="Service Needed"
+          as="select"
+          required
+          options={serviceOptions}
+        />
+
+        <FormField
+          id="estimate-contact-method"
+          name="contact_method"
+          label="Preferred Contact Method"
+          as="select"
+          options={[
+            { value: 'phone', label: 'Phone' },
+            { value: 'email', label: 'Email' },
+            { value: 'text', label: 'Text' },
+          ]}
+        />
+      </div>
+
+      <FormField
+        id="estimate-message"
+        name="message"
+        label="Project Details"
+        as="textarea"
+        rows={4}
+        placeholder="Share the scope, timing, or any special considerations."
       />
-    </div>
 
-    <!-- Phone -->
-    <div class="form-field">
-      <label for="phone" class="form-label">Phone *</label>
-      <input
-        type="tel"
-        id="phone"
-        name="phone"
-        required
-        class="form-control"
-        placeholder="(xxx) xxx-xxxx"
-        autocomplete="tel"
-        aria-describedby="estimate-phone-help"
-      />
-      <p id="estimate-phone-help" class="form-helper">Include area code for a faster callback.</p>
-    </div>
+      <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
 
-    <!-- Email -->
-    <div class="form-field">
-      <label for="email" class="form-label">Email *</label>
-      <input
-        type="email"
-        id="email"
-        name="email"
-        required
-        class="form-control"
-        placeholder="you@example.com"
-        autocomplete="email"
-      />
-    </div>
-
-    <!-- City -->
-    <div class="form-field">
-      <label for="city" class="form-label">City</label>
-      <select
-        id="city"
-        name="city"
-        class="form-control"
-      >
-        <option value="">Select your city</option>
-        {cities.map((city) => (
-          <option value={city.name}>{city.name}, CA</option>
-        ))}
-        <option value="Other">Other</option>
-      </select>
-    </div>
-
-    <!-- Service -->
-    <div class="form-field">
-      <label for="service" class="form-label">Service Needed</label>
-      <select
-        id="service"
-        name="service"
-        class="form-control"
-      >
-        <option value="">Select a service</option>
-        {services.map((svc) => (
-          <option value={svc.name}>{svc.name}</option>
-        ))}
-        <option value="HOA Maintenance Quote">HOA Maintenance Quote</option>
-        <option value="Other">Other</option>
-      </select>
-    </div>
-
-    <!-- Preferred contact method -->
-    <div class="form-field">
-      <label for="contact-method" class="form-label">Preferred Contact Method</label>
-      <select
-        id="contact-method"
-        name="contact_method"
-        class="form-control"
-      >
-        <option value="phone">Phone</option>
-        <option value="email">Email</option>
-        <option value="text">Text</option>
-      </select>
-    </div>
-  </div>
-
-  <!-- Message -->
-  <div class="form-field">
-    <label for="message" class="form-label">Tell Us About Your Project</label>
-    <textarea
-      id="message"
-      name="message"
-      rows="4"
-      class="form-control form-textarea"
-      placeholder="Describe what you need help with..."
-    ></textarea>
-  </div>
-
-  <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
-
-  <!-- Submit -->
-  <div class="form-submit-group">
-    <button
-      type="submit"
-      class="form-submit text-lg"
-    >
-      Request Free Estimate
-    </button>
-  </div>
-</form>
+      <div class="form-submit-group space-y-2">
+        {!import.meta.env.DEV && isEndpointMissing && (
+          <p class="text-sm text-text-muted">Online submission is temporarily unavailable. Please call <a href="tel:8586635564" class="font-medium text-brand-teal hover:text-brand-slate">(858) 663-5564</a>.</p>
+        )}
+        <button
+          type="submit"
+          class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
+          data-loading-label="Sending Request..."
+          disabled={!import.meta.env.DEV && isEndpointMissing}
+        >
+          Request Free Estimate
+        </button>
+      </div>
+    </fieldset>
+  </form>
+</FormShell>
 
 <script>
-  // Set timestamp on load for spam guard
-  const timestampField = document.getElementById('form-timestamp') as HTMLInputElement;
-  if (timestampField) {
-    timestampField.value = String(Date.now());
-  }
+  import { initLeadForm } from '../../lib/forms/client';
 
-  // Client-side validation
-  const form = document.getElementById('estimate-form') as HTMLFormElement;
-  const feedback = document.getElementById('estimate-feedback') as HTMLParagraphElement;
-
-  const showFeedback = (state: 'error' | 'success', message: string) => {
-    if (!feedback) return;
-    feedback.dataset.state = state;
-    feedback.textContent = message;
-    feedback.role = state === 'error' ? 'alert' : 'status';
-  };
-
-  form?.addEventListener('submit', (e) => {
-    if (!form.checkValidity()) {
-      e.preventDefault();
-      form.reportValidity();
-      showFeedback('error', 'Please complete all required fields before submitting.');
-      return;
-    }
-
-    const timestamp = parseInt(timestampField?.value || '0', 10);
-    const elapsed = Date.now() - timestamp;
-
-    // Reject if submitted in under 3 seconds (likely bot)
-    if (elapsed < 3000) {
-      e.preventDefault();
-      showFeedback('error', 'Please wait a moment, then submit again.');
-      return;
-    }
-
-    // Check honeypot
-    const honeypot = (form.querySelector('[name="_gotcha"]') as HTMLInputElement)?.value;
-    if (honeypot) {
-      e.preventDefault();
-      showFeedback('error', 'We could not submit your request. Please refresh and try again.');
-      return;
-    }
-
-    showFeedback('success', 'Looks good — sending your estimate request...');
+  initLeadForm({
+    formId: 'estimate-form',
+    feedbackId: 'estimate-feedback',
+    endpoint: (document.getElementById('estimate-form') as HTMLFormElement | null)?.dataset.endpoint || '',
+    thankYouPath: '/thank-you/',
   });
 </script>

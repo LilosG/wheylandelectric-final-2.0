@@ -109,7 +109,7 @@ const moneyPageFaqs: FAQ[] = [
   heroShowCTAs={false}
   imageSource="service"
   imageKey={pillar.slug}
-  showTopTrustBar={false}
+  trustBarPlacement="afterHero"
   inlineCtaSectionClass="pt-8 md:pt-12"
   detailHeading={`Professional ${pillar.name} in ${city.name}`}
   detailBody={`When you choose Wheyland Electric for ${pillar.name.toLowerCase()} in ${city.name}, you get a team that knows this community and delivers work you can trust. We handle every aspect of the job — from initial assessment through permitting, installation, and final inspection.`}
@@ -123,7 +123,6 @@ const moneyPageFaqs: FAQ[] = [
   pricingHeading={`What Affects the Cost of ${pillar.name} in ${city.name}`}
   pricingIntro={`Every ${pillar.name.toLowerCase()} project in ${city.name} is unique. Here are the factors that typically influence pricing:`}
   pricingFactors={pillar.pricingFactors}
-  showTrustBarAfterPricing
   relatedSectionBg="subtle"
   faqSectionBg="white"
   faqHeading={`${pillar.name} in ${city.name} — FAQs`}

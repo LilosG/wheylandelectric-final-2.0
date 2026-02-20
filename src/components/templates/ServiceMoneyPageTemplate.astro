@@ -22,8 +22,7 @@ import type { ServiceHeroImage } from '../../data/serviceHeroImages';
  * - serviceImg: `undefined` (falls back to `fallbackImageLabel` text block).
  * - fallbackImageLabel: ''.
  * - inlineCtaSectionClass: ''.
- * - showTopTrustBar: true.
- * - showTrustBarAfterPricing: false.
+ * - trustBarPlacement: 'afterHero'.
  * - processHeading: '' (process section hidden if empty or no steps).
  * - processSteps: [] (process section hidden when empty).
  * - processStepCardClass: 'flex items-start gap-4'.
@@ -47,7 +46,7 @@ interface Props {
   heroShowCTAs?: boolean;
   imageSource?: 'service' | 'city' | 'default';
   imageKey?: string;
-  showTopTrustBar?: boolean;
+  trustBarPlacement?: 'none' | 'afterHero' | 'afterPricing';
   inlineCtaSectionClass?: string;
   detailHeading: string;
   detailBody: string;
@@ -67,7 +66,6 @@ interface Props {
   pricingIntro: string;
   pricingFactors: string[];
   pricingItemClass?: string;
-  showTrustBarAfterPricing?: boolean;
   relatedSectionBg?: 'white' | 'subtle';
   faqSectionBg?: 'white' | 'subtle';
   showFaqSection?: boolean;
@@ -84,7 +82,7 @@ const {
   heroShowCTAs = true,
   imageSource = 'service',
   imageKey,
-  showTopTrustBar = true,
+  trustBarPlacement = 'afterHero',
   inlineCtaSectionClass = '',
   detailHeading,
   detailBody,
@@ -104,7 +102,6 @@ const {
   pricingIntro,
   pricingFactors,
   pricingItemClass = 'flex items-start gap-2 text-text-muted',
-  showTrustBarAfterPricing = false,
   relatedSectionBg = 'subtle',
   faqSectionBg = 'white',
   showFaqSection = true,
@@ -133,7 +130,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
     imageKey={imageKey}
   />
 
-  {showTopTrustBar && <TrustBar />}
+  {trustBarPlacement === 'afterHero' && <TrustBar />}
 
   {
     hasInlineCta && (
@@ -251,7 +248,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
     )
   }
 
-  {showTrustBarAfterPricing && <TrustBar />}
+  {trustBarPlacement === 'afterPricing' && <TrustBar />}
 
   {
     hasRelatedContent && (
