@@ -257,7 +257,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
 
   {trustBarPlacement === 'afterPricing' && <TrustBar />}
 
-  {showInlineLeadCapture && (
+  {showInlineLeadCapture && !hasInlineCta && (
     <Section bg="white">
       <div class="mx-auto max-w-4xl">
         <InlineLeadCapture
