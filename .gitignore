@@ -40,3 +40,4 @@ scripts/process-images.py
 
 # Large backup folder
 public/images-backup-*/
+_audit/
