@@ -23,7 +23,6 @@ interface Props {
   showStatChips?: boolean;
   variant?: 'landing' | 'standard' | 'compact';
   /** @deprecated Prefer `variant` */
-  compact?: boolean;
   imageSource?: 'service' | 'city' | 'default';
   imageKey?: string;
   backgroundImage?: string;
@@ -40,7 +39,6 @@ const {
   showTrustCard = true,
   showStatChips = true,
   variant,
-  compact = false,
   imageSource = 'default',
   imageKey,
   backgroundImage,
@@ -48,7 +46,7 @@ const {
   backgroundImageAlt,
 } = Astro.props;
 
-const resolvedVariant = variant ?? (compact ? 'compact' : 'landing');
+const resolvedVariant = variant ?? 'landing';
 
 const sectionSpacingMap: Record<typeof resolvedVariant, string> = {
   landing: 'min-h-[85vh] flex items-center',
