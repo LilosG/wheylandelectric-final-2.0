@@ -1,17 +1,65 @@
 ---
 interface Props {
   href?: string;
+  as?: 'div' | 'article';
+  padding?: 'md' | 'lg' | 'none';
+  shadow?: 'sm' | 'md' | 'lg' | 'none';
+  rounded?: 'lg' | 'xl' | '2xl';
+  bordered?: boolean;
+  hoverable?: boolean;
   class?: string;
 }
 
-const { href, class: className = '' } = Astro.props;
+const {
+  href,
+  as = 'div',
+  padding = 'lg',
+  shadow = 'md',
+  rounded = 'xl',
+  bordered = false,
+  hoverable = false,
+  class: className = '',
+} = Astro.props as Props;
+
+const paddingClassMap: Record<string, string> = {
+  none: '',
+  md: 'p-5 md:p-6',
+  lg: 'p-6 md:p-8',
+};
+
+const shadowClassMap: Record<string, string> = {
+  none: '',
+  sm: 'shadow-sm',
+  md: 'shadow-md',
+  lg: 'shadow-lg',
+};
+
+const roundedClassMap: Record<string, string> = {
+  lg: 'rounded-lg',
+  xl: 'rounded-xl',
+  '2xl': 'rounded-2xl',
+};
+
+const baseClasses = [
+  'bg-white',
+  paddingClassMap[padding] ?? paddingClassMap.lg,
+  shadowClassMap[shadow] ?? shadowClassMap.md,
+  roundedClassMap[rounded] ?? roundedClassMap.xl,
+  bordered ? 'border border-surface-subtle' : '',
+  hoverable ? 'transition-shadow hover:shadow-lg' : '',
+  className,
+];
 ---
 {href ? (
-  <a href={href} class:list={['block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow p-6 md:p-8', className]}>
+  <a href={href} class:list={['block', ...baseClasses]}>
     <slot />
   </a>
+) : as === 'article' ? (
+  <article class:list={baseClasses}>
+    <slot />
+  </article>
 ) : (
-  <div class:list={['bg-white rounded-xl shadow-md p-6 md:p-8', className]}>
+  <div class:list={baseClasses}>
     <slot />
   </div>
 )}

@@ -3,6 +3,7 @@ import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPag
 import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Button from '../../components/ui/Button.astro';
+import Card from '../../components/ui/Card.astro';
 import InlineLeadCapture from '../../components/forms/InlineLeadCapture.astro';
 import { servicePageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
@@ -13,6 +14,7 @@ import { getPublishedCities } from '../../data/cities';
 import type { ServicePillar } from '../../types';
 
 import { getServiceHeroImage } from '../../data/serviceHeroImages';
+import { getServiceHeroImage as getHeroServiceImage } from '../../data/heroImages';
 
 export function getStaticPaths() {
   const pillars = getPublishedPillars();
@@ -28,6 +30,7 @@ interface Props {
 
 const { pillar } = Astro.props;
 const serviceImg = getServiceHeroImage({ serviceSlug: pillar.slug });
+const heroImage = getHeroServiceImage(pillar.slug);
 const cities = getPublishedCities();
 const meta = servicePageMeta(pillar.name, pillar.slug);
 const breadcrumbs = [
@@ -50,8 +53,8 @@ const relatedPillars = pillar.relatedServices
   heroTitle={`${pillar.name} in San Diego County`}
   heroSubtitle={pillar.shortDesc}
   heroShowCTAs={false}
-  imageSource="service"
-  imageKey={pillar.slug}
+  backgroundImage={heroImage.src}
+  backgroundImageAlt={heroImage.alt}
   trustBarPlacement="afterHero"
   showInlineLeadCapture={false}
   detailHeading="What's Included"
@@ -142,12 +145,16 @@ const relatedPillars = pillar.relatedServices
       <div class="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
         {
           cities.map((city) => (
-            <a
+            <Card
               href={`/${city.slug}/${pillar.slug}/`}
-              class="block rounded-lg bg-white p-4 text-center font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+              padding="md"
+              shadow="sm"
+              rounded="lg"
+              class="text-center font-medium text-brand-slate transition-colors hover:text-brand-teal"
+              hoverable={true}
             >
               {city.name}
-            </a>
+            </Card>
           ))
         }
       </div>
@@ -163,13 +170,10 @@ const relatedPillars = pillar.relatedServices
             </h2>
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {relatedPillars.map((related) => (
-                <a
-                  href={`/services/${related.slug}/`}
-                  class="block rounded-xl bg-white p-6 shadow-md transition-shadow hover:shadow-lg"
-                >
+                <Card href={`/services/${related.slug}/`} hoverable={true}>
                   <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
                   <p class="text-sm text-text-muted">{related.shortDesc}</p>
-                </a>
+                </Card>
               ))}
             </div>
           </>
