@@ -3,6 +3,16 @@ import { site } from '../../data/site';
 import { getServiceHeroImage, getCityHeroImage } from '../../data/heroImages';
 import Button from '../ui/Button.astro';
 
+/**
+ * Hero usage guide
+ * - `variant="landing"`: Primary homepage-style hero (full-height presentation).
+ * - `variant="standard"`: Mid-emphasis page intros when you want substantial, but not full-screen, height.
+ * - `variant="compact"`: Inner-page hero for utility pages and templates.
+ *
+ * Pair compact heroes with `<Section spacing="hero-tight">` on the next block to maintain
+ * consistent vertical rhythm without page-level one-off `pt-*` utilities.
+ */
+
 interface Props {
   eyebrow?: string;
   title?: string;
@@ -11,6 +21,8 @@ interface Props {
   showCTAs?: boolean;
   showTrustCard?: boolean;
   showStatChips?: boolean;
+  variant?: 'landing' | 'standard' | 'compact';
+  /** @deprecated Prefer `variant` */
   compact?: boolean;
   imageSource?: 'service' | 'city' | 'default';
   imageKey?: string;
@@ -27,6 +39,7 @@ const {
   showCTAs = true,
   showTrustCard = true,
   showStatChips = true,
+  variant,
   compact = false,
   imageSource = 'default',
   imageKey,
@@ -34,6 +47,38 @@ const {
   imagePosition = 'center',
   backgroundImageAlt,
 } = Astro.props;
+
+const resolvedVariant = variant ?? (compact ? 'compact' : 'landing');
+
+const sectionSpacingMap: Record<typeof resolvedVariant, string> = {
+  landing: 'min-h-[85vh] flex items-center',
+  standard: 'py-14 sm:py-16 md:py-20',
+  compact: 'py-10 sm:py-14 md:py-16',
+};
+
+const contentSpacingMap: Record<typeof resolvedVariant, string> = {
+  landing: 'py-16 md:py-24',
+  standard: 'py-12 md:py-16',
+  compact: 'py-8 sm:py-10 md:py-12',
+};
+
+const headingSizeMap: Record<typeof resolvedVariant, string> = {
+  landing: 'text-4xl sm:text-5xl lg:text-6xl',
+  standard: 'text-4xl sm:text-5xl md:text-6xl',
+  compact: 'text-3xl sm:text-4xl md:text-5xl',
+};
+
+const subtitleSizeMap: Record<typeof resolvedVariant, string> = {
+  landing: 'text-lg mt-6',
+  standard: 'text-lg mt-5',
+  compact: 'text-base sm:text-lg mt-4',
+};
+
+const ctaSpacingMap: Record<typeof resolvedVariant, string> = {
+  landing: 'mt-8',
+  standard: 'mt-7',
+  compact: 'mt-6',
+};
 
 // Determine which image to use
 let finalBackgroundImage = backgroundImage;
@@ -59,7 +104,7 @@ const trustItems = [
 ---
 <section class:list={[
   'relative overflow-hidden bg-brand-slate',
-  compact ? 'py-10 sm:py-14 md:py-16' : 'min-h-[85vh] flex items-center',
+  sectionSpacingMap[resolvedVariant],
 ]}>
   {/* Background with photo + gradient overlay */}
   <div class="absolute inset-0">
@@ -85,14 +130,14 @@ const trustItems = [
 
   <div class:list={[
     'relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full',
-    compact ? 'py-8 sm:py-10 md:py-12' : 'py-16 md:py-24'
+    contentSpacingMap[resolvedVariant],
   ]}>
     <div class:list={[
-      showTrustCard && !compact ? 'grid lg:grid-cols-5 gap-8 lg:gap-12 items-center' : '',
+      showTrustCard && resolvedVariant !== 'compact' ? 'grid lg:grid-cols-5 gap-8 lg:gap-12 items-center' : '',
     ]}>
       {/* Left content */}
       <div class:list={[
-        showTrustCard && !compact ? 'lg:col-span-3' : 'w-full max-w-3xl mx-auto text-center',
+        showTrustCard && resolvedVariant !== 'compact' ? 'lg:col-span-3' : 'w-full max-w-3xl mx-auto text-center',
       ]}>
         {eyebrow && (
           <span class="inline-flex items-center bg-brand-teal text-white text-xs font-semibold px-4 py-2 rounded-full mb-6 tracking-wide uppercase">
@@ -105,7 +150,7 @@ const trustItems = [
 
         <h1 class:list={[
           'font-heading font-bold text-white leading-tight',
-          compact ? 'text-3xl sm:text-4xl md:text-5xl' : 'text-4xl sm:text-5xl lg:text-6xl'
+          headingSizeMap[resolvedVariant],
         ]}>
           {title}
           {titleAccent && (
@@ -119,8 +164,8 @@ const trustItems = [
         {subtitle && (
           <p class:list={[
             'text-white leading-relaxed',
-            showTrustCard && !compact ? 'max-w-2xl text-left' : 'max-w-xl mx-auto text-center',
-            compact ? 'text-base sm:text-lg mt-4' : 'text-lg mt-6'
+            showTrustCard && resolvedVariant !== 'compact' ? 'max-w-2xl text-left' : 'max-w-xl mx-auto text-center',
+            subtitleSizeMap[resolvedVariant],
           ]}>
             {subtitle}
           </p>
@@ -129,7 +174,7 @@ const trustItems = [
         {showStatChips && (
           <div class:list={[
             'flex flex-wrap gap-3 mt-6',
-            showTrustCard && !compact ? 'justify-start' : 'justify-center',
+            showTrustCard && resolvedVariant !== 'compact' ? 'justify-start' : 'justify-center',
           ]}>
             {[
               { icon: 'calendar', label: '17+ Years' },
@@ -151,8 +196,8 @@ const trustItems = [
         {showCTAs && (
           <div class:list={[
             'flex flex-wrap gap-4',
-            showTrustCard && !compact ? 'justify-start' : 'justify-center',
-            compact ? 'mt-6' : 'mt-8'
+            showTrustCard && resolvedVariant !== 'compact' ? 'justify-start' : 'justify-center',
+            ctaSpacingMap[resolvedVariant],
           ]}>
             <Button href="/free-estimates/" variant="primary" size="lg">
               Get Free Estimate
@@ -165,7 +210,7 @@ const trustItems = [
       </div>
 
       {/* Right trust card — desktop only */}
-      {showTrustCard && !compact && (
+      {showTrustCard && resolvedVariant !== 'compact' && (
         <div class="hidden lg:block lg:col-span-2">
           <div class="bg-white/[0.08] backdrop-blur-sm border border-white/[0.12] rounded-2xl p-8 shadow-2xl">
             <h2 class="text-lg font-heading font-bold text-white mb-6">Why Choose Wheyland Electric?</h2>

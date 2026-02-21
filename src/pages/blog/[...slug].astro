@@ -44,14 +44,14 @@ const schema = articleSchema(
   <Hero
     title={post.data.title}
     subtitle={post.data.description}
-    compact
+    variant="compact"
     showCTAs={false}
     showTrustCard={false}
     showStatChips={false}
     backgroundImage={blogHeroImage}
   />
 
-  <Section bg="white" class="pt-8 md:pt-12">
+  <Section bg="white" spacing="hero-tight">
     <article class="max-w-3xl mx-auto">
       <header class="mb-8">
         <time class="text-sm text-text-muted" datetime={post.data.date.toISOString()}>

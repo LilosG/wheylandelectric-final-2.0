@@ -42,7 +42,7 @@ const meta = generateMeta({
   <Hero
     title="Frequently Asked Questions"
     subtitle="Have a question about our electrical services? Find answers below or contact us directly."
-    compact
+    variant="compact"
     showTrustCard={false}
     showStatChips={false}
     showCTAs={false}
@@ -50,7 +50,7 @@ const meta = generateMeta({
     imagePosition="center"
   />
 
-  <Section bg="white" class="pt-8 md:pt-12">
+  <Section bg="white" spacing="hero-tight">
     <div class="max-w-3xl mx-auto">
       <FAQAccordion faqs={globalFaqs} heading="" />
     </div>
