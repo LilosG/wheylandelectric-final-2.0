@@ -1,0 +1,21 @@
+---
+import Card from '../ui/Card.astro';
+
+interface Props {
+  step: number | string;
+  title: string;
+  description: string;
+  descriptionClass?: string;
+}
+
+const { step, title, description, descriptionClass = 'text-text-muted' } = Astro.props;
+---
+<Card padding="md" shadow="sm" class="flex items-start gap-4">
+  <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-teal text-lg font-bold text-white">
+    {step}
+  </div>
+  <div>
+    <h3 class="mb-1 font-semibold text-brand-slate">{title}</h3>
+    <p class={descriptionClass}>{description}</p>
+  </div>
+</Card>

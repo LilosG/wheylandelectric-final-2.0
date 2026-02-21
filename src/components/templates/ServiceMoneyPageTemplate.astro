@@ -5,6 +5,8 @@ import TrustBar from '../sections/TrustBar.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import Section from '../ui/Section.astro';
 import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
+import Card from '../ui/Card.astro';
+import ProcessStepCard from '../sections/ProcessStepCard.astro';
 import type { FAQ, PageMeta, BreadcrumbItem } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
 
@@ -27,7 +29,6 @@ import type { ServiceHeroImage } from '../../data/serviceHeroImages';
  * - trustBarPlacement: 'afterHero'.
  * - processHeading: '' (process section hidden if empty or no steps).
  * - processSteps: [] (process section hidden when empty).
- * - processStepCardClass: 'flex items-start gap-4'.
  * - processDescriptionClass: 'text-text-muted'.
  * - showPricingSection: true.
  * - pricingSectionBg: 'white'.
@@ -64,7 +65,6 @@ interface Props {
   fallbackImageLabel?: string;
   processHeading?: string;
   processSteps?: { step: number | string; title: string; description: string }[];
-  processStepCardClass?: string;
   processDescriptionClass?: string;
   showPricingSection?: boolean;
   pricingSectionBg?: 'white' | 'subtle';
@@ -104,7 +104,6 @@ const {
   fallbackImageLabel = '',
   processHeading = '',
   processSteps = [],
-  processStepCardClass = 'flex items-start gap-4',
   processDescriptionClass = 'text-text-muted',
   showPricingSection = true,
   pricingSectionBg = 'white',
@@ -182,7 +181,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
           }
         </ul>
       </div>
-      <div class="overflow-hidden rounded-xl bg-surface-subtle shadow-lg">
+      <Card padding="none" shadow="lg" class="overflow-hidden bg-surface-subtle">
         {
           serviceImg ? (
             <img
@@ -199,7 +198,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
             </div>
           )
         }
-      </div>
+      </Card>
     </div>
   </Section>
 
@@ -211,15 +210,12 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
         </h2>
         <div class="mx-auto max-w-3xl space-y-6">
           {processSteps.map((step) => (
-            <div class={processStepCardClass}>
-              <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-teal text-lg font-bold text-white">
-                {step.step}
-              </div>
-              <div>
-                <h3 class="mb-1 font-semibold text-brand-slate">{step.title}</h3>
-                <p class={processDescriptionClass}>{step.description}</p>
-              </div>
-            </div>
+            <ProcessStepCard
+              step={step.step}
+              title={step.title}
+              description={step.description}
+              descriptionClass={processDescriptionClass}
+            />
           ))}
         </div>
       </Section>
