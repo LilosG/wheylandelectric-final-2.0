@@ -23,6 +23,7 @@ import type { ServiceHeroImage } from '../../data/serviceHeroImages';
  * - serviceImg: `undefined` (falls back to `fallbackImageLabel` text block).
  * - fallbackImageLabel: ''.
  * - inlineCtaSectionClass: ''.
+ * - inlineCtaSectionSpacing: 'default'.
  * - trustBarPlacement: 'afterHero'.
  * - processHeading: '' (process section hidden if empty or no steps).
  * - processSteps: [] (process section hidden when empty).
@@ -51,6 +52,7 @@ interface Props {
   showInlineLeadCapture?: boolean;
   inlineLeadCity?: string;
   inlineLeadService?: string;
+  inlineCtaSectionSpacing?: 'default' | 'hero-tight' | 'hero-adjacent' | 'none';
   inlineCtaSectionClass?: string;
   detailHeading: string;
   detailBody: string;
@@ -90,6 +92,7 @@ const {
   showInlineLeadCapture = true,
   inlineLeadCity,
   inlineLeadService,
+  inlineCtaSectionSpacing = 'default',
   inlineCtaSectionClass = '',
   detailHeading,
   detailBody,
@@ -129,7 +132,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
   <Hero
     title={heroTitle}
     subtitle={heroSubtitle}
-    compact
+    variant="compact"
     showTrustCard={false}
     showStatChips={false}
     showCTAs={heroShowCTAs}
@@ -141,7 +144,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
 
   {
     hasInlineCta && (
-      <Section bg="white" class={inlineCtaSectionClass}>
+      <Section bg="white" spacing={inlineCtaSectionSpacing} class={inlineCtaSectionClass}>
         <slot name="inlineCta" />
       </Section>
     )

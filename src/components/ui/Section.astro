@@ -1,11 +1,12 @@
 ---
 interface Props {
   bg?: 'white' | 'subtle' | 'warm' | 'indigo' | 'surface';
+  spacing?: 'default' | 'hero-tight' | 'hero-adjacent' | 'none';
   class?: string;
   id?: string;
 }
 
-const { bg = 'white', class: className = '', id } = Astro.props;
+const { bg = 'white', spacing = 'default', class: className = '', id } = Astro.props;
 
 const bgMap: Record<string, string> = {
   white: 'bg-white',
@@ -16,8 +17,17 @@ const bgMap: Record<string, string> = {
 };
 
 const bgClass = bgMap[bg] ?? 'bg-white';
+
+const spacingMap: Record<string, string> = {
+  default: 'py-16 md:py-24',
+  'hero-tight': 'pt-8 pb-16 md:pt-12 md:pb-24',
+  'hero-adjacent': 'pt-0 pb-16 md:pb-24',
+  none: 'py-0',
+};
+
+const spacingClass = spacingMap[spacing] ?? spacingMap.default;
 ---
-<section class:list={['py-16 md:py-24', bgClass, className]} id={id}>
+<section class:list={[spacingClass, bgClass, className]} id={id}>
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <slot />
   </div>
