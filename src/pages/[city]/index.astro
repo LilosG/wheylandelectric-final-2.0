@@ -15,6 +15,7 @@ import { faqPageSchema } from '../../lib/schema/faq';
 import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
 import { getPublishedCities, getCityBySlug } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
+import { getCityHeroImage } from '../../data/heroImages';
 import type { City, FAQ } from '../../types';
 
 export function getStaticPaths() {
@@ -33,6 +34,7 @@ const { city } = Astro.props;
 const services = getPublishedPillars();
 const meta = cityPageMeta(city.name, city.slug);
 const breadcrumbs = [{ label: city.name, href: `/${city.slug}/` }];
+const cityHero = getCityHeroImage(city.slug);
 const nearbyCities = city.nearbyCities
   .map((slug) => getCityBySlug(slug))
   .filter((c): c is City => c !== undefined && c.publish);
@@ -84,8 +86,8 @@ const cityFaqs: FAQ[] = [
     variant="compact"
     showTrustCard={false}
     showStatChips={false}
-    imageSource="city"
-    imageKey={city.slug}
+    backgroundImage={cityHero.src}
+    backgroundImageAlt={cityHero.alt}
     imagePosition="bottom"
   />
 
