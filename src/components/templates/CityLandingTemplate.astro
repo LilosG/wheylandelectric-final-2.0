@@ -1,0 +1,107 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../sections/Hero.astro';
+import ServiceGrid from '../sections/ServiceGrid.astro';
+import FAQAccordion from '../sections/FAQAccordion.astro';
+import CTASection from '../sections/CTASection.astro';
+import Section from '../ui/Section.astro';
+import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
+
+interface Props {
+  city: City;
+  services: ServicePillar[];
+  nearbyCities: City[];
+  cityFaqs: FAQ[];
+  meta: PageMeta;
+  breadcrumbs: BreadcrumbItem[];
+  cityHero: {
+    src: string;
+    alt: string;
+  };
+  schemas: Record<string, unknown>[];
+}
+
+const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, schemas } = Astro.props;
+---
+
+<PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
+  <Hero
+    title={`Electrician in ${city.name}, CA`}
+    subtitle={`Licensed, bonded & insured electrical services for homes and businesses in ${city.name}.`}
+    variant="compact"
+    showTrustCard={false}
+    showStatChips={false}
+    backgroundImage={cityHero.src}
+    backgroundImageAlt={cityHero.alt}
+    imagePosition="bottom"
+  />
+
+  <Section bg="white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Why Homeowners in {city.name} Choose Wheyland Electric</h2>
+      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {(city.localProofPoints || []).map((point) => (
+          <li class="rounded-lg bg-surface-subtle p-4 text-sm text-text-muted">• {point}</li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+
+  <Section bg="subtle">
+    <ServiceGrid
+      services={services}
+      citySlug={city.slug}
+      heading={`Electrical Services in ${city.name}`}
+      subtitle={`Explore service pages tailored to ${city.name}.`}
+    />
+  </Section>
+
+  <Section bg="white">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Neighborhoods We Serve</h2>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        {(city.neighborhoodSpotlights || []).map((item) => (
+          <div class="rounded-xl border border-surface-subtle bg-white p-4 shadow-sm">
+            <h3 class="text-sm font-semibold text-brand-slate">{item.name}</h3>
+            <p class="mt-2 text-sm text-text-muted">{item.blurb}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </Section>
+
+  <Section bg="subtle">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Local Electrical Context</h2>
+      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {city.localCues.map((cue) => (
+          <li class="rounded-lg bg-white p-4 text-sm text-text-muted shadow-sm">• {cue}</li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <div class="max-w-3xl mx-auto">
+      <FAQAccordion faqs={cityFaqs} heading={`${city.name} Electrician FAQs`} />
+    </div>
+  </Section>
+
+  {nearbyCities.length > 0 && (
+    <Section bg="subtle">
+      <h2 class="mb-5 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">Nearby Service Areas</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {nearbyCities.map((nearby) => (
+          <a
+            href={`/${nearby.slug}/`}
+            class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+          >
+            {nearby.name}, CA
+          </a>
+        ))}
+      </div>
+    </Section>
+  )}
+
+  <CTASection cityName={city.name} />
+</PageLayout>

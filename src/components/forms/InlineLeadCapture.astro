@@ -1,5 +1,6 @@
 ---
 import FormField from './FormField.astro';
+import { FORMSPREE_ENDPOINT, IS_FORMSPREE_ENDPOINT_MISSING, THANK_YOU_PATH } from '../../data/forms';
 
 interface Props {
   formId?: string;
@@ -20,9 +21,6 @@ const {
   variant = 'card',
   requireOneOf = ['phone', 'email'],
 } = Astro.props;
-
-const endpoint = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
-const isEndpointMissing = !endpoint;
 const feedbackId = `${formId}-feedback`;
 const pageUrlId = `${formId}-page-url`;
 ---
@@ -33,17 +31,17 @@ const pageUrlId = `${formId}-page-url`;
   <div class="mb-4 space-y-1.5">
     <h3 class="text-xl font-heading font-bold text-brand-slate">{heading}</h3>
     <p class="text-sm leading-relaxed text-text-muted">{subheading}</p>
-    {import.meta.env.DEV && isEndpointMissing && (
+    {import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
       <p class="text-xs text-text-muted">Dev note: set <code>PUBLIC_FORMSPREE_ENDPOINT</code> to enable submissions.</p>
     )}
   </div>
 
   <form
     id={formId}
-    action={endpoint || '#'}
+    action={FORMSPREE_ENDPOINT}
     method="POST"
     class="form-shell form-shell--compact"
-    data-endpoint={endpoint || ''}
+    data-endpoint={FORMSPREE_ENDPOINT || ''}
     data-inline-lead-form
     data-feedback-id={feedbackId}
     data-require-one-of={JSON.stringify(requireOneOf)}
@@ -55,14 +53,14 @@ const pageUrlId = `${formId}-page-url`;
     </div>
 
     <input type="hidden" name="_timestamp" id={`${formId}-timestamp`} />
-    <input type="hidden" name="_next" value="/thank-you/" />
+    <input type="hidden" name="_next" value={THANK_YOU_PATH} />
     <input type="hidden" name="form_type" value="inline" />
     <input type="hidden" name="phone_digits" value="" />
     <input type="hidden" name="page_url" id={pageUrlId} value="" />
     {city && <input type="hidden" name="city" value={city} />}
     {service && <input type="hidden" name="service" value={service} />}
 
-    <fieldset class="space-y-4" disabled={!import.meta.env.DEV && isEndpointMissing}>
+    <fieldset class="space-y-4" disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}>
       <div class:list={[
         'grid gap-4',
         variant === 'compact' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'
@@ -112,7 +110,7 @@ const pageUrlId = `${formId}-page-url`;
       <p id={feedbackId} class="form-feedback" role="status" aria-live="polite"></p>
 
       <div class="form-submit-group space-y-2">
-        {!import.meta.env.DEV && isEndpointMissing && (
+        {!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
           <p class="text-sm text-text-muted">
             Online submission is temporarily unavailable. Please call
             <a href="tel:8586635564" class="font-medium text-brand-teal hover:text-brand-slate"> (858) 663-5564</a>.
@@ -122,7 +120,7 @@ const pageUrlId = `${formId}-page-url`;
           type="submit"
           class="w-full rounded-lg bg-brand-gold px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted md:w-auto"
           data-loading-label="Sending Request..."
-          disabled={!import.meta.env.DEV && isEndpointMissing}
+          disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}
         >
           Request Free Estimate
         </button>
@@ -133,6 +131,7 @@ const pageUrlId = `${formId}-page-url`;
 
 <script>
   import { initLeadForm } from '../../lib/forms/client';
+  import { THANK_YOU_PATH } from '../../data/forms';
 
   const parseRequireOneOf = (value: string | null) => {
     try {
@@ -159,7 +158,7 @@ const pageUrlId = `${formId}-page-url`;
       formId,
       feedbackId,
       endpoint: form.getAttribute('data-endpoint') || '',
-      thankYouPath: '/thank-you/',
+      thankYouPath: THANK_YOU_PATH,
       requireOneOf: parseRequireOneOf(form.getAttribute('data-require-one-of')),
     });
   });

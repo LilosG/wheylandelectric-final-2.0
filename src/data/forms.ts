@@ -1,0 +1,4 @@
+export const FORMSPREE_ENDPOINT = import.meta.env.PUBLIC_FORMSPREE_ENDPOINT;
+export const THANK_YOU_PATH = '/thank-you/';
+
+export const IS_FORMSPREE_ENDPOINT_MISSING = !FORMSPREE_ENDPOINT;

@@ -101,7 +101,10 @@ export interface City {
   localIntroExtended?: string;
   /** Brief descriptions keyed by neighborhood name. */
   neighborhoodDescriptions?: Record<string, string>;
+  neighborhoodSpotlights?: Array<{ name: string; blurb: string }>;
+  localProofPoints?: string[];
   localCues: string[];
+  cityFAQs?: FAQ[];
   nearbyCities: string[];
   serviceCategories: string[];
 }
@@ -133,6 +136,10 @@ export interface ServicePillar {
   pricingFactors: string[];
   faqs: FAQ[];
   relatedServices: string[];
+  overviewBullets?: string[];
+  includedItems?: string[];
+  relatedServiceSlugs?: string[];
+  serviceProofPoints?: string[];
   subtopics: string[];
   localizedIntroSeedByCity: Record<string, string>;
   /** Unique H1 tagline per city. Keyed by city slug. Wave 1 services only. */
@@ -144,22 +151,27 @@ export interface ServicePillar {
 // --- City-Service Content ---
 
 export interface CityServiceContent {
-  /** Intro paragraph with city-specific neighborhoods/ZIPs/permit authority. */
-  uniqueIntro: string;
-  /** "Understanding [Service] in [City]" section body. 200-300 words. */
-  understandingSection: string;
-  /** City-scoped "What's Included" bullets (6-8). */
-  scopedWhatsIncluded: string[];
-  /** Process steps with city permit authority context. */
-  scopedProcessSteps: { title: string; description: string }[];
-  /** Pricing factors paragraph with city-specific notes. */
-  pricingContext: string;
-  /** 6+ FAQs per combination with city neighborhoods/ZIPs in Q&A. */
+  /** Preferred conversion content: short city+service intro bullets. */
+  introBullets?: string[];
+  /** Preferred conversion content: included items list. */
+  includedItems?: string[];
+  /** Preferred conversion content: process steps. */
+  processSteps?: { step: number; title: string; description: string }[];
+  /** Preferred conversion content: pricing factor bullets. */
+  pricingFactors?: string[];
+  /** Preferred conversion content: city+service FAQs. */
   faqs: FAQ[];
-  /** Neighborhoods referenced in content. */
-  neighborhoodMentions: string[];
-  /** ZIP codes served in this city. */
-  zipCodes: string[];
+  /** Preferred conversion content: local proof points. */
+  localProofPoints?: string[];
+
+  /** Legacy fields retained for compatibility with existing authored data. */
+  uniqueIntro?: string;
+  understandingSection?: string;
+  scopedWhatsIncluded?: string[];
+  scopedProcessSteps?: { title: string; description: string }[];
+  pricingContext?: string;
+  neighborhoodMentions?: string[];
+  zipCodes?: string[];
 }
 
 export type ExtendedServiceCategory = 'residential' | 'commercial' | 'industrial' | 'hoa' | 'ev' | 'compliance';

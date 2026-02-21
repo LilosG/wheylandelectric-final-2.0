@@ -1,7 +1,7 @@
 import type { City } from '../types';
 import { flags } from './site';
 
-export const cities: City[] = [
+const baseCities: City[] = [
   // ========================
   // WAVE 1 — publish: true
   // ========================
@@ -27,7 +27,7 @@ export const cities: City[] = [
       'Robertson Ranch': 'Newer Carlsbad master plan development with modern construction and growing demand for EV charger installations.',
       'Olde Carlsbad': 'One of the original Carlsbad neighborhoods, featuring older homes that frequently need panel upgrades, rewiring, and GFCI installations.',
     },
-    localCues: ['Flower Fields', 'Carlsbad Village', 'LEGOLAND', 'Carlsbad Lagoon', 'Palomar Airport Road', 'Carlsbad State Beach'],
+    localCues: ['Coastal corrosion on exterior fixtures and disconnects', 'Frequent EV charger additions in newer subdivisions', 'Panel capacity constraints in older Village-area homes', 'Outdoor lighting wear from marine moisture', 'Landscape and pool equipment load balancing needs', 'GFCI/AFCI retrofit demand in pre-2000 homes'],
     nearbyCities: ['encinitas', 'oceanside', 'san-marcos'],
     serviceCategories: ['residential', 'commercial', 'hoa', 'ev'],
   },
@@ -39,7 +39,7 @@ export const cities: City[] = [
     publish: true,
     has_zip_pdf: true,
     zips: ['92007', '92023', '92024'],
-    neighborhoods: ['Leucadia', 'Cardiff-by-the-Sea', 'Olivenhain', 'Old Encinitas', 'New Encinitas', 'Encinitas Ranch'],
+    neighborhoods: ['Leucadia', 'Cardiff-by-the-Sea', 'Olivenhain', 'Old Encinitas', 'New Encinitas', 'Encinitas Ranch', 'Village Park', 'Fox Point', 'Quail Gardens'],
     localIntroSeed:
       'Wheyland Electric serves Encinitas homeowners and businesses across Leucadia, Cardiff-by-the-Sea, Old Encinitas, New Encinitas, Olivenhain, and Encinitas Ranch. This diverse coastal community spans everything from 1940s beach cottages along Highway 101 to modern estate homes in Olivenhain — and each requires an electrician who understands the unique demands of both. Our licensed team brings professional craftsmanship and honest communication to every project.',
     localIntroExtended:
@@ -321,6 +321,140 @@ export const cities: City[] = [
     serviceCategories: ['residential', 'commercial', 'ev'],
   },
 ];
+
+
+const buildNeighborhoodSpotlights = (city: City): Array<{ name: string; blurb: string }> => {
+  const fromDescriptions = (city.neighborhoodDescriptions
+    ? Object.entries(city.neighborhoodDescriptions).map(([name, blurb]) => ({ name, blurb }))
+    : []);
+
+  const merged = [
+    ...fromDescriptions,
+    ...city.neighborhoods
+      .filter((name) => !fromDescriptions.some((entry) => entry.name === name))
+      .map((name) => ({
+        name,
+        blurb: `${name} homes often need practical upgrades like code-safe device replacements, lighting improvements, and capacity planning.`,
+      })),
+  ];
+
+  return merged.slice(0, 16);
+};
+
+const defaultLocalProofPoints = (city: City): string[] => [
+  `Licensed, bonded, and insured electricians serving ${city.name} year-round.`,
+  `Permit coordination handled directly with the ${city.name} building authority when required.`,
+  'Code-first installation standards with clean labeling and documentation.',
+  'Detailed scope reviews before work starts so expectations stay clear.',
+  'Final testing and walkthrough before closeout.',
+  '1-year labor warranty backing workmanship quality.',
+];
+
+const defaultCityFaqs = (city: City, nearbyCities: string): City['cityFAQs'] => [
+  { question: `What electrical services are most requested in ${city.name}?`, answer: `Common requests include panel upgrades, EV charger installation, troubleshooting, lighting upgrades, and dedicated circuits for new equipment in ${city.name}.` },
+  { question: `Do you handle permitting in ${city.name}?`, answer: `Yes. We handle permit and inspection coordination whenever project scope requires it in ${city.name}.` },
+  { question: `Can you troubleshoot intermittent electrical issues?`, answer: 'Yes. We isolate root causes methodically and recommend focused repairs instead of guesswork replacements.' },
+  { question: `Do you work on both older and newer homes?`, answer: `Yes. We regularly service both legacy wiring systems and newer builds throughout ${city.name}.` },
+  { question: 'Are EV charger installs part of your local service?', answer: `Yes. We provide load planning, dedicated circuit installation, and charger commissioning for homes in ${city.name}.` },
+  { question: 'Can projects be phased when scope is large?', answer: 'Yes. We can sequence upgrades in practical phases while preserving safety and code compliance.' },
+  { question: `Do you provide written scope and next steps?`, answer: `Yes. Every project in ${city.name} includes clear scope notes and recommended next actions.` },
+  { question: 'Do you support HOA and property-management electrical work?', answer: 'Yes. We support common-area lighting, troubleshooting, and scheduled maintenance needs.' },
+  { question: `What nearby areas do you cover besides ${city.name}?`, answer: `We also support nearby areas including ${nearbyCities}.` },
+  { question: 'How do I request service or an estimate?', answer: 'Call our team or submit the online form and we will schedule the best next step for your project.' },
+];
+
+const CITY_CONTENT_OVERRIDES: Partial<Record<string, Partial<City>>> = {
+  carlsbad: {
+    localProofPoints: [
+      'Carlsbad-based operations with fast routing across major village and inland neighborhoods.',
+      'Permit coordination experience across common Carlsbad residential and mixed-use scopes.',
+      'Strong EV readiness planning for two-vehicle households and future charger expansion.',
+      'Frequent panel-capacity upgrades for legacy coastal housing stock.',
+      'Clean finish standards for visible conduit, fixtures, and exterior equipment.',
+      'Documented final testing with homeowner walkthrough before closeout.',
+      'Support for HOA common-area lighting and recurring electrical maintenance.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Olde Carlsbad', blurb: 'Older service equipment and branch circuits are common; panel upgrades and grounding corrections are frequent priorities.' },
+      { name: 'The Village', blurb: 'Tighter lots and mixed-use proximity often require careful routing and clean exterior finish work.' },
+      { name: 'La Costa', blurb: 'Larger homes often need EV charging strategy, dedicated circuits, and load balancing for added appliances.' },
+      { name: 'Aviara', blurb: 'Luxury properties often include pool, landscape, and specialty lighting systems that benefit from circuit segmentation.' },
+      { name: 'Bressi Ranch', blurb: 'Newer homes commonly request EV chargers, garage power planning, and smart-switch conversions.' },
+      { name: 'Calavera Hills', blurb: 'Homes from multiple build eras often need targeted code updates and protective device upgrades.' },
+      { name: 'Robertson Ranch', blurb: 'Expansion-ready electrical planning helps accommodate future equipment and second-EV charging.' },
+      { name: 'Barrio', blurb: 'Historic housing blocks often need measured troubleshooting and safe modernization without overbuilding.' },
+      { name: 'Gateway Hills', blurb: 'Frequent requests include outdoor lighting reliability and panel organization for remodel-ready capacity.' },
+    ],
+    cityFAQs: [
+      { question: 'What Carlsbad projects most often require permits?', answer: 'Panel upgrades, service changes, EV charger circuits, and many new branch-circuit installs typically require permits; we coordinate the process.' },
+      { question: 'Can you upgrade a 100A panel in an older Carlsbad home?', answer: 'Yes. We evaluate load, confirm service constraints, and provide a clear upgrade path aligned to current electrical demand.' },
+      { question: 'Do you install EV chargers in both old and new Carlsbad neighborhoods?', answer: 'Yes. We adapt routing and equipment strategy to each property layout and panel condition.' },
+      { question: 'How do you handle coastal corrosion concerns?', answer: 'We prioritize weather-appropriate hardware, sealed fittings, and durable installation practices for exterior components.' },
+      { question: 'Can you improve reliability for outdoor lighting systems?', answer: 'Yes. We troubleshoot voltage drop, failing devices, and control issues, then implement durable corrective work.' },
+      { question: 'Do you support HOA electrical maintenance in Carlsbad?', answer: 'Yes. We handle common-area troubleshooting, lighting maintenance, and scope planning with clear reporting.' },
+      { question: 'Can you add circuits for home office and garage upgrades?', answer: 'Yes. We design dedicated circuits around actual load profiles to avoid nuisance trips and future constraints.' },
+      { question: 'Do you provide a final walkthrough after work is complete?', answer: 'Yes. We verify operation, explain changes, and document next-step recommendations when useful.' },
+      { question: 'Are code updates available without a full-home rewire?', answer: 'Yes. Many homes can be improved through targeted panel, device, and protection upgrades.' },
+      { question: 'How quickly can a Carlsbad service visit be scheduled?', answer: 'Scheduling depends on scope, but we prioritize practical turnaround and clear communication on timing.' },
+    ],
+  },
+  encinitas: {
+    localProofPoints: [
+      'Consistent service coverage from coastal corridors to inland Encinitas neighborhoods.',
+      'Practical modernization strategies for older beach-area electrical systems.',
+      'Strong EV installation workflow for driveways, garages, and side-yard equipment locations.',
+      'Panel-capacity planning for remodel and accessory-load growth.',
+      'Code-focused retrofit approach for GFCI/AFCI and grounding improvements.',
+      'Permit and inspection coordination handled when project scope requires it.',
+      'Clear post-install testing and handoff notes for homeowners.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Leucadia', blurb: 'Older cottages often need branch-circuit updates, grounding improvements, and panel modernization.' },
+      { name: 'Cardiff-by-the-Sea', blurb: 'Salt-air conditions make weather-rated exterior equipment and fixture reliability a high priority.' },
+      { name: 'Old Encinitas', blurb: 'Frequent requests include targeted rewiring, outlet upgrades, and service-panel reorganization.' },
+      { name: 'New Encinitas', blurb: 'Modern homes commonly add EV charging, dedicated appliance circuits, and outdoor power.' },
+      { name: 'Olivenhain', blurb: 'Larger lots often require longer circuit runs and careful voltage-drop planning.' },
+      { name: 'Encinitas Ranch', blurb: 'Many projects center on EV readiness, smart controls, and cleaner panel capacity planning.' },
+      { name: 'Village Park', blurb: 'Mid-era homes benefit from selective code updates and lighting-system refreshes.' },
+      { name: 'Fox Point', blurb: 'Garage and exterior-power upgrades are common as households add electric mobility loads.' },
+      { name: 'Quail Gardens', blurb: 'Remodel-driven electrical updates often pair device replacement with circuit reliability improvements.' },
+    ],
+    cityFAQs: [
+      { question: 'What Encinitas electrical upgrades are most requested right now?', answer: 'EV charger circuits, panel-capacity updates, troubleshooting, and lighting modernization are among the most common requests.' },
+      { question: 'Do older Encinitas homes usually need panel work before EV charging?', answer: 'Many do. We perform load planning first, then recommend either direct circuit additions or panel upgrades as needed.' },
+      { question: 'Can you improve reliability of exterior electrical equipment near the coast?', answer: 'Yes. We use weather-appropriate materials and installation practices that improve long-term durability.' },
+      { question: 'Do you coordinate permit requirements in Encinitas?', answer: 'Yes. We handle permit and inspection workflow when required by project scope.' },
+      { question: 'Can you update outlets and protection devices without full rewiring?', answer: 'Yes. Many homes benefit from targeted upgrades that materially improve safety and usability.' },
+      { question: 'Do you service both inland and coastal Encinitas neighborhoods?', answer: 'Yes. We provide the same code-focused process across Leucadia, Cardiff, Old Encinitas, and inland communities.' },
+      { question: 'Can projects be planned for future electrical growth?', answer: 'Yes. We can design scope to support likely next-step loads such as second EV charging or added appliances.' },
+      { question: 'Do you provide troubleshooting for intermittent breaker or lighting issues?', answer: 'Yes. We isolate root causes and fix the underlying issue rather than only replacing visible parts.' },
+      { question: 'Will you document what was changed during service?', answer: 'Yes. We provide clear handoff notes and explain what was completed and why.' },
+      { question: 'How do I schedule electrical service in Encinitas?', answer: 'Call our team or submit the estimate form and we will confirm scope and next available scheduling options.' },
+    ],
+  },
+};
+
+const normalizeCity = (city: City): City => {
+  const override = CITY_CONTENT_OVERRIDES[city.slug] || {};
+  const nearbyNames = city.nearbyCities.join(', ');
+
+  const neighborhoodSpotlights = ((override.neighborhoodSpotlights as City['neighborhoodSpotlights']) || city.neighborhoodSpotlights || buildNeighborhoodSpotlights(city)).slice(0, 16);
+  const localProofPoints = ((override.localProofPoints as string[]) || city.localProofPoints || defaultLocalProofPoints(city)).slice(0, 10);
+  const localCues = ((override.localCues as string[]) || city.localCues).slice(0, 8);
+  const cityFAQs = (((override.cityFAQs as City['cityFAQs']) || city.cityFAQs || defaultCityFaqs(city, nearbyNames) || []) as NonNullable<City['cityFAQs']>).slice(0, 14);
+
+  return {
+    ...city,
+    ...override,
+    neighborhoods: neighborhoodSpotlights.map((item) => item.name).slice(0, 16),
+    neighborhoodSpotlights,
+    localProofPoints,
+    localCues,
+    cityFAQs,
+  };
+};
+
+export const cities: City[] = baseCities.map(normalizeCity);
 
 /** Get published cities (respects Wave 2 flag) */
 export function getPublishedCities(): City[] {

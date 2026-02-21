@@ -4,7 +4,7 @@ import type { CityServiceContent } from '../types';
  * City × Service content — 56 entries (7 wave1 cities × 8 wave1 services).
  * Key format: `${citySlug}-${serviceSlug}`
  */
-export const cityServiceContent: Record<string, CityServiceContent> = {
+const baseCityServiceContent: Record<string, CityServiceContent> = {
 
   // ─────────────────────────────────────────────
   // CARLSBAD × ALL 8 SERVICES
@@ -1823,3 +1823,209 @@ export const cityServiceContent: Record<string, CityServiceContent> = {
     zipCodes: ['92054', '92056', '92057', '92058'],
   },
 };
+
+
+const splitToBullets = (value: string | undefined): string[] => {
+  if (!value) return [];
+  return value
+    .replace(/\s+/g, ' ')
+    .split(/\.(?:\s|$)/)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => (item.endsWith('.') ? item : `${item}.`));
+};
+
+const ensureCount = (items: string[], minimum: number, filler: string[]): string[] => {
+  const next = [...new Set(items.filter(Boolean))];
+  for (const f of filler) {
+    if (next.length >= minimum) break;
+    if (!next.includes(f)) next.push(f);
+  }
+  return next;
+};
+
+const defaultLocalProofPoints = (cityName: string, serviceName: string): string[] => [
+  `Licensed electricians delivering ${serviceName.toLowerCase()} in ${cityName}.`,
+  `Permit coordination support for ${cityName} projects when required.`,
+  'Code-compliant installation practices with documented final testing.',
+  'Clear project scope and next-step communication before work starts.',
+];
+
+const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>>> = {
+  'carlsbad-ev-charger-installation': {
+    introBullets: [
+      'Load planning aligned to EV usage patterns in Carlsbad households.',
+      'Dedicated 240V circuit strategy for clean garage or exterior installs.',
+      'Panel headroom checks before circuit commitment to avoid rework.',
+      'Routing options selected for durability and appearance.',
+      'Permit and inspection workflow coordinated when scope requires it.',
+      'Commissioning, app onboarding, and charging verification at handoff.',
+      'Future-ready planning for second-EV scenarios.',
+      'Weather-aware hardware selection for coastal-exposed locations.',
+    ],
+    includedItems: [
+      'Vehicle and charger compatibility confirmation (NACS/J1772).',
+      'Load calculation and breaker-space validation.',
+      'Dedicated branch-circuit installation with proper conductor sizing.',
+      'Breaker and overcurrent protection matched to charger specs.',
+      'Charger mounting with torque-verified terminations.',
+      'Conduit and fitting installation for route protection.',
+      'Grounding and bonding checks at new equipment.',
+      'Circuit labeling and required disconnect identification.',
+      'Permit packet support and inspection scheduling coordination.',
+      'Startup diagnostics and fault-check verification.',
+      'Mobile app setup with charging schedule configuration.',
+      'Final walkthrough with safety and maintenance guidance.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope & Load Review', description: 'We validate charger goals, parking layout, and available electrical capacity before selecting installation path.' },
+      { step: 2, title: 'Routing & Equipment Plan', description: 'You receive a clear plan for routing, protection method, and equipment layout with practical tradeoffs.' },
+      { step: 3, title: 'Installation Execution', description: 'Our team installs the circuit, mounts the charger, and completes all terminations to code and manufacturer requirements.' },
+      { step: 4, title: 'Verification & Inspection', description: 'We perform functional checks and coordinate required inspection workflow for a compliant closeout.' },
+      { step: 5, title: 'Activation & Handoff', description: 'We verify charging behavior, complete app onboarding, and provide operating guidance for day-one confidence.' },
+    ],
+    pricingFactors: [
+      'Panel capacity and available breaker space',
+      'Distance between service equipment and charger location',
+      'Routing conditions through finished or constrained areas',
+      'Charger amperage and branch-circuit sizing requirements',
+      'Need for panel upgrade, subpanel, or load-management controls',
+      'Exterior weather exposure and material requirements',
+      'Permit and inspection path complexity',
+      'Site logistics, access windows, and installation constraints',
+      'Future expansion readiness for additional EV charging loads',
+    ],
+    localProofPoints: [
+      'Experienced with mixed-age Carlsbad housing stock and panel realities.',
+      'Strong permit sequencing discipline for smoother project flow.',
+      'Compatibility-first charger planning across major EV ecosystems.',
+      'Clean commissioning and testing before customer handoff.',
+      'Built-in strategy for future EV load growth.',
+    ],
+    faqs: [
+      { question: 'Will my Carlsbad panel support a Level 2 charger?', answer: 'We perform load analysis first, then confirm whether direct circuit addition is viable or if a panel upgrade is the safer path.' },
+      { question: 'Can you install Tesla and non-Tesla chargers?', answer: 'Yes. We install major NACS and J1772-compatible equipment and verify fit before installation day.' },
+      { question: 'Do I need hardwired installation or a receptacle?', answer: 'We review both options and recommend based on reliability, weather exposure, and long-term usability.' },
+      { question: 'How long does a typical Carlsbad EV install take?', answer: 'Many standard installations complete in one visit; complex routing or service upgrades can extend schedule.' },
+      { question: 'Do you coordinate permit requirements?', answer: 'Yes. We coordinate permit and inspection workflow where required by scope.' },
+      { question: 'Can you configure off-peak charging schedules?', answer: 'Yes. We help set app schedules for utility time-of-use optimization.' },
+      { question: 'Can you prep for a second EV in the same home?', answer: 'Yes. We can plan conduit, capacity, and equipment strategy for staged expansion.' },
+      { question: 'What causes charger reliability issues over time?', answer: 'Undersized conductors, poor terminations, and unsuitable weather protection are common causes; we design to avoid these failures.' },
+      { question: 'Do you test charging performance after installation?', answer: 'Yes. We verify energization, fault behavior, and charging operation before closeout.' },
+      { question: 'Will I get clear documentation at handoff?', answer: 'Yes. We provide a straightforward summary of what was installed and how to operate it safely.' },
+    ],
+  },
+  'encinitas-electrical-panel-upgrades': {
+    introBullets: [
+      'Panel sizing based on real electrical demand, not generic assumptions.',
+      'Service-equipment planning for legacy and modern Encinitas homes.',
+      'Permit-aligned upgrade sequencing with inspection-ready execution.',
+      'Breaker organization and labeling for maintainable long-term operation.',
+      'Future-load planning for EV charging and major appliance growth.',
+      'Code-first replacement approach with safety-device modernization.',
+      'Clear upgrade options with practical tradeoff guidance.',
+      'Final verification and clean homeowner handoff.',
+    ],
+    includedItems: [
+      'Existing panel condition and capacity review.',
+      'Load calculation for present and near-term future demand.',
+      'Target panel size recommendation with expansion rationale.',
+      'Service replacement planning and outage coordination steps.',
+      'Old panel removal and new panel installation.',
+      'Circuit transfer and balanced breaker distribution.',
+      'Circuit directory labeling for easy future service.',
+      'AFCI/GFCI protection updates where required by scope.',
+      'Grounding and bonding verification during replacement.',
+      'Permit and inspection coordination support.',
+      'Operational testing before re-energizing all circuits.',
+      'Final walkthrough and documentation handoff.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment & Load Study', description: 'We inspect existing service equipment and calculate realistic load requirements for your home profile.' },
+      { step: 2, title: 'Upgrade Plan & Scope Approval', description: 'You receive a clear upgrade plan covering panel size, protective devices, and execution sequence.' },
+      { step: 3, title: 'Installation & Circuit Transfer', description: 'Our electricians replace panel equipment and transfer circuits with organized labeling and code-safe protection.' },
+      { step: 4, title: 'Testing & Compliance Check', description: 'We verify system behavior, protective devices, and grounding/bonding before final closeout.' },
+      { step: 5, title: 'Inspection & Final Handoff', description: 'We coordinate required inspection flow and provide a concise summary of completed upgrade scope.' },
+    ],
+    pricingFactors: [
+      'Existing service condition and replacement complexity',
+      'Target panel size and expansion requirements',
+      'Circuit count and transfer complexity',
+      'Required protective-device updates',
+      'Grounding and bonding correction scope',
+      'Service access and installation logistics',
+      'Permit and inspection workflow requirements',
+      'Additional subpanel or feeder upgrades',
+      'Coordination requirements with other active remodel work',
+    ],
+    localProofPoints: [
+      'Frequent experience upgrading mixed-era Encinitas service equipment.',
+      'Structured panel organization for future maintainability.',
+      'Strong code-compliance workflow during replacement projects.',
+      'Practical planning for EV and remodel-driven load growth.',
+      'Clear end-of-project verification and documentation.',
+    ],
+  },
+};
+
+const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
+  const override = CITY_SERVICE_OVERRIDES[key] || {};
+  const merged = { ...content, ...override };
+
+  const legacyIntroBullets = [
+    ...splitToBullets(merged.uniqueIntro).slice(0, 4),
+    ...splitToBullets(merged.understandingSection).slice(0, 6),
+  ];
+
+  const introBullets = ensureCount(
+    merged.introBullets || legacyIntroBullets,
+    6,
+    ['Code-compliant planning before installation begins.', 'Clear scope definition before work starts.']
+  ).slice(0, 10);
+
+  const includedItems = ensureCount(
+    merged.includedItems || merged.scopedWhatsIncluded || [],
+    10,
+    ['Final testing and verification before closeout.', 'Clean handoff with documented next steps.']
+  ).slice(0, 16);
+
+  const processSteps = (merged.processSteps || (merged.scopedProcessSteps || []).map((step, index) => ({
+    step: index + 1,
+    title: step.title,
+    description: step.description,
+  }))).slice(0, 5);
+
+  const pricingFactors = ensureCount(
+    merged.pricingFactors || splitToBullets(merged.pricingContext),
+    7,
+    ['Project scope complexity', 'Permit and inspection path', 'Equipment and material requirements']
+  ).slice(0, 10);
+
+  const localProofPoints = ensureCount(
+    merged.localProofPoints || [],
+    4,
+    defaultLocalProofPoints(key.split('-')[0] || 'this area', key.split('-').slice(1).join(' ').replace(/-/g, ' ') || 'electrical service')
+  ).slice(0, 6);
+
+  const faqs = (merged.faqs || []).slice(0, 14);
+
+  return {
+    ...merged,
+    introBullets,
+    includedItems,
+    processSteps: processSteps.length >= 4 ? processSteps : [
+      ...processSteps,
+      { step: processSteps.length + 1, title: 'Project Completion', description: 'We verify performance and confirm next steps before closing out the project.' },
+    ].slice(0, 4),
+    pricingFactors,
+    localProofPoints,
+    faqs,
+  };
+};
+
+export const cityServiceContent: Record<string, CityServiceContent> = Object.fromEntries(
+  Object.entries(baseCityServiceContent).map(([key, value]) => [key, normalizeCityServiceContent(key, value)])
+);
+
+export const getCityServiceContent = (citySlug: string, serviceSlug: string): CityServiceContent | undefined =>
+  cityServiceContent[`${citySlug}-${serviceSlug}`];
