@@ -34,17 +34,6 @@ const cities = getPublishedCities();
   {/* 2. TrustBar — columbia blue strip */}
   <TrustBar />
 
-  <Section bg="white" spacing="hero-tight">
-    <div class="mx-auto max-w-4xl">
-      <InlineLeadCapture
-        formId="inline-lead-home"
-        heading="Get a Fast Electrical Estimate"
-        subheading="Share a few details and we’ll follow up with options, timeline, and next steps."
-        variant="card"
-      />
-    </div>
-  </Section>
-
   {/* 3. Services — white bg */}
   <Section bg="white">
     <ServiceGrid services={services} heading="Electrical Services You Can Count On" />
@@ -63,6 +52,18 @@ const cities = getPublishedCities();
         <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Commercial tenant improvements and dependable troubleshooting support.</li>
         <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Permit-ready workmanship backed by licensing, insurance, and warranty coverage.</li>
       </ul>
+    </div>
+  </Section>
+
+
+  <Section bg="subtle">
+    <div class="mx-auto max-w-5xl">
+      <InlineLeadCapture
+        formId="inline-lead-home"
+        heading="Get a Fast Electrical Estimate"
+        subheading="Tell us your project type and preferred timing. We’ll follow up with next-step options."
+        variant="card"
+      />
     </div>
   </Section>
 
