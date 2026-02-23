@@ -74,13 +74,13 @@ const defaultOverviewBullets = [
   'Options tailored to current needs and likely future loads.',
 ];
 
-const overviewBullets = (cityService?.introBullets?.length ? cityService.introBullets : pillar.overviewBullets || []).slice(0, 10);
-const includedItems = (cityService?.includedItems?.length ? cityService.includedItems : pillar.includedItems || pillar.includedBullets).slice(0, 16);
+const overviewBullets = (cityService?.introBullets?.length ? cityService.introBullets : pillar.overviewBullets || []).slice(0, 8);
+const includedItems = (cityService?.includedItems?.length ? cityService.includedItems : pillar.includedItems || pillar.includedBullets).slice(0, 10);
 const processSteps = (cityService?.processSteps?.length ? cityService.processSteps : pillar.processSteps).slice(0, 5);
-const pricingFactors = (cityService?.pricingFactors?.length ? cityService.pricingFactors : pillar.pricingFactors).slice(0, 10);
+const pricingFactors = (cityService?.pricingFactors?.length ? cityService.pricingFactors : pillar.pricingFactors).slice(0, 8);
 const localProofPoints = (cityService?.localProofPoints?.length ? cityService.localProofPoints : city.localProofPoints || []).slice(0, 6);
 
-const moneyPageFaqs: FAQ[] = (cityService?.faqs?.length ? cityService.faqs : pillar.faqs).slice(0, 14);
+const moneyPageFaqs: FAQ[] = (cityService?.faqs?.length ? cityService.faqs : pillar.faqs).slice(0, 10);
 
 const heroSubtitle = (overviewBullets.length > 0 ? overviewBullets : defaultOverviewBullets).slice(0, 2).join(' ');
 

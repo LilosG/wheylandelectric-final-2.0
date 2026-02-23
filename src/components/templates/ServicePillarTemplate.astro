@@ -127,7 +127,7 @@ const faqItems: FAQ[] =
   </Section>
 
   <Section bg="white">
-    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
+    <div class="grid grid-cols-1 items-start gap-12 lg:grid-cols-2">
       <div>
         <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">What&apos;s Included</h2>
         <ul class="space-y-3">
@@ -142,7 +142,7 @@ const faqItems: FAQ[] =
         </ul>
       </div>
 
-      <Card padding="none" shadow="lg" class="overflow-hidden bg-surface-subtle">
+      <Card padding="none" shadow="lg" class="overflow-hidden bg-surface-subtle lg:max-h-[560px]">
         {
           serviceImg ? (
             <img
@@ -150,7 +150,7 @@ const faqItems: FAQ[] =
               alt={serviceImg.alt}
               width={serviceImg.width}
               height={serviceImg.height}
-              class="h-full w-full object-cover"
+              class="h-full max-h-[560px] w-full object-cover"
               loading="lazy"
             />
           ) : (

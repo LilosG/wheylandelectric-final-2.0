@@ -10,6 +10,7 @@ interface Props {
   service?: string;
   variant?: 'compact' | 'card';
   requireOneOf?: Array<'email' | 'phone'>;
+  showDetailsField?: boolean;
 }
 
 const {
@@ -20,6 +21,7 @@ const {
   service,
   variant = 'card',
   requireOneOf = ['phone', 'email'],
+  showDetailsField = false,
 } = Astro.props;
 const feedbackId = `${formId}-feedback`;
 const pageUrlId = `${formId}-page-url`;
@@ -95,7 +97,7 @@ const pageUrlId = `${formId}-page-url`;
       </div>
 
       {
-        variant === 'card' && (
+        showDetailsField && (
           <FormField
             id={`${formId}-message`}
             name="message"

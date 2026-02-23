@@ -45,17 +45,6 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
 
   <TrustBar />
 
-  <Section bg="white" spacing="hero-tight">
-    <div class="max-w-4xl mx-auto">
-      <InlineLeadCapture
-        formId={`inline-lead-city-${city.slug}`}
-        heading={`Get Electrical Help in ${city.name}`}
-        subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
-        city={city.name}
-        variant="card"
-      />
-    </div>
-  </Section>
   <Section bg="white">
     <div class="max-w-5xl mx-auto">
       <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Why Homeowners in {city.name} Choose Wheyland Electric</h2>
@@ -74,6 +63,18 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
       heading={`Electrical Services in ${city.name}`}
       subtitle={`Explore service pages tailored to ${city.name}.`}
     />
+  </Section>
+
+  <Section bg="white" spacing="hero-tight">
+    <div class="max-w-4xl mx-auto">
+      <InlineLeadCapture
+        formId={`inline-lead-city-${city.slug}`}
+        heading={`Get Electrical Help in ${city.name}`}
+        subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
+        city={city.name}
+        variant="card"
+      />
+    </div>
   </Section>
 
   <Section bg="white">
