@@ -2,16 +2,16 @@ import type { BrandTokens } from '../types';
 
 export const brand: BrandTokens = {
   colors: {
-    mint: '#F5F0E6',
-    moonstone: '#2F7F7A',
-    indigo: '#1F4E63',
-    columbia: '#E8F0EE',
-    picton: '#3A9994',
-    cta: '#C29A3A',
-    ctaHover: '#9E7C2F',
-    surfaceSubtle: '#F2F4F3',
-    textMuted: '#3D5A6E',
-    white: '#FFFFFF',
+    mint: 'rgb(245 240 230)',
+    moonstone: 'rgb(47 127 122)',
+    indigo: 'rgb(31 78 99)',
+    columbia: 'rgb(232 240 238)',
+    picton: 'rgb(58 153 148)',
+    cta: 'rgb(194 154 58)',
+    ctaHover: 'rgb(158 124 47)',
+    surfaceSubtle: 'rgb(242 244 243)',
+    textMuted: 'rgb(61 90 110)',
+    white: 'rgb(255 255 255)',
   },
   logoPaths: {
     primary: '/images/logo-wheyland-electric.png',

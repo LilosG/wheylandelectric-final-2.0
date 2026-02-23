@@ -40,7 +40,6 @@ const objectFitClass: Record<string, string> = {
   'scale-down': 'object-scale-down',
 };
 
-const aspectRatio = width && height ? `${width}/${height}` : undefined;
 const roundedCls = roundedClass[rounded] || roundedClass.md;
 const objectFitCls = objectFitClass[objectFit] || objectFitClass.cover;
 ---
@@ -53,7 +52,6 @@ const objectFitCls = objectFitClass[objectFit] || objectFitClass.cover;
     height={height}
     loading={loading}
     class={`block w-full ${fillContainer ? 'h-full' : 'h-auto'} ${roundedCls} ${objectFitCls} shadow-md`}
-    style={aspectRatio ? { aspectRatio } : {}}
   />
   {caption && (
     <figcaption class="text-sm text-slate-600 mt-2 text-center italic">

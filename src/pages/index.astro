@@ -10,6 +10,7 @@ import TestimonialBlock from '../components/sections/TestimonialBlock.astro';
 import AboutPreview from '../components/sections/AboutPreview.astro';
 import CTASection from '../components/sections/CTASection.astro';
 import MapSection from '../components/sections/MapSection.astro';
+import InlineLeadCapture from '../components/forms/InlineLeadCapture.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import { homePageMeta } from '../lib/seo';
@@ -32,6 +33,17 @@ const cities = getPublishedCities();
 
   {/* 2. TrustBar — columbia blue strip */}
   <TrustBar />
+
+  <Section bg="white" spacing="hero-tight">
+    <div class="mx-auto max-w-4xl">
+      <InlineLeadCapture
+        formId="inline-lead-home"
+        heading="Get a Fast Electrical Estimate"
+        subheading="Share a few details and we’ll follow up with options, timeline, and next steps."
+        variant="compact"
+      />
+    </div>
+  </Section>
 
   {/* 3. Services — white bg */}
   <Section bg="white">

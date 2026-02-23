@@ -11,10 +11,10 @@ export const site: SiteData = {
     name: 'Wheyland Electric',
     address: {
       street: '3536 Woodland Way',
-      city: 'Carlsbad',
+      city: 'North County San Diego',
       state: 'CA',
       zip: '92008',
-      full: '3536 Woodland Way, Carlsbad, CA 92008',
+      full: '3536 Woodland Way, North County San Diego, CA 92008',
     },
     phone: '(858) 663-5564',
     phoneTel: '8586635564',
@@ -25,7 +25,7 @@ export const site: SiteData = {
     weekend: 'Sat–Sun Closed',
     formatted: 'Mon–Fri 8:00 AM – 5:00 PM | Sat–Sun Closed',
   },
-  license: 'CA License #940291',
+  license: 'CA License 940291',
   established: 2008,
   claims: {
     licensedBondedInsured: true,

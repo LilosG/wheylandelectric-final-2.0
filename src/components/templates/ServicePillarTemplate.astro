@@ -1,0 +1,225 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../sections/Hero.astro';
+import TrustBar from '../sections/TrustBar.astro';
+import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
+import ProcessStepCard from '../sections/ProcessStepCard.astro';
+import FAQAccordion from '../sections/FAQAccordion.astro';
+import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
+import CTASection from '../sections/CTASection.astro';
+import TestimonialBlock from '../sections/TestimonialBlock.astro';
+import type { FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
+import type { ServiceHeroImage } from '../../data/serviceHeroImages';
+
+interface Props {
+  meta: PageMeta;
+  schemas: Record<string, unknown>[];
+  breadcrumbs: BreadcrumbItem[];
+  pillar: ServicePillar;
+  heroImage: {
+    src: string;
+    alt: string;
+  };
+  serviceImg?: ServiceHeroImage;
+  relatedPillars: ServicePillar[];
+}
+
+const { meta, schemas, breadcrumbs, pillar, heroImage, serviceImg, relatedPillars } = Astro.props;
+
+const serviceOverviewBullets =
+  pillar.overviewBullets && pillar.overviewBullets.length > 0
+    ? pillar.overviewBullets
+    : [
+        `Upfront scope and safety review for ${pillar.name.toLowerCase()}.`,
+        'Licensed installation with clean, code-compliant workmanship.',
+        'Clear communication from estimate through final walkthrough.',
+      ];
+
+const includedBullets =
+  pillar.includedItems && pillar.includedItems.length > 0
+    ? pillar.includedItems
+    : [
+        'Project walk-through and recommendation on next steps.',
+        'Material and labor scope aligned to current electrical code.',
+        'Final testing, cleanup, and customer handoff notes.',
+      ];
+
+const processSteps =
+  pillar.processSteps.length > 0
+    ? pillar.processSteps
+    : [
+        { step: 1, title: 'Project Review', description: 'We review your goals, existing setup, and service requirements.' },
+        { step: 2, title: 'Professional Execution', description: 'Our team completes the work safely with attention to detail.' },
+        { step: 3, title: 'Final Verification', description: 'We test performance and confirm everything is ready for daily use.' },
+      ];
+
+const pricingFactors =
+  pillar.pricingFactors.length > 0
+    ? pillar.pricingFactors
+    : ['Project scope', 'Equipment and materials', 'Panel capacity and circuit availability', 'Permit and inspection requirements'];
+
+const faqItems: FAQ[] =
+  pillar.faqs.length > 0
+    ? pillar.faqs
+    : [
+        {
+          question: `How do I get started with ${pillar.name.toLowerCase()}?`,
+          answer: `Contact our team for a free estimate and we will outline the safest and most efficient next steps for your ${pillar.name.toLowerCase()} project.`,
+        },
+        {
+          question: `Will I get a clear scope before work begins?`,
+          answer: 'Yes. We provide a clear project scope, timeline expectations, and cost drivers before scheduling work.',
+        },
+      ];
+---
+
+<PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
+  <Hero
+    title={pillar.name}
+    subtitle={pillar.shortDesc}
+    variant="compact"
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={false}
+    backgroundImage={heroImage.src}
+    backgroundImageAlt={heroImage.alt}
+  />
+
+  <TrustBar />
+
+  <Section bg="white" spacing="hero-tight">
+    <div class="mx-auto max-w-4xl">
+      <InlineLeadCapture
+        formId={`inline-lead-service-${pillar.slug}`}
+        heading={`Get a Fast Callback for ${pillar.name}`}
+        subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
+        service={pillar.name}
+        variant="compact"
+      />
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Service Overview</h2>
+      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {serviceOverviewBullets.map((bullet) => (
+          <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="text-sm text-text-muted">{bullet}</span>
+          </li>
+        ))}
+      </ul>
+      {pillar.serviceProofPoints && pillar.serviceProofPoints.length > 0 && (
+        <div class="mt-6 rounded-xl border border-surface-subtle bg-white p-5">
+          <h3 class="mb-3 text-base font-semibold text-brand-slate">Quality & Compliance Highlights</h3>
+          <ul class="space-y-2">
+            {pillar.serviceProofPoints.map((point) => (
+              <li class="text-sm text-text-muted">• {point}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">What&apos;s Included</h2>
+        <ul class="space-y-3">
+          {includedBullets.map((bullet) => (
+            <li class="flex items-start gap-3 text-text-muted">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span>{bullet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <Card padding="none" shadow="lg" class="overflow-hidden bg-surface-subtle">
+        {
+          serviceImg ? (
+            <img
+              src={serviceImg.src}
+              alt={serviceImg.alt}
+              width={serviceImg.width}
+              height={serviceImg.height}
+              class="h-full w-full object-cover"
+              loading="lazy"
+            />
+          ) : (
+            <div class="flex min-h-[260px] items-center justify-center px-6 text-center">
+              <p class="text-sm text-text-muted">Professional {pillar.name.toLowerCase()} from licensed electricians.</p>
+            </div>
+          )
+        }
+      </Card>
+    </div>
+  </Section>
+
+  <Section bg="subtle">
+    <h2 class="mb-8 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">Our Process</h2>
+    <div class="mx-auto max-w-3xl space-y-6">
+      {processSteps.map((step) => (
+        <ProcessStepCard
+          step={step.step}
+          title={step.title}
+          description={step.description}
+          descriptionClass="text-text-muted text-sm"
+        />
+      ))}
+    </div>
+  </Section>
+
+  <Section bg="white">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Pricing Factors</h2>
+      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+        {pricingFactors.map((factor) => (
+          <li class="flex items-start gap-3 rounded-lg border border-surface-subtle bg-white p-4 text-sm text-text-muted">
+            <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+            </svg>
+            <span>{factor}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+
+  </Section>
+
+  {
+    relatedPillars.length > 0 && (
+      <Section bg="white">
+        <div class="mx-auto max-w-4xl">
+          <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Related Services</h2>
+          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {relatedPillars.map((related) => (
+              <Card href={`/services/${related.slug}/`} hoverable={true}>
+                <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
+                <p class="text-sm text-text-muted">{related.shortDesc}</p>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </Section>
+    )
+  }
+
+  <Section bg="subtle">
+    <div class="mx-auto max-w-3xl">
+      <FAQAccordion faqs={faqItems} heading={`${pillar.name} FAQs`} />
+    </div>
+  </Section>
+
+  <TestimonialBlock serviceTag={pillar.slug} />
+
+  <CTASection subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`} />
+</PageLayout>

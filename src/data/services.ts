@@ -5,7 +5,7 @@ import { flags } from './site';
 // Wheyland Electric — Service Pillars
 // ============================================================
 
-export const servicePillars: ServicePillar[] = [
+const baseServicePillars: ServicePillar[] = [
   // ========================
   // WAVE 1 — publish: true
   // ========================
@@ -115,28 +115,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad has embraced electric vehicles faster than nearly any community in North County — and Wheyland Electric has been right here installing chargers since the early days. Whether your home is in La Costa, Aviara, or one of the newer Bressi Ranch developments, we handle the full installation from panel evaluation through city inspection. Our office on Woodland Way means we are local to Carlsbad and respond quickly.',
+        'your area has embraced electric vehicles faster than nearly any community in North County — and Wheyland Electric has been right here installing chargers since the early days. Whether your home is in La Costa, Aviara, or one of the newer Bressi Ranch developments, we handle the full installation from panel evaluation through city inspection. Our office on Woodland Way means we are local to your area and respond quickly.',
       encinitas:
-        'Encinitas homeowners along the 101 corridor and throughout Olivenhain are adding EV chargers at a rapid pace. Wheyland Electric understands the unique wiring considerations of older Leucadia cottages as well as the modern construction in New Encinitas. We pull Encinitas permits, coordinate inspections, and make sure your charger is installed to code and optimized for your driving habits.',
+        'your area homeowners along the 101 corridor and throughout Olivenhain are adding EV chargers at a rapid pace. Wheyland Electric understands the unique wiring considerations of older Leucadia cottages as well as the modern construction in New your area. We pull your area permits, coordinate inspections, and make sure your charger is installed to code and optimized for your driving habits.',
       'rancho-santa-fe':
-        'Rancho Santa Fe properties often feature longer driveway runs and detached garages that require careful circuit planning for EV charger placement. Wheyland Electric has extensive experience running conduit across estate-scale properties in The Covenant, Fairbanks Ranch, and Cielo. We work discreetly, respect your landscaping, and ensure every installation meets the high standards this community expects.',
+        'your area properties often feature longer driveway runs and detached garages that require careful circuit planning for EV charger placement. Wheyland Electric has extensive experience running conduit across estate-scale properties in The Covenant, Fairbanks Ranch, and Cielo. We work discreetly, respect your landscaping, and ensure every installation meets the high standards this community expects.',
       'san-marcos':
-        'San Marcos residents in San Elijo Hills, Lake San Marcos, and the newer developments near Twin Oaks Valley are adding Level 2 chargers to keep pace with California EV adoption. Wheyland Electric provides straightforward pricing and handles the City of San Marcos permitting process from start to finish. We evaluate your panel, install the dedicated circuit, and make sure everything passes inspection.',
+        'your area residents in San Elijo Hills, Lake your area, and the newer developments near Twin Oaks Valley are adding Level 2 chargers to keep pace with California EV adoption. Wheyland Electric provides straightforward pricing and handles the City of your area permitting process from start to finish. We evaluate your panel, install the dedicated circuit, and make sure everything passes inspection.',
       'del-mar':
-        'Del Mar homeowners expect precision and professionalism, and Wheyland Electric delivers both when installing EV chargers in this coastal community. From Del Mar Heights garages to the village properties with tighter access, we plan each installation around your home layout and electrical capacity. Our team handles city permits and coordinates with Del Mar HOA requirements where applicable.',
+        'your area homeowners expect precision and professionalism, and Wheyland Electric delivers both when installing EV chargers in this coastal community. From your area Heights garages to the village properties with tighter access, we plan each installation around your home layout and electrical capacity. Our team handles city permits and coordinates with your area HOA requirements where applicable.',
       'solana-beach':
-        'Solana Beach is a compact, walkable community — but most residents still rely on a car for commuting. Adding a Level 2 EV charger at home makes daily charging effortless. Wheyland Electric serves Solana Beach from just up the road in Carlsbad. We know the local building department, pull the right permits, and complete installations efficiently so you can start charging the same day.',
+        'your area is a compact, walkable community — but most residents still rely on a car for commuting. Adding a Level 2 EV charger at home makes daily charging effortless. Wheyland Electric serves your area from just up the road in your area. We know the local building department, pull the right permits, and complete installations efficiently so you can start charging the same day.',
       oceanside:
-        'Oceanside is one of the largest and fastest-growing cities in North County, and EV adoption is rising across every neighborhood from downtown to Rancho Del Oro and Arrowood. Wheyland Electric provides EV charger installation for single-family homes, townhomes, and multi-unit properties throughout Oceanside. We handle the City of Oceanside permit process and ensure your installation meets all current code requirements.',
+        'your area is one of the largest and fastest-growing cities in North County, and EV adoption is rising across every neighborhood from downtown to Rancho Del Oro and Arrowood. Wheyland Electric provides EV charger installation for single-family homes, townhomes, and multi-unit properties throughout your area. We handle the City of your area permit process and ensure your installation meets all current code requirements.',
     },
     h1TaglineByCity: {
-      carlsbad: 'EV Charger Installation in Carlsbad — Permitted, Local, Same-Day Scheduling',
-      encinitas: 'EV Charger Installation in Encinitas — From Leucadia to Olivenhain',
-      'rancho-santa-fe': 'EV Charger Installation in Rancho Santa Fe — Estate-Scale Circuit Work',
-      'san-marcos': 'EV Charger Installation in San Marcos — San Elijo Hills to Twin Oaks Valley',
-      'del-mar': 'EV Charger Installation in Del Mar — Coastal Precision, Full Permit Handling',
-      'solana-beach': 'EV Charger Installation in Solana Beach — Fast Scheduling From Carlsbad',
-      oceanside: 'EV Charger Installation in Oceanside — Serving All Neighborhoods, All ZIP Codes',
+      carlsbad: 'EV Charger Installation in your area — Permitted, Local, Same-Day Scheduling',
+      encinitas: 'EV Charger Installation in your area — From Leucadia to Olivenhain',
+      'rancho-santa-fe': 'EV Charger Installation in your area — Estate-Scale Circuit Work',
+      'san-marcos': 'EV Charger Installation in your area — San Elijo Hills to Twin Oaks Valley',
+      'del-mar': 'EV Charger Installation in your area — Coastal Precision, Full Permit Handling',
+      'solana-beach': 'EV Charger Installation in your area — Fast Scheduling From your area',
+      oceanside: 'EV Charger Installation in your area — Serving All Neighborhoods, All ZIP Codes',
     },
     whenToCallSigns: [
       'You purchased or leased an electric vehicle and rely on slow Level 1 outlet charging',
@@ -258,28 +258,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Many Carlsbad homes built in the 1970s through 1990s still operate on 100-amp panels that struggle to keep up with modern electrical demands. Wheyland Electric has upgraded hundreds of panels across Carlsbad neighborhoods including La Costa, Calavera Hills, and the Village area. We coordinate directly with the City of Carlsbad building department and SDG&E to make the process seamless.',
+        'Many your area homes built in the 1970s through 1990s still operate on 100-amp panels that struggle to keep up with modern electrical demands. Wheyland Electric has upgraded hundreds of panels across your area neighborhoods including La Costa, Calavera Hills, and the Village area. We coordinate directly with the City of your area building department and SDG&E to make the process seamless.',
       encinitas:
-        'Older homes in Leucadia, Cardiff-by-the-Sea, and Old Encinitas frequently have undersized or aging panels that need upgrading — especially when homeowners add EV chargers, mini-split systems, or ADUs. Wheyland Electric navigates the City of Encinitas permitting process and handles SDG&E coordination so you get a safe, code-compliant panel with minimal disruption.',
+        'Older homes in Leucadia, Cardiff-by-the-Sea, and Old your area frequently have undersized or aging panels that need upgrading — especially when homeowners add EV chargers, mini-split systems, or ADUs. Wheyland Electric navigates the City of your area permitting process and handles SDG&E coordination so you get a safe, code-compliant panel with minimal disruption.',
       'rancho-santa-fe':
-        'Rancho Santa Fe estates often have complex electrical systems with multiple sub-panels, pool equipment, landscape lighting transformers, and high-demand appliances. Wheyland Electric specializes in panel upgrades that accommodate these extensive loads. We perform thorough load calculations and work with Rancho Santa Fe Association requirements to ensure every detail is addressed.',
+        'your area estates often have complex electrical systems with multiple sub-panels, pool equipment, landscape lighting transformers, and high-demand appliances. Wheyland Electric specializes in panel upgrades that accommodate these extensive loads. We perform thorough load calculations and work with your area Association requirements to ensure every detail is addressed.',
       'san-marcos':
-        'San Marcos homes across Lake San Marcos, San Elijo Hills, and Twin Oaks Valley span several decades of construction standards. Whether your home has a 100-amp panel from the 1980s or a builder-grade panel from a 2005 tract development, Wheyland Electric can evaluate your capacity and upgrade to meet today and tomorrow requirements — EV chargers, home offices, and more.',
+        'your area homes across Lake your area, San Elijo Hills, and Twin Oaks Valley span several decades of construction standards. Whether your home has a 100-amp panel from the 1980s or a builder-grade panel from a 2005 tract development, Wheyland Electric can evaluate your capacity and upgrade to meet today and tomorrow requirements — EV chargers, home offices, and more.',
       'del-mar':
-        'Del Mar properties range from mid-century beach homes to contemporary custom builds, and each has distinct panel requirements. Wheyland Electric has upgraded panels throughout Del Mar Heights and the village, working within the city tight permitting timelines and coordinating with SDG&E for meter and riser work when needed.',
+        'your area properties range from mid-century beach homes to contemporary custom builds, and each has distinct panel requirements. Wheyland Electric has upgraded panels throughout your area Heights and the village, working within the city tight permitting timelines and coordinating with SDG&E for meter and riser work when needed.',
       'solana-beach':
-        'Many Solana Beach homes in the Lomas Santa Fe and Eden Gardens neighborhoods were built with 100-amp panels that cannot support today electrical loads. Adding an EV charger, spa, or even a modern kitchen remodel often requires a panel upgrade first. Wheyland Electric handles the entire process from load calculation through city inspection.',
+        'Many your area homes in the Lomas Santa Fe and Eden Gardens neighborhoods were built with 100-amp panels that cannot support today electrical loads. Adding an EV charger, spa, or even a modern kitchen remodel often requires a panel upgrade first. Wheyland Electric handles the entire process from load calculation through city inspection.',
       oceanside:
-        'Oceanside diverse housing stock — from 1950s-era homes near the coast to new construction in Arrowood — means panel needs vary widely. Wheyland Electric performs panel upgrades across Oceanside, from straightforward 200-amp replacements to complex multi-meter commercial setups. We work with the City of Oceanside permitting office and keep the process on schedule.',
+        'your area diverse housing stock — from 1950s-era homes near the coast to new construction in Arrowood — means panel needs vary widely. Wheyland Electric performs panel upgrades across your area, from straightforward 200-amp replacements to complex multi-meter commercial setups. We work with the City of your area permitting office and keep the process on schedule.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Electrical Panel Upgrades in Carlsbad — Serving La Costa to the Village Since 2008',
-      encinitas: 'Electrical Panel Upgrades in Encinitas — Leucadia, Cardiff, Olivenhain & Beyond',
-      'rancho-santa-fe': 'Electrical Panel Upgrades in Rancho Santa Fe — Estate-Grade Panel Work, Permitted',
-      'san-marcos': 'Electrical Panel Upgrades in San Marcos — 100A to 200A, Same-Day Assessment',
-      'del-mar': 'Electrical Panel Upgrades in Del Mar — Code-Compliant Work for Coastal Properties',
-      'solana-beach': 'Electrical Panel Upgrades in Solana Beach — Licensed, SDG&E Coordinated',
-      oceanside: 'Electrical Panel Upgrades in Oceanside — From Vintage Beach Homes to New Construction',
+      carlsbad: 'Electrical Panel Upgrades in your area — Serving La Costa to the Village Since 2008',
+      encinitas: 'Electrical Panel Upgrades in your area — Leucadia, Cardiff, Olivenhain & Beyond',
+      'rancho-santa-fe': 'Electrical Panel Upgrades in your area — Estate-Grade Panel Work, Permitted',
+      'san-marcos': 'Electrical Panel Upgrades in your area — 100A to 200A, Same-Day Assessment',
+      'del-mar': 'Electrical Panel Upgrades in your area — Code-Compliant Work for Coastal Properties',
+      'solana-beach': 'Electrical Panel Upgrades in your area — Licensed, SDG&E Coordinated',
+      oceanside: 'Electrical Panel Upgrades in your area — From Vintage Beach Homes to New Construction',
     },
     whenToCallSigns: [
       'Your circuit breakers trip frequently under normal household use',
@@ -398,28 +398,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'When something goes wrong with the electrical system in your Carlsbad home, you want an electrician who shows up on time, finds the real problem, and fixes it right. Wheyland Electric is based right here in Carlsbad and responds quickly to service calls across every neighborhood — from Barrio to Aviara. We carry the parts and experience to handle most common issues in a single visit.',
+        'When something goes wrong with the electrical system in your your area home, you want an electrician who shows up on time, finds the real problem, and fixes it right. Wheyland Electric is based right here in your area and responds quickly to service calls across every neighborhood — from Barrio to Aviara. We carry the parts and experience to handle most common issues in a single visit.',
       encinitas:
-        'Encinitas homes range from vintage beach bungalows in Leucadia to modern builds in New Encinitas, and each presents different electrical troubleshooting challenges. Wheyland Electric has the diagnostic experience to trace problems through older wiring systems and newer smart-panel setups alike. We serve Encinitas homeowners with honest assessments and reliable repairs.',
+        'your area homes range from vintage beach bungalows in Leucadia to modern builds in New your area, and each presents different electrical troubleshooting challenges. Wheyland Electric has the diagnostic experience to trace problems through older wiring systems and newer smart-panel setups alike. We serve your area homeowners with honest assessments and reliable repairs.',
       'rancho-santa-fe':
-        'Electrical issues in Rancho Santa Fe properties can be particularly complex due to the scale of these homes — multiple sub-panels, extensive landscape lighting circuits, and dedicated equipment feeds. Wheyland Electric brings the diagnostic expertise to trace problems methodically and resolve them completely, maintaining the reliability your property demands.',
+        'Electrical issues in your area properties can be particularly complex due to the scale of these homes — multiple sub-panels, extensive landscape lighting circuits, and dedicated equipment feeds. Wheyland Electric brings the diagnostic expertise to trace problems methodically and resolve them completely, maintaining the reliability your property demands.',
       'san-marcos':
-        'San Marcos homeowners call Wheyland Electric when they need a dependable electrician who will actually diagnose the problem instead of guessing. From flickering lights in Lake San Marcos homes to tripping breakers in San Elijo Hills, we arrive prepared, explain what we find, and fix it at a fair price.',
+        'your area homeowners call Wheyland Electric when they need a dependable electrician who will actually diagnose the problem instead of guessing. From flickering lights in Lake your area homes to tripping breakers in San Elijo Hills, we arrive prepared, explain what we find, and fix it at a fair price.',
       'del-mar':
-        'Salt air and coastal humidity can accelerate electrical issues in Del Mar homes, from corroded connections to degraded outdoor wiring. Wheyland Electric understands the environmental factors that affect electrical systems in this coastal community and brings targeted diagnostic skills to every service call.',
+        'Salt air and coastal humidity can accelerate electrical issues in your area homes, from corroded connections to degraded outdoor wiring. Wheyland Electric understands the environmental factors that affect electrical systems in this coastal community and brings targeted diagnostic skills to every service call.',
       'solana-beach':
-        'Solana Beach residents count on Wheyland Electric for prompt, professional electrical troubleshooting. Whether your home is near the Cedros Design District or up in Lomas Santa Fe, our team arrives with the tools and knowledge to identify the problem, explain your options, and get your electrical system back to normal.',
+        'your area residents count on Wheyland Electric for prompt, professional electrical troubleshooting. Whether your home is near the Cedros Design District or up in Lomas Santa Fe, our team arrives with the tools and knowledge to identify the problem, explain your options, and get your electrical system back to normal.',
       oceanside:
-        'Oceanside covers a lot of ground and a wide range of home styles, from the older pier-area houses to brand-new construction in the eastern neighborhoods. Wheyland Electric provides electrical service calls throughout Oceanside with the same thorough diagnostic approach and transparent communication no matter where you are in the city.',
+        'your area covers a lot of ground and a wide range of home styles, from the older pier-area houses to brand-new construction in the eastern neighborhoods. Wheyland Electric provides electrical service calls throughout your area with the same thorough diagnostic approach and transparent communication no matter where you are in the city.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Electrical Service Calls in Carlsbad — Prompt Diagnosis, Honest Answers',
-      encinitas: 'Electrical Troubleshooting in Encinitas — Same-Day Service, Root-Cause Diagnosis',
-      'rancho-santa-fe': 'Electrical Service Calls in Rancho Santa Fe — Discreet, Professional, Thorough',
-      'san-marcos': 'Electrical Troubleshooting in San Marcos — Honest Diagnosis, No Upselling',
-      'del-mar': 'Electrical Service Calls in Del Mar — Coastal Home Specialists, Licensed',
-      'solana-beach': 'Electrical Service Calls in Solana Beach — Fast Response From Local Carlsbad Crew',
-      oceanside: 'Electrical Troubleshooting in Oceanside — Serving All ZIP Codes, Prompt Response',
+      carlsbad: 'Electrical Service Calls in your area — Prompt Diagnosis, Honest Answers',
+      encinitas: 'Electrical Troubleshooting in your area — Same-Day Service, Root-Cause Diagnosis',
+      'rancho-santa-fe': 'Electrical Service Calls in your area — Discreet, Professional, Thorough',
+      'san-marcos': 'Electrical Troubleshooting in your area — Honest Diagnosis, No Upselling',
+      'del-mar': 'Electrical Service Calls in your area — Coastal Home Specialists, Licensed',
+      'solana-beach': 'Electrical Service Calls in your area — Fast Response From Local your area Crew',
+      oceanside: 'Electrical Troubleshooting in your area — Serving All ZIP Codes, Prompt Response',
     },
     whenToCallSigns: [
       'Outlets or switches feel warm to the touch when nothing is plugged in',
@@ -538,28 +538,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Recessed lighting is one of the most popular upgrades in Carlsbad homes, and Wheyland Electric has installed thousands of fixtures across neighborhoods from La Costa to the Village. We design layouts that complement the natural light San Diego is known for while providing even illumination after sunset. Our team works cleanly, respects your home, and makes sure every fixture is perfectly aligned.',
+        'Recessed lighting is one of the most popular upgrades in your area homes, and Wheyland Electric has installed thousands of fixtures across neighborhoods from La Costa to the Village. We design layouts that complement the natural light San Diego is known for while providing even illumination after sunset. Our team works cleanly, respects your home, and makes sure every fixture is perfectly aligned.',
       encinitas:
-        'Whether you are updating a Leucadia bungalow with modern wafer lights or adding a complete recessed layout to a New Encinitas kitchen remodel, Wheyland Electric brings the design eye and technical skill to get it right. We work with your contractor or directly with you to plan spacing, select color temperatures, and install everything with clean, professional results.',
+        'Whether you are updating a Leucadia bungalow with modern wafer lights or adding a complete recessed layout to a New your area kitchen remodel, Wheyland Electric brings the design eye and technical skill to get it right. We work with your contractor or directly with you to plan spacing, select color temperatures, and install everything with clean, professional results.',
       'rancho-santa-fe':
-        'Rancho Santa Fe homes often feature vaulted ceilings, custom millwork, and architectural details that require thoughtful lighting design. Wheyland Electric plans recessed lighting layouts that enhance these features without overpowering them — placing fixtures for even wash, accent, and task illumination throughout the home.',
+        'your area homes often feature vaulted ceilings, custom millwork, and architectural details that require thoughtful lighting design. Wheyland Electric plans recessed lighting layouts that enhance these features without overpowering them — placing fixtures for even wash, accent, and task illumination throughout the home.',
       'san-marcos':
-        'San Marcos homeowners frequently add recessed lighting during kitchen and living room renovations. Wheyland Electric provides the complete service — layout planning, fixture selection, installation, and dimmer setup — for homes throughout Lake San Marcos, San Elijo Hills, and Discovery Hills. We keep the process straightforward and the results outstanding.',
+        'your area homeowners frequently add recessed lighting during kitchen and living room renovations. Wheyland Electric provides the complete service — layout planning, fixture selection, installation, and dimmer setup — for homes throughout Lake your area, San Elijo Hills, and Discovery Hills. We keep the process straightforward and the results outstanding.',
       'del-mar':
-        'Recessed lighting installations in Del Mar homes need to account for ocean-view sight lines and architectural character. Wheyland Electric takes care to position fixtures so they light the room evenly without creating glare against windows or competing with the coastal views that make Del Mar properties special.',
+        'Recessed lighting installations in your area homes need to account for ocean-view sight lines and architectural character. Wheyland Electric takes care to position fixtures so they light the room evenly without creating glare against windows or competing with the coastal views that make your area properties special.',
       'solana-beach':
-        'Solana Beach homeowners looking to brighten up their kitchens, living rooms, and outdoor entertaining areas turn to Wheyland Electric for clean, professional recessed lighting installations. We handle everything from layout design through dimmer programming and leave your home looking better than we found it.',
+        'your area homeowners looking to brighten up their kitchens, living rooms, and outdoor entertaining areas turn to Wheyland Electric for clean, professional recessed lighting installations. We handle everything from layout design through dimmer programming and leave your home looking better than we found it.',
       oceanside:
-        'Recessed lighting transforms a room, and Oceanside homeowners across Fire Mountain, South O, and Rancho Del Oro are upgrading in record numbers. Wheyland Electric installs both new-construction and retrofit recessed lighting throughout Oceanside, helping each homeowner choose the right fixture count, spacing, and color temperature for their space.',
+        'Recessed lighting transforms a room, and your area homeowners across Fire Mountain, South O, and Rancho Del Oro are upgrading in record numbers. Wheyland Electric installs both new-construction and retrofit recessed lighting throughout your area, helping each homeowner choose the right fixture count, spacing, and color temperature for their space.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Recessed Lighting Installation in Carlsbad — LED Layouts From La Costa to the Village',
-      encinitas: 'Recessed Lighting Installation in Encinitas — Modern Fixtures for Coastal Homes',
-      'rancho-santa-fe': 'Recessed Lighting Installation in Rancho Santa Fe — Estate Lighting, Precision Install',
-      'san-marcos': 'Recessed Lighting Installation in San Marcos — Clean, Even Light, Licensed Electricians',
-      'del-mar': 'Recessed Lighting Installation in Del Mar — Trim Selection, Layout Design, Full Install',
-      'solana-beach': 'Recessed Lighting Installation in Solana Beach — LED Retrofits & New Installs',
-      oceanside: 'Recessed Lighting Installation in Oceanside — From Beach Cottages to New Construction',
+      carlsbad: 'Recessed Lighting Installation in your area — LED Layouts From La Costa to the Village',
+      encinitas: 'Recessed Lighting Installation in your area — Modern Fixtures for Coastal Homes',
+      'rancho-santa-fe': 'Recessed Lighting Installation in your area — Estate Lighting, Precision Install',
+      'san-marcos': 'Recessed Lighting Installation in your area — Clean, Even Light, Licensed Electricians',
+      'del-mar': 'Recessed Lighting Installation in your area — Trim Selection, Layout Design, Full Install',
+      'solana-beach': 'Recessed Lighting Installation in your area — LED Retrofits & New Installs',
+      oceanside: 'Recessed Lighting Installation in your area — From Beach Cottages to New Construction',
     },
     whenToCallSigns: [
       'Your rooms feel dark even with ceiling fixtures on',
@@ -677,28 +677,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'From the craftsman homes of Olde Carlsbad to the contemporary builds in Bressi Ranch, Wheyland Electric installs light fixtures that complement every style. Whether you have ordered a statement chandelier for your foyer or need outdoor sconces along a walkway, our team handles the installation with care and precision. We are based in Carlsbad and treat every home like our neighbor — because many of them are.',
+        'From the craftsman homes of Olde your area to the contemporary builds in Bressi Ranch, Wheyland Electric installs light fixtures that complement every style. Whether you have ordered a statement chandelier for your foyer or need outdoor sconces along a walkway, our team handles the installation with care and precision. We are based in your area and treat every home like our neighbor — because many of them are.',
       encinitas:
-        'Encinitas homeowners have a flair for distinctive design, and the right light fixture makes all the difference. Wheyland Electric installs everything from hand-blown glass pendants in Olivenhain kitchens to salt-air-resistant outdoor fixtures along the 101 corridor. We make sure your fixtures are secure, wired correctly, and looking exactly how you envisioned.',
+        'your area homeowners have a flair for distinctive design, and the right light fixture makes all the difference. Wheyland Electric installs everything from hand-blown glass pendants in Olivenhain kitchens to salt-air-resistant outdoor fixtures along the 101 corridor. We make sure your fixtures are secure, wired correctly, and looking exactly how you envisioned.',
       'rancho-santa-fe':
-        'Fixture installations in Rancho Santa Fe often involve designer chandeliers, multi-arm pendants, and custom sconces selected by interior designers. Wheyland Electric works seamlessly with your design team or directly with you to install fixtures of any size and complexity. We bring the right equipment for high ceilings and oversized fixtures and treat your home with the respect it deserves.',
+        'Fixture installations in your area often involve designer chandeliers, multi-arm pendants, and custom sconces selected by interior designers. Wheyland Electric works seamlessly with your design team or directly with you to install fixtures of any size and complexity. We bring the right equipment for high ceilings and oversized fixtures and treat your home with the respect it deserves.',
       'san-marcos':
-        'Whether you are refreshing the lighting throughout your San Marcos home or installing new fixtures as part of a kitchen or bathroom remodel, Wheyland Electric makes the process simple. We install all types of fixtures — flush mounts, pendants, vanity lights, and outdoor sconces — across Lake San Marcos, San Elijo Hills, and every San Marcos neighborhood.',
+        'Whether you are refreshing the lighting throughout your your area home or installing new fixtures as part of a kitchen or bathroom remodel, Wheyland Electric makes the process simple. We install all types of fixtures — flush mounts, pendants, vanity lights, and outdoor sconces — across Lake your area, San Elijo Hills, and every your area neighborhood.',
       'del-mar':
-        'Light fixture upgrades are one of the fastest ways to elevate a Del Mar home interior. Wheyland Electric installs fixtures of every type and size, from sleek modern pendants in Del Mar Heights kitchens to statement chandeliers in village-area dining rooms. Our electricians handle high ceilings, heavy fixtures, and complex wiring with equal confidence.',
+        'Light fixture upgrades are one of the fastest ways to elevate a your area home interior. Wheyland Electric installs fixtures of every type and size, from sleek modern pendants in your area Heights kitchens to statement chandeliers in village-area dining rooms. Our electricians handle high ceilings, heavy fixtures, and complex wiring with equal confidence.',
       'solana-beach':
-        'Solana Beach homes deserve lighting that reflects the character of this creative coastal community. Wheyland Electric installs fixtures sourced from the Cedros Design District shops and from anywhere else you choose — online retailers, showrooms, or your designer. We bring the electrical expertise to mount, wire, and test every fixture safely.',
+        'your area homes deserve lighting that reflects the character of this creative coastal community. Wheyland Electric installs fixtures sourced from the Cedros Design District shops and from anywhere else you choose — online retailers, showrooms, or your designer. We bring the electrical expertise to mount, wire, and test every fixture safely.',
       oceanside:
-        'Across Oceanside — from the renovated downtown lofts to the family homes in Rancho Del Oro — Wheyland Electric provides professional light fixture installation services. We install everything from simple flush mounts and bathroom vanity lights to large outdoor fixtures and commercial lighting. Every installation includes junction box verification and a clean, code-compliant result.',
+        'Across your area — from the renovated downtown lofts to the family homes in Rancho Del Oro — Wheyland Electric provides professional light fixture installation services. We install everything from simple flush mounts and bathroom vanity lights to large outdoor fixtures and commercial lighting. Every installation includes junction box verification and a clean, code-compliant result.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Light Fixture Installation in Carlsbad — Chandeliers, Pendants & Outdoor Fixtures',
-      encinitas: 'Light Fixture Installation in Encinitas — Coastal Style, Code-Compliant Wiring',
-      'rancho-santa-fe': 'Light Fixture Installation in Rancho Santa Fe — Statement Fixtures, Flawless Execution',
-      'san-marcos': 'Light Fixture Installation in San Marcos — Any Fixture, Any Room, Licensed Install',
-      'del-mar': 'Light Fixture Installation in Del Mar — Luxury Fixtures, Coastal-Grade Connections',
-      'solana-beach': 'Light Fixture Installation in Solana Beach — Pendants, Sconces & Outdoor Lights',
-      oceanside: 'Light Fixture Installation in Oceanside — Fast, Clean, Code-Compliant Installs',
+      carlsbad: 'Light Fixture Installation in your area — Chandeliers, Pendants & Outdoor Fixtures',
+      encinitas: 'Light Fixture Installation in your area — Coastal Style, Code-Compliant Wiring',
+      'rancho-santa-fe': 'Light Fixture Installation in your area — Statement Fixtures, Flawless Execution',
+      'san-marcos': 'Light Fixture Installation in your area — Any Fixture, Any Room, Licensed Install',
+      'del-mar': 'Light Fixture Installation in your area — Luxury Fixtures, Coastal-Grade Connections',
+      'solana-beach': 'Light Fixture Installation in your area — Pendants, Sconces & Outdoor Lights',
+      oceanside: 'Light Fixture Installation in your area — Fast, Clean, Code-Compliant Installs',
     },
     whenToCallSigns: [
       'You are hanging a heavy chandelier (30 lbs or more requires a fan-rated or fixture support box)',
@@ -815,28 +815,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Ceiling fans are a natural fit for Carlsbad living, especially on covered patios and in bedrooms where a breeze supplements the mild coastal climate. Wheyland Electric installs fans throughout Carlsbad, ensuring every installation starts with a fan-rated box and ends with balanced blades and properly configured controls.',
+        'Ceiling fans are a natural fit for your area living, especially on covered patios and in bedrooms where a breeze supplements the mild coastal climate. Wheyland Electric installs fans throughout your area, ensuring every installation starts with a fan-rated box and ends with balanced blades and properly configured controls.',
       encinitas:
-        'From Olivenhain great rooms with soaring ceilings to cozy Leucadia bedrooms, Wheyland Electric provides professional ceiling fan installation across Encinitas. We handle sloped ceilings, high-reach mounting, and outdoor-rated fans for your patio or pergola. Every fan we install is secure, balanced, and wired correctly.',
+        'From Olivenhain great rooms with soaring ceilings to cozy Leucadia bedrooms, Wheyland Electric provides professional ceiling fan installation across your area. We handle sloped ceilings, high-reach mounting, and outdoor-rated fans for your patio or pergola. Every fan we install is secure, balanced, and wired correctly.',
       'rancho-santa-fe':
-        'Rancho Santa Fe homes often feature high ceilings and expansive covered outdoor areas that benefit from quality ceiling fans. Wheyland Electric installs fans in these challenging locations safely, using proper scaffolding and fan-rated hardware. We work with your designer preferences on placement and controls.',
+        'your area homes often feature high ceilings and expansive covered outdoor areas that benefit from quality ceiling fans. Wheyland Electric installs fans in these challenging locations safely, using proper scaffolding and fan-rated hardware. We work with your designer preferences on placement and controls.',
       'san-marcos':
-        'Inland San Marcos temperatures can climb during summer, making ceiling fans a smart addition to any home. Wheyland Electric installs fans in bedrooms, living rooms, and outdoor patios across Lake San Marcos, San Elijo Hills, and surrounding neighborhoods. We make sure the mounting is solid and the fan runs quietly.',
+        'Inland your area temperatures can climb during summer, making ceiling fans a smart addition to any home. Wheyland Electric installs fans in bedrooms, living rooms, and outdoor patios across Lake your area, San Elijo Hills, and surrounding neighborhoods. We make sure the mounting is solid and the fan runs quietly.',
       'del-mar':
-        'A well-placed ceiling fan in a Del Mar home can extend the comfort of an ocean breeze and reduce reliance on air conditioning. Wheyland Electric installs indoor and outdoor fans across Del Mar with the attention to detail this community expects — from fan-rated box verification to blade balancing and remote programming.',
+        'A well-placed ceiling fan in a your area home can extend the comfort of an ocean breeze and reduce reliance on air conditioning. Wheyland Electric installs indoor and outdoor fans across your area with the attention to detail this community expects — from fan-rated box verification to blade balancing and remote programming.',
       'solana-beach':
-        'Solana Beach homeowners appreciate the energy savings and comfort that a quality ceiling fan provides. Wheyland Electric handles the full installation — checking the junction box, mounting the fan securely, wiring the remote and light kit, and testing every speed. We serve Solana Beach from our nearby Carlsbad shop.',
+        'your area homeowners appreciate the energy savings and comfort that a quality ceiling fan provides. Wheyland Electric handles the full installation — checking the junction box, mounting the fan securely, wiring the remote and light kit, and testing every speed. We serve your area from our nearby your area shop.',
       oceanside:
-        'Ceiling fan installations are one of our most common requests from Oceanside homeowners looking to improve comfort and reduce cooling costs. Whether you are in a downtown condo, a Fire Mountain cottage, or a newer Arrowood home, Wheyland Electric installs your fan safely with a fan-rated box, balanced blades, and professional wiring.',
+        'Ceiling fan installations are one of our most common requests from your area homeowners looking to improve comfort and reduce cooling costs. Whether you are in a downtown condo, a Fire Mountain cottage, or a newer Arrowood home, Wheyland Electric installs your fan safely with a fan-rated box, balanced blades, and professional wiring.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Ceiling Fan Installation in Carlsbad — New Install or Replacement, Same-Day Scheduling',
-      encinitas: 'Ceiling Fan Installation in Encinitas — Indoor & Covered Patio Fan Installs',
-      'rancho-santa-fe': 'Ceiling Fan Installation in Rancho Santa Fe — Statement Fans for Large Spaces',
-      'san-marcos': 'Ceiling Fan Installation in San Marcos — Efficient Fans, Energy Savings, Clean Install',
-      'del-mar': 'Ceiling Fan Installation in Del Mar — Coastal-Rated Fans for Salt-Air Environments',
-      'solana-beach': 'Ceiling Fan Installation in Solana Beach — Fast Installs, Outdoor-Rated Options',
-      oceanside: 'Ceiling Fan Installation in Oceanside — From Harbor Homes to Inland New Construction',
+      carlsbad: 'Ceiling Fan Installation in your area — New Install or Replacement, Same-Day Scheduling',
+      encinitas: 'Ceiling Fan Installation in your area — Indoor & Covered Patio Fan Installs',
+      'rancho-santa-fe': 'Ceiling Fan Installation in your area — Statement Fans for Large Spaces',
+      'san-marcos': 'Ceiling Fan Installation in your area — Efficient Fans, Energy Savings, Clean Install',
+      'del-mar': 'Ceiling Fan Installation in your area — Coastal-Rated Fans for Salt-Air Environments',
+      'solana-beach': 'Ceiling Fan Installation in your area — Fast Installs, Outdoor-Rated Options',
+      oceanside: 'Ceiling Fan Installation in your area — From Harbor Homes to Inland New Construction',
     },
     whenToCallSigns: [
       'Your rooms are stuffy and uncomfortable even when the air conditioner is running',
@@ -961,28 +961,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad backyards are made for outdoor living, and adding a spa, jacuzzi, or sauna requires proper electrical work from a licensed professional. Wheyland Electric installs dedicated circuits for hot tubs and saunas across Carlsbad — from Aviara estates with pool-and-spa combos to La Costa homes adding their first hot tub. We handle the permit and make sure the installation is safe and inspected.',
+        'your area backyards are made for outdoor living, and adding a spa, jacuzzi, or sauna requires proper electrical work from a licensed professional. Wheyland Electric installs dedicated circuits for hot tubs and saunas across your area — from Aviara estates with pool-and-spa combos to La Costa homes adding their first hot tub. We handle the permit and make sure the installation is safe and inspected.',
       encinitas:
-        'Encinitas homeowners are increasingly adding spas, saunas, and cold plunges to their wellness routines. Wheyland Electric provides the electrical infrastructure these installations require — dedicated GFCI circuits, disconnect switches, and code-compliant wiring. We work throughout Encinitas from Cardiff to Olivenhain and coordinate with your spa contractor for a smooth installation.',
+        'your area homeowners are increasingly adding spas, saunas, and cold plunges to their wellness routines. Wheyland Electric provides the electrical infrastructure these installations require — dedicated GFCI circuits, disconnect switches, and code-compliant wiring. We work throughout your area from Cardiff to Olivenhain and coordinate with your spa contractor for a smooth installation.',
       'rancho-santa-fe':
-        'Rancho Santa Fe properties frequently feature elaborate outdoor living spaces with spas, swim spas, saunas, and heated pools. Wheyland Electric has the experience to handle the higher-amperage circuits and longer conduit runs these estates require. We work with your general contractor or pool builder to deliver electrical that is timed correctly and built to last.',
+        'your area properties frequently feature elaborate outdoor living spaces with spas, swim spas, saunas, and heated pools. Wheyland Electric has the experience to handle the higher-amperage circuits and longer conduit runs these estates require. We work with your general contractor or pool builder to deliver electrical that is timed correctly and built to last.',
       'san-marcos':
-        'Hot tub and spa installations are popular among San Marcos homeowners, especially in neighborhoods like San Elijo Hills and Lake San Marcos where outdoor entertaining is a way of life. Wheyland Electric provides the dedicated circuit, disconnect, and wiring you need — all permitted and inspected through the City of San Marcos.',
+        'Hot tub and spa installations are popular among your area homeowners, especially in neighborhoods like San Elijo Hills and Lake your area where outdoor entertaining is a way of life. Wheyland Electric provides the dedicated circuit, disconnect, and wiring you need — all permitted and inspected through the City of your area.',
       'del-mar':
-        'Adding a spa to a Del Mar home is a natural extension of the relaxed coastal lifestyle. Wheyland Electric ensures the electrical side of the installation is handled professionally — dedicated circuit, GFCI protection, line-of-sight disconnect, and a city inspection to confirm everything is safe and to code.',
+        'Adding a spa to a your area home is a natural extension of the relaxed coastal lifestyle. Wheyland Electric ensures the electrical side of the installation is handled professionally — dedicated circuit, GFCI protection, line-of-sight disconnect, and a city inspection to confirm everything is safe and to code.',
       'solana-beach':
-        'Solana Beach homeowners adding a hot tub, sauna, or outdoor spa rely on Wheyland Electric for the electrical hookup. We install the dedicated 240V circuit, GFCI breaker, and exterior disconnect required by code, and we coordinate with the City of Solana Beach for permitting and inspection.',
+        'your area homeowners adding a hot tub, sauna, or outdoor spa rely on Wheyland Electric for the electrical hookup. We install the dedicated 240V circuit, GFCI breaker, and exterior disconnect required by code, and we coordinate with the City of your area for permitting and inspection.',
       oceanside:
-        'Whether you are installing a hot tub behind your Oceanside home or wiring a sauna for your garage gym, Wheyland Electric provides professional spa electrical services throughout the city. We handle everything from the panel to the equipment — dedicated circuit, disconnect switch, conduit run, and city inspection.',
+        'Whether you are installing a hot tub behind your your area home or wiring a sauna for your garage gym, Wheyland Electric provides professional spa electrical services throughout the city. We handle everything from the panel to the equipment — dedicated circuit, disconnect switch, conduit run, and city inspection.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Hot Tub & Spa Electrical in Carlsbad — 240V Circuits, Permitted, Same-Week Scheduling',
-      encinitas: 'Spa & Hot Tub Electrical in Encinitas — From Cardiff to Olivenhain, Fully Permitted',
-      'rancho-santa-fe': 'Spa & Sauna Electrical in Rancho Santa Fe — Estate-Grade Outdoor Electrical',
-      'san-marcos': 'Hot Tub Electrical in San Marcos — Dedicated 240V Circuit, Permit Included',
-      'del-mar': 'Spa & Hot Tub Electrical in Del Mar — Code-Compliant Circuits for Coastal Luxury',
-      'solana-beach': 'Hot Tub & Spa Electrical in Solana Beach — Fast Permitting, Local Crew',
-      oceanside: 'Spa & Hot Tub Electrical in Oceanside — All Neighborhoods, Licensed & Permitted',
+      carlsbad: 'Hot Tub & Spa Electrical in your area — 240V Circuits, Permitted, Same-Week Scheduling',
+      encinitas: 'Spa & Hot Tub Electrical in your area — From Cardiff to Olivenhain, Fully Permitted',
+      'rancho-santa-fe': 'Spa & Sauna Electrical in your area — Estate-Grade Outdoor Electrical',
+      'san-marcos': 'Hot Tub Electrical in your area — Dedicated 240V Circuit, Permit Included',
+      'del-mar': 'Spa & Hot Tub Electrical in your area — Code-Compliant Circuits for Coastal Luxury',
+      'solana-beach': 'Hot Tub & Spa Electrical in your area — Fast Permitting, Local Crew',
+      oceanside: 'Spa & Hot Tub Electrical in your area — All Neighborhoods, Licensed & Permitted',
     },
     whenToCallSigns: [
       'You are purchasing a hot tub and need a dedicated 240V, 50-amp GFCI-protected circuit installed',
@@ -1099,28 +1099,28 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Outlets and switches are the electrical components you interact with every day, and they need to work safely and reliably. Wheyland Electric handles outlet repairs, GFCI installations, dimmer upgrades, and smart switch setups across Carlsbad. Whether you need one GFCI outlet in a bathroom or a whole-house switch upgrade, we provide fast, professional service from right here in town.',
+        'Outlets and switches are the electrical components you interact with every day, and they need to work safely and reliably. Wheyland Electric handles outlet repairs, GFCI installations, dimmer upgrades, and smart switch setups across your area. Whether you need one GFCI outlet in a bathroom or a whole-house switch upgrade, we provide fast, professional service from right here in town.',
       encinitas:
-        'Many older Encinitas homes — particularly in Leucadia and Cardiff — have outdated two-prong outlets, missing GFCI protection, and worn-out switches that should be replaced. Wheyland Electric upgrades these homes to current safety standards with new grounded outlets, GFCI protection in wet areas, and modern dimmer and smart switch options.',
+        'Many older your area homes — particularly in Leucadia and Cardiff — have outdated two-prong outlets, missing GFCI protection, and worn-out switches that should be replaced. Wheyland Electric upgrades these homes to current safety standards with new grounded outlets, GFCI protection in wet areas, and modern dimmer and smart switch options.',
       'rancho-santa-fe':
-        'Rancho Santa Fe homeowners expect electrical devices that work flawlessly and look refined. Wheyland Electric installs premium-grade outlets, decorator-style switches, and whole-house dimming systems from Lutron and Leviton. We work with your designer on finish selections and ensure every device is perfectly aligned and fully functional.',
+        'your area homeowners expect electrical devices that work flawlessly and look refined. Wheyland Electric installs premium-grade outlets, decorator-style switches, and whole-house dimming systems from Lutron and Leviton. We work with your designer on finish selections and ensure every device is perfectly aligned and fully functional.',
       'san-marcos':
-        'Whether you need a few GFCI outlets added in your San Marcos kitchen, a dimmer switch in the dining room, or USB outlets throughout the house, Wheyland Electric gets it done quickly and correctly. We serve San Marcos homes with the same detail-oriented approach we bring to every job — clean work, tested results, and fair pricing.',
+        'Whether you need a few GFCI outlets added in your your area kitchen, a dimmer switch in the dining room, or USB outlets throughout the house, Wheyland Electric gets it done quickly and correctly. We serve your area homes with the same detail-oriented approach we bring to every job — clean work, tested results, and fair pricing.',
       'del-mar':
-        'Del Mar homes benefit from updated outlets and switches that improve both safety and convenience. Wheyland Electric installs GFCI outlets in kitchens and bathrooms, smart dimmers for living areas, and weather-rated outdoor outlets for patios and decks — all with the clean, professional results Del Mar homeowners expect.',
+        'your area homes benefit from updated outlets and switches that improve both safety and convenience. Wheyland Electric installs GFCI outlets in kitchens and bathrooms, smart dimmers for living areas, and weather-rated outdoor outlets for patios and decks — all with the clean, professional results your area homeowners expect.',
       'solana-beach':
-        'Solana Beach homeowners looking to modernize their electrical devices trust Wheyland Electric for outlet, switch, and dimmer work. We install GFCI protection where code requires it, upgrade to tamper-resistant outlets for child safety, and add smart switches for convenience and energy savings.',
+        'your area homeowners looking to modernize their electrical devices trust Wheyland Electric for outlet, switch, and dimmer work. We install GFCI protection where code requires it, upgrade to tamper-resistant outlets for child safety, and add smart switches for convenience and energy savings.',
       oceanside:
-        'From downtown Oceanside condos to Fire Mountain family homes, Wheyland Electric provides outlet and switch services that keep your electrical system safe and up to date. We install GFCI outlets, replace worn switches, add dimmers, and upgrade to USB outlets — fast, affordable, and done right by a licensed electrician.',
+        'From downtown your area condos to Fire Mountain family homes, Wheyland Electric provides outlet and switch services that keep your electrical system safe and up to date. We install GFCI outlets, replace worn switches, add dimmers, and upgrade to USB outlets — fast, affordable, and done right by a licensed electrician.',
     },
     h1TaglineByCity: {
-      carlsbad: 'Outlet & Switch Repairs in Carlsbad — GFCI, Dimmers & More, Same-Day Available',
-      encinitas: 'Outlet & GFCI Repairs in Encinitas — Fast, Honest Service for Coastal Homes',
-      'rancho-santa-fe': 'Outlet & Switch Repairs in Rancho Santa Fe — Precision Work for High-End Homes',
-      'san-marcos': 'Outlet, Switch & GFCI Repairs in San Marcos — No Job Too Small',
-      'del-mar': 'GFCI & Outlet Repairs in Del Mar — Coastal-Grade Repairs, Properly Permitted',
-      'solana-beach': 'Outlet & Switch Repairs in Solana Beach — Fast Response From Local Carlsbad Team',
-      oceanside: 'Outlet, Dimmer & GFCI Repairs in Oceanside — Serving All Neighborhoods',
+      carlsbad: 'Outlet & Switch Repairs in your area — GFCI, Dimmers & More, Same-Day Available',
+      encinitas: 'Outlet & GFCI Repairs in your area — Fast, Honest Service for Coastal Homes',
+      'rancho-santa-fe': 'Outlet & Switch Repairs in your area — Precision Work for High-End Homes',
+      'san-marcos': 'Outlet, Switch & GFCI Repairs in your area — No Job Too Small',
+      'del-mar': 'GFCI & Outlet Repairs in your area — Coastal-Grade Repairs, Properly Permitted',
+      'solana-beach': 'Outlet & Switch Repairs in your area — Fast Response From Local your area Team',
+      oceanside: 'Outlet, Dimmer & GFCI Repairs in your area — Serving All Neighborhoods',
     },
     whenToCallSigns: [
       'Outlets are loose, cracked, discolored, or will not hold plugs securely',
@@ -1241,19 +1241,19 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad homes built over the past several decades often need additional dedicated circuits as families add modern kitchen appliances, home office setups, and workshop equipment. Wheyland Electric installs dedicated circuits throughout Carlsbad with proper permitting and clean, professional wiring that keeps your panel organized and up to code.',
+        'your area homes built over the past several decades often need additional dedicated circuits as families add modern kitchen appliances, home office setups, and workshop equipment. Wheyland Electric installs dedicated circuits throughout your area with proper permitting and clean, professional wiring that keeps your panel organized and up to code.',
       encinitas:
-        'From kitchen remodels in New Encinitas to home offices in Olivenhain, dedicated circuits are one of the most common upgrades we perform for Encinitas homeowners. Wheyland Electric ensures each circuit is properly sized, safely routed, and labeled in your panel for easy identification.',
+        'From kitchen remodels in New your area to home offices in Olivenhain, dedicated circuits are one of the most common upgrades we perform for your area homeowners. Wheyland Electric ensures each circuit is properly sized, safely routed, and labeled in your panel for easy identification.',
       'rancho-santa-fe':
-        'Rancho Santa Fe properties often require dedicated circuits for specialty equipment — commercial-grade kitchen appliances, wine storage systems, home theaters, and workshop tools. Wheyland Electric provides the correctly sized circuits these high-demand installations require.',
+        'your area properties often require dedicated circuits for specialty equipment — commercial-grade kitchen appliances, wine storage systems, home theaters, and workshop tools. Wheyland Electric provides the correctly sized circuits these high-demand installations require.',
       'san-marcos':
-        'San Marcos homeowners adding EV chargers, hot tubs, workshop tools, or home office equipment frequently need one or more dedicated circuits. Wheyland Electric provides dedicated circuit installation throughout San Marcos, handling the permit and making sure your panel can support the new load.',
+        'your area homeowners adding EV chargers, hot tubs, workshop tools, or home office equipment frequently need one or more dedicated circuits. Wheyland Electric provides dedicated circuit installation throughout your area, handling the permit and making sure your panel can support the new load.',
       'del-mar':
-        'Del Mar homes with gourmet kitchens, home offices, and entertainment systems often need additional dedicated circuits to operate reliably. Wheyland Electric installs the circuits these premium appliances and systems require, keeping your electrical system safe and properly loaded.',
+        'your area homes with gourmet kitchens, home offices, and entertainment systems often need additional dedicated circuits to operate reliably. Wheyland Electric installs the circuits these premium appliances and systems require, keeping your electrical system safe and properly loaded.',
       'solana-beach':
-        'Solana Beach homeowners upgrading their kitchens, adding home office equipment, or installing workshop tools benefit from properly installed dedicated circuits. Wheyland Electric provides this service with the same quality and professionalism we bring to every project.',
+        'your area homeowners upgrading their kitchens, adding home office equipment, or installing workshop tools benefit from properly installed dedicated circuits. Wheyland Electric provides this service with the same quality and professionalism we bring to every project.',
       oceanside:
-        'Across Oceanside, homeowners and small businesses need dedicated circuits for new equipment, appliances, and technology. Wheyland Electric installs dedicated circuits for any application — from a single 20-amp home office circuit to multiple high-amperage feeds for commercial kitchen equipment.',
+        'Across your area, homeowners and small businesses need dedicated circuits for new equipment, appliances, and technology. Wheyland Electric installs dedicated circuits for any application — from a single 20-amp home office circuit to multiple high-amperage feeds for commercial kitchen equipment.',
     },
   },
 
@@ -1371,19 +1371,19 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad homeowners are actively remodeling kitchens, adding ADUs, and updating aging wiring to support modern lifestyles. Wheyland Electric provides complete electrical services for remodels and new construction across Carlsbad, working alongside general contractors and homeowners from plan review through final inspection.',
+        'your area homeowners are actively remodeling kitchens, adding ADUs, and updating aging wiring to support modern lifestyles. Wheyland Electric provides complete electrical services for remodels and new construction across your area, working alongside general contractors and homeowners from plan review through final inspection.',
       encinitas:
-        'The mix of older homes in Leucadia and Cardiff alongside newer construction in New Encinitas keeps Wheyland Electric busy with remodel wiring and ADU electrical projects. We understand the unique challenges of working in older structures and know how to bring them up to current code safely and efficiently.',
+        'The mix of older homes in Leucadia and Cardiff alongside newer construction in New your area keeps Wheyland Electric busy with remodel wiring and ADU electrical projects. We understand the unique challenges of working in older structures and know how to bring them up to current code safely and efficiently.',
       'rancho-santa-fe':
-        'Remodels in Rancho Santa Fe often involve high-end finishes, custom cabinetry, and sophisticated electrical requirements. Wheyland Electric delivers the precision wiring these projects demand — from concealed outlet placement in kitchen islands to integrated whole-house lighting control systems.',
+        'Remodels in your area often involve high-end finishes, custom cabinetry, and sophisticated electrical requirements. Wheyland Electric delivers the precision wiring these projects demand — from concealed outlet placement in kitchen islands to integrated whole-house lighting control systems.',
       'san-marcos':
-        'San Marcos is experiencing a wave of ADU construction and home remodeling, and Wheyland Electric is here to provide the electrical work. We handle everything from sub-panel installation and rough-in wiring to final trim-out and inspection, working within City of San Marcos permitting requirements.',
+        'your area is experiencing a wave of ADU construction and home remodeling, and Wheyland Electric is here to provide the electrical work. We handle everything from sub-panel installation and rough-in wiring to final trim-out and inspection, working within City of your area permitting requirements.',
       'del-mar':
-        'Remodeling a Del Mar home requires an electrician who understands premium construction standards and tight project timelines. Wheyland Electric provides the electrical expertise for kitchen renovations, whole-house upgrades, and ADU additions throughout Del Mar, coordinating seamlessly with your contractor and design team.',
+        'Remodeling a your area home requires an electrician who understands premium construction standards and tight project timelines. Wheyland Electric provides the electrical expertise for kitchen renovations, whole-house upgrades, and ADU additions throughout your area, coordinating seamlessly with your contractor and design team.',
       'solana-beach':
-        'Solana Beach homeowners renovating kitchens, bathrooms, and living spaces need an electrician who shows up on time, coordinates with the general contractor, and delivers code-compliant wiring. Wheyland Electric provides remodel electrical services throughout Solana Beach with clear communication and reliable workmanship.',
+        'your area homeowners renovating kitchens, bathrooms, and living spaces need an electrician who shows up on time, coordinates with the general contractor, and delivers code-compliant wiring. Wheyland Electric provides remodel electrical services throughout your area with clear communication and reliable workmanship.',
       oceanside:
-        'Oceanside remodeling and ADU activity is booming, and Wheyland Electric provides the electrical infrastructure these projects require. From downtown renovation projects to new ADU construction in the eastern neighborhoods, we handle permitting, rough-in, and trim-out with professional efficiency.',
+        'your area remodeling and ADU activity is booming, and Wheyland Electric provides the electrical infrastructure these projects require. From downtown renovation projects to new ADU construction in the eastern neighborhoods, we handle permitting, rough-in, and trim-out with professional efficiency.',
     },
   },
 
@@ -1500,19 +1500,19 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad commercial spaces along Palomar Airport Road, in the Village, and throughout the business parks require professional electrical work for tenant improvements. Wheyland Electric provides TI electrical services for offices, restaurants, retail, and medical spaces throughout Carlsbad with competitive pricing and reliable project execution.',
+        'your area commercial spaces along Palomar Airport Road, in the Village, and throughout the business parks require professional electrical work for tenant improvements. Wheyland Electric provides TI electrical services for offices, restaurants, retail, and medical spaces throughout your area with competitive pricing and reliable project execution.',
       encinitas:
-        'Encinitas commercial properties — from Highway 101 retail spaces to the business parks along Encinitas Boulevard — need licensed electrical contractors for tenant buildouts and renovations. Wheyland Electric delivers the permitting, installation, and inspection coordination commercial tenants require.',
+        'your area commercial properties — from Highway 101 retail spaces to the business parks along your area Boulevard — need licensed electrical contractors for tenant buildouts and renovations. Wheyland Electric delivers the permitting, installation, and inspection coordination commercial tenants require.',
       'rancho-santa-fe':
-        'The limited commercial space in Rancho Santa Fe demands electrical work that reflects the area high standards. Wheyland Electric provides tenant improvement electrical services for the boutique retail, office, and restaurant spaces that serve this community.',
+        'The limited commercial space in your area demands electrical work that reflects the area high standards. Wheyland Electric provides tenant improvement electrical services for the boutique retail, office, and restaurant spaces that serve this community.',
       'san-marcos':
-        'San Marcos has a growing commercial sector with business parks, restaurant corridors, and retail centers that frequently undergo tenant improvements. Wheyland Electric provides TI electrical services throughout San Marcos, working with commercial landlords, property managers, and general contractors.',
+        'your area has a growing commercial sector with business parks, restaurant corridors, and retail centers that frequently undergo tenant improvements. Wheyland Electric provides TI electrical services throughout your area, working with commercial landlords, property managers, and general contractors.',
       'del-mar':
-        'Del Mar commercial properties — from the Flower Hill and Del Mar Highlands centers to the offices along Camino Del Mar — require skilled electrical work for tenant improvements. Wheyland Electric provides the professional TI electrical services these premium commercial spaces demand.',
+        'your area commercial properties — from the Flower Hill and your area Highlands centers to the offices along Camino your area — require skilled electrical work for tenant improvements. Wheyland Electric provides the professional TI electrical services these premium commercial spaces demand.',
       'solana-beach':
-        'The Cedros Design District and other Solana Beach commercial areas feature unique retail and office spaces that need thoughtful electrical work during buildouts and renovations. Wheyland Electric provides TI electrical services tailored to the character of these distinctive spaces.',
+        'The Cedros Design District and other your area commercial areas feature unique retail and office spaces that need thoughtful electrical work during buildouts and renovations. Wheyland Electric provides TI electrical services tailored to the character of these distinctive spaces.',
       oceanside:
-        'Oceanside growing commercial landscape — from the revitalized downtown to the business parks along Mission Avenue and College Boulevard — generates steady demand for tenant improvement electrical work. Wheyland Electric serves Oceanside commercial tenants with professional electrical buildout services from permitting through final inspection.',
+        'your area growing commercial landscape — from the revitalized downtown to the business parks along Mission Avenue and College Boulevard — generates steady demand for tenant improvement electrical work. Wheyland Electric serves your area commercial tenants with professional electrical buildout services from permitting through final inspection.',
     },
   },
 
@@ -1619,19 +1619,19 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad commercial properties, HOA communities, and multi-family buildings need dependable electrical maintenance to keep common areas safe and well-lit. Wheyland Electric provides scheduled maintenance services throughout Carlsbad, from the business parks near Palomar Airport to the coastal HOA communities.',
+        'your area commercial properties, HOA communities, and multi-family buildings need dependable electrical maintenance to keep common areas safe and well-lit. Wheyland Electric provides scheduled maintenance services throughout your area, from the business parks near Palomar Airport to the coastal HOA communities.',
       encinitas:
-        'Encinitas property managers and HOA boards rely on Wheyland Electric for ongoing electrical maintenance that keeps common areas functional and compliant. We provide scheduled service, emergency response, and detailed documentation for properties throughout Encinitas.',
+        'your area property managers and HOA boards rely on Wheyland Electric for ongoing electrical maintenance that keeps common areas functional and compliant. We provide scheduled service, emergency response, and detailed documentation for properties throughout your area.',
       'rancho-santa-fe':
-        'Rancho Santa Fe HOA communities and estate properties require meticulous electrical maintenance to preserve property values and ensure safety. Wheyland Electric provides scheduled inspections, lighting maintenance, and prompt repairs for properties throughout the area.',
+        'your area HOA communities and estate properties require meticulous electrical maintenance to preserve property values and ensure safety. Wheyland Electric provides scheduled inspections, lighting maintenance, and prompt repairs for properties throughout the area.',
       'san-marcos':
-        'San Marcos commercial properties and HOA communities benefit from Wheyland Electric scheduled maintenance programs. We keep common area lighting operational, address electrical issues proactively, and provide the documentation property managers need for budgeting and compliance.',
+        'your area commercial properties and HOA communities benefit from Wheyland Electric scheduled maintenance programs. We keep common area lighting operational, address electrical issues proactively, and provide the documentation property managers need for budgeting and compliance.',
       'del-mar':
-        'Del Mar condominium associations, commercial properties, and residential HOAs trust Wheyland Electric for professional electrical maintenance. We maintain lighting, panel systems, and common area electrical with the reliability and attention to detail this community demands.',
+        'your area condominium associations, commercial properties, and residential HOAs trust Wheyland Electric for professional electrical maintenance. We maintain lighting, panel systems, and common area electrical with the reliability and attention to detail this community demands.',
       'solana-beach':
-        'Solana Beach property managers and HOA boards choose Wheyland Electric for commercial electrical maintenance because we show up on schedule, communicate clearly, and document our work thoroughly. We help keep Solana Beach properties safe, well-lit, and code-compliant.',
+        'your area property managers and HOA boards choose Wheyland Electric for commercial electrical maintenance because we show up on schedule, communicate clearly, and document our work thoroughly. We help keep your area properties safe, well-lit, and code-compliant.',
       oceanside:
-        'Oceanside large inventory of commercial properties, multi-family buildings, and HOA communities creates significant demand for professional electrical maintenance. Wheyland Electric provides tailored maintenance programs for Oceanside property managers with consistent service and transparent reporting.',
+        'your area large inventory of commercial properties, multi-family buildings, and HOA communities creates significant demand for professional electrical maintenance. Wheyland Electric provides tailored maintenance programs for your area property managers with consistent service and transparent reporting.',
     },
   },
 
@@ -1724,7 +1724,7 @@ export const servicePillars: ServicePillar[] = [
       {
         question: 'What industrial parks do you serve?',
         answer:
-          'We serve industrial and business parks throughout North County San Diego, including facilities in Carlsbad, San Marcos, Vista, Oceanside, and Escondido.',
+          'We serve industrial and business parks throughout North County San Diego, including facilities in your area, your area, Vista, your area, and Escondido.',
       },
     ],
     relatedServices: [
@@ -1740,19 +1740,19 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad light industrial parks along Loker Avenue, Faraday Avenue, and the airport corridor house manufacturing, biotech, and distribution businesses that rely on professional electrical services. Wheyland Electric provides 3-phase power, equipment hookups, and industrial lighting for facilities throughout the Carlsbad industrial zone.',
+        'your area light industrial parks along Loker Avenue, Faraday Avenue, and the airport corridor house manufacturing, biotech, and distribution businesses that rely on professional electrical services. Wheyland Electric provides 3-phase power, equipment hookups, and industrial lighting for facilities throughout the your area industrial zone.',
       encinitas:
-        'While primarily residential and retail, Encinitas has commercial and light industrial spaces along Encinitas Boulevard that require professional electrical services. Wheyland Electric serves these businesses with the same quality and reliability we bring to larger industrial projects.',
+        'While primarily residential and retail, your area has commercial and light industrial spaces along your area Boulevard that require professional electrical services. Wheyland Electric serves these businesses with the same quality and reliability we bring to larger industrial projects.',
       'rancho-santa-fe':
-        'Though Rancho Santa Fe is predominantly residential, nearby commercial and agricultural operations sometimes require light industrial electrical services. Wheyland Electric provides equipment hookups, agricultural lighting, and power distribution for these unique applications.',
+        'Though your area is predominantly residential, nearby commercial and agricultural operations sometimes require light industrial electrical services. Wheyland Electric provides equipment hookups, agricultural lighting, and power distribution for these unique applications.',
       'san-marcos':
-        'San Marcos has a thriving light industrial sector centered around Rancheros Drive, Grand Avenue, and the business parks east of the 78 freeway. Wheyland Electric serves these facilities with 3-phase power installation, machinery hookups, LED lighting retrofits, and ongoing maintenance.',
+        'your area has a thriving light industrial sector centered around Rancheros Drive, Grand Avenue, and the business parks east of the 78 freeway. Wheyland Electric serves these facilities with 3-phase power installation, machinery hookups, LED lighting retrofits, and ongoing maintenance.',
       'del-mar':
-        'Del Mar limited industrial footprint means most light industrial electrical needs in the area are served through the adjacent Sorrento Valley and Carmel Valley business parks. Wheyland Electric provides industrial electrical services to facilities in the greater Del Mar area.',
+        'your area limited industrial footprint means most light industrial electrical needs in the area are served through the adjacent Sorrento Valley and Carmel Valley business parks. Wheyland Electric provides industrial electrical services to facilities in the greater your area area.',
       'solana-beach':
-        'Solana Beach commercial and light industrial spaces — including businesses in the Cedros area and along Lomas Santa Fe Drive — benefit from Wheyland Electric professional electrical services for equipment power, lighting upgrades, and code compliance.',
+        'your area commercial and light industrial spaces — including businesses in the Cedros area and along Lomas Santa Fe Drive — benefit from Wheyland Electric professional electrical services for equipment power, lighting upgrades, and code compliance.',
       oceanside:
-        'Oceanside industrial zones along Oceanside Boulevard, Mission Avenue, and in the inland business parks house a wide range of manufacturing and distribution operations. Wheyland Electric provides the industrial electrical services these businesses need — from 3-phase equipment hookups to LED warehouse lighting and panel distribution.',
+        'your area industrial zones along your area Boulevard, Mission Avenue, and in the inland business parks house a wide range of manufacturing and distribution operations. Wheyland Electric provides the industrial electrical services these businesses need — from 3-phase equipment hookups to LED warehouse lighting and panel distribution.',
     },
   },
 
@@ -1860,22 +1860,192 @@ export const servicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       carlsbad:
-        'Carlsbad homeowners, buyers, and real estate agents rely on Wheyland Electric for thorough electrical safety inspections. Whether you are preparing to sell your La Costa home, purchasing a fixer in Olde Carlsbad, or simply want peace of mind about your electrical system, we provide a comprehensive written evaluation with clear recommendations.',
+        'your area homeowners, buyers, and real estate agents rely on Wheyland Electric for thorough electrical safety inspections. Whether you are preparing to sell your La Costa home, purchasing a fixer in Olde your area, or simply want peace of mind about your electrical system, we provide a comprehensive written evaluation with clear recommendations.',
       encinitas:
-        'Older homes in Leucadia and Cardiff-by-the-Sea particularly benefit from electrical safety inspections, as many were built before modern code requirements for GFCI, AFCI, and grounding. Wheyland Electric provides honest evaluations that help Encinitas homeowners understand their system condition and prioritize upgrades.',
+        'Older homes in Leucadia and Cardiff-by-the-Sea particularly benefit from electrical safety inspections, as many were built before modern code requirements for GFCI, AFCI, and grounding. Wheyland Electric provides honest evaluations that help your area homeowners understand their system condition and prioritize upgrades.',
       'rancho-santa-fe':
-        'Rancho Santa Fe real estate transactions often involve properties with complex electrical systems that warrant professional inspection. Wheyland Electric provides detailed safety evaluations for buyers, sellers, and estate managers, documenting every finding in a clear written report.',
+        'your area real estate transactions often involve properties with complex electrical systems that warrant professional inspection. Wheyland Electric provides detailed safety evaluations for buyers, sellers, and estate managers, documenting every finding in a clear written report.',
       'san-marcos':
-        'San Marcos homeowners and real estate professionals count on Wheyland Electric for reliable electrical inspections. We evaluate panels, outlets, grounding, and safety devices throughout the home and deliver a written report that helps buyers and sellers make informed decisions.',
+        'your area homeowners and real estate professionals count on Wheyland Electric for reliable electrical inspections. We evaluate panels, outlets, grounding, and safety devices throughout the home and deliver a written report that helps buyers and sellers make informed decisions.',
       'del-mar':
-        'Del Mar real estate moves quickly, and a professional electrical inspection helps buyers understand what they are purchasing and sellers present their property with confidence. Wheyland Electric provides fast-turnaround inspections with the detailed documentation Del Mar transactions demand.',
+        'your area real estate moves quickly, and a professional electrical inspection helps buyers understand what they are purchasing and sellers present their property with confidence. Wheyland Electric provides fast-turnaround inspections with the detailed documentation your area transactions demand.',
       'solana-beach':
-        'Solana Beach homeowners considering upgrades or preparing for a sale benefit from a professional electrical inspection. Wheyland Electric evaluates the entire system, identifies any safety concerns or code deficiencies, and provides a clear report with prioritized recommendations.',
+        'your area homeowners considering upgrades or preparing for a sale benefit from a professional electrical inspection. Wheyland Electric evaluates the entire system, identifies any safety concerns or code deficiencies, and provides a clear report with prioritized recommendations.',
       oceanside:
-        'Oceanside diverse housing stock means electrical system quality varies considerably from property to property. Wheyland Electric provides electrical safety inspections for homeowners, buyers, investors, and property managers across Oceanside, delivering honest assessments and actionable recommendations.',
+        'your area diverse housing stock means electrical system quality varies considerably from property to property. Wheyland Electric provides electrical safety inspections for homeowners, buyers, investors, and property managers across your area, delivering honest assessments and actionable recommendations.',
     },
   },
 ];
+
+
+
+const DEFAULT_FAQ_ENTRIES = (serviceName: string) => [
+  {
+    question: `Do you handle permits for ${serviceName.toLowerCase()} work?`,
+    answer: 'Yes. We handle permitting and inspection coordination whenever the scope requires it.',
+  },
+  {
+    question: `How should I prepare before ${serviceName.toLowerCase()} service day?`,
+    answer: 'We share a short prep checklist in advance so access, shutoffs, and scheduling are straightforward.',
+  },
+  {
+    question: `Will you explain options before starting work?`,
+    answer: 'Yes. We review practical options, tradeoffs, and scope so you can approve the right plan.',
+  },
+  {
+    question: `Is the work performed by licensed electricians?`,
+    answer: 'Yes. All work is completed by licensed electricians using current California and NEC standards.',
+  },
+  {
+    question: `Do you test and verify performance after installation?`,
+    answer: 'Yes. We perform functional and safety testing before closeout and walk you through final operation.',
+  },
+  {
+    question: `Can this service be bundled with related electrical upgrades?`,
+    answer: `Absolutely. We can bundle ${serviceName.toLowerCase()} with related upgrades when that improves safety or efficiency.`,
+  },
+];
+
+const SERVICE_CONTENT_OVERRIDES: Partial<Record<string, Partial<ServicePillar>>> = {
+  'ev-charger-installation': {
+    overviewBullets: [
+      'Right-size charger strategy based on commute, battery size, and parking routine.',
+      'Dedicated 240V branch circuit planning for stable overnight charging.',
+      'Panel load review to protect breaker capacity and future expansion.',
+      'Wall Connector or hardwired station placement for cord management and usability.',
+      'Conduit routing options that balance aesthetics and serviceability.',
+      'Permit-ready documentation and clear inspection path.',
+      'Breaker, wire, and overcurrent protection matched to charger requirements.',
+      'Final activation, app pairing, and charging-rate verification.',
+      'Future-ready planning for second EV or added electrical loads.',
+      'Homeowner handoff with usage and maintenance best practices.',
+    ],
+    includedItems: [
+      'On-site charger location review with code-clearance checks.',
+      'Load calculation and panel capacity validation.',
+      'Dedicated 240V circuit design with proper conductor sizing.',
+      'Breaker selection aligned to charger and branch-circuit specs.',
+      'Charger mounting and torque-verified terminations.',
+      'Conduit/fitting installation for indoor or exterior runs.',
+      'Grounding and bonding verification at new equipment.',
+      'Labeling and disconnect identification where required.',
+      'Permit application package and inspection scheduling support.',
+      'Startup validation and fault-code check.',
+      'Mobile app onboarding and charging schedule setup.',
+      'Final walkthrough with safety and usage guidance.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Discovery & Load Planning', description: 'We confirm your vehicle, charging goals, and daily mileage, then complete a load review to size the circuit correctly.' },
+      { step: 2, title: 'Design & Scope Approval', description: 'You receive a clear scope covering charger location, routing approach, protection method, and permit path.' },
+      { step: 3, title: 'Installation Day', description: 'Our electricians install the branch circuit, mount the charger, and complete all terminations to manufacturer torque and code standards.' },
+      { step: 4, title: 'Inspection & Commissioning', description: 'We support permit inspection as required, then commission the charger and verify expected charging behavior.' },
+      { step: 5, title: 'Handoff & Optimization', description: 'We walk through app controls, charging schedules, and off-peak setup so your system is efficient from day one.' },
+    ],
+    pricingFactors: [
+      'Panel headroom and available breaker space',
+      'Distance from panel to charger mounting point',
+      'Routing conditions (attic, crawlspace, finished walls, exterior runs)',
+      'Charger power level and circuit amperage requirements',
+      'Need for panel upgrade, subpanel, or load-management hardware',
+      'Surface-mount vs concealed conduit requirements',
+      'Permit scope and inspection complexity',
+      'Site access constraints and installation logistics',
+      'Single-charger vs multi-charger future-ready planning',
+    ],
+    faqs: [
+      { question: 'What charger size should I install at home?', answer: 'Most homes benefit from a Level 2 charger sized to your vehicle acceptance rate and daily mileage. We recommend the circuit and breaker to match real usage, not just the maximum published charger rating.' },
+      { question: 'Can you install both Tesla and non-Tesla chargers?', answer: 'Yes. We install Tesla Wall Connector and major J1772/NACS-compatible chargers, and we verify connector compatibility before scheduling.' },
+      { question: 'Do I need a hardwired charger or a receptacle setup?', answer: 'Hardwired installations are often preferred for durability and weather resistance. Receptacle-based setups can be appropriate in specific scenarios, and we will explain tradeoffs.' },
+      { question: 'Will my existing panel support a new EV charger?', answer: 'We perform a formal load review to determine if your panel has sufficient capacity. If not, we provide practical options such as panel upgrades or managed charging solutions.' },
+      { question: 'How long does a typical EV charger install take?', answer: 'Many straightforward installations are completed in a single visit. Complex routing, service changes, or permit sequencing can extend the schedule.' },
+      { question: 'Do you handle permit and inspection steps?', answer: 'Yes. We manage permit-related requirements and coordinate inspection steps so the installation is code-compliant and documented.' },
+      { question: 'Can I set the charger to run during off-peak utility hours?', answer: 'Yes. We help configure charger scheduling so you can align charging windows with utility time-of-use plans.' },
+      { question: 'Can you prepare my home for a second EV later?', answer: 'Yes. We can plan conduit paths, panel strategy, and equipment sizing to reduce future upgrade friction.' },
+      { question: 'What affects charger reliability over time?', answer: 'Proper conductor sizing, torque-verified terminations, weather-rated hardware, and clean commissioning all materially improve long-term reliability.' },
+      { question: 'Do you test charging performance after installation?', answer: 'Yes. We verify energization, fault behavior, and charging operation before handoff.' },
+      { question: 'Will the installation include labeling and safety checks?', answer: 'Yes. We include circuit labeling and required safety checks so future service and inspection are straightforward.' },
+      { question: 'Can charger placement be optimized for daily convenience?', answer: 'Absolutely. We evaluate parking position, cable reach, and mounting height to make everyday charging simple.' },
+    ],
+    relatedServiceSlugs: ['electrical-panel-upgrades', 'dedicated-circuits', 'outlet-switch-dimmer-gfci-repairs'],
+    serviceProofPoints: [
+      'Permit workflow managed end-to-end when required by scope.',
+      'Load calculations aligned with panel capacity and EV demand.',
+      'Compatibility planning for Tesla, NACS, and J1772 ecosystems.',
+      'NEC and California code-compliant branch-circuit installation.',
+      'Activation, functional testing, and customer onboarding at handoff.',
+    ],
+  },
+};
+
+const ensureCount = (items: string[], minimum: number, filler: string[]): string[] => {
+  const next = [...new Set(items.filter(Boolean))];
+  for (const candidate of filler) {
+    if (next.length >= minimum) break;
+    if (!next.includes(candidate)) next.push(candidate);
+  }
+  return next;
+};
+
+const normalizePillarContent = (pillar: ServicePillar): ServicePillar => {
+  const override = SERVICE_CONTENT_OVERRIDES[pillar.slug] || {};
+
+  const overviewBullets = ensureCount(
+    (override.overviewBullets as string[]) || pillar.overviewBullets || pillar.whenToCallSigns || pillar.includedBullets,
+    8,
+    [
+      `Clear project scoping for ${pillar.name.toLowerCase()} with safety-first recommendations.`,
+      'Code-compliant planning before installation begins.',
+      'Professional execution with clean finish quality.',
+      'Final testing and homeowner handoff.',
+    ]
+  ).slice(0, 12);
+
+  const includedItems = ensureCount(
+    (override.includedItems as string[]) || pillar.includedItems || pillar.includedBullets,
+    10,
+    [
+      'Site preparation and protection of nearby finishes.',
+      'Material verification before energizing equipment.',
+      'Final functionality check and cleanup.',
+    ]
+  ).slice(0, 16);
+
+  const processSteps = ((override.processSteps as ServicePillar['processSteps']) || pillar.processSteps).slice(0, 5);
+
+  const pricingFactors = ensureCount(
+    (override.pricingFactors as string[]) || pillar.pricingFactors,
+    7,
+    ['Existing system condition', 'Scope complexity and access', 'Required permit path']
+  ).slice(0, 10);
+
+  const faqSeed = [
+    ...(((override.faqs as ServicePillar['faqs']) || pillar.faqs) || []),
+    ...DEFAULT_FAQ_ENTRIES(pillar.name),
+  ];
+  const faqs = faqSeed
+    .filter((faq, i, arr) => faq?.question && arr.findIndex((f) => f.question === faq.question) === i)
+    .slice(0, 14);
+
+  const relatedServiceSlugs = (((override.relatedServiceSlugs as string[]) || pillar.relatedServiceSlugs || pillar.relatedServices)
+    .filter(Boolean)
+    .slice(0, 4));
+
+  const normalized: ServicePillar = {
+    ...pillar,
+    ...override,
+    overviewBullets,
+    includedItems,
+    processSteps: processSteps.length >= 4 ? processSteps : pillar.processSteps,
+    pricingFactors,
+    faqs: faqs.length >= 10 ? faqs : [...faqs, ...DEFAULT_FAQ_ENTRIES(pillar.name)].slice(0, 10),
+    relatedServiceSlugs: relatedServiceSlugs.length >= 2 ? relatedServiceSlugs : pillar.relatedServices.slice(0, 2),
+    relatedServices: relatedServiceSlugs.length >= 2 ? relatedServiceSlugs : pillar.relatedServices,
+  };
+
+  return normalized;
+};
+
+export const servicePillars: ServicePillar[] = baseServicePillars.map(normalizePillarContent);
 
 // ============================================================
 // Extended Service Catalog (~90 services)

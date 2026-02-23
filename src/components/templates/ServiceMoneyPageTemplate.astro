@@ -56,7 +56,9 @@ interface Props {
   inlineCtaSectionSpacing?: 'default' | 'hero-tight' | 'hero-adjacent' | 'none';
   inlineCtaSectionClass?: string;
   detailHeading: string;
-  detailBody: string;
+  detailBody?: string;
+  overviewBullets?: string[];
+  localProofPoints?: string[];
   includedBullets: string[];
   includedListClass?: string;
   includedItemClass?: string;
@@ -69,7 +71,7 @@ interface Props {
   showPricingSection?: boolean;
   pricingSectionBg?: 'white' | 'subtle';
   pricingHeading: string;
-  pricingIntro: string;
+  pricingIntro?: string;
   pricingFactors: string[];
   pricingItemClass?: string;
   relatedSectionBg?: 'white' | 'subtle';
@@ -95,7 +97,9 @@ const {
   inlineCtaSectionSpacing = 'default',
   inlineCtaSectionClass = '',
   detailHeading,
-  detailBody,
+  detailBody = '',
+  overviewBullets = [],
+  localProofPoints = [],
   includedBullets,
   includedListClass = 'space-y-2',
   includedItemClass = 'flex items-start gap-2 text-text-muted',
@@ -108,7 +112,7 @@ const {
   showPricingSection = true,
   pricingSectionBg = 'white',
   pricingHeading,
-  pricingIntro,
+  pricingIntro = '',
   pricingFactors,
   pricingItemClass = 'flex items-start gap-2 text-text-muted',
   relatedSectionBg = 'subtle',
@@ -155,7 +159,26 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
         <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
           {detailHeading}
         </h2>
+        {overviewBullets.length > 0 && (
+          <ul class="mb-6 space-y-2">
+            {overviewBullets.map((item) => (
+              <li class="flex items-start gap-2 text-sm text-text-muted">
+                <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        )}
         {detailBody && <p class="mb-6 leading-relaxed text-text-muted">{detailBody}</p>}
+        {localProofPoints.length > 0 && (
+          <ul class="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
+            {localProofPoints.map((point) => (
+              <li class="rounded-lg bg-surface-subtle p-3 text-sm text-text-muted">• {point}</li>
+            ))}
+          </ul>
+        )}
         {hasDetailBeforeBullets && <slot name="detailBeforeBullets" />}
         <h3 class="mb-3 text-lg font-semibold text-brand-slate">What's Included</h3>
         <ul class={includedListClass}>
@@ -228,7 +251,7 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
         <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
           {pricingHeading}
         </h2>
-        <p class="mb-6 text-text-muted">{pricingIntro}</p>
+        {pricingIntro && <p class="mb-6 text-text-muted">{pricingIntro}</p>}
         <ul class="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
           {pricingFactors.map((factor) => (
             <li class={pricingItemClass}>

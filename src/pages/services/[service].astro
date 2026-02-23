@@ -1,18 +1,11 @@
 ---
-import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPageTemplate.astro';
-import TestimonialBlock from '../../components/sections/TestimonialBlock.astro';
-import CTASection from '../../components/sections/CTASection.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
-import InlineLeadCapture from '../../components/forms/InlineLeadCapture.astro';
+import ServicePillarTemplate from '../../components/templates/ServicePillarTemplate.astro';
 import { servicePageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
 import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
 import { getPublishedPillars, getPillarBySlug } from '../../data/services';
-import { getPublishedCities } from '../../data/cities';
 import type { ServicePillar } from '../../types';
-
 import { getServiceHeroImage } from '../../data/serviceHeroImages';
 import { getServiceHeroImage as getHeroServiceImage } from '../../data/heroImages';
 
@@ -31,18 +24,17 @@ interface Props {
 const { pillar } = Astro.props;
 const serviceImg = getServiceHeroImage({ serviceSlug: pillar.slug });
 const heroImage = getHeroServiceImage(pillar.slug);
-const cities = getPublishedCities();
 const meta = servicePageMeta(pillar.name, pillar.slug);
 const breadcrumbs = [
   { label: 'Services', href: '/services/' },
   { label: pillar.name, href: `/services/${pillar.slug}/` },
 ];
-const relatedPillars = pillar.relatedServices
+const relatedPillars = (pillar.relatedServiceSlugs || pillar.relatedServices)
   .map((slug) => getPillarBySlug(slug))
   .filter((p): p is ServicePillar => p !== undefined && p.publish);
 ---
 
-<ServiceMoneyPageTemplate
+<ServicePillarTemplate
   meta={meta}
   schemas={[
     serviceSchema(pillar.name, pillar.shortDesc, `/services/${pillar.slug}/`),
@@ -50,145 +42,8 @@ const relatedPillars = pillar.relatedServices
     breadcrumbSchema(breadcrumbs),
   ]}
   breadcrumbs={breadcrumbs}
-  heroTitle={`${pillar.name} in San Diego County`}
-  heroSubtitle={pillar.shortDesc}
-  heroShowCTAs={false}
-  backgroundImage={heroImage.src}
-  backgroundImageAlt={heroImage.alt}
-  trustBarPlacement="afterHero"
-  showInlineLeadCapture={false}
-  detailHeading="What's Included"
-  detailBody=""
-  includedBullets={pillar.includedBullets}
-  includedListClass="space-y-3"
-  includedItemClass="flex items-start gap-3"
-  includedIconClass="w-5 h-5 text-brand-teal shrink-0 mt-0.5"
+  pillar={pillar}
+  heroImage={heroImage}
   serviceImg={serviceImg}
-  fallbackImageLabel={pillar.name}
-  processHeading="Our Process"
-  processSteps={pillar.processSteps}
-  showPricingSection={pillar.pricingFactors.length > 0}
-  pricingHeading="What Affects Pricing"
-  pricingIntro={`Every project is unique. These are the factors that typically influence the cost of ${pillar.name.toLowerCase()}:`}
-  pricingFactors={pillar.pricingFactors}
-  relatedSectionBg="subtle"
-  faqSectionBg="subtle"
-  faqHeading={`${pillar.name} FAQs`}
-  faqs={pillar.faqs}
->
-  <Fragment slot="inlineCta">
-    <div class="mx-auto max-w-4xl">
-      <InlineLeadCapture
-        formId={`inline-lead-service-${pillar.slug}`}
-        heading={`Get a Fast Callback for ${pillar.name}`}
-        subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
-        service={pillar.name}
-        variant="compact"
-      />
-    </div>
-  </Fragment>
-
-  <Fragment slot="detailBeforeBullets">
-    {
-      pillar.whenToCallSigns && pillar.whenToCallSigns.length > 0 && (
-        <>
-          <h3 class="mb-3 text-lg font-semibold text-brand-slate">Signs You Need {pillar.name}</h3>
-          <p class="mb-6 text-text-muted">
-            If any of the following situations apply to you, it is a good time to call Wheyland
-            Electric for a free assessment.
-          </p>
-          <ul class="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            {pillar.whenToCallSigns.map((sign) => (
-              <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
-                <svg
-                  class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                <span class="text-sm text-text-muted">{sign}</span>
-              </li>
-            ))}
-          </ul>
-        </>
-      )
-    }
-  </Fragment>
-
-  <Fragment slot="pricingCta">
-    <p class="italic text-text-muted">
-      Call <a
-        href="tel:8586635564"
-        class="font-semibold text-brand-teal transition-colors hover:text-brand-slate"
-        >(858) 663-5564</a
-      > for a free estimate tailored to your specific project.
-    </p>
-  </Fragment>
-
-  <Fragment slot="relatedContent">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-4 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-        {pillar.name} Across North County San Diego
-      </h2>
-      <p class="mx-auto mb-8 max-w-2xl text-center text-text-muted">
-        Wheyland Electric is based in Carlsbad and serves all of North County San Diego with the
-        same commitment to quality, transparent pricing, and complete permit handling. Select your
-        city below to learn about {pillar.name.toLowerCase()} specific to your area.
-      </p>
-      <div class="mb-6 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
-        {
-          cities.map((city) => (
-            <Card
-              href={`/${city.slug}/${pillar.slug}/`}
-              padding="md"
-              shadow="sm"
-              rounded="lg"
-              class="text-center font-medium text-brand-slate transition-colors hover:text-brand-teal"
-              hoverable={true}
-            >
-              {city.name}
-            </Card>
-          ))
-        }
-      </div>
-      <div class="mb-12 text-center">
-        <Button href="/service-areas/" variant="ghost">All Service Areas →</Button>
-      </div>
-
-      {
-        relatedPillars.length > 0 && (
-          <>
-            <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-              Related Services
-            </h2>
-            <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {relatedPillars.map((related) => (
-                <Card href={`/services/${related.slug}/`} hoverable={true}>
-                  <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
-                  <p class="text-sm text-text-muted">{related.shortDesc}</p>
-                </Card>
-              ))}
-            </div>
-          </>
-        )
-      }
-    </div>
-  </Fragment>
-
-  <Fragment slot="testimonial">
-    <TestimonialBlock serviceTag={pillar.slug} />
-  </Fragment>
-
-  <Fragment slot="fullCta">
-    <CTASection
-      subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`}
-    />
-  </Fragment>
-</ServiceMoneyPageTemplate>
+  relatedPillars={relatedPillars}
+/>

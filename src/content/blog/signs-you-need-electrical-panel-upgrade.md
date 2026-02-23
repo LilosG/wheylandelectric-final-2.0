@@ -134,6 +134,6 @@ A residential panel upgrade in Carlsbad, Encinitas, Oceanside, Del Mar, San Marc
 
 If you recognize any of the signs above, the next step is a free on-site evaluation from a licensed electrician. Wheyland Electric performs panel evaluations throughout North County San Diego — Carlsbad, Encinitas, Rancho Santa Fe, San Marcos, Del Mar, Solana Beach, and Oceanside — with no cost and no obligation.
 
-We hold California Contractor License #940291 and back all panel upgrade workmanship with a 1-year labor warranty.
+We hold California Contractor License 940291 and back all panel upgrade workmanship with a 1-year labor warranty.
 
 [Contact Wheyland Electric](/free-estimates/) for a free panel evaluation and estimate.
