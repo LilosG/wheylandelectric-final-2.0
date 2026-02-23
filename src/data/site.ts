@@ -11,10 +11,10 @@ export const site: SiteData = {
     name: 'Wheyland Electric',
     address: {
       street: '3536 Woodland Way',
-      city: 'North County San Diego',
+      city: 'Carlsbad',
       state: 'CA',
       zip: '92008',
-      full: '3536 Woodland Way, North County San Diego, CA 92008',
+      full: '3536 Woodland Way, Carlsbad, CA 92008',
     },
     phone: '(858) 663-5564',
     phoneTel: '8586635564',

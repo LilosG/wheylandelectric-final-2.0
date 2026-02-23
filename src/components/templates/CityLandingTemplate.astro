@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../sections/Hero.astro';
+import TrustBar from '../sections/TrustBar.astro';
 import ServiceGrid from '../sections/ServiceGrid.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import CTASection from '../sections/CTASection.astro';
@@ -8,6 +9,7 @@ import HOAOfferBlock from '../sections/HOAOfferBlock.astro';
 import GBPEmbed from '../sections/GBPEmbed.astro';
 import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
 import Section from '../ui/Section.astro';
+import Card from '../ui/Card.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
 
 interface Props {
@@ -41,6 +43,8 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
 
 
 
+  <TrustBar />
+
   <Section bg="white" spacing="hero-tight">
     <div class="max-w-4xl mx-auto">
       <InlineLeadCapture
@@ -48,16 +52,16 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
         heading={`Get Electrical Help in ${city.name}`}
         subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
         city={city.name}
-        variant="compact"
+        variant="card"
       />
     </div>
   </Section>
   <Section bg="white">
-    <div class="max-w-4xl mx-auto">
+    <div class="max-w-5xl mx-auto">
       <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Why Homeowners in {city.name} Choose Wheyland Electric</h2>
-      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
+      <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {(city.localProofPoints || []).map((point) => (
-          <li class="rounded-lg bg-surface-subtle p-4 text-sm text-text-muted">• {point}</li>
+          <li class="rounded-xl border border-surface-subtle bg-white p-4 text-sm leading-relaxed text-text-muted shadow-sm">• {point}</li>
         ))}
       </ul>
     </div>
@@ -77,10 +81,10 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
       <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Neighborhoods We Serve</h2>
       <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
         {(city.neighborhoodSpotlights || []).map((item) => (
-          <div class="rounded-xl border border-surface-subtle bg-white p-4 shadow-sm">
-            <h3 class="text-sm font-semibold text-brand-slate">{item.name}</h3>
-            <p class="mt-2 text-sm text-text-muted">{item.blurb}</p>
-          </div>
+          <Card padding="md" shadow="sm" bordered={true}>
+            <h3 class="text-base font-semibold text-brand-slate">{item.name}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-text-muted">{item.blurb}</p>
+          </Card>
         ))}
       </div>
     </div>
@@ -91,7 +95,7 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
       <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Local Electrical Context</h2>
       <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {city.localCues.map((cue) => (
-          <li class="rounded-lg bg-white p-4 text-sm text-text-muted shadow-sm">• {cue}</li>
+          <li class="rounded-xl border border-surface-subtle bg-white p-4 text-sm leading-relaxed text-text-muted shadow-sm">• {cue}</li>
         ))}
       </ul>
     </div>

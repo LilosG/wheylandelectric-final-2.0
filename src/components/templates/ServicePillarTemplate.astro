@@ -89,20 +89,20 @@ const faqItems: FAQ[] =
   <TrustBar />
 
   <Section bg="white" spacing="hero-tight">
-    <div class="mx-auto max-w-4xl">
+    <div class="mx-auto max-w-5xl">
       <InlineLeadCapture
         formId={`inline-lead-service-${pillar.slug}`}
         heading={`Get a Fast Callback for ${pillar.name}`}
         subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
         service={pillar.name}
-        variant="compact"
+        variant="card"
       />
     </div>
   </Section>
 
-  <Section bg="white">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Service Overview</h2>
+  <Section bg="subtle">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Service Overview</h2>
       <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {serviceOverviewBullets.map((bullet) => (
           <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
@@ -127,7 +127,7 @@ const faqItems: FAQ[] =
   </Section>
 
   <Section bg="white">
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
       <div>
         <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">What&apos;s Included</h2>
         <ul class="space-y-3">
@@ -178,8 +178,8 @@ const faqItems: FAQ[] =
   </Section>
 
   <Section bg="white">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Pricing Factors</h2>
+    <div class="mx-auto max-w-5xl">
+      <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Pricing Factors</h2>
       <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
         {pricingFactors.map((factor) => (
           <li class="flex items-start gap-3 rounded-lg border border-surface-subtle bg-white p-4 text-sm text-text-muted">
@@ -193,11 +193,9 @@ const faqItems: FAQ[] =
     </div>
   </Section>
 
-  </Section>
-
   {
     relatedPillars.length > 0 && (
-      <Section bg="white">
+      <Section bg="subtle">
         <div class="mx-auto max-w-4xl">
           <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Related Services</h2>
           <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -213,7 +211,7 @@ const faqItems: FAQ[] =
     )
   }
 
-  <Section bg="subtle">
+  <Section bg="white">
     <div class="mx-auto max-w-3xl">
       <FAQAccordion faqs={faqItems} heading={`${pillar.name} FAQs`} />
     </div>

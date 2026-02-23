@@ -281,14 +281,14 @@ const hasAfterFullCta = Astro.slots.has('afterFullCta');
 
   {showInlineLeadCapture && !hasInlineCta && (
     <Section bg="white">
-      <div class="mx-auto max-w-4xl">
+      <div class="mx-auto max-w-5xl">
         <InlineLeadCapture
           formId={`inline-lead-${inlineLeadCity ? `${inlineLeadCity}-` : ''}${(inlineLeadService || 'general').toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
           heading="Need Help Choosing the Right Option?"
           subheading="Share a few details and we’ll recommend the best next step for your project."
           city={inlineLeadCity}
           service={inlineLeadService}
-          variant="compact"
+          variant="card"
         />
       </div>
     </Section>
