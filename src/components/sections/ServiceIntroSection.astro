@@ -1,32 +1,33 @@
 ---
 /**
  * ServiceIntroSection — shared between ServiceMoneyPageTemplate and ServicePillarTemplate.
- * Fixed visual structure: H2 + optional intro paragraph + 2-col checkmark differentiator grid (capped at 6).
+ * Fixed visual structure: H2 + intro paragraph + 2-col checkmark highlights grid (capped at 6).
  */
 interface Props {
-  heading: string;
-  introParagraph?: string;
-  bullets: string[];
+  title: string;
+  subtitle?: string;
+  highlights: string[];
 }
 
-const { heading, introParagraph, bullets } = Astro.props;
-const cappedBullets = bullets.slice(0, 6);
+const { title, subtitle, highlights } = Astro.props;
+const displayHighlights = highlights.slice(0, 6);
 ---
-<div>
-  <h2 class="mb-4 font-heading text-2xl font-bold text-brand-slate md:text-3xl">{heading}</h2>
-  {introParagraph && (
-    <p class="mb-6 text-base leading-relaxed text-text-muted md:text-lg">{introParagraph}</p>
-  )}
-  {cappedBullets.length > 0 && (
-    <ul class="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
-      {cappedBullets.map((item) => (
-        <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
-          <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+
+<section class="py-16 md:py-20 bg-white">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-slate mb-4">{title}</h2>
+    {subtitle && (
+      <p class="text-base text-text-muted leading-relaxed mb-8 max-w-3xl">{subtitle}</p>
+    )}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+      {displayHighlights.map(item => (
+        <div class="flex items-start gap-3 p-4 bg-surface-subtle rounded-lg">
+          <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
           </svg>
           <span class="text-sm text-text-muted">{item}</span>
-        </li>
+        </div>
       ))}
-    </ul>
-  )}
-</div>
+    </div>
+  </div>
+</section>

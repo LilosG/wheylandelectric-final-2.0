@@ -2,48 +2,39 @@
 /**
  * WhatsIncludedSection — shared between ServiceMoneyPageTemplate and ServicePillarTemplate.
  * Fixed visual structure: H2 + checklist (capped at 8) + optional constrained image.
- * Grid structure is always 2-col; image slot is simply omitted when absent.
+ * With image: 3/5 + 2/5 grid. Without image: full-width list.
  */
-import type { ServiceHeroImage } from '../../data/serviceHeroImages';
-
 interface Props {
-  bullets: string[];
-  serviceImg?: ServiceHeroImage;
-  imgFallbackLabel?: string;
+  items: string[];
+  image?: string;
+  imageAlt?: string;
 }
 
-const { bullets, serviceImg, imgFallbackLabel } = Astro.props;
-const cappedBullets = bullets.slice(0, 8);
+const { items, image, imageAlt = "Service detail" } = Astro.props;
+const displayItems = items.slice(0, 8);
 ---
-<div class="grid grid-cols-1 items-start gap-8 lg:grid-cols-2">
-  <div>
-    <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">What&apos;s Included</h2>
-    <ul class="space-y-3">
-      {cappedBullets.map((bullet) => (
-        <li class="flex items-start gap-3 py-1">
-          <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-          </svg>
-          <span class="text-base text-text-muted">{bullet}</span>
-        </li>
-      ))}
-    </ul>
-  </div>
 
-  {serviceImg ? (
-    <div class="overflow-hidden rounded-xl shadow-lg">
-      <img
-        src={serviceImg.src}
-        alt={serviceImg.alt}
-        width={serviceImg.width}
-        height={serviceImg.height}
-        class="max-h-[400px] w-full object-cover"
-        loading="lazy"
-      />
+<section class="py-16 md:py-20 bg-surface-subtle">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class={`grid gap-10 items-start ${image ? 'grid-cols-1 lg:grid-cols-5' : 'grid-cols-1'}`}>
+      <div class={image ? 'lg:col-span-3' : ''}>
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-slate mb-6">What&apos;s Included</h2>
+        <ul class="space-y-3">
+          {displayItems.map(item => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-sm text-text-muted leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {image && (
+        <div class="lg:col-span-2">
+          <img src={image} alt={imageAlt} class="rounded-xl shadow-lg object-cover w-full max-h-80" loading="lazy" />
+        </div>
+      )}
     </div>
-  ) : imgFallbackLabel ? (
-    <div class="flex min-h-[260px] items-center justify-center rounded-xl bg-surface-subtle">
-      <p class="text-sm text-text-muted">{imgFallbackLabel}</p>
-    </div>
-  ) : null}
-</div>
+  </div>
+</section>

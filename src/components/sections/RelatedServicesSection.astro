@@ -1,39 +1,33 @@
 ---
 /**
  * RelatedServicesSection — shared between ServiceMoneyPageTemplate and ServicePillarTemplate.
- * Enhanced cards with hover states, "Learn more" links, and centering logic for <3 items.
- * Each service item may optionally supply its own href; otherwise falls back to /services/{slug}/.
+ * 3-column grid (or centered 2). Cards are capped at 3. line-clamp-3 on descriptions.
  */
-type ServiceItem = { name: string; slug: string; shortDesc?: string; href?: string };
-
 interface Props {
-  heading?: string;
-  services: ServiceItem[];
+  title?: string;
+  services: { name: string; description: string; href: string }[];
 }
 
-const { heading = 'You May Also Need', services } = Astro.props;
-const cappedServices: ServiceItem[] = services.slice(0, 6);
-const useGrid = cappedServices.length >= 3;
+const { title = "Related Services", services } = Astro.props;
+const displayServices = services.slice(0, 3);
+const gridClass = displayServices.length === 2
+  ? "flex flex-wrap justify-center gap-6"
+  : "grid grid-cols-1 md:grid-cols-3 gap-6";
 ---
-<div>
-  <h2 class="mb-8 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">{heading}</h2>
-  <div class={useGrid
-    ? 'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3'
-    : 'flex flex-wrap justify-center gap-6'
-  }>
-    {cappedServices.map((service) => (
-      <a
-        href={service.href ?? `/services/${service.slug}/`}
-        class="group flex flex-col rounded-xl border border-transparent bg-white p-6 shadow-md transition-all hover:-translate-y-1 hover:border-brand-teal/30 hover:shadow-lg"
-      >
-        <h3 class="mb-2 font-semibold text-brand-slate transition-colors group-hover:text-brand-teal">
-          {service.name}
-        </h3>
-        {service.shortDesc && (
-          <p class="flex-1 text-sm leading-relaxed text-text-muted">{service.shortDesc}</p>
-        )}
-        <span class="mt-4 text-sm font-medium text-brand-teal">Learn more →</span>
-      </a>
-    ))}
+
+<section class="py-16 md:py-20 bg-surface-subtle">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-slate text-center mb-8">{title}</h2>
+    <div class={gridClass}>
+      {displayServices.map(s => (
+        <a href={s.href} class="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-1 transition-all p-6 flex flex-col h-full max-w-sm">
+          <h3 class="text-lg font-bold text-brand-slate mb-2">{s.name}</h3>
+          <p class="text-sm text-text-muted leading-relaxed flex-1 line-clamp-3">{s.description}</p>
+          <span class="text-brand-teal text-sm font-semibold mt-4 inline-flex items-center gap-1">
+            Learn more <span aria-hidden="true">→</span>
+          </span>
+        </a>
+      ))}
+    </div>
   </div>
-</div>
+</section>

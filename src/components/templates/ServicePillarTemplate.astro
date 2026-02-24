@@ -23,19 +23,16 @@ import type { ServiceHeroImage } from '../../data/serviceHeroImages';
  * 1. Breadcrumbs (PageLayout)
  * 2. Hero
  * 3. TrustBar
- * 4. Contextual CTA Band — bg-surface-subtle (compact)
- * 5. Service Overview — bg-white
- * 6. What's Included — bg-surface-subtle
- * 7. Process Steps — bg-white (omitted only if no steps)
- * 8. Pricing Factors — bg-surface-subtle
- * 9. Service Areas Served — bg-white
- * 10. Related Services — bg-surface-subtle (omitted only if no related pillars)
+ * 4. Contextual CTA Band — self-contained bg-surface-subtle (compact)
+ * 5. Service Overview — self-contained bg-white
+ * 6. What's Included — self-contained bg-surface-subtle
+ * 7. Process Steps — self-contained bg-white (omitted only if no steps)
+ * 8. Pricing Factors — self-contained bg-surface-subtle
+ * 9. Service Areas Served — self-contained bg-white
+ * 10. Related Services — self-contained bg-surface-subtle (omitted only if no related pillars)
  * 11. FAQs — bg-white (omitted only if no FAQs)
  * 12. Testimonial Block — dark navy (self-contained)
  * 13. CTA Section — dark navy (self-contained)
- *
- * Sections 5–8 use the EXACT SAME shared components as ServiceMoneyPageTemplate,
- * ensuring visual consistency between money pages and pillar pages.
  */
 
 interface Props {
@@ -79,7 +76,7 @@ const includedBullets =
 
 const processSteps =
   pillar.processSteps.length > 0
-    ? pillar.processSteps.slice(0, 6)
+    ? pillar.processSteps.slice(0, 5)
     : [
         { step: 1, title: 'Project Review', description: 'We review your goals, existing setup, and service requirements.' },
         { step: 2, title: 'Professional Execution', description: 'Our team completes the work safely with attention to detail.' },
@@ -88,7 +85,7 @@ const processSteps =
 
 const pricingFactors =
   pillar.pricingFactors.length > 0
-    ? pillar.pricingFactors.slice(0, 8)
+    ? pillar.pricingFactors.slice(0, 6)
     : ['Project scope', 'Equipment and materials', 'Panel capacity and circuit availability', 'Permit and inspection requirements'];
 
 const faqItems: FAQ[] =
@@ -110,10 +107,10 @@ const serviceAreaLinks = serviceAreaCities.map((city) => ({
   href: `/${city.slug}/${pillar.slug}/`,
 }));
 
-const relatedServiceItems = relatedPillars.map((p) => ({
+const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
   name: p.name,
-  slug: p.slug,
-  shortDesc: p.shortDesc,
+  description: p.shortDesc ?? '',
+  href: `/services/${p.slug}/`,
 }));
 ---
 
@@ -133,66 +130,51 @@ const relatedServiceItems = relatedPillars.map((p) => ({
   {/* 3. TrustBar */}
   <TrustBar />
 
-  {/* 4. Contextual CTA Band — bg-surface-subtle */}
-  <Section bg="subtle" spacing="none">
-    <ContextualCTABand
-      heading={`Get a Fast Callback for ${pillar.name}`}
-    />
-  </Section>
+  {/* 4. Contextual CTA Band — self-contained bg-surface-subtle */}
+  <ContextualCTABand
+    heading={`Get a Fast Callback for ${pillar.name}`}
+  />
 
-  {/* 5. Service Overview — bg-white */}
-  <Section bg="white">
-    <ServiceIntroSection
-      heading={`${pillar.name} — Service Overview`}
-      introParagraph={pillar.shortDesc}
-      bullets={overviewBullets}
-    />
-  </Section>
+  {/* 5. Service Overview — self-contained bg-white */}
+  <ServiceIntroSection
+    title={`${pillar.name} — Service Overview`}
+    subtitle={pillar.shortDesc}
+    highlights={overviewBullets}
+  />
 
-  {/* 6. What's Included — bg-surface-subtle */}
-  <Section bg="subtle">
-    <WhatsIncludedSection
-      bullets={includedBullets}
-      serviceImg={serviceImg}
-      imgFallbackLabel={`Professional ${pillar.name.toLowerCase()} from licensed electricians.`}
-    />
-  </Section>
+  {/* 6. What's Included — self-contained bg-surface-subtle */}
+  <WhatsIncludedSection
+    items={includedBullets}
+    image={serviceImg?.src}
+    imageAlt={serviceImg?.alt ?? `Professional ${pillar.name.toLowerCase()} from licensed electricians.`}
+  />
 
-  {/* 7. Process Steps — bg-white (omitted if no steps) */}
+  {/* 7. Process Steps — self-contained bg-white (omitted if no steps) */}
   {processSteps.length > 0 && (
-    <Section bg="white">
-      <ProcessStepsSection
-        heading="Our Process"
-        steps={processSteps}
-      />
-    </Section>
+    <ProcessStepsSection
+      steps={processSteps}
+    />
   )}
 
-  {/* 8. Pricing Factors — bg-surface-subtle */}
-  <Section bg="subtle">
-    <PricingFactorsSection
-      heading="Pricing Factors"
-      factors={pricingFactors}
-    />
-  </Section>
+  {/* 8. Pricing Factors — self-contained bg-surface-subtle */}
+  <PricingFactorsSection
+    title="Pricing Factors"
+    factors={pricingFactors}
+  />
 
-  {/* 9. Service Areas Served — bg-white */}
-  <Section bg="white">
-    <AreaLinksSection
-      heading="Service Areas Served"
-      subtitle={`We provide ${pillar.name.toLowerCase()} across San Diego County.`}
-      links={serviceAreaLinks}
-    />
-  </Section>
+  {/* 9. Service Areas Served — self-contained bg-white */}
+  <AreaLinksSection
+    title="Service Areas Served"
+    subtitle={`We provide ${pillar.name.toLowerCase()} across San Diego County.`}
+    links={serviceAreaLinks}
+  />
 
-  {/* 10. Related Services — bg-surface-subtle */}
+  {/* 10. Related Services — self-contained bg-surface-subtle */}
   {relatedServiceItems.length > 0 && (
-    <Section bg="subtle">
-      <RelatedServicesSection
-        heading="Related Services"
-        services={relatedServiceItems}
-      />
-    </Section>
+    <RelatedServicesSection
+      title="Related Services"
+      services={relatedServiceItems}
+    />
   )}
 
   {/* 11. FAQs — bg-white */}

@@ -22,15 +22,15 @@ import type { ServiceHeroImage } from '../../data/serviceHeroImages';
  * 1. Breadcrumbs (PageLayout)
  * 2. Hero — dark overlay, H1, subtitle, two CTA buttons
  * 3. TrustBar
- * 4. Intro Section — bg-white
- * 5. What's Included — bg-surface-subtle
- * 6. Process Steps — bg-white (omitted only if no steps data)
- * 7. Pricing Factors — bg-surface-subtle
- * 8. Mid-Page CTA Band — bg-white
- * 9. Related Services — bg-surface-subtle (omitted only if no related pillars)
+ * 4. Intro Section — bg-white (self-contained)
+ * 5. What's Included — bg-surface-subtle (self-contained)
+ * 6. Process Steps — bg-white (omitted only if no steps data, self-contained)
+ * 7. Pricing Factors — bg-surface-subtle (self-contained)
+ * 8. Mid-Page CTA Band — bg-surface-subtle (self-contained)
+ * 9. Related Services — bg-surface-subtle (omitted only if no related pillars, self-contained)
  * 10. FAQs — bg-white (omitted only if no FAQs)
  * 11. Bottom CTA — dark navy (CTASection)
- * 12. Also Serving — bg-surface-subtle (omitted only if no nearby cities)
+ * 12. Also Serving — bg-white (omitted only if no nearby cities, self-contained)
  */
 
 interface Props {
@@ -79,10 +79,9 @@ const {
 
 const cappedFaqs = faqs.slice(0, 10);
 
-const relatedLinks = relatedPillars.map((p) => ({
+const relatedLinks = relatedPillars.slice(0, 3).map((p) => ({
   name: `${p.name} in ${cityName}`,
-  slug: p.slug,
-  shortDesc: p.shortDesc,
+  description: p.shortDesc ?? '',
   href: `/${citySlug}/${p.slug}/`,
 }));
 
@@ -108,56 +107,44 @@ const nearbyLinks = nearbyCities.map((c) => ({
   {/* 3. TrustBar */}
   <TrustBar />
 
-  {/* 4. Intro Section — bg-white */}
-  <Section bg="white">
-    <ServiceIntroSection
-      heading={`Professional ${pillarName} in ${cityName}`}
-      bullets={overviewBullets}
-    />
-  </Section>
+  {/* 4. Intro Section — self-contained bg-white */}
+  <ServiceIntroSection
+    title={`Professional ${pillarName} in ${cityName}`}
+    highlights={overviewBullets}
+  />
 
-  {/* 5. What's Included — bg-surface-subtle */}
-  <Section bg="subtle">
-    <WhatsIncludedSection
-      bullets={includedBullets}
-      serviceImg={serviceImg}
-      imgFallbackLabel={`${pillarName} in ${cityName}`}
-    />
-  </Section>
+  {/* 5. What's Included — self-contained bg-surface-subtle */}
+  <WhatsIncludedSection
+    items={includedBullets}
+    image={serviceImg?.src}
+    imageAlt={serviceImg?.alt ?? `${pillarName} in ${cityName}`}
+  />
 
-  {/* 6. Process Steps — bg-white (omitted if no steps) */}
+  {/* 6. Process Steps — self-contained bg-white (omitted if no steps) */}
   {processSteps.length > 0 && (
-    <Section bg="white">
-      <ProcessStepsSection
-        heading={`How ${pillarName} Works in ${cityName}`}
-        steps={processSteps}
-      />
-    </Section>
+    <ProcessStepsSection
+      title={`How ${pillarName} Works in ${cityName}`}
+      steps={processSteps}
+    />
   )}
 
-  {/* 7. Pricing Factors — bg-surface-subtle */}
-  <Section bg="subtle">
-    <PricingFactorsSection
-      heading={`What Affects the Cost of ${pillarName} in ${cityName}`}
-      factors={pricingFactors}
-    />
-  </Section>
+  {/* 7. Pricing Factors — self-contained bg-surface-subtle */}
+  <PricingFactorsSection
+    title={`What Affects the Cost of ${pillarName} in ${cityName}`}
+    factors={pricingFactors}
+  />
 
-  {/* 8. Mid-Page CTA Band — bg-white */}
-  <Section bg="white" spacing="none">
-    <ContextualCTABand
-      heading={`Get a precise estimate for your ${cityName} project.`}
-    />
-  </Section>
+  {/* 8. Mid-Page CTA Band — self-contained bg-surface-subtle */}
+  <ContextualCTABand
+    heading={`Get a precise estimate for your ${cityName} project.`}
+  />
 
-  {/* 9. Related Services — bg-surface-subtle */}
+  {/* 9. Related Services — self-contained bg-surface-subtle */}
   {relatedLinks.length > 0 && (
-    <Section bg="subtle">
-      <RelatedServicesSection
-        heading="You May Also Need"
-        services={relatedLinks}
-      />
-    </Section>
+    <RelatedServicesSection
+      title="You May Also Need"
+      services={relatedLinks}
+    />
   )}
 
   {/* 10. FAQs — bg-white */}
@@ -176,14 +163,12 @@ const nearbyLinks = nearbyCities.map((c) => ({
     cityName={cityName}
   />
 
-  {/* 12. Also Serving — bg-surface-subtle */}
+  {/* 12. Also Serving — self-contained bg-white */}
   {nearbyLinks.length > 0 && (
-    <Section bg="subtle">
-      <AreaLinksSection
-        heading="Also Serving"
-        links={nearbyLinks}
-      />
-    </Section>
+    <AreaLinksSection
+      title="Also Serving"
+      links={nearbyLinks}
+    />
   )}
 
   {/* Navigation links */}

@@ -5,40 +5,29 @@
  * and ServiceMoneyPageTemplate.
  */
 interface Props {
-  heading: string;
+  title?: string;
   subtitle?: string;
   links: { name: string; href: string }[];
 }
 
-const { heading, subtitle, links } = Astro.props;
+const { title = "Service Areas", subtitle, links } = Astro.props;
 ---
-<div>
-  <h2 class="mb-2 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">{heading}</h2>
-  {subtitle && (
-    <p class="mb-6 text-center text-text-muted">{subtitle}</p>
-  )}
-  {!subtitle && <div class="mb-6" />}
-  <div class="flex flex-wrap justify-center gap-3">
-    {links.map((link) => (
-      <a
-        href={link.href}
-        class="inline-flex items-center gap-1.5 rounded-full border border-surface bg-white px-4 py-2 text-sm font-medium text-brand-slate transition-colors hover:border-brand-teal hover:text-brand-teal"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="h-3.5 w-3.5 shrink-0 text-brand-teal"
-          viewBox="0 0 20 20"
-          fill="currentColor"
-          aria-hidden="true"
-        >
-          <path
-            fill-rule="evenodd"
-            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-            clip-rule="evenodd"
-          />
-        </svg>
-        {link.name}
-      </a>
-    ))}
+
+<section class="py-12 md:py-16 bg-white">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-slate mb-2">{title}</h2>
+    {subtitle && <p class="text-text-muted text-sm mb-6">{subtitle}</p>}
+    {!subtitle && <div class="mb-6" />}
+    <div class="flex flex-wrap justify-center gap-3">
+      {links.map(link => (
+        <a href={link.href} class="inline-flex items-center gap-2 px-4 py-2 bg-surface-subtle hover:bg-surface text-sm font-medium text-brand-slate hover:text-brand-teal rounded-full border border-brand-teal/30 transition-colors">
+          <svg class="w-3.5 h-3.5 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+          </svg>
+          {link.name}
+        </a>
+      ))}
+    </div>
   </div>
-</div>
+</section>

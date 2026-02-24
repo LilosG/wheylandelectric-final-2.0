@@ -160,14 +160,12 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
     </Section>
   )}
 
-  {/* 11. Nearby Cities — bg-surface-subtle */}
+  {/* 11. Nearby Cities — self-contained bg-white */}
   {nearbyCities.length > 0 && (
-    <Section bg="subtle">
-      <AreaLinksSection
-        heading="Nearby Service Areas"
-        links={nearbyCities.map((c) => ({ name: `${c.name}, CA`, href: `/${c.slug}/` }))}
-      />
-    </Section>
+    <AreaLinksSection
+      title="Nearby Service Areas"
+      links={nearbyCities.map((c) => ({ name: `${c.name}, CA`, href: `/${c.slug}/` }))}
+    />
   )}
 
   {/* 12. CTA Section — dark navy (self-contained) */}
