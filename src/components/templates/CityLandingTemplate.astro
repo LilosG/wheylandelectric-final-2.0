@@ -164,6 +164,7 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
   {nearbyCities.length > 0 && (
     <AreaLinksSection
       title="Nearby Service Areas"
+      subtitle="We also serve these North County communities"
       links={nearbyCities.map((c) => ({ name: `${c.name}, CA`, href: `/${c.slug}/` }))}
     />
   )}
