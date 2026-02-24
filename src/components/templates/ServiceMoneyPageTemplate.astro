@@ -5,12 +5,13 @@ import TrustBar from '../sections/TrustBar.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import CTASection from '../sections/CTASection.astro';
 import Section from '../ui/Section.astro';
-import Card from '../ui/Card.astro';
 import ServiceIntroSection from '../sections/ServiceIntroSection.astro';
 import WhatsIncludedSection from '../sections/WhatsIncludedSection.astro';
 import ProcessStepsSection from '../sections/ProcessStepsSection.astro';
 import PricingFactorsSection from '../sections/PricingFactorsSection.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import AreaLinksSection from '../sections/AreaLinksSection.astro';
+import RelatedServicesSection from '../sections/RelatedServicesSection.astro';
 import type { FAQ, PageMeta, BreadcrumbItem, ServicePillar, City } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
 
@@ -77,6 +78,18 @@ const {
 } = Astro.props;
 
 const cappedFaqs = faqs.slice(0, 10);
+
+const relatedLinks = relatedPillars.map((p) => ({
+  name: `${p.name} in ${cityName}`,
+  slug: p.slug,
+  shortDesc: p.shortDesc,
+  href: `/${citySlug}/${p.slug}/`,
+}));
+
+const nearbyLinks = nearbyCities.map((c) => ({
+  name: `${pillarName} in ${c.name}`,
+  href: `/${c.slug}/${pillarSlug}/`,
+}));
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
@@ -131,24 +144,19 @@ const cappedFaqs = faqs.slice(0, 10);
   </Section>
 
   {/* 8. Mid-Page CTA Band — bg-white */}
-  <Section bg="white" spacing="hero-tight">
+  <Section bg="white" spacing="none">
     <ContextualCTABand
       heading={`Get a precise estimate for your ${cityName} project.`}
     />
   </Section>
 
   {/* 9. Related Services — bg-surface-subtle */}
-  {relatedPillars.length > 0 && (
+  {relatedLinks.length > 0 && (
     <Section bg="subtle">
-      <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">You May Also Need</h2>
-      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {relatedPillars.map((related) => (
-          <Card href={`/${citySlug}/${related.slug}/`} hoverable={true}>
-            <h3 class="mb-2 font-semibold text-brand-slate">{related.name} in {cityName}</h3>
-            <p class="text-sm text-text-muted">{related.shortDesc}</p>
-          </Card>
-        ))}
-      </div>
+      <RelatedServicesSection
+        heading="You May Also Need"
+        services={relatedLinks}
+      />
     </Section>
   )}
 
@@ -169,19 +177,12 @@ const cappedFaqs = faqs.slice(0, 10);
   />
 
   {/* 12. Also Serving — bg-surface-subtle */}
-  {nearbyCities.length > 0 && (
+  {nearbyLinks.length > 0 && (
     <Section bg="subtle">
-      <h2 class="mb-4 text-center font-heading text-xl font-bold text-brand-slate">Also Serving</h2>
-      <div class="flex flex-wrap justify-center gap-3">
-        {nearbyCities.map((nearby) => (
-          <a
-            href={`/${nearby.slug}/${pillarSlug}/`}
-            class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
-          >
-            {pillarName} in {nearby.name}
-          </a>
-        ))}
-      </div>
+      <AreaLinksSection
+        heading="Also Serving"
+        links={nearbyLinks}
+      />
     </Section>
   )}
 

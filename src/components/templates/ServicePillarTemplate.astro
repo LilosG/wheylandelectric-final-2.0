@@ -3,7 +3,6 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../sections/Hero.astro';
 import TrustBar from '../sections/TrustBar.astro';
 import Section from '../ui/Section.astro';
-import Card from '../ui/Card.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import CTASection from '../sections/CTASection.astro';
 import TestimonialBlock from '../sections/TestimonialBlock.astro';
@@ -12,6 +11,8 @@ import WhatsIncludedSection from '../sections/WhatsIncludedSection.astro';
 import ProcessStepsSection from '../sections/ProcessStepsSection.astro';
 import PricingFactorsSection from '../sections/PricingFactorsSection.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import AreaLinksSection from '../sections/AreaLinksSection.astro';
+import RelatedServicesSection from '../sections/RelatedServicesSection.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
 
@@ -103,6 +104,17 @@ const faqItems: FAQ[] =
           answer: 'Yes. We provide a clear project scope, timeline expectations, and cost drivers before scheduling work.',
         },
       ];
+
+const serviceAreaLinks = serviceAreaCities.map((city) => ({
+  name: city.name,
+  href: `/${city.slug}/${pillar.slug}/`,
+}));
+
+const relatedServiceItems = relatedPillars.map((p) => ({
+  name: p.name,
+  slug: p.slug,
+  shortDesc: p.shortDesc,
+}));
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
@@ -122,7 +134,7 @@ const faqItems: FAQ[] =
   <TrustBar />
 
   {/* 4. Contextual CTA Band — bg-surface-subtle */}
-  <Section bg="subtle" spacing="hero-tight">
+  <Section bg="subtle" spacing="none">
     <ContextualCTABand
       heading={`Get a Fast Callback for ${pillar.name}`}
     />
@@ -166,35 +178,20 @@ const faqItems: FAQ[] =
 
   {/* 9. Service Areas Served — bg-white */}
   <Section bg="white">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Service Areas Served</h2>
-      <div class="flex flex-wrap gap-3">
-        {serviceAreaCities.map((city) => (
-          <a
-            href={`/${city.slug}/`}
-            class="rounded-lg bg-surface-subtle px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
-          >
-            {city.name}
-          </a>
-        ))}
-      </div>
-    </div>
+    <AreaLinksSection
+      heading="Service Areas Served"
+      subtitle={`We provide ${pillar.name.toLowerCase()} across San Diego County.`}
+      links={serviceAreaLinks}
+    />
   </Section>
 
   {/* 10. Related Services — bg-surface-subtle */}
-  {relatedPillars.length > 0 && (
+  {relatedServiceItems.length > 0 && (
     <Section bg="subtle">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Related Services</h2>
-        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {relatedPillars.map((related) => (
-            <Card href={`/services/${related.slug}/`} hoverable={true}>
-              <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
-              <p class="text-sm text-text-muted">{related.shortDesc}</p>
-            </Card>
-          ))}
-        </div>
-      </div>
+      <RelatedServicesSection
+        heading="Related Services"
+        services={relatedServiceItems}
+      />
     </Section>
   )}
 

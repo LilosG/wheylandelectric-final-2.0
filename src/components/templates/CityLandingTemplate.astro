@@ -10,6 +10,7 @@ import TestimonialBlock from '../sections/TestimonialBlock.astro';
 import GBPEmbed from '../sections/GBPEmbed.astro';
 import Section from '../ui/Section.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import AreaLinksSection from '../sections/AreaLinksSection.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
 
 /**
@@ -71,7 +72,7 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
   <TrustBar />
 
   {/* 4. Contextual CTA Band — bg-surface-subtle */}
-  <Section bg="subtle" spacing="hero-tight">
+  <Section bg="subtle" spacing="none">
     <ContextualCTABand
       heading={`Need a licensed electrician in ${city.name}?`}
     />
@@ -162,17 +163,10 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
   {/* 11. Nearby Cities — bg-surface-subtle */}
   {nearbyCities.length > 0 && (
     <Section bg="subtle">
-      <h2 class="mb-5 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">Nearby Service Areas</h2>
-      <div class="flex flex-wrap justify-center gap-3">
-        {nearbyCities.map((nearby) => (
-          <a
-            href={`/${nearby.slug}/`}
-            class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
-          >
-            {nearby.name}, CA
-          </a>
-        ))}
-      </div>
+      <AreaLinksSection
+        heading="Nearby Service Areas"
+        links={nearbyCities.map((c) => ({ name: `${c.name}, CA`, href: `/${c.slug}/` }))}
+      />
     </Section>
   )}
 

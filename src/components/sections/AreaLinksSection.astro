@@ -1,0 +1,44 @@
+---
+/**
+ * AreaLinksSection — shared component for "Service Areas Served", "Nearby Service Areas",
+ * and "Also Serving" pill grids across ServicePillarTemplate, CityLandingTemplate,
+ * and ServiceMoneyPageTemplate.
+ */
+interface Props {
+  heading: string;
+  subtitle?: string;
+  links: { name: string; href: string }[];
+}
+
+const { heading, subtitle, links } = Astro.props;
+---
+<div>
+  <h2 class="mb-2 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">{heading}</h2>
+  {subtitle && (
+    <p class="mb-6 text-center text-text-muted">{subtitle}</p>
+  )}
+  {!subtitle && <div class="mb-6" />}
+  <div class="flex flex-wrap justify-center gap-3">
+    {links.map((link) => (
+      <a
+        href={link.href}
+        class="inline-flex items-center gap-1.5 rounded-full border border-surface bg-white px-4 py-2 text-sm font-medium text-brand-slate transition-colors hover:border-brand-teal hover:text-brand-teal"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-3.5 w-3.5 shrink-0 text-brand-teal"
+          viewBox="0 0 20 20"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        {link.name}
+      </a>
+    ))}
+  </div>
+</div>

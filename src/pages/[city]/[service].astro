@@ -51,7 +51,7 @@ const breadcrumbs = [
 
 const cityService = getCityServiceContent(city.slug, pillar.slug);
 
-const h1Tagline = pillar.h1TaglineByCity?.[city.slug] ?? `${pillar.name} in ${city.name}, CA`;
+const h1Tagline = `${pillar.name} in ${city.name}, CA`;
 
 const relatedPillars = (pillar.relatedServiceSlugs || pillar.relatedServices)
   .map((slug) => getPillarBySlug(slug))
@@ -77,7 +77,7 @@ const pricingFactors = (cityService?.pricingFactors?.length ? cityService.pricin
 
 const moneyPageFaqs: FAQ[] = (cityService?.faqs?.length ? cityService.faqs : pillar.faqs).slice(0, 10);
 
-const heroSubtitle = (overviewBullets.length > 0 ? overviewBullets : defaultOverviewBullets).slice(0, 2).join(' ');
+const heroSubtitle = `Professional ${pillar.name.toLowerCase()} for homes and businesses in ${city.name}. Licensed, bonded & insured with a 1-year labor warranty.`;
 ---
 
 <ServiceMoneyPageTemplate
