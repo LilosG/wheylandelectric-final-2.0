@@ -1972,16 +1972,15 @@ const normalizeCityServiceContent = (key: string, content: CityServiceContent): 
   const override = CITY_SERVICE_OVERRIDES[key] || {};
   const merged = { ...content, ...override };
 
-  const legacyIntroBullets = [
-    ...splitToBullets(merged.uniqueIntro).slice(0, 4),
-    ...splitToBullets(merged.understandingSection).slice(0, 6),
-  ];
-
-  const introBullets = ensureCount(
-    merged.introBullets || legacyIntroBullets,
-    6,
-    ['Code-compliant planning before installation begins.', 'Clear scope definition before work starts.']
-  ).slice(0, 10);
+  // Only use explicit overrides for introBullets — never derive from long prose.
+  // Pages without an explicit override fall back to pillar.overviewBullets (concise).
+  const introBullets = merged.introBullets
+    ? ensureCount(
+        merged.introBullets,
+        6,
+        ['Code-compliant planning before installation begins.', 'Clear scope definition before work starts.']
+      ).slice(0, 10)
+    : [];
 
   const includedItems = ensureCount(
     merged.includedItems || merged.scopedWhatsIncluded || [],

@@ -3,14 +3,37 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../sections/Hero.astro';
 import TrustBar from '../sections/TrustBar.astro';
 import Section from '../ui/Section.astro';
-import Card from '../ui/Card.astro';
-import ProcessStepCard from '../sections/ProcessStepCard.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
-import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
 import CTASection from '../sections/CTASection.astro';
 import TestimonialBlock from '../sections/TestimonialBlock.astro';
+import ServiceIntroSection from '../sections/ServiceIntroSection.astro';
+import WhatsIncludedSection from '../sections/WhatsIncludedSection.astro';
+import ProcessStepsSection from '../sections/ProcessStepsSection.astro';
+import PricingFactorsSection from '../sections/PricingFactorsSection.astro';
+import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import AreaLinksSection from '../sections/AreaLinksSection.astro';
+import RelatedServicesSection from '../sections/RelatedServicesSection.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
+
+/**
+ * ServicePillarTemplate — fixed-structure template for all 8 pillar pages.
+ *
+ * FIXED SECTION ORDER (no conditional visual logic):
+ * 1. Breadcrumbs (PageLayout)
+ * 2. Hero
+ * 3. TrustBar
+ * 4. Contextual CTA Band — self-contained bg-surface-subtle (compact)
+ * 5. Service Overview — self-contained bg-white
+ * 6. What's Included — self-contained bg-surface-subtle
+ * 7. Process Steps — self-contained bg-white (omitted only if no steps)
+ * 8. Pricing Factors — self-contained bg-surface-subtle
+ * 9. Service Areas Served — self-contained bg-white
+ * 10. Related Services — self-contained bg-surface-subtle (omitted only if no related pillars)
+ * 11. FAQs — bg-white (omitted only if no FAQs)
+ * 12. Testimonial Block — dark navy (self-contained)
+ * 13. CTA Section — dark navy (self-contained)
+ */
 
 interface Props {
   meta: PageMeta;
@@ -28,18 +51,23 @@ interface Props {
 
 const { meta, schemas, breadcrumbs, pillar, heroImage, serviceImg, serviceAreaCities, relatedPillars } = Astro.props;
 
-const serviceOverviewBullets =
+const overviewBullets =
   pillar.overviewBullets && pillar.overviewBullets.length > 0
-    ? pillar.overviewBullets
+    ? pillar.overviewBullets.slice(0, 6)
     : [
         `Upfront scope and safety review for ${pillar.name.toLowerCase()}.`,
         'Licensed installation with clean, code-compliant workmanship.',
         'Clear communication from estimate through final walkthrough.',
+        'Permit coordination support when required by project scope.',
+        'Final testing and handoff documentation provided.',
+        '1-year labor warranty on all workmanship.',
       ];
 
 const includedBullets =
   pillar.includedItems && pillar.includedItems.length > 0
-    ? pillar.includedItems
+    ? pillar.includedItems.slice(0, 8)
+    : pillar.includedBullets && pillar.includedBullets.length > 0
+    ? pillar.includedBullets.slice(0, 8)
     : [
         'Project walk-through and recommendation on next steps.',
         'Material and labor scope aligned to current electrical code.',
@@ -48,7 +76,7 @@ const includedBullets =
 
 const processSteps =
   pillar.processSteps.length > 0
-    ? pillar.processSteps
+    ? pillar.processSteps.slice(0, 5)
     : [
         { step: 1, title: 'Project Review', description: 'We review your goals, existing setup, and service requirements.' },
         { step: 2, title: 'Professional Execution', description: 'Our team completes the work safely with attention to detail.' },
@@ -57,12 +85,12 @@ const processSteps =
 
 const pricingFactors =
   pillar.pricingFactors.length > 0
-    ? pillar.pricingFactors
+    ? pillar.pricingFactors.slice(0, 6)
     : ['Project scope', 'Equipment and materials', 'Panel capacity and circuit availability', 'Permit and inspection requirements'];
 
 const faqItems: FAQ[] =
   pillar.faqs.length > 0
-    ? pillar.faqs
+    ? pillar.faqs.slice(0, 10)
     : [
         {
           question: `How do I get started with ${pillar.name.toLowerCase()}?`,
@@ -73,168 +101,94 @@ const faqItems: FAQ[] =
           answer: 'Yes. We provide a clear project scope, timeline expectations, and cost drivers before scheduling work.',
         },
       ];
+
+const serviceAreaLinks = serviceAreaCities.map((city) => ({
+  name: city.name,
+  href: `/${city.slug}/${pillar.slug}/`,
+}));
+
+const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
+  name: p.name,
+  description: p.shortDesc ?? '',
+  href: `/services/${p.slug}/`,
+}));
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
+  {/* 2. Hero */}
   <Hero
     title={`${pillar.name} in San Diego County`}
     subtitle={pillar.shortDesc}
     variant="compact"
     showTrustCard={false}
     showStatChips={false}
-    showCTAs={false}
+    showCTAs={true}
     backgroundImage={heroImage.src}
     backgroundImageAlt={heroImage.alt}
   />
 
+  {/* 3. TrustBar */}
   <TrustBar />
 
-  <Section bg="white" spacing="hero-tight">
-    <div class="mx-auto max-w-4xl">
-      <InlineLeadCapture
-        formId={`inline-lead-service-${pillar.slug}`}
-        heading={`Get a Fast Callback for ${pillar.name}`}
-        subheading="Tell us what you need and we’ll follow up with options, timeline, and next steps."
-        service={pillar.name}
-        variant="compact"
-      />
-    </div>
-  </Section>
+  {/* 4. Contextual CTA Band — self-contained bg-surface-subtle */}
+  <ContextualCTABand
+    heading={`Get a Fast Callback for ${pillar.name}`}
+  />
 
-  <Section bg="white">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Service Overview</h2>
-      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {serviceOverviewBullets.map((bullet) => (
-          <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
-            <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span class="text-sm text-text-muted">{bullet}</span>
-          </li>
-        ))}
-      </ul>
-      {pillar.serviceProofPoints && pillar.serviceProofPoints.length > 0 && (
-        <div class="mt-6 rounded-xl border border-surface-subtle bg-white p-5">
-          <h3 class="mb-3 text-base font-semibold text-brand-slate">Quality & Compliance Highlights</h3>
-          <ul class="space-y-2">
-            {pillar.serviceProofPoints.map((point) => (
-              <li class="text-sm text-text-muted">• {point}</li>
-            ))}
-          </ul>
-        </div>
-      )}
-    </div>
-  </Section>
+  {/* 5. Service Overview — self-contained bg-white */}
+  <ServiceIntroSection
+    title={`${pillar.name} — Service Overview`}
+    subtitle={pillar.shortDesc}
+    highlights={overviewBullets}
+  />
 
-  <Section bg="white">
-    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
-      <div>
-        <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">What&apos;s Included</h2>
-        <ul class="space-y-3">
-          {includedBullets.map((bullet) => (
-            <li class="flex items-start gap-3 text-text-muted">
-              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-              <span>{bullet}</span>
-            </li>
-          ))}
-        </ul>
+  {/* 6. What's Included — self-contained bg-surface-subtle */}
+  <WhatsIncludedSection
+    items={includedBullets}
+    image={serviceImg?.src}
+    imageAlt={serviceImg?.alt ?? `Professional ${pillar.name.toLowerCase()} from licensed electricians.`}
+  />
+
+  {/* 7. Process Steps — self-contained bg-white (omitted if no steps) */}
+  {processSteps.length > 0 && (
+    <ProcessStepsSection
+      steps={processSteps}
+    />
+  )}
+
+  {/* 8. Pricing Factors — self-contained bg-surface-subtle */}
+  <PricingFactorsSection
+    title="Pricing Factors"
+    factors={pricingFactors}
+  />
+
+  {/* 9. Service Areas Served — self-contained bg-white */}
+  <AreaLinksSection
+    title="Service Areas Served"
+    subtitle={`We provide ${pillar.name.toLowerCase()} across San Diego County.`}
+    links={serviceAreaLinks}
+  />
+
+  {/* 10. Related Services — self-contained bg-surface-subtle */}
+  {relatedServiceItems.length > 0 && (
+    <RelatedServicesSection
+      title="Related Services"
+      services={relatedServiceItems}
+    />
+  )}
+
+  {/* 11. FAQs — bg-white */}
+  {faqItems.length > 0 && (
+    <Section bg="white">
+      <div class="mx-auto max-w-3xl">
+        <FAQAccordion faqs={faqItems} heading={`${pillar.name} FAQs`} />
       </div>
+    </Section>
+  )}
 
-      <Card padding="none" shadow="lg" class="overflow-hidden bg-surface-subtle">
-        {
-          serviceImg ? (
-            <img
-              src={serviceImg.src}
-              alt={serviceImg.alt}
-              width={serviceImg.width}
-              height={serviceImg.height}
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
-          ) : (
-            <div class="flex min-h-[260px] items-center justify-center px-6 text-center">
-              <p class="text-sm text-text-muted">Professional {pillar.name.toLowerCase()} from licensed electricians.</p>
-            </div>
-          )
-        }
-      </Card>
-    </div>
-  </Section>
-
-  <Section bg="subtle">
-    <h2 class="mb-8 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">Our Process</h2>
-    <div class="mx-auto max-w-3xl space-y-6">
-      {processSteps.map((step) => (
-        <ProcessStepCard
-          step={step.step}
-          title={step.title}
-          description={step.description}
-          descriptionClass="text-text-muted text-sm"
-        />
-      ))}
-    </div>
-  </Section>
-
-  <Section bg="white">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Pricing Factors</h2>
-      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {pricingFactors.map((factor) => (
-          <li class="flex items-start gap-3 rounded-lg border border-surface-subtle bg-white p-4 text-sm text-text-muted">
-            <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-            </svg>
-            <span>{factor}</span>
-          </li>
-        ))}
-      </ul>
-    </div>
-  </Section>
-
-  <Section bg="subtle">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Service Areas Served</h2>
-      <div class="flex flex-wrap gap-3">
-        {serviceAreaCities.map((city) => (
-          <a
-            href={`/${city.slug}/`}
-            class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
-          >
-            {city.name}
-          </a>
-        ))}
-      </div>
-    </div>
-  </Section>
-
-  {
-    relatedPillars.length > 0 && (
-      <Section bg="white">
-        <div class="mx-auto max-w-4xl">
-          <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Related Services</h2>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedPillars.map((related) => (
-              <Card href={`/services/${related.slug}/`} hoverable={true}>
-                <h3 class="mb-2 font-semibold text-brand-slate">{related.name}</h3>
-                <p class="text-sm text-text-muted">{related.shortDesc}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </Section>
-    )
-  }
-
-  <Section bg="subtle">
-    <div class="mx-auto max-w-3xl">
-      <FAQAccordion faqs={faqItems} heading={`${pillar.name} FAQs`} />
-    </div>
-  </Section>
-
+  {/* 12. Testimonial Block — dark navy (self-contained) */}
   <TestimonialBlock serviceTag={pillar.slug} />
 
+  {/* 13. CTA Section — dark navy (self-contained) */}
   <CTASection subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`} />
 </PageLayout>

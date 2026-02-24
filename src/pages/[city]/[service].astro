@@ -1,10 +1,5 @@
 ---
 import ServiceMoneyPageTemplate from '../../components/templates/ServiceMoneyPageTemplate.astro';
-import CTABlock from '../../components/sections/CTABlock.astro';
-import CTASection from '../../components/sections/CTASection.astro';
-import Section from '../../components/ui/Section.astro';
-import Button from '../../components/ui/Button.astro';
-import Card from '../../components/ui/Card.astro';
 import { moneyPageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
@@ -12,7 +7,6 @@ import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
 import { getPublishedCities, getCityBySlug } from '../../data/cities';
 import { getPublishedPillars, getPillarBySlug } from '../../data/services';
 import { getCityServiceContent } from '../../data/cityServiceContent';
-import { site } from '../../data/site';
 import type { City, ServicePillar, FAQ } from '../../types';
 
 import { getServiceHeroImage } from '../../data/serviceHeroImages';
@@ -57,7 +51,7 @@ const breadcrumbs = [
 
 const cityService = getCityServiceContent(city.slug, pillar.slug);
 
-const h1Tagline = pillar.h1TaglineByCity?.[city.slug] ?? `${pillar.name} in ${city.name}, CA`;
+const h1Tagline = `${pillar.name} in ${city.name}, CA`;
 
 const relatedPillars = (pillar.relatedServiceSlugs || pillar.relatedServices)
   .map((slug) => getPillarBySlug(slug))
@@ -76,16 +70,14 @@ const defaultOverviewBullets = [
   'Options tailored to current needs and likely future loads.',
 ];
 
-const overviewBullets = (cityService?.introBullets?.length ? cityService.introBullets : pillar.overviewBullets || []).slice(0, 10);
-const includedItems = (cityService?.includedItems?.length ? cityService.includedItems : pillar.includedItems || pillar.includedBullets).slice(0, 16);
-const processSteps = (cityService?.processSteps?.length ? cityService.processSteps : pillar.processSteps).slice(0, 5);
-const pricingFactors = (cityService?.pricingFactors?.length ? cityService.pricingFactors : pillar.pricingFactors).slice(0, 10);
-const localProofPoints = (cityService?.localProofPoints?.length ? cityService.localProofPoints : city.localProofPoints || []).slice(0, 6);
+const overviewBullets = (cityService?.introBullets?.length ? cityService.introBullets : pillar.overviewBullets || []).slice(0, 6);
+const includedItems = (cityService?.includedItems?.length ? cityService.includedItems : pillar.includedItems || pillar.includedBullets).slice(0, 8);
+const processSteps = (cityService?.processSteps?.length ? cityService.processSteps : pillar.processSteps).slice(0, 6);
+const pricingFactors = (cityService?.pricingFactors?.length ? cityService.pricingFactors : pillar.pricingFactors).slice(0, 8);
 
-const moneyPageFaqs: FAQ[] = (cityService?.faqs?.length ? cityService.faqs : pillar.faqs).slice(0, 14);
+const moneyPageFaqs: FAQ[] = (cityService?.faqs?.length ? cityService.faqs : pillar.faqs).slice(0, 10);
 
-const heroSubtitle = (overviewBullets.length > 0 ? overviewBullets : defaultOverviewBullets).slice(0, 2).join(' ');
-
+const heroSubtitle = `Professional ${pillar.name.toLowerCase()} for homes and businesses in ${city.name}. Licensed, bonded & insured with a 1-year labor warranty.`;
 ---
 
 <ServiceMoneyPageTemplate
@@ -103,112 +95,18 @@ const heroSubtitle = (overviewBullets.length > 0 ? overviewBullets : defaultOver
   breadcrumbs={breadcrumbs}
   heroTitle={h1Tagline}
   heroSubtitle={heroSubtitle}
-  heroShowCTAs={false}
   backgroundImage={heroImage.src}
   backgroundImageAlt={heroImage.alt}
-  trustBarPlacement="afterHero"
-  inlineCtaSectionSpacing="hero-tight"
-  inlineLeadCity={city.name}
-  inlineLeadService={pillar.name}
-  detailHeading={`Professional ${pillar.name} in ${city.name}`}
-  detailBody=""
+  cityName={city.name}
+  pillarName={pillar.name}
+  citySlug={city.slug}
+  pillarSlug={pillar.slug}
   overviewBullets={overviewBullets.length > 0 ? overviewBullets : defaultOverviewBullets}
-  localProofPoints={localProofPoints}
   includedBullets={includedItems}
   serviceImg={serviceImg}
-  fallbackImageLabel={`${pillar.name} in ${city.name}`}
-  processHeading={`How ${pillar.name} Works in ${city.name}`}
   processSteps={processSteps}
-  processDescriptionClass="text-text-muted text-sm"
-  pricingHeading={`What Affects the Cost of ${pillar.name} in ${city.name}`}
-  pricingIntro=""
   pricingFactors={pricingFactors}
-  relatedSectionBg="subtle"
-  faqSectionBg="white"
-  faqHeading={`${pillar.name} in ${city.name} — FAQs`}
   faqs={moneyPageFaqs}
->
-  <Fragment slot="inlineCta">
-    <div class="flex flex-col justify-center gap-4 sm:flex-row">
-      <Button href="/free-estimates/" variant="primary" size="lg">Get a Free Estimate</Button>
-      <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg"
-        >Call {site.nap.phone}</Button
-      >
-    </div>
-  </Fragment>
-
-  <Fragment slot="pricingCta">
-    <CTABlock
-      heading={`Get a precise estimate for your ${city.name} project.`}
-      description=""
-      primaryText="Request Free Estimate"
-      secondaryText={`Call ${site.nap.phone}`}
-      secondaryHref={`tel:${site.nap.phoneTel}`}
-    />
-  </Fragment>
-
-  <Fragment slot="relatedContent">
-    {
-      relatedPillars.length > 0 && (
-        <>
-          <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate">You May Also Need</h2>
-          <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {relatedPillars.map((related) => (
-              <Card href={`/${city.slug}/${related.slug}/`} hoverable={true}>
-                <h3 class="mb-2 font-semibold text-brand-slate">
-                  {related.name} in {city.name}
-                </h3>
-                <p class="text-sm text-text-muted">{related.shortDesc}</p>
-              </Card>
-            ))}
-          </div>
-        </>
-      )
-    }
-  </Fragment>
-
-  <Fragment slot="fullCta">
-    <CTASection
-      title={`Need ${pillar.name} in ${city.name}?`}
-      subtitle={`Contact Wheyland Electric today for a free estimate. Licensed, bonded & insured with a 1-year labor warranty.`}
-      cityName={city.name}
-    />
-  </Fragment>
-
-  <Fragment slot="afterFullCta">
-    {
-      nearbyCities.length > 0 && (
-        <Section bg="subtle">
-          <h2 class="mb-4 text-center font-heading text-xl font-bold text-brand-slate">
-            Also Serving
-          </h2>
-          <div class="flex flex-wrap justify-center gap-3">
-            {nearbyCities.map((nearby) => (
-              <a
-                href={`/${nearby.slug}/${pillar.slug}/`}
-                class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
-              >
-                {pillar.name} in {nearby.name}
-              </a>
-            ))}
-          </div>
-        </Section>
-      )
-    }
-
-    <Section bg="white">
-      <div class="flex flex-wrap justify-center gap-4 text-sm">
-        <a href={`/${city.slug}/`} class="text-brand-teal transition-colors hover:text-brand-slate">
-          ← All services in {city.name}
-        </a>
-        <span class="text-surface-warm">|</span>
-        <a
-          href={`/services/${pillar.slug}/`}
-          class="text-brand-teal transition-colors hover:text-brand-slate"
-        >
-          {pillar.name} across all areas →
-        </a>
-      </div>
-    </Section>
-  </Fragment>
-</ServiceMoneyPageTemplate>
+  relatedPillars={relatedPillars}
+  nearbyCities={nearbyCities}
+/>

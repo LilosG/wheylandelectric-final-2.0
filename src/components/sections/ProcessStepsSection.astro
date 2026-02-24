@@ -1,0 +1,32 @@
+---
+/**
+ * ProcessStepsSection — shared between ServiceMoneyPageTemplate and ServicePillarTemplate.
+ * Fixed visual structure: centered H2 + vertical stack of numbered step cards (capped at 5).
+ */
+interface Props {
+  title?: string;
+  steps: { step?: number | string; title: string; description: string }[];
+}
+
+const { title = "Our Process", steps } = Astro.props;
+const displaySteps = steps.slice(0, 5);
+---
+
+<section class="py-16 md:py-20 bg-white">
+  <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 class="text-2xl md:text-3xl font-bold text-brand-slate text-center mb-10">{title}</h2>
+    <div class="space-y-4">
+      {displaySteps.map((step, i) => (
+        <div class="flex items-start gap-5 p-5 bg-surface-subtle rounded-xl">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full bg-brand-gold text-white font-bold text-sm flex items-center justify-center">
+            {i + 1}
+          </div>
+          <div>
+            <h3 class="font-semibold text-brand-slate">{step.title}</h3>
+            <p class="text-sm text-text-muted mt-1 leading-relaxed">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

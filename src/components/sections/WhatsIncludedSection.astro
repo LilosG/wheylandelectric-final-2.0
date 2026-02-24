@@ -1,0 +1,40 @@
+---
+/**
+ * WhatsIncludedSection — shared between ServiceMoneyPageTemplate and ServicePillarTemplate.
+ * Fixed visual structure: H2 + checklist (capped at 8) + optional constrained image.
+ * With image: 3/5 + 2/5 grid. Without image: full-width list.
+ */
+interface Props {
+  items: string[];
+  image?: string;
+  imageAlt?: string;
+}
+
+const { items, image, imageAlt = "Service detail" } = Astro.props;
+const displayItems = items.slice(0, 8);
+---
+
+<section class="py-16 md:py-20 bg-surface-subtle">
+  <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class={`grid gap-10 items-start ${image ? 'grid-cols-1 lg:grid-cols-5' : 'grid-cols-1'}`}>
+      <div class={image ? 'lg:col-span-3' : ''}>
+        <h2 class="text-2xl md:text-3xl font-bold text-brand-slate mb-6">What&apos;s Included</h2>
+        <ul class="space-y-3">
+          {displayItems.map(item => (
+            <li class="flex items-start gap-3">
+              <svg class="w-5 h-5 text-brand-teal flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              <span class="text-sm text-text-muted leading-relaxed">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      {image && (
+        <div class="lg:col-span-2">
+          <img src={image} alt={imageAlt} class="rounded-xl shadow-lg object-cover w-full max-h-80" loading="lazy" />
+        </div>
+      )}
+    </div>
+  </div>
+</section>

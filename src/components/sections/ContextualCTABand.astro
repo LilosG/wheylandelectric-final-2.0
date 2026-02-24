@@ -1,0 +1,31 @@
+---
+import { site } from '../../data/site';
+
+interface Props {
+  heading?: string;
+  phone?: string;
+  estimateUrl?: string;
+}
+
+const {
+  heading = 'Ready to get started?',
+  phone = site.nap.phone,
+  estimateUrl = '/free-estimates/',
+} = Astro.props;
+
+const phoneTel = `+1${phone.replace(/\D/g, '')}`;
+---
+
+<section class="py-8 bg-surface-subtle">
+  <div class="max-w-3xl mx-auto px-4 text-center">
+    <p class="text-base font-medium text-text-muted mb-3">{heading}</p>
+    <div class="flex flex-wrap justify-center gap-3">
+      <a href={estimateUrl} class="bg-brand-gold hover:bg-brand-gold-hover text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors shadow-sm">
+        Request Free Estimate
+      </a>
+      <a href={`tel:${phoneTel}`} class="border border-brand-slate text-brand-slate hover:bg-brand-slate hover:text-white text-sm font-semibold px-5 py-2.5 rounded-lg transition-colors">
+        Call {phone}
+      </a>
+    </div>
+  </div>
+</section>
