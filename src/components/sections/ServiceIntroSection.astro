@@ -1,0 +1,32 @@
+---
+/**
+ * ServiceIntroSection — shared between ServiceMoneyPageTemplate and ServicePillarTemplate.
+ * Fixed visual structure: H2 + optional intro paragraph + 2-col checkmark differentiator grid (capped at 6).
+ */
+interface Props {
+  heading: string;
+  introParagraph?: string;
+  bullets: string[];
+}
+
+const { heading, introParagraph, bullets } = Astro.props;
+const cappedBullets = bullets.slice(0, 6);
+---
+<div>
+  <h2 class="mb-4 font-heading text-2xl font-bold text-brand-slate md:text-3xl">{heading}</h2>
+  {introParagraph && (
+    <p class="mb-6 text-base leading-relaxed text-text-muted md:text-lg">{introParagraph}</p>
+  )}
+  {cappedBullets.length > 0 && (
+    <ul class="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+      {cappedBullets.map((item) => (
+        <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
+          <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+          </svg>
+          <span class="text-sm text-text-muted">{item}</span>
+        </li>
+      ))}
+    </ul>
+  )}
+</div>

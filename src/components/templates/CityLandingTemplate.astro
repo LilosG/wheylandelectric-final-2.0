@@ -1,11 +1,35 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../sections/Hero.astro';
+import TrustBar from '../sections/TrustBar.astro';
 import ServiceGrid from '../sections/ServiceGrid.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import CTASection from '../sections/CTASection.astro';
+import HOAOfferBlock from '../sections/HOAOfferBlock.astro';
+import TestimonialBlock from '../sections/TestimonialBlock.astro';
+import GBPEmbed from '../sections/GBPEmbed.astro';
 import Section from '../ui/Section.astro';
+import ContextualCTABand from '../sections/ContextualCTABand.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
+
+/**
+ * CityLandingTemplate — fixed-structure template for all 7 city pages.
+ *
+ * FIXED SECTION ORDER (no conditional visual logic):
+ * 1. Breadcrumbs (PageLayout)
+ * 2. Hero
+ * 3. TrustBar
+ * 4. Contextual CTA Band — bg-surface-subtle (compact)
+ * 5. Why Choose / Intro Content — bg-white
+ * 6. Services Grid — bg-surface-subtle
+ * 7. Neighborhoods — bg-white (omitted if no neighborhood data)
+ * 8. Local Electrical Context — bg-surface-subtle (omitted if no localCues)
+ * 9. HOA Block — bg-warm
+ * 10. FAQs — bg-white (omitted if no FAQs)
+ * 11. Nearby Cities — bg-surface-subtle (omitted if no nearby cities)
+ * 12. CTA Section — dark navy (self-contained)
+ * 13. GBP Embed — bg-white
+ */
 
 interface Props {
   city: City;
@@ -22,31 +46,60 @@ interface Props {
 }
 
 const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, schemas } = Astro.props;
+
+const cappedFaqs = cityFaqs.slice(0, 10);
+const cappedProofPoints = (city.localProofPoints || []).slice(0, 6);
+const cappedLocalCues = (city.localCues || []).slice(0, 6);
+const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
+  {/* 2. Hero */}
   <Hero
     title={`Electrician in ${city.name}, CA`}
     subtitle={`Licensed, bonded & insured electrical services for homes and businesses in ${city.name}.`}
     variant="compact"
     showTrustCard={false}
     showStatChips={false}
+    showCTAs={true}
     backgroundImage={cityHero.src}
     backgroundImageAlt={cityHero.alt}
     imagePosition="bottom"
   />
 
+  {/* 3. TrustBar */}
+  <TrustBar />
+
+  {/* 4. Contextual CTA Band — bg-surface-subtle */}
+  <Section bg="subtle" spacing="hero-tight">
+    <ContextualCTABand
+      heading={`Need a licensed electrician in ${city.name}?`}
+    />
+  </Section>
+
+  {/* 5. Why Choose / Intro Content — bg-white */}
   <Section bg="white">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Why Homeowners in {city.name} Choose Wheyland Electric</h2>
-      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {(city.localProofPoints || []).map((point) => (
-          <li class="rounded-lg bg-surface-subtle p-4 text-sm text-text-muted">• {point}</li>
-        ))}
-      </ul>
+    <div class="mx-auto max-w-4xl">
+      <h2 class="mb-4 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+        Why Homeowners in {city.name} Choose Wheyland Electric
+      </h2>
+      <p class="mb-6 text-base leading-relaxed text-text-muted md:text-lg">{city.localIntroSeed}</p>
+      {cappedProofPoints.length > 0 && (
+        <ul class="mt-6 grid grid-cols-1 gap-3 md:grid-cols-2">
+          {cappedProofPoints.map((point) => (
+            <li class="flex items-start gap-3 rounded-lg bg-surface-subtle p-4">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+              </svg>
+              <span class="text-sm text-text-muted">{point}</span>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   </Section>
 
+  {/* 6. Services Grid — bg-surface-subtle */}
   <Section bg="subtle">
     <ServiceGrid
       services={services}
@@ -56,37 +109,57 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
     />
   </Section>
 
-  <Section bg="white">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Neighborhoods We Serve</h2>
-      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
-        {(city.neighborhoodSpotlights || []).map((item) => (
-          <div class="rounded-xl border border-surface-subtle bg-white p-4 shadow-sm">
-            <h3 class="text-sm font-semibold text-brand-slate">{item.name}</h3>
-            <p class="mt-2 text-sm text-text-muted">{item.blurb}</p>
-          </div>
-        ))}
+  {/* 7. Neighborhoods — bg-white */}
+  {cappedNeighborhoods.length > 0 && (
+    <Section bg="white">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Neighborhoods We Serve</h2>
+        <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {cappedNeighborhoods.map((item) => (
+            <div class="rounded-xl border border-surface-subtle bg-white p-4 shadow-sm">
+              <h3 class="text-sm font-semibold text-brand-slate">{item.name}</h3>
+              <p class="mt-2 text-sm text-text-muted">{item.blurb}</p>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </Section>
+  )}
+
+  {/* 8. Local Electrical Context — bg-surface-subtle */}
+  {cappedLocalCues.length > 0 && (
+    <Section bg="subtle">
+      <div class="mx-auto max-w-4xl">
+        <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Local Electrical Context</h2>
+        <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
+          {cappedLocalCues.map((cue) => (
+            <li class="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+              <span class="text-sm text-text-muted">{cue}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
+  )}
+
+  {/* 9. HOA Block — bg-warm */}
+  <Section bg="warm">
+    <HOAOfferBlock cityName={city.name} />
   </Section>
 
-  <Section bg="subtle">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Local Electrical Context</h2>
-      <ul class="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {city.localCues.map((cue) => (
-          <li class="rounded-lg bg-white p-4 text-sm text-text-muted shadow-sm">• {cue}</li>
-        ))}
-      </ul>
-    </div>
-  </Section>
+  {/* 10. FAQs — bg-white */}
+  {cappedFaqs.length > 0 && (
+    <Section bg="white">
+      <div class="mx-auto max-w-3xl">
+        <FAQAccordion faqs={cappedFaqs} heading={`${city.name} Electrician FAQs`} />
+      </div>
+    </Section>
+  )}
 
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto">
-      <FAQAccordion faqs={cityFaqs} heading={`${city.name} Electrician FAQs`} />
-    </div>
-  </Section>
-
+  {/* 11. Nearby Cities — bg-surface-subtle */}
   {nearbyCities.length > 0 && (
     <Section bg="subtle">
       <h2 class="mb-5 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">Nearby Service Areas</h2>
@@ -103,5 +176,13 @@ const { city, services, nearbyCities, cityFaqs, meta, breadcrumbs, cityHero, sch
     </Section>
   )}
 
+  {/* 12. CTA Section — dark navy (self-contained) */}
   <CTASection cityName={city.name} />
+
+  {/* 13. GBP Embed — bg-white */}
+  <Section bg="white">
+    <div class="mx-auto max-w-4xl">
+      <GBPEmbed heading={`Find Wheyland Electric Near ${city.name}`} />
+    </div>
+  </Section>
 </PageLayout>

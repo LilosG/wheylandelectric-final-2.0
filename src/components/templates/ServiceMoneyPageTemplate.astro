@@ -3,82 +3,55 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Hero from '../sections/Hero.astro';
 import TrustBar from '../sections/TrustBar.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
+import CTASection from '../sections/CTASection.astro';
 import Section from '../ui/Section.astro';
-import InlineLeadCapture from '../forms/InlineLeadCapture.astro';
 import Card from '../ui/Card.astro';
-import ProcessStepCard from '../sections/ProcessStepCard.astro';
-import type { FAQ, PageMeta, BreadcrumbItem } from '../../types';
+import ServiceIntroSection from '../sections/ServiceIntroSection.astro';
+import WhatsIncludedSection from '../sections/WhatsIncludedSection.astro';
+import ProcessStepsSection from '../sections/ProcessStepsSection.astro';
+import PricingFactorsSection from '../sections/PricingFactorsSection.astro';
+import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import type { FAQ, PageMeta, BreadcrumbItem, ServicePillar, City } from '../../types';
 import type { ServiceHeroImage } from '../../data/serviceHeroImages';
 
 /**
- * Required props:
- * - meta: SEO metadata object consumed by PageLayout.
- * - schemas: schema array for structured data.
- * - breadcrumbs: breadcrumb links consumed by PageLayout.
- * - heroTitle / heroSubtitle: hero text content.
- * - backgroundImage / backgroundImageAlt: Hero image inputs forwarded to Hero.
- * - detailHeading / detailBody / includedBullets: service detail section copy and bullets.
- * - pricingHeading / pricingIntro / pricingFactors: pricing section content.
- * - faqHeading / faqs: FAQ block content.
+ * ServiceMoneyPageTemplate — fixed-structure template for all 56 money pages.
  *
- * Optional props and defaults:
- * - serviceImg: `undefined` (falls back to `fallbackImageLabel` text block).
- * - fallbackImageLabel: ''.
- * - inlineCtaSectionClass: ''.
- * - inlineCtaSectionSpacing: 'default'.
- * - trustBarPlacement: 'afterHero'.
- * - processHeading: '' (process section hidden if empty or no steps).
- * - processSteps: [] (process section hidden when empty).
- * - processDescriptionClass: 'text-text-muted'.
- * - showPricingSection: true.
- * - pricingSectionBg: 'white'.
- * - relatedSectionBg: 'subtle'.
- * - faqSectionBg: 'white'.
- * - showFaqSection: true.
- * - heroShowCTAs: true.
- *
- * Named slots:
- * - inlineCta, detailBeforeBullets, pricingCta, relatedContent, testimonial, fullCta, afterFullCta.
+ * FIXED SECTION ORDER (no conditional visual logic):
+ * 1. Breadcrumbs (PageLayout)
+ * 2. Hero — dark overlay, H1, subtitle, two CTA buttons
+ * 3. TrustBar
+ * 4. Intro Section — bg-white
+ * 5. What's Included — bg-surface-subtle
+ * 6. Process Steps — bg-white (omitted only if no steps data)
+ * 7. Pricing Factors — bg-surface-subtle
+ * 8. Mid-Page CTA Band — bg-white
+ * 9. Related Services — bg-surface-subtle (omitted only if no related pillars)
+ * 10. FAQs — bg-white (omitted only if no FAQs)
+ * 11. Bottom CTA — dark navy (CTASection)
+ * 12. Also Serving — bg-surface-subtle (omitted only if no nearby cities)
  */
+
 interface Props {
   meta: PageMeta;
   schemas: Record<string, unknown>[];
   breadcrumbs: BreadcrumbItem[];
   heroTitle: string;
   heroSubtitle: string;
-  heroShowCTAs?: boolean;
   backgroundImage?: string;
   backgroundImageAlt?: string;
-  trustBarPlacement?: 'none' | 'afterHero' | 'afterPricing';
-  showInlineLeadCapture?: boolean;
-  inlineLeadCity?: string;
-  inlineLeadService?: string;
-  inlineCtaSectionSpacing?: 'default' | 'hero-tight' | 'hero-adjacent' | 'none';
-  inlineCtaSectionClass?: string;
-  detailHeading: string;
-  detailBody?: string;
-  overviewBullets?: string[];
-  localProofPoints?: string[];
+  cityName: string;
+  pillarName: string;
+  citySlug: string;
+  pillarSlug: string;
+  overviewBullets: string[];
   includedBullets: string[];
-  includedListClass?: string;
-  includedItemClass?: string;
-  includedIconClass?: string;
   serviceImg?: ServiceHeroImage;
-  fallbackImageLabel?: string;
-  processHeading?: string;
-  processSteps?: { step: number | string; title: string; description: string }[];
-  processDescriptionClass?: string;
-  showPricingSection?: boolean;
-  pricingSectionBg?: 'white' | 'subtle';
-  pricingHeading: string;
-  pricingIntro?: string;
+  processSteps: { step: number | string; title: string; description: string }[];
   pricingFactors: string[];
-  pricingItemClass?: string;
-  relatedSectionBg?: 'white' | 'subtle';
-  faqSectionBg?: 'white' | 'subtle';
-  showFaqSection?: boolean;
-  faqHeading: string;
   faqs: FAQ[];
+  relatedPillars: Pick<ServicePillar, 'name' | 'slug' | 'shortDesc'>[];
+  nearbyCities: Pick<City, 'slug' | 'name'>[];
 }
 
 const {
@@ -87,232 +60,141 @@ const {
   breadcrumbs,
   heroTitle,
   heroSubtitle,
-  heroShowCTAs = true,
   backgroundImage,
   backgroundImageAlt,
-  trustBarPlacement = 'afterHero',
-  showInlineLeadCapture = true,
-  inlineLeadCity,
-  inlineLeadService,
-  inlineCtaSectionSpacing = 'default',
-  inlineCtaSectionClass = '',
-  detailHeading,
-  detailBody = '',
-  overviewBullets = [],
-  localProofPoints = [],
+  cityName,
+  pillarName,
+  citySlug,
+  pillarSlug,
+  overviewBullets,
   includedBullets,
-  includedListClass = 'space-y-2',
-  includedItemClass = 'flex items-start gap-2 text-text-muted',
-  includedIconClass = 'w-4 h-4 text-brand-teal shrink-0 mt-1',
   serviceImg,
-  fallbackImageLabel = '',
-  processHeading = '',
-  processSteps = [],
-  processDescriptionClass = 'text-text-muted',
-  showPricingSection = true,
-  pricingSectionBg = 'white',
-  pricingHeading,
-  pricingIntro = '',
+  processSteps,
   pricingFactors,
-  pricingItemClass = 'flex items-start gap-2 text-text-muted',
-  relatedSectionBg = 'subtle',
-  faqSectionBg = 'white',
-  showFaqSection = true,
-  faqHeading,
   faqs,
+  relatedPillars,
+  nearbyCities,
 } = Astro.props;
 
-const hasInlineCta = Astro.slots.has('inlineCta');
-const hasDetailBeforeBullets = Astro.slots.has('detailBeforeBullets');
-const hasPricingCta = Astro.slots.has('pricingCta');
-const hasRelatedContent = Astro.slots.has('relatedContent');
-const hasTestimonial = Astro.slots.has('testimonial');
-const hasFullCta = Astro.slots.has('fullCta');
-const hasAfterFullCta = Astro.slots.has('afterFullCta');
+const cappedFaqs = faqs.slice(0, 10);
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
+  {/* 2. Hero */}
   <Hero
     title={heroTitle}
     subtitle={heroSubtitle}
     variant="compact"
     showTrustCard={false}
     showStatChips={false}
-    showCTAs={heroShowCTAs}
+    showCTAs={true}
     backgroundImage={backgroundImage}
     backgroundImageAlt={backgroundImageAlt}
   />
 
-  {trustBarPlacement === 'afterHero' && <TrustBar />}
+  {/* 3. TrustBar */}
+  <TrustBar />
 
-  {
-    hasInlineCta && (
-      <Section bg="white" spacing={inlineCtaSectionSpacing} class={inlineCtaSectionClass}>
-        <slot name="inlineCta" />
-      </Section>
-    )
-  }
-
+  {/* 4. Intro Section — bg-white */}
   <Section bg="white">
-    <div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
-      <div>
-        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-          {detailHeading}
-        </h2>
-        {overviewBullets.length > 0 && (
-          <ul class="mb-6 space-y-2">
-            {overviewBullets.map((item) => (
-              <li class="flex items-start gap-2 text-sm text-text-muted">
-                <svg class="mt-0.5 h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-                </svg>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        )}
-        {detailBody && <p class="mb-6 leading-relaxed text-text-muted">{detailBody}</p>}
-        {localProofPoints.length > 0 && (
-          <ul class="mb-6 grid grid-cols-1 gap-2 sm:grid-cols-2">
-            {localProofPoints.map((point) => (
-              <li class="rounded-lg bg-surface-subtle p-3 text-sm text-text-muted">• {point}</li>
-            ))}
-          </ul>
-        )}
-        {hasDetailBeforeBullets && <slot name="detailBeforeBullets" />}
-        <h3 class="mb-3 text-lg font-semibold text-brand-slate">What's Included</h3>
-        <ul class={includedListClass}>
-          {
-            includedBullets.map((bullet) => (
-              <li class={includedItemClass}>
-                <svg
-                  class={includedIconClass}
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    stroke-width="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                {bullet}
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-      <Card padding="none" shadow="lg" class="overflow-hidden bg-surface-subtle">
-        {
-          serviceImg ? (
-            <img
-              src={serviceImg.src}
-              alt={serviceImg.alt}
-              width={serviceImg.width}
-              height={serviceImg.height}
-              class="h-full w-full object-cover"
-              loading="lazy"
-            />
-          ) : (
-            <div class="flex min-h-[250px] items-center justify-center">
-              <p class="text-sm text-text-muted">{fallbackImageLabel}</p>
-            </div>
-          )
-        }
-      </Card>
-    </div>
+    <ServiceIntroSection
+      heading={`Professional ${pillarName} in ${cityName}`}
+      bullets={overviewBullets}
+    />
   </Section>
 
-  {
-    processHeading && processSteps.length > 0 && (
-      <Section bg="subtle">
-        <h2 class="mb-8 text-center font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-          {processHeading}
-        </h2>
-        <div class="mx-auto max-w-3xl space-y-6">
-          {processSteps.map((step) => (
-            <ProcessStepCard
-              step={step.step}
-              title={step.title}
-              description={step.description}
-              descriptionClass={processDescriptionClass}
-            />
-          ))}
-        </div>
-      </Section>
-    )
-  }
+  {/* 5. What's Included — bg-surface-subtle */}
+  <Section bg="subtle">
+    <WhatsIncludedSection
+      bullets={includedBullets}
+      serviceImg={serviceImg}
+      imgFallbackLabel={`${pillarName} in ${cityName}`}
+    />
+  </Section>
 
-  {
-    showPricingSection && (
-      <Section bg={pricingSectionBg}>
-        <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
-          {pricingHeading}
-        </h2>
-        {pricingIntro && <p class="mb-6 text-text-muted">{pricingIntro}</p>}
-        <ul class="mb-8 grid grid-cols-1 gap-3 sm:grid-cols-2">
-          {pricingFactors.map((factor) => (
-            <li class={pricingItemClass}>
-              <svg
-                class="mt-1 h-4 w-4 shrink-0 text-brand-teal-light"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              {factor}
-            </li>
-          ))}
-        </ul>
-        {hasPricingCta && <slot name="pricingCta" />}
-      </Section>
-    )
-  }
-
-  {trustBarPlacement === 'afterPricing' && <TrustBar />}
-
-  {showInlineLeadCapture && !hasInlineCta && (
+  {/* 6. Process Steps — bg-white (omitted if no steps) */}
+  {processSteps.length > 0 && (
     <Section bg="white">
-      <div class="mx-auto max-w-4xl">
-        <InlineLeadCapture
-          formId={`inline-lead-${inlineLeadCity ? `${inlineLeadCity}-` : ''}${(inlineLeadService || 'general').toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-          heading="Need Help Choosing the Right Option?"
-          subheading="Share a few details and we’ll recommend the best next step for your project."
-          city={inlineLeadCity}
-          service={inlineLeadService}
-          variant="compact"
-        />
+      <ProcessStepsSection
+        heading={`How ${pillarName} Works in ${cityName}`}
+        steps={processSteps}
+      />
+    </Section>
+  )}
+
+  {/* 7. Pricing Factors — bg-surface-subtle */}
+  <Section bg="subtle">
+    <PricingFactorsSection
+      heading={`What Affects the Cost of ${pillarName} in ${cityName}`}
+      factors={pricingFactors}
+    />
+  </Section>
+
+  {/* 8. Mid-Page CTA Band — bg-white */}
+  <Section bg="white" spacing="hero-tight">
+    <ContextualCTABand
+      heading={`Get a precise estimate for your ${cityName} project.`}
+    />
+  </Section>
+
+  {/* 9. Related Services — bg-surface-subtle */}
+  {relatedPillars.length > 0 && (
+    <Section bg="subtle">
+      <h2 class="mb-6 font-heading text-2xl font-bold text-brand-slate md:text-3xl">You May Also Need</h2>
+      <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {relatedPillars.map((related) => (
+          <Card href={`/${citySlug}/${related.slug}/`} hoverable={true}>
+            <h3 class="mb-2 font-semibold text-brand-slate">{related.name} in {cityName}</h3>
+            <p class="text-sm text-text-muted">{related.shortDesc}</p>
+          </Card>
+        ))}
       </div>
     </Section>
   )}
 
-  {
-    hasRelatedContent && (
-      <Section bg={relatedSectionBg}>
-        <slot name="relatedContent" />
-      </Section>
-    )
-  }
+  {/* 10. FAQs — bg-white */}
+  {cappedFaqs.length > 0 && (
+    <Section bg="white">
+      <div class="mx-auto max-w-3xl">
+        <FAQAccordion faqs={cappedFaqs} heading={`${pillarName} in ${cityName} — FAQs`} />
+      </div>
+    </Section>
+  )}
 
-  {
-    showFaqSection && (
-      <Section bg={faqSectionBg}>
-        <div class="mx-auto max-w-3xl">
-          <FAQAccordion faqs={faqs} heading={faqHeading} />
-        </div>
-      </Section>
-    )
-  }
+  {/* 11. Bottom CTA — dark navy */}
+  <CTASection
+    title={`Need ${pillarName} in ${cityName}?`}
+    subtitle={`Contact Wheyland Electric today for a free estimate. Licensed, bonded & insured with a 1-year labor warranty.`}
+    cityName={cityName}
+  />
 
-  {hasTestimonial && <slot name="testimonial" />}
-  {hasFullCta && <slot name="fullCta" />}
-  {hasAfterFullCta && <slot name="afterFullCta" />}
+  {/* 12. Also Serving — bg-surface-subtle */}
+  {nearbyCities.length > 0 && (
+    <Section bg="subtle">
+      <h2 class="mb-4 text-center font-heading text-xl font-bold text-brand-slate">Also Serving</h2>
+      <div class="flex flex-wrap justify-center gap-3">
+        {nearbyCities.map((nearby) => (
+          <a
+            href={`/${nearby.slug}/${pillarSlug}/`}
+            class="rounded-lg bg-white px-4 py-2 text-sm font-medium text-brand-slate shadow-sm transition-shadow hover:text-brand-teal hover:shadow-md"
+          >
+            {pillarName} in {nearby.name}
+          </a>
+        ))}
+      </div>
+    </Section>
+  )}
+
+  {/* Navigation links */}
+  <Section bg="white" spacing="hero-tight">
+    <div class="flex flex-wrap justify-center gap-4 text-sm">
+      <a href={`/${citySlug}/`} class="text-brand-teal transition-colors hover:text-brand-slate">
+        ← All services in {cityName}
+      </a>
+      <span class="text-surface-warm">|</span>
+      <a href={`/services/${pillarSlug}/`} class="text-brand-teal transition-colors hover:text-brand-slate">
+        {pillarName} across all areas →
+      </a>
+    </div>
+  </Section>
 </PageLayout>

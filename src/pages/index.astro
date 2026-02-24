@@ -2,6 +2,7 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
+import HomeEstimateSection from '../components/sections/HomeEstimateSection.astro';
 import ServiceGrid from '../components/sections/ServiceGrid.astro';
 import CityGrid from '../components/sections/CityGrid.astro';
 import CustomerTypeCard from '../components/sections/CustomerTypeCard.astro';
@@ -33,32 +34,22 @@ const cities = getPublishedCities();
   {/* 2. TrustBar — columbia blue strip */}
   <TrustBar />
 
-  {/* 3. Services — white bg */}
-  <Section bg="white">
+  {/* 3. Estimate Section — two-column form */}
+  <HomeEstimateSection />
+
+  {/* 4. Services — surface-subtle bg */}
+  <Section bg="subtle">
     <ServiceGrid services={services} heading="Electrical Services You Can Count On" />
     <div class="text-center mt-8">
       <Button href="/services/" variant="secondary">View All Services</Button>
     </div>
   </Section>
 
-  <Section bg="white" spacing="hero-adjacent">
-    <div class="max-w-4xl mx-auto">
-      <p class="text-text-muted text-lg leading-relaxed mb-5">
-        Wheyland Electric delivers full-service installation, repairs, and maintenance with transparent communication from estimate through final walkthrough.
-      </p>
-      <ul class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-        <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Residential service upgrades, rewiring, and lighting improvements.</li>
-        <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Commercial tenant improvements and dependable troubleshooting support.</li>
-        <li class="rounded-lg bg-surface-subtle px-4 py-3 text-sm text-text-muted">Permit-ready workmanship backed by licensing, insurance, and warranty coverage.</li>
-      </ul>
-    </div>
-  </Section>
-
-  {/* 4. Service Areas — dark indigo bg (self-contained) */}
+  {/* 5. Service Areas — dark indigo bg (self-contained) */}
   <CityGrid cities={cities} />
 
-  {/* 5. Who We Work With — surface-subtle bg */}
-  <Section bg="subtle">
+  {/* 6. Who We Work With — white bg */}
+  <Section bg="white">
     <div class="text-center mb-12">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-brand-slate">
         Who We Work With
@@ -92,20 +83,20 @@ const cities = getPublishedCities();
     </div>
   </Section>
 
-  {/* 6. HOA Maintenance — warm gold-tinted bg */}
+  {/* 7. HOA Maintenance — warm gold-tinted bg */}
   <Section bg="warm">
     <HOAOfferBlock />
   </Section>
 
-  {/* 7. Testimonials — dark indigo bg (self-contained) */}
+  {/* 8. Testimonials — dark indigo bg (self-contained) */}
   <TestimonialBlock />
 
-  {/* 8. About Preview — white bg (self-contained) */}
+  {/* 9. About Preview — white bg (self-contained) */}
   <AboutPreview />
 
-  {/* 9. CTA — dark indigo with radial gradient (self-contained) */}
+  {/* 10. CTA — dark indigo with radial gradient (self-contained) */}
   <CTASection />
 
-  {/* 10. Map / Local Service — white bg (self-contained) */}
+  {/* 11. Map / Local Service — white bg (self-contained) */}
   <MapSection />
 </PageLayout>

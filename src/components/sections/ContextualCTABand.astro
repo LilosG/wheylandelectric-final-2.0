@@ -1,0 +1,17 @@
+---
+import { site } from '../../data/site';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  heading?: string;
+}
+
+const { heading = 'Ready to get started?' } = Astro.props;
+---
+<div class="max-w-2xl mx-auto text-center py-8">
+  <p class="text-lg font-semibold text-brand-slate mb-5">{heading}</p>
+  <div class="flex flex-col sm:flex-row gap-3 justify-center">
+    <Button href="/free-estimates/" variant="primary" size="lg">Request Free Estimate</Button>
+    <Button href={`tel:${site.nap.phoneTel}`} variant="secondary" size="lg">Call {site.nap.phone}</Button>
+  </div>
+</div>
