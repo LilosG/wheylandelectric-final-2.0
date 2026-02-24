@@ -82,9 +82,11 @@ export const serviceHeroImages: HeroImageMap = {
  * Uses varied, well-optimized service images for visual diversity while maintaining brand consistency
  */
 export const cityHeroImages: HeroImageMap = {
+  // TODO: Client requested the "Welcome to Carlsbad" road-sign-over-road photo.
+  // Add image to /public/images/city/carlsbad-welcome-sign.webp and update src below.
   carlsbad: {
     src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
-    alt: 'Carlsbad electrician - EV charger installation and electrical services in Carlsbad, CA',
+    alt: 'Carlsbad electrician - Licensed electrical services in Carlsbad, CA',
   },
   encinitas: {
     src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
@@ -145,9 +147,9 @@ export const whoWeServeImages: HeroImageMap = {
     src: '/images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp',
     alt: 'Commercial and business - tenant improvements and commercial electrical services',
   },
-  'ev-owners': {
-    src: '/images/services/ev-charger/wheyland-electric-ev-charger-level2-install.webp',
-    alt: 'EV owners - Level 2 home charger installation for Tesla and all EV makes',
+  'general-contractors': {
+    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
+    alt: 'General contractors - Subcontract electrical work for remodel and new construction projects',
   },
 };
 
