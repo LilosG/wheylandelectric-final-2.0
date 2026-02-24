@@ -1994,11 +1994,17 @@ const normalizeCityServiceContent = (key: string, content: CityServiceContent): 
     description: step.description,
   }))).slice(0, 5);
 
-  const pricingFactors = ensureCount(
-    merged.pricingFactors || splitToBullets(merged.pricingContext),
-    7,
-    ['Project scope complexity', 'Permit and inspection path', 'Equipment and material requirements']
-  ).slice(0, 10);
+  // Only use explicit pricingFactors arrays — never derive from pricingContext prose,
+  // which produces uneven card heights when split by sentence.
+  // Entries without explicit pricingFactors return [] so the money page falls back
+  // to the concise pillar.pricingFactors defined in services.ts.
+  const pricingFactors = merged.pricingFactors
+    ? ensureCount(
+        merged.pricingFactors,
+        7,
+        ['Project scope complexity', 'Permit and inspection path', 'Equipment and material requirements']
+      ).slice(0, 10)
+    : [];
 
   const localProofPoints = ensureCount(
     merged.localProofPoints || [],
