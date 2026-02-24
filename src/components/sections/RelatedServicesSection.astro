@@ -4,13 +4,15 @@
  * Enhanced cards with hover states, "Learn more" links, and centering logic for <3 items.
  * Each service item may optionally supply its own href; otherwise falls back to /services/{slug}/.
  */
+type ServiceItem = { name: string; slug: string; shortDesc?: string; href?: string };
+
 interface Props {
   heading?: string;
-  services: { name: string; slug: string; shortDesc?: string; href?: string }[];
+  services: ServiceItem[];
 }
 
 const { heading = 'You May Also Need', services } = Astro.props;
-const cappedServices = services.slice(0, 6);
+const cappedServices: ServiceItem[] = services.slice(0, 6);
 const useGrid = cappedServices.length >= 3;
 ---
 <div>
