@@ -1,6 +1,6 @@
 ---
 import { getPublishedPillars } from '../../data/services';
-import { FORMSPREE_ENDPOINT } from '../../data/forms';
+import { FORMSPREE_ENDPOINT, IS_FORMSPREE_ENDPOINT_MISSING, THANK_YOU_PATH } from '../../data/forms';
 import { site } from '../../data/site';
 
 const publishedServices = getPublishedPillars();
@@ -48,51 +48,104 @@ const publishedServices = getPublishedPillars();
           <h3 class="text-xl font-bold text-brand-slate mb-1">Request a Free Estimate</h3>
           <p class="text-sm text-text-muted mb-6">We'll respond within one business day.</p>
 
-          <form method="POST" action={FORMSPREE_ENDPOINT}>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label class="block text-sm font-medium text-brand-slate mb-1.5">Full Name *</label>
-                <input type="text" name="name" required placeholder="Your full name"
-                  class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-brand-slate mb-1.5">Phone *</label>
-                <input type="tel" name="phone" required placeholder="(858) 555-1234"
-                  class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal" />
-              </div>
-            </div>
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
-              <div>
-                <label class="block text-sm font-medium text-brand-slate mb-1.5">Email</label>
-                <input type="email" name="email" placeholder="you@example.com"
-                  class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal" />
-              </div>
-              <div>
-                <label class="block text-sm font-medium text-brand-slate mb-1.5">Service Needed *</label>
-                <select name="service" required
-                  class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal bg-white">
-                  <option value="">Select a service</option>
-                  {publishedServices.map(s => (
-                    <option value={s.name}>{s.name}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-            <div class="mb-4">
-              <label class="block text-sm font-medium text-brand-slate mb-1.5">Project Details</label>
-              <textarea name="message" rows="3" placeholder="Brief description of your project..."
-                class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal resize-none"></textarea>
-            </div>
+          <form
+            id="home-estimate-form"
+            method="POST"
+            action={FORMSPREE_ENDPOINT}
+            class="form-shell form-shell--compact"
+            data-endpoint={FORMSPREE_ENDPOINT || ''}
+            novalidate
+          >
+            <input type="hidden" name="_timestamp" id="home-estimate-timestamp" />
+            <input type="hidden" name="_next" value={THANK_YOU_PATH} />
+            <input type="hidden" name="form_type" value="home-estimate" />
+            <input type="hidden" name="phone_digits" value="" />
 
-            <!-- Honeypot -->
-            <div class="hidden" aria-hidden="true">
-              <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
-            </div>
+            <fieldset class="space-y-4" disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-brand-slate mb-1.5" for="home-estimate-name">Full Name *</label>
+                  <input
+                    id="home-estimate-name"
+                    type="text"
+                    name="name"
+                    required
+                    placeholder="Your full name"
+                    class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-brand-slate mb-1.5" for="home-estimate-phone">Phone *</label>
+                  <input
+                    id="home-estimate-phone"
+                    type="tel"
+                    name="phone"
+                    required
+                    placeholder="(858) 555-1234"
+                    class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal"
+                  />
+                </div>
+              </div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-sm font-medium text-brand-slate mb-1.5" for="home-estimate-email">Email</label>
+                  <input
+                    id="home-estimate-email"
+                    type="email"
+                    name="email"
+                    placeholder="you@example.com"
+                    class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal"
+                  />
+                </div>
+                <div>
+                  <label class="block text-sm font-medium text-brand-slate mb-1.5" for="home-estimate-service">Service Needed *</label>
+                  <select
+                    id="home-estimate-service"
+                    name="service"
+                    required
+                    class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal bg-white"
+                  >
+                    <option value="">Select a service</option>
+                    {publishedServices.map((s) => (
+                      <option value={s.name}>{s.name}</option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-brand-slate mb-1.5" for="home-estimate-message">Project Details</label>
+                <textarea
+                  id="home-estimate-message"
+                  name="message"
+                  rows="3"
+                  placeholder="Brief description of your project..."
+                  class="w-full px-3.5 py-2.5 border border-gray-200 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand-teal/50 focus:border-brand-teal resize-none"
+                ></textarea>
+              </div>
 
-            <button type="submit"
-              class="w-full bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold py-3 rounded-lg transition-colors shadow-md text-sm">
-              Request Free Estimate
-            </button>
+              <!-- Honeypot -->
+              <div class="hidden" aria-hidden="true">
+                <label for="home-estimate-website">Leave this field empty</label>
+                <input id="home-estimate-website" type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              </div>
+
+              <p id="home-estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+              <div class="space-y-2">
+                {!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
+                  <p class="text-sm text-text-muted">Online submission is temporarily unavailable. Please call <a href="tel:8586635564" class="font-medium text-brand-teal hover:text-brand-slate">(858) 663-5564</a>.</p>
+                )}
+
+                <button
+                  type="submit"
+                  class="w-full bg-brand-gold hover:bg-brand-gold-hover text-white font-semibold py-3 rounded-lg transition-colors shadow-md text-sm disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted"
+                  data-loading-label="Sending Request..."
+                  disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}
+                >
+                  Request Free Estimate
+                </button>
+              </div>
+            </fieldset>
           </form>
         </div>
       </div>
@@ -100,3 +153,15 @@ const publishedServices = getPublishedPillars();
     </div>
   </div>
 </section>
+
+<script>
+  import { initLeadForm } from '../../lib/forms/client';
+  import { THANK_YOU_PATH } from '../../data/forms';
+
+  initLeadForm({
+    formId: 'home-estimate-form',
+    feedbackId: 'home-estimate-feedback',
+    endpoint: (document.getElementById('home-estimate-form') as HTMLFormElement | null)?.dataset.endpoint || '',
+    thankYouPath: THANK_YOU_PATH,
+  });
+</script>

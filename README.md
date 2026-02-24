@@ -16,7 +16,10 @@ npm run preview  # Preview production build
 | Variable | Description | Example |
 |----------|-------------|---------|
 | `PUBLIC_SITE_URL` | Production site URL | `https://www.wheylandelectric.com` |
-| `PUBLIC_FORMSPREE_ENDPOINT` | Formspree form endpoint | `https://formspree.io/f/xxxxxxxx` |
+| `PUBLIC_FORMSPREE_ENDPOINT` | Formspree form endpoint | `https://formspree.io/f/mnjbbrvn` |
+
+
+Copy `.env.example` to `.env` for local development, and set the same values in your hosting/CI environment (for example Vercel project environment variables) before running build/test pipelines.
 
 ## Architecture
 
