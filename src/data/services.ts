@@ -103,7 +103,7 @@ const baseServicePillars: ServicePillar[] = [
     ],
     relatedServices: [
       'electrical-panel-upgrades',
-      'dedicated-circuits',
+      'service-calls-troubleshooting',
       'outlet-switch-dimmer-gfci-repairs',
     ],
     subtopics: [
@@ -245,9 +245,8 @@ const baseServicePillars: ServicePillar[] = [
     ],
     relatedServices: [
       'ev-charger-installation',
-      'dedicated-circuits',
       'service-calls-troubleshooting',
-      'electrical-safety-inspections',
+      'recessed-lighting-installation',
     ],
     subtopics: [
       '200-amp panel upgrade',
@@ -388,7 +387,7 @@ const baseServicePillars: ServicePillar[] = [
     relatedServices: [
       'electrical-panel-upgrades',
       'outlet-switch-dimmer-gfci-repairs',
-      'electrical-safety-inspections',
+      'recessed-lighting-installation',
     ],
     subtopics: [
       'Circuit breaker troubleshooting',
@@ -528,7 +527,7 @@ const baseServicePillars: ServicePillar[] = [
     relatedServices: [
       'light-fixture-installation',
       'ceiling-fan-installation',
-      'dedicated-circuits',
+      'service-calls-troubleshooting',
     ],
     subtopics: [
       'Kitchen recessed lighting',
@@ -949,7 +948,7 @@ const baseServicePillars: ServicePillar[] = [
     ],
     relatedServices: [
       'electrical-panel-upgrades',
-      'dedicated-circuits',
+      'service-calls-troubleshooting',
       'outlet-switch-dimmer-gfci-repairs',
     ],
     subtopics: [
@@ -1087,8 +1086,8 @@ const baseServicePillars: ServicePillar[] = [
     ],
     relatedServices: [
       'service-calls-troubleshooting',
-      'electrical-safety-inspections',
-      'dedicated-circuits',
+      'electrical-panel-upgrades',
+      'recessed-lighting-installation',
     ],
     subtopics: [
       'GFCI outlet installation and testing',

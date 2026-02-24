@@ -15,13 +15,10 @@ const displayServices = services.slice(0, 3);
 <section class="py-16 md:py-20 bg-surface-subtle">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <h2 class="text-2xl md:text-3xl font-bold text-brand-slate text-center mb-8">{title}</h2>
-    <div class={displayServices.length <= 2
-      ? "flex flex-col sm:flex-row justify-center gap-6"
-      : "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
-    }>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
       {displayServices.map(s => (
         <a href={s.href}
-          class="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all p-6 flex flex-col sm:w-72 shrink-0">
+          class="bg-white rounded-xl shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all p-6 flex flex-col border border-gray-100">
           <h3 class="text-base font-bold text-brand-slate mb-2">{s.name}</h3>
           <p class="text-sm text-text-muted leading-relaxed flex-1 line-clamp-3">{s.description}</p>
           <span class="text-brand-teal text-sm font-semibold mt-4 inline-flex items-center gap-1">
