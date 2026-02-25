@@ -4,30 +4,13 @@ import { site } from '../../data/site';
 <div class="bg-surface py-5">
   <div class="max-w-7xl mx-auto px-4">
     <div class="flex flex-wrap justify-center items-center gap-6 md:gap-10">
-      <span class="flex items-center gap-2 text-brand-slate font-semibold text-sm">
-        <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        Established {site.established}
-      </span>
-      <span class="flex items-center gap-2 text-brand-slate font-semibold text-sm">
-        <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        {site.license}
-      </span>
-      <span class="flex items-center gap-2 text-brand-slate font-semibold text-sm">
-        <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        Licensed, Bonded &amp; Insured
-      </span>
-      <span class="flex items-center gap-2 text-brand-slate font-semibold text-sm">
-        <svg class="w-4 h-4 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-        </svg>
-        1-Year Labor Warranty
-      </span>
+      <span class="text-brand-slate font-semibold text-sm">Established {site.established}</span>
+      <span aria-hidden="true" class="text-brand-slate/40">|</span>
+      <span class="text-brand-slate font-semibold text-sm">{site.license}</span>
+      <span aria-hidden="true" class="text-brand-slate/40">|</span>
+      <span class="text-brand-slate font-semibold text-sm">Licensed, Bonded &amp; Insured</span>
+      <span aria-hidden="true" class="text-brand-slate/40">|</span>
+      <span class="text-brand-slate font-semibold text-sm">1-Year Labor Warranty</span>
     </div>
   </div>
 </div>

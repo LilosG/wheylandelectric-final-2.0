@@ -64,7 +64,7 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
     showCTAs={true}
     backgroundImage={cityHero.src}
     backgroundImageAlt={cityHero.alt}
-    imagePosition="bottom"
+    imagePosition={city.slug === 'carlsbad' ? 'top' : 'bottom'}
   />
 
   {/* 3. TrustBar */}
