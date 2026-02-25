@@ -3,15 +3,11 @@ import PageLayout from '../../layouts/PageLayout.astro';
 import Section from '../../components/ui/Section.astro';
 import Hero from '../../components/sections/Hero.astro';
 import CTASection from '../../components/sections/CTASection.astro';
-import { generateMeta } from '../../lib/seo';
+import { blogIndexMeta } from '../../lib/seo';
 import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
 
-const meta = generateMeta({
-  title: 'Electrical Tips & Insights | Wheyland Electric Blog',
-  description: 'Practical electrical tips, guides, and insights from Wheyland Electric. Learn about EV chargers, panel upgrades, lighting, and more.',
-  path: '/blog/',
-});
+const meta = blogIndexMeta();
 
 const blogHero = getPageHeroImage('blog');
 
@@ -31,9 +27,10 @@ const posts = (await getCollection('blog'))
   />
 
   <Section bg="white" spacing="hero-tight">
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
-      {posts.map((post) => (
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center mb-10">Latest Electrical Tips and Project Guides</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {posts.map((post) => (
         <a href={`/blog/${post.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group">
           <div class="aspect-video bg-surface-subtle overflow-hidden">
             <img
@@ -49,13 +46,14 @@ const posts = (await getCollection('blog'))
             <time class="text-xs text-text-muted" datetime={post.data.date.toISOString()}>
               {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
             </time>
-            <h2 class="text-lg font-semibold text-brand-slate mt-2 mb-2 group-hover:text-brand-teal transition-colors">
+            <h3 class="text-lg font-semibold text-brand-slate mt-2 mb-2 group-hover:text-brand-teal transition-colors">
               {post.data.title}
-            </h2>
+            </h3>
             <p class="text-sm text-text-muted">{post.data.description}</p>
           </div>
         </a>
-      ))}
+        ))}
+      </div>
     </div>
   </Section>
 
