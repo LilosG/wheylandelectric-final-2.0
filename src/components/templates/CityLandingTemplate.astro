@@ -6,7 +6,6 @@ import ServiceGrid from '../sections/ServiceGrid.astro';
 import FAQAccordion from '../sections/FAQAccordion.astro';
 import CTASection from '../sections/CTASection.astro';
 import HOAOfferBlock from '../sections/HOAOfferBlock.astro';
-import TestimonialBlock from '../sections/TestimonialBlock.astro';
 import GBPEmbed from '../sections/GBPEmbed.astro';
 import Section from '../ui/Section.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
@@ -71,14 +70,7 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
   {/* 3. TrustBar */}
   <TrustBar />
 
-  {/* 4. Contextual CTA Band — bg-surface-subtle */}
-  <Section bg="subtle" spacing="none">
-    <ContextualCTABand
-      heading={`Need a licensed electrician in ${city.name}?`}
-    />
-  </Section>
-
-  {/* 5. Why Choose / Intro Content — bg-white */}
+  {/* 4. Why Choose / Intro Content — bg-white */}
   <Section bg="white">
     <div class="mx-auto max-w-4xl">
       <h2 class="mb-4 font-heading text-2xl font-bold text-brand-slate md:text-3xl">
@@ -109,6 +101,11 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
       subtitle={`Explore service pages tailored to ${city.name}.`}
     />
   </Section>
+
+  {/* 7. Mid-Page CTA Band */}
+  <ContextualCTABand
+    heading={`Need a licensed electrician in ${city.name}?`}
+  />
 
   {/* 7. Neighborhoods — bg-white */}
   {cappedNeighborhoods.length > 0 && (

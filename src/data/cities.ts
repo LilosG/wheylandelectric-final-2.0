@@ -190,12 +190,20 @@ const baseCities: City[] = [
     name: 'Vista',
     state: 'CA',
     tier: 'wave2',
-    publish: false,
+    publish: true,
     has_zip_pdf: true,
     zips: ['92081', '92083', '92084', '92085'],
     neighborhoods: ['Shadowridge', 'Vista Village', 'Breeze Hill', 'Rancho Buena Vista'],
     localIntroSeed:
-      'Wheyland Electric serves Vista with dependable electrical solutions for homes and businesses across Shadowridge, Vista Village, and the surrounding neighborhoods. [PLACEHOLDER — replace with unique local content]',
+      'Wheyland Electric serves Vista with licensed, code-compliant electrical services for homes, businesses, and HOA communities across Shadowridge, Vista Village, and surrounding neighborhoods. We focus on practical upgrades, clean installations, and clear communication from estimate through final walkthrough.',
+    localIntroExtended:
+      'Vista includes a broad mix of housing ages and property types—from established neighborhoods with legacy panels to newer developments adding EV charging, dedicated circuits, and modern lighting controls. Our team supports service calls, panel-capacity planning, and long-term reliability improvements throughout Vista ZIP codes 92081, 92083, 92084, and 92085.',
+    neighborhoodDescriptions: {
+      'Shadowridge': 'A large residential area with steady demand for EV charger installation, dedicated circuits, and panel capacity planning.',
+      'Vista Village': 'Mixed-use core where homes and small businesses often need troubleshooting, lighting upgrades, and service-panel organization.',
+      'Breeze Hill': 'Established neighborhoods where targeted modernization and protective-device upgrades are common priorities.',
+      'Rancho Buena Vista': 'Blend of residential and commercial properties with frequent requests for code-focused upgrades and equipment reliability improvements.',
+    },
     localCues: ['Moonlight Amphitheatre', 'Brengle Terrace Park', 'Rancho Buena Vista Adobe'],
     nearbyCities: ['oceanside', 'san-marcos', 'carlsbad'],
     serviceCategories: ['residential', 'commercial', 'hoa', 'ev'],

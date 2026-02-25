@@ -16,14 +16,14 @@ const {
 const phoneTel = `+1${phone.replace(/\D/g, '')}`;
 ---
 
-<section class="py-10 bg-brand-slate">
-  <div class="max-w-3xl mx-auto px-4 text-center">
-    <p class="text-lg font-semibold text-white mb-4">{heading}</p>
+<section class="bg-brand-navy py-10 md:py-12">
+  <div class="mx-auto max-w-5xl px-4 text-center">
+    <p class="mb-5 text-2xl font-bold text-white md:text-4xl">{heading}</p>
     <div class="flex flex-wrap justify-center gap-3">
-      <a href={estimateUrl} class="bg-brand-gold hover:bg-brand-gold-hover text-white text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors shadow-md">
+      <a href={estimateUrl} class="rounded-lg bg-brand-gold px-6 py-3 text-base font-semibold text-white transition-colors shadow-sm hover:bg-brand-gold-hover">
         Request Free Estimate
       </a>
-      <a href={`tel:${phoneTel}`} class="border border-white/40 text-white hover:bg-white/10 text-sm font-semibold px-6 py-2.5 rounded-lg transition-colors">
+      <a href={`tel:${phoneTel}`} class="rounded-lg border border-white/40 px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-white hover:text-brand-slate">
         Call {phone}
       </a>
     </div>
