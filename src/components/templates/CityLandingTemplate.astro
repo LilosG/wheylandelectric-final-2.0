@@ -124,25 +124,6 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
     </Section>
   )}
 
-  {/* 8. Local Electrical Context — bg-surface-subtle */}
-  {cappedLocalCues.length > 0 && (
-    <Section bg="subtle">
-      <div class="mx-auto max-w-4xl">
-        <h2 class="mb-5 font-heading text-2xl font-bold text-brand-slate md:text-3xl">Local Electrical Context</h2>
-        <ul class="grid grid-cols-1 gap-4 md:grid-cols-2">
-          {cappedLocalCues.map((cue) => (
-            <li class="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm">
-              <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span class="text-sm text-text-muted">{cue}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </Section>
-  )}
-
   {/* 9. HOA Block — bg-warm */}
   <Section bg="warm">
     <HOAOfferBlock cityName={city.name} />
