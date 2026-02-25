@@ -19,7 +19,7 @@ export interface HeroImageMap {
  */
 export const serviceHeroImages: HeroImageMap = {
   'ev-charger-installation': {
-    src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
+    src: '/images/about/wheyland-electric-family-portrait-carlsbad.webp',
     alt: 'Level 2 EV charger installed by Wheyland Electric in San Diego County - home charging solution',
   },
   'electrical-panel-upgrades': {
@@ -83,8 +83,9 @@ export const serviceHeroImages: HeroImageMap = {
  */
 export const cityHeroImages: HeroImageMap = {
   carlsbad: {
-    src: '/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp',
-    alt: 'Carlsbad electrician - EV charger installation and electrical services in Carlsbad, CA',
+    // TODO(client): Replace with approved "Welcome to Carlsbad" road-sign hero image asset when added to repository.
+    src: '/images/about/wheyland-electric-family-portrait-carlsbad.webp',
+    alt: 'Carlsbad electrician team serving homes and businesses in Carlsbad, CA',
   },
   encinitas: {
     src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
