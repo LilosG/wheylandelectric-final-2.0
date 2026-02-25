@@ -86,8 +86,8 @@ export const cityHeroImages: HeroImageMap = {
   // Add image to /public/images/city/carlsbad-welcome-sign.webp and update src below.
   carlsbad: {
     // TODO(client): Replace with approved "Welcome to Carlsbad" road-sign hero image asset when added to repository.
-    src: '/images/hero/wheyland-electric-edison-bulb-lighting-carlsbad.webp',
-    alt: 'Carlsbad electrician services background image in Carlsbad, CA',
+    src: '/images/hero/wheyland-electric-welcome-to-carlsbad-sign.webp',
+    alt: 'Welcome to Carlsbad sign over the road in Carlsbad, California',
   },
   encinitas: {
     src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
