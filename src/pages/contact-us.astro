@@ -5,18 +5,14 @@ import GBPEmbed from '../components/sections/GBPEmbed.astro';
 import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Section from '../components/ui/Section.astro';
-import { generateMeta } from '../lib/seo';
+import { contactPageMeta } from '../lib/seo';
 import { localBusinessSchema } from '../lib/schema/localBusiness';
 import { site } from '../data/site';
 import { getPageHeroImage } from '../data/heroImages';
 
 const contactHero = getPageHeroImage('contact');
 
-const meta = generateMeta({
-  title: 'Contact Us | Wheyland Electric',
-  description: 'Contact Wheyland Electric in Carlsbad, CA. Call (858) 663-5564 or send us a message. Licensed electrician serving San Diego County.',
-  path: '/contact-us/',
-});
+const meta = contactPageMeta();
 ---
 <PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'Contact', href: '/contact-us/' }]}>
   <Hero

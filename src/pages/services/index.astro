@@ -5,15 +5,11 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import ServiceGrid from '../../components/sections/ServiceGrid.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
-import { generateMeta } from '../../lib/seo';
+import { servicesIndexMeta } from '../../lib/seo';
 import { getPublishedPillars } from '../../data/services';
 import { getPageHeroImage } from '../../data/heroImages';
 
-const meta = generateMeta({
-  title: 'Electrical Services | San Diego County',
-  description: 'Full-service electrician in San Diego County. EV chargers, panel upgrades, lighting, fans, spa wiring, outlet repairs & more. Licensed, bonded & insured.',
-  path: '/services/',
-});
+const meta = servicesIndexMeta();
 
 const services = getPublishedPillars();
 const servicesHero = getPageHeroImage('services');
@@ -32,7 +28,7 @@ const servicesHero = getPageHeroImage('services');
   <TrustBar />
 
   <Section bg="white">
-    <ServiceGrid services={services} heading="What We Do" />
+    <ServiceGrid services={services} heading="Electrical Services for Homes and Businesses" />
   </Section>
 
   <Section bg="subtle">
