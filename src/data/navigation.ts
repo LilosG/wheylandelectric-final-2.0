@@ -7,7 +7,6 @@ export function buildNavigation(): NavItem[] {
   const publishedPillars = getPublishedPillars();
 
   return [
-    { label: 'Home', href: '/' },
     {
       label: 'Services',
       href: '/services/',

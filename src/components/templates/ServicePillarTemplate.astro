@@ -130,12 +130,7 @@ const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
   {/* 3. TrustBar */}
   <TrustBar />
 
-  {/* 4. Contextual CTA Band — self-contained bg-surface-subtle */}
-  <ContextualCTABand
-    heading={`Get a Fast Callback for ${pillar.name}`}
-  />
-
-  {/* 5. Service Overview — self-contained bg-white */}
+  {/* 4. Service Overview — self-contained bg-white */}
   <ServiceIntroSection
     title={`${pillar.name} — Service Overview`}
     subtitle={pillar.shortDesc}
@@ -162,7 +157,12 @@ const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
     factors={pricingFactors}
   />
 
-  {/* 9. Service Areas Served — self-contained bg-white */}
+  {/* 9. Mid-Page CTA Band */}
+  <ContextualCTABand
+    heading={`Get a Fast Callback for ${pillar.name}`}
+  />
+
+  {/* 10. Service Areas Served — self-contained bg-white */}
   <AreaLinksSection
     title="Service Areas Served"
     subtitle={`We provide ${pillar.name.toLowerCase()} across San Diego County.`}
@@ -190,5 +190,5 @@ const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
   <TestimonialBlock serviceTag={pillar.slug} />
 
   {/* 13. CTA Section — dark navy (self-contained) */}
-  <CTASection subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`} />
+  <CTASection subtitle={`Contact Wheyland Electric today for a free estimate on ${pillar.name.toLowerCase()}.`} tone="subtle" />
 </PageLayout>
