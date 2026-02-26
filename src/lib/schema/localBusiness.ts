@@ -1,12 +1,18 @@
 import { site, flags } from '../../data/site';
 import { getPublishedCities } from '../../data/cities';
+import { getPublishedPillars } from '../../data/services';
 
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const BUSINESS_ID = `${SITE_URL}#localbusiness`;
 
 export function localBusinessSchema(): Record<string, unknown> {
+  const publishedCities = getPublishedCities();
+  const publishedServices = getPublishedPillars();
+
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Electrician',
+    '@id': BUSINESS_ID,
     name: site.nap.name,
     url: SITE_URL,
     telephone: site.nap.phone,
@@ -23,10 +29,26 @@ export function localBusinessSchema(): Record<string, unknown> {
     license: site.license,
     foundingDate: String(site.established),
     description: `${site.nap.name} provides licensed, bonded and insured electrical services in San Diego County. ${site.tagline}`,
-    areaServed: getPublishedCities().map((c) => ({
-      '@type': 'City',
-      name: `${c.name}, ${c.state}`,
-    })),
+    areaServed: [
+      ...site.serviceRadiusCounties.map((county) => ({
+        '@type': 'AdministrativeArea',
+        name: county,
+      })),
+      ...publishedCities.map((c) => ({
+        '@type': 'City',
+        name: `${c.name}, ${c.state}`,
+      })),
+    ],
+    hasMap: site.gbp.url,
+    sameAs: [site.social.facebook, site.social.linkedin, site.social.twitter],
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer service',
+      telephone: site.nap.phone,
+      areaServed: 'San Diego County',
+      availableLanguage: 'English',
+    },
+    serviceType: publishedServices.map((service) => service.name),
     image: `${SITE_URL}/images/logo-wheyland-electric.png`,
     priceRange: '$$',
   };
