@@ -51,6 +51,10 @@ const cappedFaqs = cityFaqs.slice(0, 10);
 const cappedProofPoints = (city.localProofPoints || []).slice(0, 6);
 const cappedLocalCues = (city.localCues || []).slice(0, 6);
 const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
+const featuredServiceLinks = services.slice(0, 6).map((service) => ({
+  label: `${service.name} in ${city.name}`,
+  href: `/${city.slug}/${service.slug}/`,
+}));
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
@@ -123,6 +127,42 @@ const cappedNeighborhoods = (city.neighborhoodSpotlights || []).slice(0, 9);
       </div>
     </Section>
   )}
+
+  {/* 8. Local Signals + Internal Links — bg-surface-subtle */}
+  <Section bg="subtle">
+    <div class="mx-auto max-w-5xl">
+      {cappedLocalCues.length > 0 && (
+        <div class="text-center">
+          <h2 class="font-heading text-2xl font-bold text-brand-slate md:text-3xl">
+            Local Landmarks and Areas We Commonly Serve in {city.name}
+          </h2>
+          <p class="mx-auto mt-3 max-w-3xl text-text-muted">
+            Our electricians are familiar with homes, businesses, and HOA communities near these {city.name} landmarks and corridors.
+          </p>
+          <ul class="mt-6 flex flex-wrap justify-center gap-3">
+            {cappedLocalCues.map((cue) => (
+              <li class="rounded-full border border-brand-teal/30 bg-white px-4 py-2 text-sm font-medium text-brand-slate">
+                {cue}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      {featuredServiceLinks.length > 0 && (
+        <div class="mt-10">
+          <h3 class="text-center font-heading text-xl font-bold text-brand-slate">Popular Electrical Services in {city.name}</h3>
+          <div class="mt-4 flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm">
+            {featuredServiceLinks.map((serviceLink) => (
+              <a href={serviceLink.href} class="font-semibold text-brand-teal transition-colors hover:text-brand-slate">
+                {serviceLink.label}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  </Section>
 
   {/* 9. HOA Block — bg-warm */}
   <Section bg="warm">

@@ -1,6 +1,7 @@
 import { site } from '../../data/site';
 
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const BUSINESS_ID = `${SITE_URL}#localbusiness`;
 
 export function serviceSchema(
   serviceName: string,
@@ -11,11 +12,14 @@ export function serviceSchema(
   const schema: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Service',
+    '@id': `${SITE_URL}${pageUrl}#service`,
     name: serviceName,
     description: serviceDescription,
+    serviceType: serviceName,
     url: `${SITE_URL}${pageUrl}`,
     provider: {
       '@type': 'Electrician',
+      '@id': BUSINESS_ID,
       name: site.nap.name,
       telephone: site.nap.phone,
       address: {
@@ -29,12 +33,15 @@ export function serviceSchema(
     },
   };
 
-  if (areaServedName) {
-    schema.areaServed = {
-      '@type': 'City',
-      name: areaServedName,
-    };
-  }
+  schema.areaServed = areaServedName
+    ? {
+        '@type': 'City',
+        name: areaServedName,
+      }
+    : {
+        '@type': 'AdministrativeArea',
+        name: 'San Diego County, CA',
+      };
 
   return schema;
 }

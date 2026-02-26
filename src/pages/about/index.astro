@@ -4,18 +4,14 @@ import Hero from '../../components/sections/Hero.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
-import { generateMeta } from '../../lib/seo';
+import { aboutPageMeta } from '../../lib/seo';
 import { localBusinessSchema } from '../../lib/schema/localBusiness';
 import { site } from '../../data/site';
 import { getPageHeroImage } from '../../data/heroImages';
 
 const aboutHero = getPageHeroImage('about');
 
-const meta = generateMeta({
-  title: 'About Wheyland Electric | Family-Owned Carlsbad Electrician',
-  description: 'Meet Tim Wheyland — fourth generation San Diego County resident. Family-owned electrical services since 2008. Licensed, bonded & insured.',
-  path: '/about/',
-});
+const meta = aboutPageMeta();
 ---
 <PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'About', href: '/about/' }]}>
   <Hero
