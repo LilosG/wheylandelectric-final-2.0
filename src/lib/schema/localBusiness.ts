@@ -1,3 +1,4 @@
+import { DEFAULT_LOGO_PATH } from '../../data/brand';
 import { site, flags } from '../../data/site';
 import { getPublishedCities } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
@@ -49,7 +50,7 @@ export function localBusinessSchema(): Record<string, unknown> {
       availableLanguage: 'English',
     },
     serviceType: publishedServices.map((service) => service.name),
-    image: `${SITE_URL}/images/logo-wheyland-electric.png`,
+    image: `${SITE_URL}${DEFAULT_LOGO_PATH}`,
     priceRange: '$$',
   };
 

@@ -1,4 +1,5 @@
 ---
+import { DEFAULT_LOGO_PATH } from '../../data/brand';
 import type { PageMeta } from '../../types';
 
 interface Props {
@@ -19,14 +20,14 @@ const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectri
 <meta property="og:description" content={meta.description} />
 <meta property="og:url" content={meta.canonical} />
 <meta property="og:type" content="website" />
-<meta property="og:image" content={meta.ogImage || `${SITE_URL}/images/logo-wheyland-electric.png`} />
+<meta property="og:image" content={meta.ogImage || `${SITE_URL}${DEFAULT_LOGO_PATH}`} />
 <meta property="og:site_name" content="Wheyland Electric" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={meta.title} />
 <meta name="twitter:description" content={meta.description} />
-<meta name="twitter:image" content={meta.ogImage || `${SITE_URL}/images/logo-wheyland-electric.png`} />
+<meta name="twitter:image" content={meta.ogImage || `${SITE_URL}${DEFAULT_LOGO_PATH}`} />
 
 <!-- Schema JSON-LD -->
 {schemas.map((schema) => (
