@@ -1,5 +1,7 @@
 import type { BrandTokens } from '../types';
 
+export const DEFAULT_LOGO_PATH = '/images/logo/wheyland-electric-logo.png';
+
 export const brand: BrandTokens = {
   colors: {
     mint: '#F5F0E6',
@@ -14,8 +16,8 @@ export const brand: BrandTokens = {
     white: '#FFFFFF',
   },
   logoPaths: {
-    primary: '/images/logo-wheyland-electric.png',
-    dark: '/images/logo-wheyland-electric-dark.png',
+    primary: DEFAULT_LOGO_PATH,
+    dark: '/images/logo/wheyland-electric-logo-footer.webp',
     favicon: '/favicon.svg',
   },
   tagline: 'Bright Ideas For Your Electrical Needs',
