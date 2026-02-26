@@ -14,18 +14,35 @@ if (buildResult.status !== 0) {
   process.exit(buildResult.status ?? 1);
 }
 
-const offenders = [];
+const sitemapOffenders = [];
 
 for (const filePath of filesToCheck) {
   const content = readFileSync(filePath, 'utf8');
   if (content.includes(disallowedBase)) {
-    offenders.push(filePath);
+    sitemapOffenders.push(filePath);
   }
 }
 
-if (offenders.length > 0) {
-  console.log(`FAIL: Found disallowed canonical base in: ${offenders.join(', ')}`);
+if (sitemapOffenders.length > 0) {
+  console.log(`FAIL: Found disallowed canonical base in: ${sitemapOffenders.join(', ')}`);
   process.exit(1);
 }
 
-console.log('PASS: Migration verification succeeded. No www URLs found in sitemap outputs.');
+const vercelConfig = JSON.parse(readFileSync('vercel.json', 'utf8'));
+
+if (Object.prototype.hasOwnProperty.call(vercelConfig, 'routes')) {
+  console.log('FAIL: vercel.json must not contain a top-level "routes" key.');
+  process.exit(1);
+}
+
+if (!Object.prototype.hasOwnProperty.call(vercelConfig, 'redirects')) {
+  console.log('FAIL: vercel.json must contain a top-level "redirects" key.');
+  process.exit(1);
+}
+
+if (!Object.prototype.hasOwnProperty.call(vercelConfig, 'headers')) {
+  console.log('FAIL: vercel.json must contain a top-level "headers" key.');
+  process.exit(1);
+}
+
+console.log('PASS: Migration verification succeeded. No www URLs found and vercel.json keys are valid.');
