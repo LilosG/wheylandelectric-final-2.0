@@ -4,6 +4,16 @@
       "source": "/about-us-san-diego-county-electrician/",
       "destination": "/about/",
       "permanent": true
+    },
+    {
+      "source": "/commercial-electrician-carlsbad-san-diego/",
+      "destination": "/services/commercial-electrical-maintenance/",
+      "permanent": true
+    },
+    {
+      "source": "/residential-electrician-carlsbad-san-diego/",
+      "destination": "/services/service-calls-troubleshooting/",
+      "permanent": true
     }
   ],
   "headers": [
