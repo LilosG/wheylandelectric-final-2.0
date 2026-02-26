@@ -10,7 +10,8 @@
     "preview": "astro preview",
     "astro": "astro",
     "lint": "eslint src --ext .ts,.astro",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "verify:migration": "node scripts/verify-migration.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
