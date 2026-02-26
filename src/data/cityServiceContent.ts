@@ -1823,18 +1823,6 @@ const baseCityServiceContent: Record<string, CityServiceContent> = {
     zipCodes: ['92054', '92056', '92057', '92058'],
   },
 };
-
-
-const splitToBullets = (value: string | undefined): string[] => {
-  if (!value) return [];
-  return value
-    .replace(/\s+/g, ' ')
-    .split(/\.(?:\s|$)/)
-    .map((item) => item.trim())
-    .filter(Boolean)
-    .map((item) => (item.endsWith('.') ? item : `${item}.`));
-};
-
 const ensureCount = (items: string[], minimum: number, filler: string[]): string[] => {
   const next = [...new Set(items.filter(Boolean))];
   for (const f of filler) {
