@@ -37,9 +37,9 @@ export function initLeadForm({
   const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
   const normalizedPhoneInput = form.querySelector('[name="phone_digits"]') as HTMLInputElement | null;
   const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
-  const fields = Array.from(
+  const controls = Array.from(
     form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement>(
-      'input, select, textarea, button'
+      'input:not([type="hidden"]), select, textarea, button'
     )
   );
 
@@ -54,7 +54,7 @@ export function initLeadForm({
 
   const setFormSubmitting = (isSubmitting: boolean): void => {
     form.dataset.submitting = isSubmitting ? 'true' : 'false';
-    fields.forEach((field) => {
+    controls.forEach((field) => {
       if (isSubmitting) {
         field.setAttribute('disabled', 'true');
       } else if (!field.hasAttribute('data-static-disabled')) {
@@ -67,7 +67,7 @@ export function initLeadForm({
     }
   };
 
-  fields.forEach((field) => {
+  controls.forEach((field) => {
     if (field.hasAttribute('disabled')) {
       field.setAttribute('data-static-disabled', 'true');
     }
@@ -123,11 +123,11 @@ export function initLeadForm({
       if (normalizedPhoneInput) normalizedPhoneInput.value = digits;
     }
 
+    const formData = new FormData(form);
     setFormSubmitting(true);
     showFeedback('success', loadingSubmitLabel);
 
     try {
-      const formData = new FormData(form);
       const response = await fetch(endpoint, {
         method: 'POST',
         headers: { Accept: 'application/json' },
