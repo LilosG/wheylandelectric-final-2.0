@@ -15,7 +15,7 @@ npm run preview  # Preview production build
 
 | Variable | Description | Example |
 |----------|-------------|---------|
-| `PUBLIC_SITE_URL` | Production site URL | `https://www.wheylandelectric.com` |
+| `PUBLIC_SITE_URL` | Production site URL | `https://wheylandelectric.com` |
 | `PUBLIC_FORMSPREE_ENDPOINT` | Formspree form endpoint | `https://formspree.io/f/mnjbbrvn` |
 
 

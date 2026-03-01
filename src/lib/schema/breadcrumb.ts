@@ -1,6 +1,6 @@
 import type { BreadcrumbItem } from '../../types';
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 
 export function breadcrumbSchema(items: BreadcrumbItem[]): Record<string, unknown> {
   const allItems: BreadcrumbItem[] = [{ label: 'Home', href: '/' }, ...items];

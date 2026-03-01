@@ -1,7 +1,7 @@
 import { DEFAULT_LOGO_PATH } from '../../data/brand';
 import { site } from '../../data/site';
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 
 export function articleSchema(
   title: string,

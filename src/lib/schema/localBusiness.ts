@@ -3,7 +3,7 @@ import { site, flags } from '../../data/site';
 import { getPublishedCities } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 const BUSINESS_ID = `${SITE_URL}#localbusiness`;
 
 export function localBusinessSchema(): Record<string, unknown> {

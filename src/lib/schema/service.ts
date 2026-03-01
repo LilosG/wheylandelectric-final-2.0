@@ -1,6 +1,6 @@
 import { site } from '../../data/site';
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 const BUSINESS_ID = `${SITE_URL}#localbusiness`;
 
 export function serviceSchema(
