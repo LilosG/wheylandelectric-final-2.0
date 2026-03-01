@@ -1,7 +1,7 @@
 import type { PageMeta } from '../types';
 
 const SITE_NAME = 'Wheyland Electric';
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://www.wheylandelectric.com';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 
 interface MetaInput {
   title: string;
