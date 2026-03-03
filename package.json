@@ -11,7 +11,8 @@
     "astro": "astro",
     "lint": "eslint \"src/**/*.{ts,astro}\"",
     "format": "prettier --write .",
-    "verify:migration": "node scripts/verify-migration.mjs"
+    "verify:migration": "node scripts/verify-migration.mjs",
+    "seo:audit": "node scripts/seo-audit.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
