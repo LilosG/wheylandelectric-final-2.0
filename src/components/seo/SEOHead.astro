@@ -1,5 +1,6 @@
 ---
 import { DEFAULT_LOGO_PATH } from '../../data/brand';
+import { SITE_NAME, SITE_URL } from '../../lib/seo';
 import type { PageMeta } from '../../types';
 
 interface Props {
@@ -8,7 +9,6 @@ interface Props {
 }
 
 const { meta, schemas = [] } = Astro.props;
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 ---
 <!-- SEO Meta -->
 <title>{meta.title}</title>
@@ -21,7 +21,7 @@ const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.co
 <meta property="og:url" content={meta.canonical} />
 <meta property="og:type" content="website" />
 <meta property="og:image" content={meta.ogImage || `${SITE_URL}${DEFAULT_LOGO_PATH}`} />
-<meta property="og:site_name" content="Wheyland Electric" />
+<meta property="og:site_name" content={SITE_NAME} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />

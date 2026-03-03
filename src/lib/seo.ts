@@ -1,7 +1,7 @@
 import type { PageMeta } from '../types';
 
-const SITE_NAME = 'Wheyland Electric';
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
+export const SITE_NAME = 'Wheyland Electric';
+export const SITE_URL = 'https://wheylandelectric.com';
 
 interface MetaInput {
   title: string;
@@ -9,6 +9,15 @@ interface MetaInput {
   path: string;
   ogImage?: string;
 }
+
+const ENTITY_MAP: Record<string, string> = {
+  '&amp;': '&',
+  '&lt;': '<',
+  '&gt;': '>',
+  '&quot;': '"',
+  '&#39;': "'",
+  '&nbsp;': ' ',
+};
 
 function normalizePath(path: string): string {
   if (!path || path === '/') return '/';
@@ -21,14 +30,33 @@ function buildCanonical(path: string): string {
   return `${SITE_URL}${normalizedPath}`;
 }
 
-export function generateMeta(input: MetaInput): PageMeta {
-  const fullTitle = input.title.includes(SITE_NAME)
-    ? input.title
-    : `${input.title} | ${SITE_NAME}`;
+function decodeEntities(value: string): string {
+  return value.replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (match) => ENTITY_MAP[match] || match);
+}
 
+function normalizeText(value: string): string {
+  return decodeEntities(value).replace(/\s+/g, ' ').trim();
+}
+
+function stripTrailingSeparator(value: string): string {
+  return value.replace(/\s*[|\-–—:]\s*$/, '').trim();
+}
+
+function composeTitle(pageTitle: string): string {
+  const normalizedPageTitle = stripTrailingSeparator(normalizeText(pageTitle));
+  const parts = [normalizedPageTitle];
+
+  if (!normalizedPageTitle.toLowerCase().includes(SITE_NAME.toLowerCase())) {
+    parts.push(SITE_NAME);
+  }
+
+  return parts.filter(Boolean).join(' | ');
+}
+
+export function generateMeta(input: MetaInput): PageMeta {
   return {
-    title: fullTitle.slice(0, 60),
-    description: input.description.slice(0, 160),
+    title: composeTitle(input.title),
+    description: normalizeText(input.description),
     canonical: buildCanonical(input.path),
     ogImage: input.ogImage,
   };
@@ -45,16 +73,16 @@ export function homePageMeta(): PageMeta {
 
 export function servicesIndexMeta(): PageMeta {
   return generateMeta({
-    title: 'Electrical Services in San Diego County',
+    title: 'Electrical Services in Carlsbad, CA',
     description:
-      'Explore Wheyland Electric electrical services in San Diego County, including panel upgrades, EV chargers, lighting, troubleshooting, and code-compliant installations.',
+      'Explore Wheyland Electric electrical services in Carlsbad, CA, including panel upgrades, EV chargers, lighting, troubleshooting, and code-compliant installations.',
     path: '/services/',
   });
 }
 
 export function cityPageMeta(cityName: string, citySlug: string): PageMeta {
   return generateMeta({
-    title: `${cityName} Electrician | Local Electrical Services`,
+    title: `Electrician in ${cityName}, CA`,
     description: `Looking for a licensed electrician in ${cityName}, CA? Wheyland Electric provides trusted residential and commercial electrical services with free estimates.`,
     path: `/${citySlug}/`,
   });
@@ -75,7 +103,7 @@ export function moneyPageMeta(
   serviceSlug: string
 ): PageMeta {
   return generateMeta({
-    title: `${serviceName} in ${cityName}, CA | Licensed Electrician`,
+    title: `${serviceName} in ${cityName}, CA`,
     description: `Need ${serviceName.toLowerCase()} in ${cityName}, CA? Wheyland Electric provides licensed, code-compliant service for homes and businesses with a 1-year labor warranty.`,
     path: `/${citySlug}/${serviceSlug}/`,
   });
@@ -125,4 +153,3 @@ export function blogPostMeta(title: string, description: string, slug: string): 
   });
 }
 
-export { SITE_NAME, SITE_URL };
