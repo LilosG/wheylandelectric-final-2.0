@@ -5,6 +5,17 @@ date: 2024-11-15
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
+faqs:
+  - question: "Do most homes in North County need Level 2 charging?"
+    answer: "For full EV owners with regular driving needs, Level 2 charging is usually the most practical home option because it provides significantly faster overnight replenishment than Level 1."
+  - question: "How do I know if my panel can support an EV charger?"
+    answer: "A licensed electrician should evaluate panel headroom, load profile, and planned future loads before circuit sizing and charger placement are finalized."
+  - question: "Should I use a service page and local page when planning?"
+    answer: "Yes. Using both the core service page and city-specific page improves planning clarity around scope, permitting expectations, and likely project pathways."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 
@@ -129,5 +140,7 @@ For EV charger installation in North County San Diego, look for:
 - **Warranty on workmanship** — ask specifically about the labor warranty
 
 Wheyland Electric has installed EV chargers for Tesla, Rivian, Ford, Chevrolet, BMW, Hyundai, Kia, and other EV brands across North County San Diego since EV adoption began accelerating in the region. We carry California Contractor License #940291 and back all workmanship with a 1-year labor warranty.
+
+For deeper service details, review our [EV Charger Installation service page](/services/ev-charger-installation/) and city-specific scope for [EV charger installation in Carlsbad](/carlsbad/ev-charger-installation/). If your home needs added capacity, see [electrical panel upgrades](/services/electrical-panel-upgrades/).
 
 [Get a free estimate for your EV charger installation](/free-estimates/) — we will assess your panel, recommend the right circuit, and handle everything from permit filing to final inspection.

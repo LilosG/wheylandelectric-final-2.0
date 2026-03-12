@@ -5,6 +5,17 @@ date: 2024-09-15
 author: "Tim Wheyland"
 image: "/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp"
 relatedServices: ["light-fixture-installation", "recessed-lighting-installation", "outlet-switch-dimmer-gfci-repairs"]
+faqs:
+  - question: "Why do coastal outdoor lighting projects need special planning?"
+    answer: "Coastal environments accelerate corrosion, so fixture ratings, weatherproofing details, and material choices are more critical for long-term reliability."
+  - question: "Do outdoor lighting upgrades always require permits?"
+    answer: "Not always. Scope determines permit requirements, so homeowners should confirm permit applicability before installation when adding new circuits or substantial electrical changes."
+  - question: "How can I make outdoor lighting both functional and durable?"
+    answer: "Use a layered design approach—safety, task, ambiance, and architectural lighting—while prioritizing code-compliant weatherproof components and proper fixture selection."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 
@@ -150,5 +161,7 @@ A successful outdoor lighting project starts with a clear picture of what you wa
 From there, an electrician can assess the existing electrical infrastructure — panel capacity, proximity to outdoor areas, existing outdoor circuits — and propose the most efficient way to power the new lighting.
 
 Wheyland Electric designs and installs outdoor lighting for homes throughout North County San Diego, from simple fixture replacements to complete landscape lighting systems with new circuits, sub-panels, and smart controls. We hold California Contractor License #940291 and back all outdoor electrical work with a 1-year labor warranty.
+
+For planning related upgrades, review [light fixture installation](/services/light-fixture-installation/), [recessed lighting installation](/services/recessed-lighting-installation/), and [service calls and troubleshooting](/services/service-calls-troubleshooting/).
 
 [Request a free estimate](/free-estimates/) for your outdoor lighting project — we will evaluate your space and provide a clear, itemized proposal.
