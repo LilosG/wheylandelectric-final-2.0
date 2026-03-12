@@ -7,6 +7,7 @@ import { blogPostMeta } from '../../lib/seo';
 import { articleSchema } from '../../lib/schema/article';
 import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
+import { getPublishedPillars } from '../../data/services';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -32,6 +33,37 @@ const schema = articleSchema(
   post.data.author,
   post.slug,
 );
+
+const allPosts = (await getCollection('blog'))
+  .filter((entry) => !entry.data.draft && entry.slug !== post.slug)
+  .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+
+const postRelatedServices = post.data.relatedServices || [];
+const pillarMap = new Map(getPublishedPillars().map((pillar) => [pillar.slug, pillar]));
+
+const relatedServiceLinks = postRelatedServices
+  .map((slug) => pillarMap.get(slug))
+  .filter((pillar): pillar is NonNullable<ReturnType<typeof pillarMap.get>> => Boolean(pillar))
+  .slice(0, 3)
+  .map((pillar) => ({
+    href: `/services/${pillar.slug}/`,
+    label: pillar.name,
+    description: pillar.shortDesc,
+  }));
+
+const primaryMoneyPageLinks = postRelatedServices.slice(0, 2).map((slug) => ({
+  href: `/carlsbad/${slug}/`,
+  label: `${pillarMap.get(slug)?.name || 'Electrical service'} in Carlsbad`,
+}));
+
+const relatedPosts = allPosts
+  .map((entry) => {
+    const overlap = (entry.data.relatedServices || []).filter((slug) => postRelatedServices.includes(slug)).length;
+    return { entry, overlap };
+  })
+  .sort((a, b) => b.overlap - a.overlap || b.entry.data.date.getTime() - a.entry.data.date.getTime())
+  .slice(0, 3)
+  .map(({ entry }) => entry);
 ---
 <PageLayout
   meta={meta}
@@ -67,6 +99,62 @@ const schema = articleSchema(
       </div>
     </article>
   </Section>
+
+  {(relatedServiceLinks.length > 0 || primaryMoneyPageLinks.length > 0) && (
+    <Section bg="subtle" spacing="default">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center">Popular Service Pages</h2>
+        <p class="text-text-muted text-center mt-3 max-w-2xl mx-auto">
+          Continue your research with our most relevant service and local service pages.
+        </p>
+
+        {relatedServiceLinks.length > 0 && (
+          <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+            {relatedServiceLinks.map((serviceLink) => (
+              <a href={serviceLink.href} class="rounded-xl bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+                <h3 class="text-lg font-semibold text-brand-slate">{serviceLink.label}</h3>
+                <p class="mt-2 text-sm text-text-muted">{serviceLink.description}</p>
+                <span class="mt-4 inline-flex items-center text-sm font-semibold text-brand-teal">View service page →</span>
+              </a>
+            ))}
+          </div>
+        )}
+
+        {primaryMoneyPageLinks.length > 0 && (
+          <div class="mt-6 flex flex-wrap justify-center gap-3">
+            {primaryMoneyPageLinks.map((moneyLink) => (
+              <a
+                href={moneyLink.href}
+                class="inline-flex items-center rounded-full border border-brand-teal/30 bg-white px-4 py-2 text-sm font-medium text-brand-slate hover:text-brand-teal transition-colors"
+              >
+                {moneyLink.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </Section>
+  )}
+
+  {relatedPosts.length > 0 && (
+    <Section bg="white" spacing="default">
+      <div class="mx-auto max-w-5xl">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center">Related Articles</h2>
+        <div class="mt-8 grid grid-cols-1 gap-6 md:grid-cols-3">
+          {relatedPosts.map((entry) => (
+            <a href={`/blog/${entry.slug}/`} class="rounded-xl border border-surface-subtle bg-white p-6 shadow-sm hover:shadow-md transition-shadow">
+              <time class="text-xs text-text-muted" datetime={entry.data.date.toISOString()}>
+                {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <h3 class="mt-2 text-base font-semibold text-brand-slate">{entry.data.title}</h3>
+              <p class="mt-2 text-sm text-text-muted">{entry.data.description}</p>
+              <span class="mt-4 inline-flex items-center text-sm font-semibold text-brand-teal">Read article →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </Section>
+  )}
 
   <CTASection title="Need Electrical Service?" subtitle="Contact Wheyland Electric for a free estimate on your next project." />
 </PageLayout>

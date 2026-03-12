@@ -151,4 +151,6 @@ From there, an electrician can assess the existing electrical infrastructure —
 
 Wheyland Electric designs and installs outdoor lighting for homes throughout North County San Diego, from simple fixture replacements to complete landscape lighting systems with new circuits, sub-panels, and smart controls. We hold California Contractor License #940291 and back all outdoor electrical work with a 1-year labor warranty.
 
+For planning related upgrades, review [light fixture installation](/services/light-fixture-installation/), [recessed lighting installation](/services/recessed-lighting-installation/), and [service calls and troubleshooting](/services/service-calls-troubleshooting/).
+
 [Request a free estimate](/free-estimates/) for your outdoor lighting project — we will evaluate your space and provide a clear, itemized proposal.

@@ -130,4 +130,6 @@ For EV charger installation in North County San Diego, look for:
 
 Wheyland Electric has installed EV chargers for Tesla, Rivian, Ford, Chevrolet, BMW, Hyundai, Kia, and other EV brands across North County San Diego since EV adoption began accelerating in the region. We carry California Contractor License #940291 and back all workmanship with a 1-year labor warranty.
 
+For deeper service details, review our [EV Charger Installation service page](/services/ev-charger-installation/) and city-specific scope for [EV charger installation in Carlsbad](/carlsbad/ev-charger-installation/). If your home needs added capacity, see [electrical panel upgrades](/services/electrical-panel-upgrades/).
+
 [Get a free estimate for your EV charger installation](/free-estimates/) — we will assess your panel, recommend the right circuit, and handle everything from permit filing to final inspection.

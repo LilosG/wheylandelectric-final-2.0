@@ -136,4 +136,6 @@ If you recognize any of the signs above, the next step is a free on-site evaluat
 
 We hold California Contractor License #940291 and back all panel upgrade workmanship with a 1-year labor warranty.
 
+For full service scope, review [electrical panel upgrades](/services/electrical-panel-upgrades/) and local project details for [electrical panel upgrades in Carlsbad](/carlsbad/electrical-panel-upgrades/). If you are upgrading for new loads, also see [EV charger installation](/services/ev-charger-installation/).
+
 [Contact Wheyland Electric](/free-estimates/) for a free panel evaluation and estimate.
