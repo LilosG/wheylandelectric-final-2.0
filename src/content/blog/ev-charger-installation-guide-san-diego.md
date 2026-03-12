@@ -12,6 +12,10 @@ faqs:
     answer: "A licensed electrician should evaluate panel headroom, load profile, and planned future loads before circuit sizing and charger placement are finalized."
   - question: "Should I use a service page and local page when planning?"
     answer: "Yes. Using both the core service page and city-specific page improves planning clarity around scope, permitting expectations, and likely project pathways."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 

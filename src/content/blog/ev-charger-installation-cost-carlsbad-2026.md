@@ -12,6 +12,10 @@ faqs:
     answer: "Not every home needs a panel upgrade, but capacity should be evaluated before installation. If your panel is near limits or future loads are planned, upgrading first can reduce rework and improve long-term reliability."
   - question: "Is permit handling included in professional EV charger projects?"
     answer: "Best-practice proposals include permit and inspection coordination in writing. This helps ensure code-compliant installation and cleaner project closeout documentation."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 

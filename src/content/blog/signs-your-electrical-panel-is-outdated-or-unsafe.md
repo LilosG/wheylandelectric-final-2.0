@@ -12,6 +12,10 @@ faqs:
     answer: "Not always, but repeated trips are a high-value diagnostic signal. They can indicate overload, circuit issues, or panel constraints that require structured troubleshooting."
   - question: "When should I move from monitoring to corrective action?"
     answer: "If multiple warning signs persist or escalate, move from observation to formal evaluation quickly. Delayed action can increase both risk and eventual repair scope."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 

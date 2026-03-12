@@ -12,6 +12,10 @@ faqs:
     answer: "Incomplete scope, unresolved panel capacity questions, and location changes after filing are common delay sources. Finalizing these early improves timeline predictability."
   - question: "Should panel work be coordinated with EV permit planning?"
     answer: "If panel constraints are likely, yes. Coordinating panel and EV scope early can reduce duplicated effort and help avoid mid-project design revisions."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 

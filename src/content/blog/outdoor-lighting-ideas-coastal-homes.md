@@ -12,6 +12,10 @@ faqs:
     answer: "Not always. Scope determines permit requirements, so homeowners should confirm permit applicability before installation when adding new circuits or substantial electrical changes."
   - question: "How can I make outdoor lighting both functional and durable?"
     answer: "Use a layered design approach—safety, task, ambiance, and architectural lighting—while prioritizing code-compliant weatherproof components and proper fixture selection."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 

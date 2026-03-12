@@ -12,6 +12,10 @@ faqs:
     answer: "You can in some cases, but this often increases total project friction if capacity is already constrained. Capacity-first planning usually produces a cleaner, more predictable outcome."
   - question: "Do newer Carlsbad homes still need panel evaluations for EV charging?"
     answer: "Yes. Even newer homes should be evaluated because charger location, route complexity, and cumulative household load still affect final electrical strategy."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 

@@ -12,6 +12,10 @@ faqs:
     answer: "200A service typically provides stronger expansion headroom for EV charging, HVAC upgrades, remodel circuits, and future electrification projects without repeated rework."
   - question: "What is the best way to choose between 100A and 200A?"
     answer: "Use a load-based planning process: evaluate current usage, map future projects, assess panel condition, and choose the capacity path that safely supports your total trajectory."
+  - question: "How should homeowners use this guide when comparing estimates?"
+    answer: "Use this guide to validate scope clarity, permit handling, and long-term planning assumptions before approving work. A detailed written proposal with clear inclusions and exclusions is usually the most reliable baseline for comparison."
+  - question: "When should I move from research to scheduling an on-site evaluation?"
+    answer: "If your project includes multiple electrical variables such as panel capacity, new 240V loads, or permit-sensitive scope, an on-site evaluation is the best next step. It helps convert general guidance into a code-aligned plan for your specific property."
 draft: false
 ---
 
