@@ -5,6 +5,13 @@ date: 2026-01-30
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-2.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
+faqs:
+  - question: "Why does EV charger permit quality matter so much?"
+    answer: "Permit-complete work supports code compliance, inspection validation, and clean documentation for homeowners. It also helps reduce downstream risk during resale or insurance events."
+  - question: "What usually causes EV permit delays?"
+    answer: "Incomplete scope, unresolved panel capacity questions, and location changes after filing are common delay sources. Finalizing these early improves timeline predictability."
+  - question: "Should panel work be coordinated with EV permit planning?"
+    answer: "If panel constraints are likely, yes. Coordinating panel and EV scope early can reduce duplicated effort and help avoid mid-project design revisions."
 draft: false
 ---
 

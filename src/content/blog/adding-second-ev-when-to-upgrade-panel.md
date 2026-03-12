@@ -5,6 +5,13 @@ date: 2026-02-17
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-bmw-ev-charger-rancho-santa-fe.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades", "dedicated-circuits"]
+faqs:
+  - question: "Does adding a second EV always require a panel upgrade?"
+    answer: "Not always, but the probability increases when both vehicles charge frequently and other major household loads overlap. Capacity assessment should guide the decision."
+  - question: "What is the best first step for two-EV planning?"
+    answer: "Start with realistic charging behavior and total load mapping, then choose charger/circuit strategy based on verified panel headroom and future expansion goals."
+  - question: "How can I avoid rework when planning for two EVs?"
+    answer: "Coordinate panel, routing, and charger decisions as one system plan rather than separate projects. This usually improves reliability and reduces lifecycle friction."
 draft: false
 ---
 

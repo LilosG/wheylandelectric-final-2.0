@@ -5,6 +5,13 @@ date: 2026-02-07
 author: "Tim Wheyland"
 image: "/images/services/panel/wheyland-electric-outdoor-meter-panel-new-construction.webp"
 relatedServices: ["electrical-panel-upgrades", "service-calls-troubleshooting"]
+faqs:
+  - question: "What panel warning signs should never be ignored?"
+    answer: "Thermal symptoms, burning odor, unusual panel sounds, and visible deterioration should be addressed promptly with professional evaluation."
+  - question: "Are recurring breaker trips always a panel issue?"
+    answer: "Not always, but repeated trips are a high-value diagnostic signal. They can indicate overload, circuit issues, or panel constraints that require structured troubleshooting."
+  - question: "When should I move from monitoring to corrective action?"
+    answer: "If multiple warning signs persist or escalate, move from observation to formal evaluation quickly. Delayed action can increase both risk and eventual repair scope."
 draft: false
 ---
 

@@ -5,6 +5,13 @@ date: 2026-02-26
 author: "Tim Wheyland"
 image: "/images/services/panel/wheyland-electric-service-entrance-wiring.webp"
 relatedServices: ["electrical-panel-upgrades", "ev-charger-installation", "spa-jacuzzi-sauna-electrical", "service-calls-troubleshooting"]
+faqs:
+  - question: "Why is electrical readiness planning important before upgrades?"
+    answer: "Readiness planning reduces change orders, improves permit clarity, and helps sequence projects correctly so expansion work is safer and more predictable."
+  - question: "What should homeowners document before requesting estimates?"
+    answer: "Document existing panel condition, recurring symptoms, and planned new electrical loads. That information improves proposal quality and strategic recommendations."
+  - question: "How do I know if my project sequence is correct?"
+    answer: "A strong sequence starts with baseline assessment, then load-growth definition, capacity strategy, permit-ready scope, and coordinated execution."
 draft: false
 ---
 

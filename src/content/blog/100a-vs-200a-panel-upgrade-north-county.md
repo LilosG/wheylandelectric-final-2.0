@@ -5,6 +5,13 @@ date: 2026-01-26
 author: "Tim Wheyland"
 image: "/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp"
 relatedServices: ["electrical-panel-upgrades", "ev-charger-installation", "spa-jacuzzi-sauna-electrical"]
+faqs:
+  - question: "Is 100A service always insufficient for modern homes?"
+    answer: "Not always. Some homes with modest demand can still operate well on 100A, but expanding electrical loads often make 200A planning more practical for long-term flexibility."
+  - question: "Why is 200A commonly recommended for EV-ready homes?"
+    answer: "200A service typically provides stronger expansion headroom for EV charging, HVAC upgrades, remodel circuits, and future electrification projects without repeated rework."
+  - question: "What is the best way to choose between 100A and 200A?"
+    answer: "Use a load-based planning process: evaluate current usage, map future projects, assess panel condition, and choose the capacity path that safely supports your total trajectory."
 draft: false
 ---
 

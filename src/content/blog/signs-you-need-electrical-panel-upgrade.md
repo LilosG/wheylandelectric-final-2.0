@@ -5,6 +5,13 @@ date: 2024-10-01
 author: "Tim Wheyland"
 image: "/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp"
 relatedServices: ["electrical-panel-upgrades", "service-calls-troubleshooting", "ev-charger-installation"]
+faqs:
+  - question: "What are the most reliable indicators that a panel upgrade is needed?"
+    answer: "Frequent breaker trips, capacity limitations, panel age/condition concerns, and plans for major new loads are common indicators that a professional evaluation is warranted."
+  - question: "Can I wait to upgrade until the panel fails?"
+    answer: "Waiting can increase risk and urgency. Early planning usually provides safer outcomes and better control over budget and schedule."
+  - question: "Do panel upgrades require permits in North County cities?"
+    answer: "Yes, panel upgrades generally require electrical permits and inspection closeout to verify code compliance."
 draft: false
 ---
 

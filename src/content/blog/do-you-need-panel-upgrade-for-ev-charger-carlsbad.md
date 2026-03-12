@@ -5,6 +5,13 @@ date: 2026-01-22
 author: "Tim Wheyland"
 image: "/images/services/panel/wheyland-electric-service-entrance-wiring.webp"
 relatedServices: ["electrical-panel-upgrades", "ev-charger-installation"]
+faqs:
+  - question: "How can I tell if my panel is ready for a Level 2 EV charger?"
+    answer: "A licensed electrician should review your current load profile, available breaker space, panel condition, and likely near-term electrical additions before final charger/circuit decisions are made."
+  - question: "Can I install the charger first and upgrade the panel later?"
+    answer: "You can in some cases, but this often increases total project friction if capacity is already constrained. Capacity-first planning usually produces a cleaner, more predictable outcome."
+  - question: "Do newer Carlsbad homes still need panel evaluations for EV charging?"
+    answer: "Yes. Even newer homes should be evaluated because charger location, route complexity, and cumulative household load still affect final electrical strategy."
 draft: false
 ---
 

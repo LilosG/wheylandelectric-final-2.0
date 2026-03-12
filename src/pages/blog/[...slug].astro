@@ -8,6 +8,8 @@ import { articleSchema } from '../../lib/schema/article';
 import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
 import { getPublishedPillars } from '../../data/services';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import { faqPageSchema } from '../../lib/schema/faq';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -25,6 +27,9 @@ const { Content } = await post.render();
 const meta = blogPostMeta(post.data.title, post.data.description, post.slug);
 const blogPostHero = getPageHeroImage('blog-post');
 const blogHeroImage = post.data.image || blogPostHero.src;
+
+const postFaqs = (post.data.faqs || []).slice(0, 8);
+const faqSchema = postFaqs.length > 0 ? faqPageSchema(postFaqs) : null;
 
 const schema = articleSchema(
   post.data.title,
@@ -67,7 +72,7 @@ const relatedPosts = allPosts
 ---
 <PageLayout
   meta={meta}
-  schemas={[schema]}
+  schemas={faqSchema ? [schema, faqSchema] : [schema]}
   breadcrumbs={[
     { label: 'Blog', href: '/blog/' },
     { label: post.data.title, href: `/blog/${post.slug}/` },
@@ -152,6 +157,14 @@ const relatedPosts = allPosts
             </a>
           ))}
         </div>
+      </div>
+    </Section>
+  )}
+
+  {postFaqs.length > 0 && (
+    <Section bg="white" spacing="default">
+      <div class="mx-auto max-w-3xl">
+        <FAQAccordion faqs={postFaqs} heading="Frequently Asked Questions" />
       </div>
     </Section>
   )}

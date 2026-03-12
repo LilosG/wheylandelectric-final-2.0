@@ -5,6 +5,13 @@ date: 2026-02-21
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
+faqs:
+  - question: "Is TOU savings mostly about charger brand?"
+    answer: "No. TOU outcomes usually depend more on charging schedule discipline, right-sized circuit design, and electrical system readiness than on brand alone."
+  - question: "Can panel constraints affect TOU charging efficiency?"
+    answer: "Yes. Limited panel headroom can reduce charging reliability and make cost-optimized schedules harder to execute consistently."
+  - question: "What is the best process to lower long-term charging cost?"
+    answer: "Align usage forecasting, off-peak scheduling, charger/circuit sizing, and panel readiness in one integrated plan."
 draft: false
 ---
 

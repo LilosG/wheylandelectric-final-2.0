@@ -5,6 +5,13 @@ date: 2024-11-15
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
+faqs:
+  - question: "Do most homes in North County need Level 2 charging?"
+    answer: "For full EV owners with regular driving needs, Level 2 charging is usually the most practical home option because it provides significantly faster overnight replenishment than Level 1."
+  - question: "How do I know if my panel can support an EV charger?"
+    answer: "A licensed electrician should evaluate panel headroom, load profile, and planned future loads before circuit sizing and charger placement are finalized."
+  - question: "Should I use a service page and local page when planning?"
+    answer: "Yes. Using both the core service page and city-specific page improves planning clarity around scope, permitting expectations, and likely project pathways."
 draft: false
 ---
 

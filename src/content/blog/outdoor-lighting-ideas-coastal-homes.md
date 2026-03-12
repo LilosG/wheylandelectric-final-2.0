@@ -5,6 +5,13 @@ date: 2024-09-15
 author: "Tim Wheyland"
 image: "/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp"
 relatedServices: ["light-fixture-installation", "recessed-lighting-installation", "outlet-switch-dimmer-gfci-repairs"]
+faqs:
+  - question: "Why do coastal outdoor lighting projects need special planning?"
+    answer: "Coastal environments accelerate corrosion, so fixture ratings, weatherproofing details, and material choices are more critical for long-term reliability."
+  - question: "Do outdoor lighting upgrades always require permits?"
+    answer: "Not always. Scope determines permit requirements, so homeowners should confirm permit applicability before installation when adding new circuits or substantial electrical changes."
+  - question: "How can I make outdoor lighting both functional and durable?"
+    answer: "Use a layered design approach—safety, task, ambiance, and architectural lighting—while prioritizing code-compliant weatherproof components and proper fixture selection."
 draft: false
 ---
 

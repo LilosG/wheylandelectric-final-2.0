@@ -5,6 +5,13 @@ date: 2026-02-12
 author: "Tim Wheyland"
 image: "/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp"
 relatedServices: ["electrical-panel-upgrades", "service-calls-troubleshooting"]
+faqs:
+  - question: "How long does a panel upgrade take from start to finish?"
+    answer: "Project duration is phase-based: assessment, permitting, installation, and inspection closeout. Installation day is only one part of the complete timeline."
+  - question: "What usually extends panel upgrade timelines?"
+    answer: "Scope changes, incomplete permit assumptions, utility coordination constraints, and newly discovered related electrical work are common timeline extensions."
+  - question: "Can EV charger planning be combined with panel timeline planning?"
+    answer: "Yes. Coordinating both scopes early can reduce duplicate scheduling and produce better sequencing for homeowners planning near-term electrification."
 draft: false
 ---
 

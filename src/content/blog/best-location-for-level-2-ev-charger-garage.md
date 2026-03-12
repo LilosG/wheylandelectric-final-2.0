@@ -5,6 +5,13 @@ date: 2026-02-03
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-ev-charger-garage-setup.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
+faqs:
+  - question: "What is the most important factor in charger placement?"
+    answer: "Daily usability and safety should lead the decision. The best placement balances cable ergonomics, route practicality, and long-term expansion flexibility."
+  - question: "Does charger location significantly affect installation cost?"
+    answer: "Yes. Route length, access complexity, and surface protection needs can materially change labor and material scope even when charger hardware is the same."
+  - question: "Should I buy charger equipment before finalizing location?"
+    answer: "It is usually better to finalize location and route first. That helps ensure charger selection and circuit design align with real installation constraints."
 draft: false
 ---
 

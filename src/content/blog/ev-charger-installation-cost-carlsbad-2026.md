@@ -5,6 +5,13 @@ date: 2026-01-18
 author: "Tim Wheyland"
 image: "/images/services/ev-charger/wheyland-electric-ev-charger-installation.webp"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades"]
+faqs:
+  - question: "What is the biggest cost driver for EV charger installation in Carlsbad?"
+    answer: "Panel capacity and routing complexity are usually the biggest cost drivers. Homes with limited electrical headroom or long conduit routes generally require broader scope and higher labor/material input."
+  - question: "Should I upgrade my panel before installing an EV charger?"
+    answer: "Not every home needs a panel upgrade, but capacity should be evaluated before installation. If your panel is near limits or future loads are planned, upgrading first can reduce rework and improve long-term reliability."
+  - question: "Is permit handling included in professional EV charger projects?"
+    answer: "Best-practice proposals include permit and inspection coordination in writing. This helps ensure code-compliant installation and cleaner project closeout documentation."
 draft: false
 ---
 
