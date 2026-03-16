@@ -27,7 +27,7 @@ export function websiteSchemaNode(): Record<string, unknown> {
   return {
     '@type': 'WebSite',
     '@id': SCHEMA_IDS.website,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     name: 'Wheyland Electric',
     about: { '@id': SCHEMA_IDS.electrician },
   };

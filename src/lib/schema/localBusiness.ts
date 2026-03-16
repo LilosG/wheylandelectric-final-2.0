@@ -14,7 +14,7 @@ export function electricianSchemaNode(): Record<string, unknown> {
     '@type': 'Electrician',
     '@id': ELECTRICIAN_ID,
     name: site.nap.name,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     telephone: site.nap.phone,
     email: site.nap.email,
     address: {
