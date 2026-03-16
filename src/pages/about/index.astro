@@ -5,7 +5,8 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { aboutPageMeta } from '../../lib/seo';
-import { localBusinessSchema } from '../../lib/schema/localBusiness';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
+import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { site } from '../../data/site';
 import { getPageHeroImage } from '../../data/heroImages';
 
@@ -13,7 +14,21 @@ const aboutHero = getPageHeroImage('about');
 
 const meta = aboutPageMeta();
 ---
-<PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'About', href: '/about/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    graphSchema([
+      webPageSchemaNode({
+        type: 'AboutPage',
+        path: '/about/',
+        name: meta.title,
+        description: meta.description,
+      }),
+      breadcrumbSchemaNode([{ label: 'About', href: '/about/' }], '/about/'),
+    ]),
+  ]}
+  breadcrumbs={[{ label: 'About', href: '/about/' }]}
+>
   <Hero
     title="About Wheyland Electric"
     subtitle="Family-owned. Carlsbad-based. Serving San Diego County since 2008."

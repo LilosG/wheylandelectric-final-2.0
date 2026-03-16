@@ -7,13 +7,24 @@ import Hero from '../components/sections/Hero.astro';
 import Section from '../components/ui/Section.astro';
 import { reviewsPageMeta } from '../lib/seo';
 import { site } from '../data/site';
+import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
 import { getPageHeroImage } from '../data/heroImages';
 
 const reviewsHero = getPageHeroImage('reviews');
 
 const meta = reviewsPageMeta();
 ---
-<PageLayout meta={meta} breadcrumbs={[{ label: 'Reviews', href: '/reviews/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    graphSchema([
+      webPageSchemaNode({ type: 'WebPage', path: '/reviews/', name: meta.title, description: meta.description }),
+      breadcrumbSchemaNode([{ label: 'Reviews', href: '/reviews/' }], '/reviews/'),
+    ]),
+  ]}
+  breadcrumbs={[{ label: 'Reviews', href: '/reviews/' }]}
+>
   <Hero
     title="Customer Reviews"
     subtitle="We are proud of the relationships we build with every customer. Our reputation is built on honest work, fair pricing, and standing behind every project."

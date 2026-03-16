@@ -9,6 +9,8 @@ import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { getPublishedCities } from '../../data/cities';
 import { site } from '../../data/site';
+import { collectionPageSchema } from '../../lib/schema/collection';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = generateMeta({
@@ -20,7 +22,22 @@ const meta = generateMeta({
 const cities = getPublishedCities();
 const serviceAreasHero = getPageHeroImage('service-areas');
 ---
-<PageLayout meta={meta} breadcrumbs={[{ label: 'Service Areas', href: '/service-areas/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    collectionPageSchema(
+      '/service-areas/',
+      meta.title,
+      meta.description,
+      cities.map((city) => ({ name: city.name, url: `/${city.slug}/` }))
+    ),
+    {
+      '@context': 'https://schema.org',
+      ...breadcrumbSchemaNode([{ label: 'Service Areas', href: '/service-areas/' }], '/service-areas/'),
+    },
+  ]}
+  breadcrumbs={[{ label: 'Service Areas', href: '/service-areas/' }]}
+>
   <Hero
     title="Areas We Serve"
     subtitle="Carlsbad-based, serving all of San Diego County with professional electrical services since 2008."

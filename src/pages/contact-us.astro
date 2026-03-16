@@ -6,7 +6,8 @@ import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Section from '../components/ui/Section.astro';
 import { contactPageMeta } from '../lib/seo';
-import { localBusinessSchema } from '../lib/schema/localBusiness';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
+import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { site } from '../data/site';
 import { getPageHeroImage } from '../data/heroImages';
 
@@ -14,7 +15,21 @@ const contactHero = getPageHeroImage('contact');
 
 const meta = contactPageMeta();
 ---
-<PageLayout meta={meta} schemas={[localBusinessSchema()]} breadcrumbs={[{ label: 'Contact', href: '/contact-us/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    graphSchema([
+      webPageSchemaNode({
+        type: 'ContactPage',
+        path: '/contact-us/',
+        name: meta.title,
+        description: meta.description,
+      }),
+      breadcrumbSchemaNode([{ label: 'Contact', href: '/contact-us/' }], '/contact-us/'),
+    ]),
+  ]}
+  breadcrumbs={[{ label: 'Contact', href: '/contact-us/' }]}
+>
   <Hero
     title="Contact Us"
     subtitle="Have a question or need electrical service? We are here to help."

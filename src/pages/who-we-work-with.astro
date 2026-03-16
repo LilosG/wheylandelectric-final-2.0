@@ -7,6 +7,8 @@ import CTASection from '../components/sections/CTASection.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
+import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { generateMeta } from '../lib/seo';
 import { getWhoWeServeImage, getPageHeroImage } from '../data/heroImages';
 
@@ -56,7 +58,16 @@ const segments = [
   },
 ];
 ---
-<PageLayout meta={meta} breadcrumbs={[{ label: 'Who We Work With', href: '/who-we-work-with/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    graphSchema([
+      webPageSchemaNode({ type: 'WebPage', path: '/who-we-work-with/', name: meta.title, description: meta.description }),
+      breadcrumbSchemaNode([{ label: 'Who We Work With', href: '/who-we-work-with/' }], '/who-we-work-with/'),
+    ]),
+  ]}
+  breadcrumbs={[{ label: 'Who We Work With', href: '/who-we-work-with/' }]}
+>
   <Hero
     title="Who We Work With"
     subtitle="Big enough to handle any project. Small enough to care about every detail."

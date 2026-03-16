@@ -4,12 +4,15 @@ import Hero from '../../components/sections/Hero.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { blogPostMeta } from '../../lib/seo';
-import { articleSchema } from '../../lib/schema/article';
+import { blogPostingSchema } from '../../lib/schema/article';
 import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
 import { getPublishedPillars } from '../../data/services';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
-import { faqPageSchema } from '../../lib/schema/faq';
+import { faqPageSchemaNode } from '../../lib/schema/faq';
+import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
+import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -29,15 +32,42 @@ const blogPostHero = getPageHeroImage('blog-post');
 const blogHeroImage = post.data.image || blogPostHero.src;
 
 const postFaqs = (post.data.faqs || []).slice(0, 8);
-const faqSchema = postFaqs.length > 0 ? faqPageSchema(postFaqs) : null;
+const shouldMarkFaqs = shouldEmitFaqSchema({
+  faqs: postFaqs,
+  pageTokens: [post.data.title],
+  visible: postFaqs.length > 0,
+  usesSharedFallback: false,
+});
 
-const schema = articleSchema(
-  post.data.title,
-  post.data.description,
-  post.data.date.toISOString(),
-  post.data.author,
-  post.slug,
-);
+const schemaGraph = (() => {
+  const nodes: Record<string, unknown>[] = [
+    webPageSchemaNode({
+      type: 'WebPage',
+      path: `/blog/${post.slug}/`,
+      name: meta.title,
+      description: meta.description,
+      mainEntityId: `https://wheylandelectric.com/blog/${post.slug}/#blogposting`,
+    }),
+    blogPostingSchema(
+      post.data.title,
+      post.data.description,
+      post.data.date.toISOString(),
+      post.data.author,
+      post.slug,
+      post.data.image
+    ),
+    breadcrumbSchemaNode([
+      { label: 'Blog', href: '/blog/' },
+      { label: post.data.title, href: `/blog/${post.slug}/` },
+    ], `/blog/${post.slug}/`),
+  ];
+
+  if (shouldMarkFaqs) {
+    nodes.push(faqPageSchemaNode(postFaqs, `/blog/${post.slug}/`));
+  }
+
+  return graphSchema(nodes);
+})();
 
 const allPosts = (await getCollection('blog'))
   .filter((entry) => !entry.data.draft && entry.slug !== post.slug)
@@ -72,7 +102,7 @@ const relatedPosts = allPosts
 ---
 <PageLayout
   meta={meta}
-  schemas={faqSchema ? [schema, faqSchema] : [schema]}
+  schemas={[schemaGraph]}
   breadcrumbs={[
     { label: 'Blog', href: '/blog/' },
     { label: post.data.title, href: `/blog/${post.slug}/` },

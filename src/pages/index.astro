@@ -14,7 +14,8 @@ import MapSection from '../components/sections/MapSection.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import { homePageMeta } from '../lib/seo';
-import { localBusinessSchema } from '../lib/schema/localBusiness';
+import { electricianSchemaNode } from '../lib/schema/localBusiness';
+import { graphSchema, webPageSchemaNode, websiteSchemaNode } from '../lib/schema/graph';
 import { getPublishedPillars } from '../data/services';
 import { getPublishedCities } from '../data/cities';
 
@@ -22,7 +23,22 @@ const meta = homePageMeta();
 const services = getPublishedPillars();
 const cities = getPublishedCities();
 ---
-<PageLayout meta={meta} schemas={[localBusinessSchema()]} preloadHero>
+<PageLayout
+  meta={meta}
+  schemas={[
+    graphSchema([
+      websiteSchemaNode(),
+      electricianSchemaNode(),
+      webPageSchemaNode({
+        type: 'HomePage',
+        path: '/',
+        name: meta.title,
+        description: meta.description,
+      }),
+    ]),
+  ]}
+  preloadHero
+>
   {/* 1. Hero — dark indigo, full viewport, split layout */}
   <Hero
     eyebrow="Satisfaction Guaranteed"
