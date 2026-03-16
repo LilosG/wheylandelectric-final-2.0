@@ -1,8 +1,8 @@
 ---
 import CityLandingTemplate from '../../components/templates/CityLandingTemplate.astro';
 import { cityPageMeta } from '../../lib/seo';
-import { faqPageSchema } from '../../lib/schema/faq';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { faqPageSchemaNode } from '../../lib/schema/faq';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { getPublishedCities, getCityBySlug } from '../../data/cities';
@@ -43,7 +43,7 @@ const schemas = [
         name: meta.title,
         description: meta.description,
       }),
-      breadcrumbSchema(breadcrumbs, `/${city.slug}/`),
+      breadcrumbSchemaNode(breadcrumbs, `/${city.slug}/`),
     ];
 
     if (shouldEmitFaqSchema({
@@ -52,7 +52,7 @@ const schemas = [
       visible: cityFaqs.length > 0,
       usesSharedFallback: false,
     })) {
-      nodes.push(faqPageSchema(cityFaqs, `/${city.slug}/`));
+      nodes.push(faqPageSchemaNode(cityFaqs, `/${city.slug}/`));
     }
 
     return graphSchema(nodes);

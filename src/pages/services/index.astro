@@ -8,7 +8,7 @@ import Section from '../../components/ui/Section.astro';
 import { servicesIndexMeta } from '../../lib/seo';
 import { getPublishedPillars } from '../../data/services';
 import { collectionPageSchema } from '../../lib/schema/collection';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = servicesIndexMeta();
@@ -27,7 +27,7 @@ const servicesHero = getPageHeroImage('services');
     ),
     {
       '@context': 'https://schema.org',
-      ...breadcrumbSchema([{ label: 'Services', href: '/services/' }], '/services/'),
+      ...breadcrumbSchemaNode([{ label: 'Services', href: '/services/' }], '/services/'),
     },
   ]}
   breadcrumbs={[{ label: 'Services', href: '/services/' }]}

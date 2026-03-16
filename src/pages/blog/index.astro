@@ -7,7 +7,7 @@ import { blogIndexMeta } from '../../lib/seo';
 import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
 import { collectionPageSchema } from '../../lib/schema/collection';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 
 const meta = blogIndexMeta();
 
@@ -23,7 +23,7 @@ const posts = (await getCollection('blog'))
     collectionPageSchema('/blog/', meta.title, meta.description, posts.map((post) => ({ name: post.data.title, url: `/blog/${post.slug}/` }))),
     {
       '@context': 'https://schema.org',
-      ...breadcrumbSchema([{ label: 'Blog', href: '/blog/' }], '/blog/'),
+      ...breadcrumbSchemaNode([{ label: 'Blog', href: '/blog/' }], '/blog/'),
     },
   ]}
   breadcrumbs={[{ label: 'Blog', href: '/blog/' }]}

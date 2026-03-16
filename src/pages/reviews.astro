@@ -8,7 +8,7 @@ import Section from '../components/ui/Section.astro';
 import { reviewsPageMeta } from '../lib/seo';
 import { site } from '../data/site';
 import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
-import { breadcrumbSchema } from '../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
 import { getPageHeroImage } from '../data/heroImages';
 
 const reviewsHero = getPageHeroImage('reviews');
@@ -20,7 +20,7 @@ const meta = reviewsPageMeta();
   schemas={[
     graphSchema([
       webPageSchemaNode({ type: 'WebPage', path: '/reviews/', name: meta.title, description: meta.description }),
-      breadcrumbSchema([{ label: 'Reviews', href: '/reviews/' }], '/reviews/'),
+      breadcrumbSchemaNode([{ label: 'Reviews', href: '/reviews/' }], '/reviews/'),
     ]),
   ]}
   breadcrumbs={[{ label: 'Reviews', href: '/reviews/' }]}

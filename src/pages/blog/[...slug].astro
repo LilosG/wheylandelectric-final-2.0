@@ -9,9 +9,9 @@ import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
 import { getPublishedPillars } from '../../data/services';
 import FAQAccordion from '../../components/sections/FAQAccordion.astro';
-import { faqPageSchema } from '../../lib/schema/faq';
+import { faqPageSchemaNode } from '../../lib/schema/faq';
 import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 
 export async function getStaticPaths() {
@@ -56,14 +56,14 @@ const schemaGraph = (() => {
       post.slug,
       post.data.image
     ),
-    breadcrumbSchema([
+    breadcrumbSchemaNode([
       { label: 'Blog', href: '/blog/' },
       { label: post.data.title, href: `/blog/${post.slug}/` },
     ], `/blog/${post.slug}/`),
   ];
 
   if (shouldMarkFaqs) {
-    nodes.push(faqPageSchema(postFaqs, `/blog/${post.slug}/`));
+    nodes.push(faqPageSchemaNode(postFaqs, `/blog/${post.slug}/`));
   }
 
   return graphSchema(nodes);

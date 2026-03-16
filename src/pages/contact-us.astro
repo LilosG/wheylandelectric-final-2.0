@@ -6,7 +6,7 @@ import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
 import Section from '../components/ui/Section.astro';
 import { contactPageMeta } from '../lib/seo';
-import { breadcrumbSchema } from '../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { site } from '../data/site';
 import { getPageHeroImage } from '../data/heroImages';
@@ -25,7 +25,7 @@ const meta = contactPageMeta();
         name: meta.title,
         description: meta.description,
       }),
-      breadcrumbSchema([{ label: 'Contact', href: '/contact-us/' }], '/contact-us/'),
+      breadcrumbSchemaNode([{ label: 'Contact', href: '/contact-us/' }], '/contact-us/'),
     ]),
   ]}
   breadcrumbs={[{ label: 'Contact', href: '/contact-us/' }]}

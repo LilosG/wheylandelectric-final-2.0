@@ -1,11 +1,11 @@
 ---
 import ServicePillarTemplate from '../../components/templates/ServicePillarTemplate.astro';
 import { servicePageMeta } from '../../lib/seo';
-import { serviceSchema } from '../../lib/schema/service';
-import { faqPageSchema } from '../../lib/schema/faq';
+import { serviceSchemaNode } from '../../lib/schema/service';
+import { faqPageSchemaNode } from '../../lib/schema/faq';
 import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { getPublishedPillars, getPillarBySlug } from '../../data/services';
 import { getPublishedCities } from '../../data/cities';
 import type { ServicePillar } from '../../types';
@@ -50,8 +50,8 @@ const serviceAreaCities = getPublishedCities().map((city) => ({ slug: city.slug,
           description: meta.description,
           mainEntityId: `https://wheylandelectric.com/services/${pillar.slug}/#service`,
         }),
-        serviceSchema(pillar.name, pillar.shortDesc, `/services/${pillar.slug}/`),
-        breadcrumbSchema(breadcrumbs, `/services/${pillar.slug}/`),
+        serviceSchemaNode(pillar.name, pillar.shortDesc, `/services/${pillar.slug}/`),
+        breadcrumbSchemaNode(breadcrumbs, `/services/${pillar.slug}/`),
       ];
 
       if (shouldEmitFaqSchema({
@@ -60,7 +60,7 @@ const serviceAreaCities = getPublishedCities().map((city) => ({ slug: city.slug,
         visible: pillar.faqs.length > 0,
         usesSharedFallback: false,
       })) {
-        nodes.push(faqPageSchema(pillar.faqs, `/services/${pillar.slug}/`));
+        nodes.push(faqPageSchemaNode(pillar.faqs, `/services/${pillar.slug}/`));
       }
 
       return [graphSchema(nodes)];

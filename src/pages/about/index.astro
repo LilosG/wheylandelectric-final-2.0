@@ -5,7 +5,7 @@ import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { aboutPageMeta } from '../../lib/seo';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { site } from '../../data/site';
 import { getPageHeroImage } from '../../data/heroImages';
@@ -24,7 +24,7 @@ const meta = aboutPageMeta();
         name: meta.title,
         description: meta.description,
       }),
-      breadcrumbSchema([{ label: 'About', href: '/about/' }], '/about/'),
+      breadcrumbSchemaNode([{ label: 'About', href: '/about/' }], '/about/'),
     ]),
   ]}
   breadcrumbs={[{ label: 'About', href: '/about/' }]}

@@ -10,7 +10,7 @@ import { generateMeta } from '../../lib/seo';
 import { getPublishedCities } from '../../data/cities';
 import { site } from '../../data/site';
 import { collectionPageSchema } from '../../lib/schema/collection';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = generateMeta({
@@ -33,7 +33,7 @@ const serviceAreasHero = getPageHeroImage('service-areas');
     ),
     {
       '@context': 'https://schema.org',
-      ...breadcrumbSchema([{ label: 'Service Areas', href: '/service-areas/' }], '/service-areas/'),
+      ...breadcrumbSchemaNode([{ label: 'Service Areas', href: '/service-areas/' }], '/service-areas/'),
     },
   ]}
   breadcrumbs={[{ label: 'Service Areas', href: '/service-areas/' }]}

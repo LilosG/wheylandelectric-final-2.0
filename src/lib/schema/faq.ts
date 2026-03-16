@@ -1,7 +1,7 @@
 import type { FAQ } from '../../types';
 import { SITE_URL } from '../seo';
 
-export function faqPageSchema(faqs: FAQ[], pagePath: string): Record<string, unknown> {
+export function faqPageSchemaNode(faqs: FAQ[], pagePath: string): Record<string, unknown> {
   return {
     '@type': 'FAQPage',
     '@id': `${SITE_URL}${pagePath}#faq`,

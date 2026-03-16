@@ -1,7 +1,7 @@
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 const ELECTRICIAN_ID = `${SITE_URL}/#electrician`;
 
-export function serviceSchema(
+export function serviceSchemaNode(
   serviceName: string,
   serviceDescription: string,
   pageUrl: string,

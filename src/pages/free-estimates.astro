@@ -4,7 +4,7 @@ import TrustBar from '../components/sections/TrustBar.astro';
 import EstimateForm from '../components/forms/EstimateForm.astro';
 import Hero from '../components/sections/Hero.astro';
 import Section from '../components/ui/Section.astro';
-import { breadcrumbSchema } from '../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { generateMeta } from '../lib/seo';
 import { site } from '../data/site';
@@ -23,7 +23,7 @@ const meta = generateMeta({
   schemas={[
     graphSchema([
       webPageSchemaNode({ type: 'WebPage', path: '/free-estimates/', name: meta.title, description: meta.description }),
-      breadcrumbSchema([{ label: 'Free Estimate', href: '/free-estimates/' }], '/free-estimates/'),
+      breadcrumbSchemaNode([{ label: 'Free Estimate', href: '/free-estimates/' }], '/free-estimates/'),
     ]),
   ]}
   breadcrumbs={[{ label: 'Free Estimate', href: '/free-estimates/' }]}

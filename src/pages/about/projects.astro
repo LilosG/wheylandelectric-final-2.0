@@ -5,7 +5,7 @@ import ProjectGallery from '../../components/sections/ProjectGallery.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
-import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { generateMeta } from '../../lib/seo';
 import { getPageHeroImage } from '../../data/heroImages';
@@ -23,7 +23,7 @@ const meta = generateMeta({
   schemas={[
     graphSchema([
       webPageSchemaNode({ type: 'WebPage', path: '/about/projects/', name: meta.title, description: meta.description }),
-      breadcrumbSchema([
+      breadcrumbSchemaNode([
         { label: 'About', href: '/about/' },
         { label: 'Projects', href: '/about/projects/' },
       ], '/about/projects/'),

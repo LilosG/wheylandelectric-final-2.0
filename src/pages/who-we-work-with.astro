@@ -7,7 +7,7 @@ import CTASection from '../components/sections/CTASection.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
-import { breadcrumbSchema } from '../lib/schema/breadcrumb';
+import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { generateMeta } from '../lib/seo';
 import { getWhoWeServeImage, getPageHeroImage } from '../data/heroImages';
@@ -63,7 +63,7 @@ const segments = [
   schemas={[
     graphSchema([
       webPageSchemaNode({ type: 'WebPage', path: '/who-we-work-with/', name: meta.title, description: meta.description }),
-      breadcrumbSchema([{ label: 'Who We Work With', href: '/who-we-work-with/' }], '/who-we-work-with/'),
+      breadcrumbSchemaNode([{ label: 'Who We Work With', href: '/who-we-work-with/' }], '/who-we-work-with/'),
     ]),
   ]}
   breadcrumbs={[{ label: 'Who We Work With', href: '/who-we-work-with/' }]}

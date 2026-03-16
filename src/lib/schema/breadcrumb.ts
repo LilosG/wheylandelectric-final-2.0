@@ -2,7 +2,7 @@ import type { BreadcrumbItem } from '../../types';
 
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 
-export function breadcrumbSchema(items: BreadcrumbItem[], pagePath: string): Record<string, unknown> {
+export function breadcrumbSchemaNode(items: BreadcrumbItem[], pagePath: string): Record<string, unknown> {
   const allItems: BreadcrumbItem[] = [{ label: 'Home', href: '/' }, ...items];
 
   return {
