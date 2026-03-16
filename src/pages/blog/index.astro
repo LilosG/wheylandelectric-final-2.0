@@ -6,6 +6,8 @@ import CTASection from '../../components/sections/CTASection.astro';
 import { blogIndexMeta } from '../../lib/seo';
 import { getCollection } from 'astro:content';
 import { getPageHeroImage } from '../../data/heroImages';
+import { collectionPageSchema } from '../../lib/schema/collection';
+import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
 
 const meta = blogIndexMeta();
 
@@ -15,7 +17,17 @@ const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
 ---
-<PageLayout meta={meta} breadcrumbs={[{ label: 'Blog', href: '/blog/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    collectionPageSchema('/blog/', meta.title, meta.description, posts.map((post) => ({ name: post.data.title, url: `/blog/${post.slug}/` }))),
+    {
+      '@context': 'https://schema.org',
+      ...breadcrumbSchema([{ label: 'Blog', href: '/blog/' }], '/blog/'),
+    },
+  ]}
+  breadcrumbs={[{ label: 'Blog', href: '/blog/' }]}
+>
   <Hero
     title="Electrical Tips & Insights"
     subtitle="Practical guides and information from the Wheyland Electric team."

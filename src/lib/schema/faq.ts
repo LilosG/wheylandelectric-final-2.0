@@ -1,9 +1,13 @@
 import type { FAQ } from '../../types';
+import { SITE_URL } from '../seo';
 
-export function faqPageSchema(faqs: FAQ[]): Record<string, unknown> {
+export function faqPageSchema(faqs: FAQ[], pagePath: string): Record<string, unknown> {
   return {
-    '@context': 'https://schema.org',
     '@type': 'FAQPage',
+    '@id': `${SITE_URL}${pagePath}#faq`,
+    url: `${SITE_URL}${pagePath}`,
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#electrician` },
     mainEntity: faqs.map((faq) => ({
       '@type': 'Question',
       name: faq.question,

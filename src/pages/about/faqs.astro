@@ -7,6 +7,8 @@ import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { generateMeta } from '../../lib/seo';
 import { faqPageSchema } from '../../lib/schema/faq';
+import { graphSchema } from '../../lib/schema/graph';
+import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
 import type { FAQ } from '../../types';
 import { getPageHeroImage } from '../../data/heroImages';
 
@@ -33,7 +35,15 @@ const meta = generateMeta({
 ---
 <PageLayout
   meta={meta}
-  schemas={[faqPageSchema(globalFaqs)]}
+  schemas={[
+    graphSchema([
+      faqPageSchema(globalFaqs, '/about/faqs/'),
+      breadcrumbSchema([
+        { label: 'About', href: '/about/' },
+        { label: 'FAQs', href: '/about/faqs/' },
+      ], '/about/faqs/'),
+    ]),
+  ]}
   breadcrumbs={[
     { label: 'About', href: '/about/' },
     { label: 'FAQs', href: '/about/faqs/' },

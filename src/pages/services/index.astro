@@ -7,6 +7,8 @@ import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
 import { servicesIndexMeta } from '../../lib/seo';
 import { getPublishedPillars } from '../../data/services';
+import { collectionPageSchema } from '../../lib/schema/collection';
+import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
 import { getPageHeroImage } from '../../data/heroImages';
 
 const meta = servicesIndexMeta();
@@ -14,7 +16,22 @@ const meta = servicesIndexMeta();
 const services = getPublishedPillars();
 const servicesHero = getPageHeroImage('services');
 ---
-<PageLayout meta={meta} breadcrumbs={[{ label: 'Services', href: '/services/' }]}>
+<PageLayout
+  meta={meta}
+  schemas={[
+    collectionPageSchema(
+      '/services/',
+      meta.title,
+      meta.description,
+      services.map((service) => ({ name: service.name, url: `/services/${service.slug}/` }))
+    ),
+    {
+      '@context': 'https://schema.org',
+      ...breadcrumbSchema([{ label: 'Services', href: '/services/' }], '/services/'),
+    },
+  ]}
+  breadcrumbs={[{ label: 'Services', href: '/services/' }]}
+>
   <Hero
     title="Our Electrical Services"
     subtitle="Professional electrical services for homes and businesses across San Diego County. Licensed, bonded, and insured with a 1-year labor warranty."

@@ -4,6 +4,8 @@ import { moneyPageMeta } from '../../lib/seo';
 import { serviceSchema } from '../../lib/schema/service';
 import { faqPageSchema } from '../../lib/schema/faq';
 import { breadcrumbSchema } from '../../lib/schema/breadcrumb';
+import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
+import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { getPublishedCities, getCityBySlug } from '../../data/cities';
 import { getPublishedPillars, getPillarBySlug } from '../../data/services';
 import { getCityServiceContent } from '../../data/cityServiceContent';
@@ -83,14 +85,36 @@ const heroSubtitle = `Professional ${pillar.name.toLowerCase()} for homes and bu
 <ServiceMoneyPageTemplate
   meta={meta}
   schemas={[
-    serviceSchema(
-      pillar.name,
-      pillar.shortDesc,
-      `/${city.slug}/${pillar.slug}/`,
-      `${city.name}, CA`
-    ),
-    faqPageSchema(moneyPageFaqs),
-    breadcrumbSchema(breadcrumbs),
+    (() => {
+      const nodes: Record<string, unknown>[] = [
+        webPageSchemaNode({
+          type: 'WebPage',
+          path: `/${city.slug}/${pillar.slug}/`,
+          name: meta.title,
+          description: meta.description,
+          mainEntityId: `https://wheylandelectric.com/${city.slug}/${pillar.slug}/#service`,
+        }),
+        serviceSchema(
+          pillar.name,
+          pillar.shortDesc,
+          `/${city.slug}/${pillar.slug}/`,
+          `${city.name}, CA`
+        ),
+        breadcrumbSchema(breadcrumbs, `/${city.slug}/${pillar.slug}/`),
+      ];
+
+      const usesSharedFallback = !(cityService?.faqs?.length);
+      if (shouldEmitFaqSchema({
+        faqs: moneyPageFaqs,
+        pageTokens: [city.name, pillar.name],
+        visible: moneyPageFaqs.length > 0,
+        usesSharedFallback,
+      })) {
+        nodes.push(faqPageSchema(moneyPageFaqs, `/${city.slug}/${pillar.slug}/`));
+      }
+
+      return graphSchema(nodes);
+    })(),
   ]}
   breadcrumbs={breadcrumbs}
   heroTitle={h1Tagline}
