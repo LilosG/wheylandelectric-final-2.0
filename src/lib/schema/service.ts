@@ -1,16 +1,13 @@
-import { site } from '../../data/site';
-
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
-const BUSINESS_ID = `${SITE_URL}#localbusiness`;
+const ELECTRICIAN_ID = `${SITE_URL}/#electrician`;
 
-export function serviceSchema(
+export function serviceSchemaNode(
   serviceName: string,
   serviceDescription: string,
   pageUrl: string,
   areaServedName?: string
 ): Record<string, unknown> {
   const schema: Record<string, unknown> = {
-    '@context': 'https://schema.org',
     '@type': 'Service',
     '@id': `${SITE_URL}${pageUrl}#service`,
     name: serviceName,
@@ -18,18 +15,10 @@ export function serviceSchema(
     serviceType: serviceName,
     url: `${SITE_URL}${pageUrl}`,
     provider: {
-      '@type': 'Electrician',
-      '@id': BUSINESS_ID,
-      name: site.nap.name,
-      telephone: site.nap.phone,
-      address: {
-        '@type': 'PostalAddress',
-        streetAddress: site.nap.address.street,
-        addressLocality: site.nap.address.city,
-        addressRegion: site.nap.address.state,
-        postalCode: site.nap.address.zip,
-        addressCountry: 'US',
-      },
+      '@id': ELECTRICIAN_ID,
+    },
+    isPartOf: {
+      '@id': `${SITE_URL}/#website`,
     },
   };
 

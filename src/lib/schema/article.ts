@@ -1,9 +1,7 @@
 import { DEFAULT_LOGO_PATH } from '../../data/brand';
-import { site } from '../../data/site';
+import { SITE_URL } from '../seo';
 
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
-
-export function articleSchema(
+export function blogPostingSchema(
   title: string,
   description: string,
   datePublished: string,
@@ -11,9 +9,11 @@ export function articleSchema(
   slug: string,
   image?: string
 ): Record<string, unknown> {
+  const canonical = `${SITE_URL}/blog/${slug}/`;
+
   return {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
+    '@type': 'BlogPosting',
+    '@id': `${canonical}#blogposting`,
     headline: title,
     description,
     datePublished,
@@ -22,11 +22,15 @@ export function articleSchema(
       name: author,
     },
     publisher: {
-      '@type': 'Organization',
-      name: site.nap.name,
-      url: SITE_URL,
+      '@id': `${SITE_URL}/#electrician`,
     },
-    url: `${SITE_URL}/blog/${slug}/`,
+    isPartOf: {
+      '@id': `${SITE_URL}/#website`,
+    },
+    mainEntityOfPage: {
+      '@id': `${canonical}#webpage`,
+    },
+    url: canonical,
     image: image || `${SITE_URL}${DEFAULT_LOGO_PATH}`,
   };
 }

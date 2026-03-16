@@ -4,6 +4,8 @@ import Hero from '../../components/sections/Hero.astro';
 import TrustBar from '../../components/sections/TrustBar.astro';
 import CTASection from '../../components/sections/CTASection.astro';
 import Section from '../../components/ui/Section.astro';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
+import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { generateMeta } from '../../lib/seo';
 import { site } from '../../data/site';
 import { getPageHeroImage } from '../../data/heroImages';
@@ -18,6 +20,15 @@ const meta = generateMeta({
 ---
 <PageLayout
   meta={meta}
+  schemas={[
+    graphSchema([
+      webPageSchemaNode({ type: 'WebPage', path: '/about/licenses/', name: meta.title, description: meta.description }),
+      breadcrumbSchemaNode([
+        { label: 'About', href: '/about/' },
+        { label: 'Licenses & Trust', href: '/about/licenses/' },
+      ], '/about/licenses/'),
+    ]),
+  ]}
   breadcrumbs={[
     { label: 'About', href: '/about/' },
     { label: 'Licenses & Trust', href: '/about/licenses/' },

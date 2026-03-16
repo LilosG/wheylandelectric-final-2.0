@@ -1,21 +1,20 @@
 import { DEFAULT_LOGO_PATH } from '../../data/brand';
-import { site, flags } from '../../data/site';
+import { site } from '../../data/site';
 import { getPublishedCities } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
 
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
-const BUSINESS_ID = `${SITE_URL}#localbusiness`;
+const ELECTRICIAN_ID = `${SITE_URL}/#electrician`;
 
-export function localBusinessSchema(): Record<string, unknown> {
+export function electricianSchemaNode(): Record<string, unknown> {
   const publishedCities = getPublishedCities();
   const publishedServices = getPublishedPillars();
 
-  const schema: Record<string, unknown> = {
-    '@context': 'https://schema.org',
+  return {
     '@type': 'Electrician',
-    '@id': BUSINESS_ID,
+    '@id': ELECTRICIAN_ID,
     name: site.nap.name,
-    url: SITE_URL,
+    url: `${SITE_URL}/`,
     telephone: site.nap.phone,
     email: site.nap.email,
     address: {
@@ -53,15 +52,4 @@ export function localBusinessSchema(): Record<string, unknown> {
     image: `${SITE_URL}${DEFAULT_LOGO_PATH}`,
     priceRange: '$$',
   };
-
-  // GATED: Only include aggregateRating if reviews are verified
-  if (flags.reviews_verified) {
-    schema.aggregateRating = {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '153',
-    };
-  }
-
-  return schema;
 }
