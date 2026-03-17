@@ -56,6 +56,14 @@ export interface SiteData {
   owner: Owner;
   team: TeamMember[];
   serviceRadiusCounties: string[];
+  geo: {
+    latitude: number;
+    longitude: number;
+  };
+  rating: {
+    value: number;
+    count: number;
+  };
   gbp: {
     url: string;
     embedSrc: string;
