@@ -14,7 +14,6 @@ import MapSection from '../components/sections/MapSection.astro';
 import Section from '../components/ui/Section.astro';
 import Button from '../components/ui/Button.astro';
 import { homePageMeta } from '../lib/seo';
-import { electricianSchemaNode } from '../lib/schema/localBusiness';
 import { graphSchema, webPageSchemaNode, websiteSchemaNode } from '../lib/schema/graph';
 import { getPublishedPillars } from '../data/services';
 import { getPublishedCities } from '../data/cities';
@@ -28,7 +27,6 @@ const cities = getPublishedCities();
   schemas={[
     graphSchema([
       websiteSchemaNode(),
-      electricianSchemaNode(),
       webPageSchemaNode({
         type: 'HomePage',
         path: '/',
