@@ -6,6 +6,7 @@ import Footer from '../components/navigation/Footer.astro';
 import MobileCTA from '../components/navigation/MobileCTA.astro';
 import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 import SEOHead from '../components/seo/SEOHead.astro';
+import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 interface Props {
   meta: PageMeta;
@@ -38,6 +39,7 @@ const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
       />
     )}
     <SEOHead meta={meta} schemas={schemas} />
+    <GoogleAnalytics />
   </head>
   <body class="min-h-screen flex flex-col">
     <Header />
