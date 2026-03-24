@@ -8,6 +8,7 @@ import Breadcrumbs from '../components/navigation/Breadcrumbs.astro';
 import SEOHead from '../components/seo/SEOHead.astro';
 import { electricianSchemaNode } from '../lib/schema/localBusiness';
 import { graphSchema } from '../lib/schema/graph';
+import { getGoogleRating } from '../lib/googlePlaces';
 import GoogleAnalytics from '../components/GoogleAnalytics.astro';
 
 interface Props {
@@ -21,7 +22,8 @@ const { meta, schemas = [], breadcrumbs, preloadHero = false } = Astro.props;
 
 // Always prepend the Electrician LocalBusiness entity to every page schema.
 // This ensures Google can find the business entity from any page entry point.
-const baseSchema = graphSchema([electricianSchemaNode()]);
+const liveRating = await getGoogleRating();
+const baseSchema = graphSchema([electricianSchemaNode(liveRating)]);
 const allSchemas = [baseSchema, ...schemas];
 ---
 <!DOCTYPE html>

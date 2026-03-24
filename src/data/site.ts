@@ -64,7 +64,7 @@ export const site: SiteData = {
   },
   rating: {
     value: 5.0,
-    count: 73,
+    count: 77,
   },
   gbp: {
     url: 'https://www.google.com/maps/search/?api=1&query=Wheyland%20Electric%2C%203536%20Woodland%20Way%2C%20Carlsbad%2C%20CA%2092008',
