@@ -35,7 +35,7 @@ export function electricianSchemaNode(): Record<string, unknown> {
         '@type': 'OpeningHoursSpecification',
         dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
         opens: '08:00',
-        closes: '17:00',
+        closes: '19:00',
       },
       {
         '@type': 'OpeningHoursSpecification',

@@ -21,9 +21,9 @@ export const site: SiteData = {
     email: 'info@wheylandelectric.com',
   },
   hours: {
-    weekday: 'Mon–Fri 8:00 AM – 5:00 PM',
+    weekday: 'Mon–Fri 8:00 AM – 7:00 PM',
     weekend: 'Sat–Sun Closed',
-    formatted: 'Mon–Fri 8:00 AM – 5:00 PM | Sat–Sun Closed',
+    formatted: 'Mon–Fri 8:00 AM – 7:00 PM | Sat–Sun Closed',
   },
   license: 'CA License #940291',
   established: 2008,
