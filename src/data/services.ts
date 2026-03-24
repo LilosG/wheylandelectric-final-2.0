@@ -381,7 +381,7 @@ const baseServicePillars: ServicePillar[] = [
       {
         question: 'Do you offer after-hours or weekend service calls?',
         answer:
-          'We primarily operate Monday through Friday, 8 AM to 5 PM. For genuine electrical emergencies, we do our best to accommodate urgent requests outside normal hours. Call our office and we will advise you on next steps.',
+          'We primarily operate Monday through Friday, 8 AM to 7 PM. For genuine electrical emergencies, we do our best to accommodate urgent requests outside normal hours. Call our office and we will advise you on next steps.',
       },
     ],
     relatedServices: [
