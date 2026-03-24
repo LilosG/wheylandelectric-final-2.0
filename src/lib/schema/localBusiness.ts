@@ -6,7 +6,8 @@ import { WHEYLAND_REVIEWS } from '../../data/reviews';
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 const ELECTRICIAN_ID = `${SITE_URL}/#electrician`;
 
-export function electricianSchemaNode(): Record<string, unknown> {
+export function electricianSchemaNode(ratingOverride?: { value: number; count: number }): Record<string, unknown> {
+  const rating = ratingOverride ?? site.rating;
   const publishedCities = getPublishedCities();
   const publishedServices = getPublishedPillars();
 
@@ -85,8 +86,8 @@ export function electricianSchemaNode(): Record<string, unknown> {
     serviceType: publishedServices.map((service) => service.name),
     aggregateRating: {
       '@type': 'AggregateRating',
-      ratingValue: String(site.rating.value),
-      reviewCount: String(site.rating.count),
+      ratingValue: String(rating.value),
+      reviewCount: String(rating.count),
       bestRating: '5',
       worstRating: '1',
     },

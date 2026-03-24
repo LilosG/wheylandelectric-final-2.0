@@ -3,7 +3,7 @@
  * =================================
  * Real verbatim Google Business Profile reviews.
  * Source: Google Maps GBP listing, verified March 2026.
- * 5.0 rating, 73 reviews as of March 2026.
+ * 5.0 rating, 77 reviews as of March 2026.
  */
 
 export interface ReviewNode {

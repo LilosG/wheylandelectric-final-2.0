@@ -38,7 +38,7 @@ export const testimonials: Testimonial[] = [
 
 export const reviewStats = {
   rating: 5,
-  count: 153,
+  count: 77,
 };
 
 export default testimonials;
