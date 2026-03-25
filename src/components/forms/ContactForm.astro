@@ -2,37 +2,28 @@
 import FormField from './FormField.astro';
 import FormShell from './FormShell.astro';
 
-import { FORMSPREE_ENDPOINT, IS_FORMSPREE_ENDPOINT_MISSING, THANK_YOU_PATH } from '../../data/forms';
+import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_PATH, THANK_YOU_URL } from '../../data/forms';
 ---
 <FormShell
   heading="Send Us a Message"
-  subheading="Questions about a repair or upcoming project? We’re here to help."
+  subheading="Questions about a repair or upcoming project? We're here to help."
 >
-  {import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
-    <p slot="metaNote" class="text-sm text-text-muted">
-      Dev note: set <code>PUBLIC_FORMSPREE_ENDPOINT</code> to enable submissions.
-    </p>
-  )}
-
   <form
     id="contact-form"
-    action={FORMSPREE_ENDPOINT}
+    action={STATICFORMS_ENDPOINT}
     method="POST"
     class="form-shell"
-    data-endpoint={FORMSPREE_ENDPOINT || ''}
+    data-endpoint={STATICFORMS_ENDPOINT}
     novalidate
   >
-    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
-      <label for="contact-website">Leave this field empty</label>
-      <input type="text" id="contact-website" name="_gotcha" tabindex="-1" autocomplete="off" />
-    </div>
-
+    <input type="hidden" name="accessKey" value={STATICFORMS_ACCESS_KEY} />
+    <input type="hidden" name="redirectTo" value={THANK_YOU_URL} />
     <input type="hidden" name="_timestamp" id="contact-timestamp" />
-    <input type="hidden" name="_next" value={THANK_YOU_PATH} />
     <input type="hidden" name="form_type" value="contact" />
     <input type="hidden" name="phone_digits" value="" />
+    <input type="text" name="honeypot" style="display:none" />
 
-    <fieldset class="space-y-5" disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}>
+    <fieldset class="space-y-5">
       <p class="text-sm text-text-muted">Full name and message are required. Please provide a phone number, email, or both.</p>
 
       <div class="form-grid gap-5">
@@ -78,14 +69,10 @@ import { FORMSPREE_ENDPOINT, IS_FORMSPREE_ENDPOINT_MISSING, THANK_YOU_PATH } fro
       <p id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></p>
 
       <div class="form-submit-group space-y-2">
-        {!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
-          <p class="text-sm text-text-muted">Online submission is temporarily unavailable. Please call <a href="tel:8586635564" class="font-medium text-brand-teal hover:text-brand-slate">(858) 663-5564</a>.</p>
-        )}
         <button
           type="submit"
           class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
           data-loading-label="Sending Message..."
-          disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}
         >
           Send Message
         </button>
