@@ -11,15 +11,6 @@ type FeedbackState = 'error' | 'success';
 
 const getDigits = (value: string): string => value.replace(/\D+/g, '');
 
-const getErrorMessage = (fallback: string, payload: unknown): string => {
-  if (!payload || typeof payload !== 'object') return fallback;
-  const maybeErrors = (payload as { errors?: Array<{ message?: string }> }).errors;
-  if (Array.isArray(maybeErrors) && maybeErrors.length > 0) {
-    return maybeErrors[0]?.message || fallback;
-  }
-  return fallback;
-};
-
 export function initLeadForm({
   formId,
   feedbackId,
@@ -33,7 +24,7 @@ export function initLeadForm({
   if (!form || !feedback) return;
 
   const timestampInput = form.querySelector('[name="_timestamp"]') as HTMLInputElement | null;
-  const honeypotInput = form.querySelector('[name="_gotcha"]') as HTMLInputElement | null;
+  const honeypotInput = form.querySelector('[name="honeypot"]') as HTMLInputElement | null;
   const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
   const normalizedPhoneInput = form.querySelector('[name="phone_digits"]') as HTMLInputElement | null;
   const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
@@ -83,11 +74,6 @@ export function initLeadForm({
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
-    if (!endpoint) {
-      showFeedback('error', 'We’re unable to submit this form online right now. Please call us directly.');
-      return;
-    }
-
     if (!form.checkValidity()) {
       form.reportValidity();
       showFeedback('error', 'Please complete all required fields before submitting.');
@@ -128,15 +114,15 @@ export function initLeadForm({
     showFeedback('success', loadingSubmitLabel);
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch(endpoint ?? '', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: formData,
       });
 
-      if (!response.ok) {
-        const payload = (await response.json().catch(() => null)) as unknown;
-        throw new Error(getErrorMessage('We could not send your request. Please try again.', payload));
+      const data = (await response.json().catch(() => null)) as { success?: boolean; message?: string } | null;
+      if (!response.ok || data?.success === false) {
+        throw new Error(data?.message || 'We could not send your request. Please try again.');
       }
 
       window.location.assign(thankYouPath);

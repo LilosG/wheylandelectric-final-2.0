@@ -1,6 +1,6 @@
 ---
 import FormField from './FormField.astro';
-import { FORMSPREE_ENDPOINT, IS_FORMSPREE_ENDPOINT_MISSING, THANK_YOU_PATH } from '../../data/forms';
+import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_URL } from '../../data/forms';
 
 interface Props {
   formId?: string;
@@ -15,7 +15,7 @@ interface Props {
 const {
   formId = 'inline-lead',
   heading = 'Get a Fast Callback',
-  subheading = 'Tell us what you need and we’ll follow up with next-step options.',
+  subheading = "Tell us what you need and we'll follow up with next-step options.",
   city,
   service,
   variant = 'card',
@@ -31,36 +31,30 @@ const pageUrlId = `${formId}-page-url`;
   <div class="mb-4 space-y-1.5">
     <h3 class="text-xl font-heading font-bold text-brand-slate">{heading}</h3>
     <p class="text-sm leading-relaxed text-text-muted">{subheading}</p>
-    {import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
-      <p class="text-xs text-text-muted">Dev note: set <code>PUBLIC_FORMSPREE_ENDPOINT</code> to enable submissions.</p>
-    )}
   </div>
 
   <form
     id={formId}
-    action={FORMSPREE_ENDPOINT}
+    action={STATICFORMS_ENDPOINT}
     method="POST"
     class="form-shell form-shell--compact"
-    data-endpoint={FORMSPREE_ENDPOINT || ''}
+    data-endpoint={STATICFORMS_ENDPOINT}
     data-inline-lead-form
     data-feedback-id={feedbackId}
     data-require-one-of={JSON.stringify(requireOneOf)}
     novalidate
   >
-    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
-      <label for={`${formId}-website`}>Leave this field empty</label>
-      <input type="text" id={`${formId}-website`} name="_gotcha" tabindex="-1" autocomplete="off" />
-    </div>
-
+    <input type="hidden" name="accessKey" value={STATICFORMS_ACCESS_KEY} />
+    <input type="hidden" name="redirectTo" value={THANK_YOU_URL} />
     <input type="hidden" name="_timestamp" id={`${formId}-timestamp`} />
-    <input type="hidden" name="_next" value={THANK_YOU_PATH} />
     <input type="hidden" name="form_type" value="inline" />
     <input type="hidden" name="phone_digits" value="" />
     <input type="hidden" name="page_url" id={pageUrlId} value="" />
     {city && <input type="hidden" name="city" value={city} />}
     {service && <input type="hidden" name="service" value={service} />}
+    <input type="text" name="honeypot" style="display:none" />
 
-    <fieldset class="space-y-4" disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}>
+    <fieldset class="space-y-4">
       <div class:list={[
         'grid gap-4',
         variant === 'compact' ? 'grid-cols-1 md:grid-cols-3' : 'grid-cols-1 md:grid-cols-2'
@@ -110,17 +104,10 @@ const pageUrlId = `${formId}-page-url`;
       <p id={feedbackId} class="form-feedback" role="status" aria-live="polite"></p>
 
       <div class="form-submit-group space-y-2">
-        {!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING && (
-          <p class="text-sm text-text-muted">
-            Online submission is temporarily unavailable. Please call
-            <a href="tel:8586635564" class="font-medium text-brand-teal hover:text-brand-slate"> (858) 663-5564</a>.
-          </p>
-        )}
         <button
           type="submit"
           class="w-full rounded-lg bg-brand-gold px-6 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted md:w-auto"
           data-loading-label="Sending Request..."
-          disabled={!import.meta.env.DEV && IS_FORMSPREE_ENDPOINT_MISSING}
         >
           Request Free Estimate
         </button>
