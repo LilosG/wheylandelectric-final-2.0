@@ -114,7 +114,7 @@ export function initLeadForm({
     showFeedback('success', loadingSubmitLabel);
 
     try {
-      const response = await fetch(endpoint, {
+      const response = await fetch(endpoint ?? '', {
         method: 'POST',
         headers: { Accept: 'application/json' },
         body: formData,
