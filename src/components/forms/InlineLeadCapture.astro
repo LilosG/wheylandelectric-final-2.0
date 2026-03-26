@@ -52,7 +52,9 @@ const pageUrlId = `${formId}-page-url`;
     <input type="hidden" name="page_url" id={pageUrlId} value="" />
     {city && <input type="hidden" name="city" value={city} />}
     {service && <input type="hidden" name="service" value={service} />}
-    <input type="text" name="honeypot" style="display:none" />
+    <div style="position:absolute; left:-5000px;" aria-hidden="true">
+      <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+    </div>
 
     <fieldset class="space-y-4">
       <div class:list={[
@@ -102,6 +104,8 @@ const pageUrlId = `${formId}-page-url`;
       }
 
       <p id={feedbackId} class="form-feedback" role="status" aria-live="polite"></p>
+
+      <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
 
       <div class="form-submit-group space-y-2">
         <button

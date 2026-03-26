@@ -1,3 +1,5 @@
+declare const grecaptcha: { getResponse: () => string; reset: () => void };
+
 export interface LeadFormOptions {
   formId: string;
   feedbackId: string;
@@ -91,6 +93,12 @@ export function initLeadForm({
       return;
     }
 
+    const token = grecaptcha.getResponse();
+    if (!token) {
+      showFeedback('error', 'Please complete the reCAPTCHA');
+      return;
+    }
+
     if (requireOneOf.length > 0) {
       const hasAnyRequired = requireOneOf.some((fieldName) => {
         const targetField = form.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
@@ -110,6 +118,7 @@ export function initLeadForm({
     }
 
     const formData = new FormData(form);
+    formData.append('recaptchaToken', token);
     setFormSubmitting(true);
     showFeedback('success', loadingSubmitLabel);
 
@@ -125,6 +134,7 @@ export function initLeadForm({
         throw new Error(data?.message || 'We could not send your request. Please try again.');
       }
 
+      grecaptcha.reset();
       window.location.assign(thankYouPath);
     } catch (error) {
       const message = error instanceof Error ? error.message : 'We could not send your request. Please try again.';
