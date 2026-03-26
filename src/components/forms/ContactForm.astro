@@ -21,7 +21,9 @@ import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_URL } from '../
     <input type="hidden" name="_timestamp" id="contact-timestamp" />
     <input type="hidden" name="form_type" value="contact" />
     <input type="hidden" name="phone_digits" value="" />
-    <input type="text" name="honeypot" style="display:none" />
+    <div style="position:absolute; left:-5000px;" aria-hidden="true">
+      <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+    </div>
 
     <fieldset class="space-y-5">
       <p class="text-sm text-text-muted">Full name and message are required. Please provide a phone number, email, or both.</p>
@@ -67,6 +69,8 @@ import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_URL } from '../
       />
 
       <p id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+      <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
 
       <div class="form-submit-group space-y-2">
         <button
