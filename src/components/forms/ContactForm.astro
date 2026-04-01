@@ -1,89 +1,82 @@
 ---
 import FormField from './FormField.astro';
-import FormShell from './FormShell.astro';
-
 import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_URL } from '../../data/forms';
 ---
-<FormShell
-  heading="Send Us a Message"
-  subheading="Questions about a repair or upcoming project? We're here to help."
+<form
+  id="contact-form"
+  action={STATICFORMS_ENDPOINT}
+  method="POST"
+  class="form-shell"
+  data-endpoint={STATICFORMS_ENDPOINT}
+  novalidate
 >
-  <form
-    id="contact-form"
-    action={STATICFORMS_ENDPOINT}
-    method="POST"
-    class="form-shell"
-    data-endpoint={STATICFORMS_ENDPOINT}
-    novalidate
-  >
-    <input type="hidden" name="accessKey" value={STATICFORMS_ACCESS_KEY} />
-    <input type="hidden" name="redirectTo" value={THANK_YOU_URL} />
-    <input type="hidden" name="_timestamp" id="contact-timestamp" />
-    <input type="hidden" name="form_type" value="contact" />
-    <input type="hidden" name="phone_digits" value="" />
-    <div style="position:absolute; left:-5000px;" aria-hidden="true">
-      <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
-    </div>
+  <input type="hidden" name="accessKey" value={STATICFORMS_ACCESS_KEY} />
+  <input type="hidden" name="redirectTo" value={THANK_YOU_URL} />
+  <input type="hidden" name="_timestamp" id="contact-timestamp" />
+  <input type="hidden" name="form_type" value="contact" />
+  <input type="hidden" name="phone_digits" value="" />
+  <div style="position:absolute; left:-5000px;" aria-hidden="true">
+    <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+  </div>
 
-    <fieldset class="space-y-5">
-      <p class="text-sm text-text-muted">Full name and message are required. Please provide a phone number, email, or both.</p>
+  <fieldset class="space-y-5">
+    <p class="text-sm text-text-muted">Full name and message are required. Please provide a phone number, email, or both.</p>
 
-      <div class="form-grid gap-5">
-        <FormField
-          id="contact-name"
-          name="name"
-          label="Full Name"
-          required
-          placeholder="Your full name"
-          autocomplete="name"
-        />
-
-        <FormField
-          id="contact-phone"
-          name="phone"
-          label="Phone"
-          type="tel"
-          placeholder="(858) 555-1234"
-          autocomplete="tel"
-        />
-
-        <FormField
-          id="contact-email"
-          name="email"
-          label="Email"
-          type="email"
-          placeholder="you@example.com"
-          autocomplete="email"
-          fieldClass="md:col-span-2"
-        />
-      </div>
-
+    <div class="form-grid gap-5">
       <FormField
-        id="contact-message"
-        name="message"
-        label="Message"
-        as="textarea"
+        id="contact-name"
+        name="name"
+        label="Full Name"
         required
-        rows={5}
-        placeholder="Tell us about your electrical question or project."
+        placeholder="Your full name"
+        autocomplete="name"
       />
 
-      <p id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+      <FormField
+        id="contact-phone"
+        name="phone"
+        label="Phone"
+        type="tel"
+        placeholder="(858) 555-1234"
+        autocomplete="tel"
+      />
 
-      <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
+      <FormField
+        id="contact-email"
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        fieldClass="md:col-span-2"
+      />
+    </div>
 
-      <div class="form-submit-group space-y-2">
-        <button
-          type="submit"
-          class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
-          data-loading-label="Sending Message..."
-        >
-          Send Message
-        </button>
-      </div>
-    </fieldset>
-  </form>
-</FormShell>
+    <FormField
+      id="contact-message"
+      name="message"
+      label="Message"
+      as="textarea"
+      required
+      rows={5}
+      placeholder="Tell us about your electrical question or project."
+    />
+
+    <p id="contact-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+    <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
+
+    <div class="form-submit-group space-y-2">
+      <button
+        type="submit"
+        class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
+        data-loading-label="Sending Message..."
+      >
+        Send Message
+      </button>
+    </div>
+  </fieldset>
+</form>
 
 <script>
   import { initLeadForm } from '../../lib/forms/client';

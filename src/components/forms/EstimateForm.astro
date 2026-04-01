@@ -1,14 +1,9 @@
 ---
 import FormField from './FormField.astro';
-import FormShell from './FormShell.astro';
 import { getPublishedCities } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
 import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_URL } from '../../data/forms';
 
-interface Props {
-  showTrustPanel?: boolean;
-}
-const { showTrustPanel = true } = Astro.props;
 const cities = getPublishedCities();
 const services = getPublishedPillars();
 
@@ -25,117 +20,111 @@ const serviceOptions = [
   { value: 'Other', label: 'Other' },
 ];
 ---
-<FormShell
-  heading="Request a Free Estimate"
-  subheading="Tell us about your project and we’ll follow up with next steps and scheduling options."
-  showTrustPanel={showTrustPanel}
+<form
+  id="estimate-form"
+  action={STATICFORMS_ENDPOINT}
+  method="POST"
+  class="form-shell"
+  data-endpoint={STATICFORMS_ENDPOINT}
+  novalidate
 >
-  <form
-    id="estimate-form"
-    action={STATICFORMS_ENDPOINT}
-    method="POST"
-    class="form-shell"
-    data-endpoint={STATICFORMS_ENDPOINT}
-    novalidate
-  >
-    <input type="hidden" name="accessKey" value={STATICFORMS_ACCESS_KEY} />
-    <input type="hidden" name="redirectTo" value={THANK_YOU_URL} />
-    <input type="hidden" name="_timestamp" id="estimate-timestamp" />
-    <input type="hidden" name="form_type" value="estimate" />
-    <input type="hidden" name="phone_digits" value="" />
-    <div style="position:absolute; left:-5000px;" aria-hidden="true">
-      <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
-    </div>
+  <input type="hidden" name="accessKey" value={STATICFORMS_ACCESS_KEY} />
+  <input type="hidden" name="redirectTo" value={THANK_YOU_URL} />
+  <input type="hidden" name="_timestamp" id="estimate-timestamp" />
+  <input type="hidden" name="form_type" value="estimate" />
+  <input type="hidden" name="phone_digits" value="" />
+  <div style="position:absolute; left:-5000px;" aria-hidden="true">
+    <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+  </div>
 
-    <fieldset class="space-y-5">
-      <p class="text-sm text-text-muted">Required fields are marked with *.</p>
+  <fieldset class="space-y-5">
+    <p class="text-sm text-text-muted">Required fields are marked with *.</p>
 
-      <div class="form-grid gap-5">
-        <FormField
-          id="estimate-name"
-          name="name"
-          label="Full Name"
-          required
-          placeholder="Your full name"
-          autocomplete="name"
-        />
-
-        <FormField
-          id="estimate-phone"
-          name="phone"
-          label="Phone"
-          required
-          type="tel"
-          placeholder="(858) 555-1234"
-          autocomplete="tel"
-          helper="Include area code so we can reach you faster."
-        />
-
-        <FormField
-          id="estimate-email"
-          name="email"
-          label="Email"
-          type="email"
-          placeholder="you@example.com"
-          autocomplete="email"
-          helper="Optional, but useful for sending estimate notes."
-        />
-
-        <FormField
-          id="estimate-city"
-          name="city"
-          label="City / Service Area"
-          as="select"
-          options={cityOptions}
-        />
-
-        <FormField
-          id="estimate-service"
-          name="service"
-          label="Service Needed"
-          as="select"
-          required
-          options={serviceOptions}
-        />
-
-        <FormField
-          id="estimate-contact-method"
-          name="contact_method"
-          label="Preferred Contact Method"
-          as="select"
-          options={[
-            { value: 'phone', label: 'Phone' },
-            { value: 'email', label: 'Email' },
-            { value: 'text', label: 'Text' },
-          ]}
-        />
-      </div>
-
+    <div class="form-grid gap-5">
       <FormField
-        id="estimate-message"
-        name="message"
-        label="Project Details"
-        as="textarea"
-        rows={4}
-        placeholder="Share the scope, timing, or any special considerations."
+        id="estimate-name"
+        name="name"
+        label="Full Name"
+        required
+        placeholder="Your full name"
+        autocomplete="name"
       />
 
-      <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+      <FormField
+        id="estimate-phone"
+        name="phone"
+        label="Phone"
+        required
+        type="tel"
+        placeholder="(858) 555-1234"
+        autocomplete="tel"
+        helper="Include area code so we can reach you faster."
+      />
 
-      <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
+      <FormField
+        id="estimate-email"
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        helper="Optional, but useful for sending estimate notes."
+      />
 
-      <div class="form-submit-group space-y-2">
-        <button
-          type="submit"
-          class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
-          data-loading-label="Sending Request..."
-        >
-          Request Free Estimate
-        </button>
-      </div>
-    </fieldset>
-  </form>
-</FormShell>
+      <FormField
+        id="estimate-city"
+        name="city"
+        label="City / Service Area"
+        as="select"
+        options={cityOptions}
+      />
+
+      <FormField
+        id="estimate-service"
+        name="service"
+        label="Service Needed"
+        as="select"
+        required
+        options={serviceOptions}
+      />
+
+      <FormField
+        id="estimate-contact-method"
+        name="contact_method"
+        label="Preferred Contact Method"
+        as="select"
+        options={[
+          { value: 'phone', label: 'Phone' },
+          { value: 'email', label: 'Email' },
+          { value: 'text', label: 'Text' },
+        ]}
+      />
+    </div>
+
+    <FormField
+      id="estimate-message"
+      name="message"
+      label="Project Details"
+      as="textarea"
+      rows={4}
+      placeholder="Share the scope, timing, or any special considerations."
+    />
+
+    <p id="estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+    <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
+
+    <div class="form-submit-group space-y-2">
+      <button
+        type="submit"
+        class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
+        data-loading-label="Sending Request..."
+      >
+        Request Free Estimate
+      </button>
+    </div>
+  </fieldset>
+</form>
 
 <script>
   import { initLeadForm } from '../../lib/forms/client';

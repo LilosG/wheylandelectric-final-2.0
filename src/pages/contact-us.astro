@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import ContactForm from '../components/forms/ContactForm.astro';
+import FormShell from '../components/forms/FormShell.astro';
 import GBPEmbed from '../components/sections/GBPEmbed.astro';
 import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
@@ -103,7 +104,13 @@ const meta = contactPageMeta();
 
       <!-- Contact Form -->
       <div class="lg:col-span-8">
-        <ContactForm />
+        <FormShell
+          heading="Send Us a Message"
+          subheading="Questions about a repair or upcoming project? We’re here to help."
+          showTrustPanel={false}
+        >
+          <ContactForm />
+        </FormShell>
       </div>
     </div>
   </Section>

@@ -55,9 +55,13 @@ import { site } from '../../data/site';
         </div>
       </div>
 
-      <!-- RIGHT COLUMN: Shared EstimateForm component, trust panel suppressed -->
-      <div>
-        <EstimateForm showTrustPanel={false} />
+      <!-- RIGHT COLUMN: EstimateForm rendered directly — section provides the layout -->
+      <div class="bg-white rounded-2xl border border-surface-subtle shadow-sm p-6 md:p-8">
+        <header class="mb-5 space-y-1">
+          <h3 class="text-xl font-heading font-bold text-brand-slate">Request a Free Estimate</h3>
+          <p class="text-sm text-text-muted">We’ll respond within one business day.</p>
+        </header>
+        <EstimateForm />
       </div>
 
     </div>
