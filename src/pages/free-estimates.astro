@@ -8,7 +8,6 @@ import Section from '../components/ui/Section.astro';
 import { breadcrumbSchemaNode } from '../lib/schema/breadcrumb';
 import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { generateMeta } from '../lib/seo';
-import { site } from '../data/site';
 import { getPageHeroImage } from '../data/heroImages';
 
 const estimateHero = getPageHeroImage('free-estimates');
@@ -40,16 +39,6 @@ const meta = generateMeta({
     imagePosition="center"
   />
 
-  <Section bg="white" spacing="hero-tight">
-    <div class="max-w-3xl mx-auto text-center">
-      <p class="text-text-muted">
-        Prefer to call? Reach us at{' '}
-        <a href={`tel:${site.nap.phoneTel}`} class="text-brand-teal font-semibold hover:text-brand-slate transition-colors">
-          {site.nap.phone}
-        </a>
-      </p>
-    </div>
-  </Section>
 
   <TrustBar />
 
@@ -62,22 +51,4 @@ const meta = generateMeta({
     </FormShell>
   </Section>
 
-  <!-- Trust reinforcement -->
-  <Section bg="white">
-    <div class="max-w-3xl mx-auto text-center">
-      <h2 class="text-2xl font-heading font-bold text-brand-slate mb-6">Why Choose Wheyland Electric?</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
-        {[
-          { title: 'Free Estimates', desc: 'No-obligation estimates for your electrical project' },
-          { title: '1-Year Warranty', desc: 'All workmanship backed by our labor warranty' },
-          { title: 'Licensed & Insured', desc: 'CA License #940291 — fully bonded' },
-        ].map((item) => (
-          <div class="text-center">
-            <h3 class="font-semibold text-brand-slate mb-2">{item.title}</h3>
-            <p class="text-sm text-text-muted">{item.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </Section>
 </PageLayout>
