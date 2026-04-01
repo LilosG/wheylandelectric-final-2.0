@@ -2,7 +2,6 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
-import HomeEstimateSection from '../components/sections/HomeEstimateSection.astro';
 import ServiceGrid from '../components/sections/ServiceGrid.astro';
 import CityGrid from '../components/sections/CityGrid.astro';
 import CustomerTypeCard from '../components/sections/CustomerTypeCard.astro';
@@ -47,8 +46,12 @@ const cities = getPublishedCities();
   {/* 2. TrustBar — columbia blue strip */}
   <TrustBar />
 
-  {/* 3. Estimate Section — two-column form */}
-  <HomeEstimateSection />
+  {/* 3. CTA Band — drives qualified visitors to /free-estimates/ */}
+  <CTASection
+    title="Get a Free Estimate From Wheyland Electric"
+    subtitle="Licensed, bonded & insured. We’ll follow up within one business day — no obligation, no pressure."
+    tone="subtle"
+  />
 
   {/* 4. Services — surface-subtle bg */}
   <Section bg="subtle">
