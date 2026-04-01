@@ -3,8 +3,12 @@ import FormField from './FormField.astro';
 import FormShell from './FormShell.astro';
 import { getPublishedCities } from '../../data/cities';
 import { getPublishedPillars } from '../../data/services';
-
 import { STATICFORMS_ENDPOINT, STATICFORMS_ACCESS_KEY, THANK_YOU_URL } from '../../data/forms';
+
+interface Props {
+  showTrustPanel?: boolean;
+}
+const { showTrustPanel = true } = Astro.props;
 const cities = getPublishedCities();
 const services = getPublishedPillars();
 
@@ -23,7 +27,8 @@ const serviceOptions = [
 ---
 <FormShell
   heading="Request a Free Estimate"
-  subheading="Tell us about your project and we'll follow up with next steps and scheduling options."
+  subheading="Tell us about your project and we’ll follow up with next steps and scheduling options."
+  showTrustPanel={showTrustPanel}
 >
   <form
     id="estimate-form"

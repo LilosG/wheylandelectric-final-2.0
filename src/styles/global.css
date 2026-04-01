@@ -80,6 +80,18 @@
     @apply pt-0 sm:self-end;
   }
 
+
+  /* reCAPTCHA widget — prevent layout overflow in all form contexts */
+  .g-recaptcha,
+  .grecaptcha-badge {
+    @apply overflow-hidden rounded-lg;
+    max-width: 100%;
+  }
+
+  .g-recaptcha > div {
+    @apply w-full max-w-full;
+  }
+
   .rich-content {
     @apply text-base md:text-lg text-text-muted leading-8;
   }
