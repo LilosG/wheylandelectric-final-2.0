@@ -103,12 +103,11 @@ const heroSubtitle = `Professional ${pillar.name.toLowerCase()} for homes and bu
         breadcrumbSchemaNode(breadcrumbs, `/${city.slug}/${pillar.slug}/`),
       ];
 
-      const usesSharedFallback = !(cityService?.faqs?.length);
       if (shouldEmitFaqSchema({
         faqs: moneyPageFaqs,
         pageTokens: [city.name, pillar.name],
         visible: moneyPageFaqs.length > 0,
-        usesSharedFallback,
+        usesSharedFallback: false,
       })) {
         nodes.push(faqPageSchemaNode(moneyPageFaqs, `/${city.slug}/${pillar.slug}/`));
       }
