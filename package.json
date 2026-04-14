@@ -12,7 +12,9 @@
     "lint": "eslint \"src/**/*.{ts,astro}\"",
     "format": "prettier --write .",
     "verify:migration": "node scripts/verify-migration.mjs",
-    "seo:audit": "node scripts/seo-audit.mjs"
+    "seo:audit": "node scripts/seo-audit.mjs",
+    "check:faq-schema": "node scripts/verify-faq-schema.mjs",
+    "ci:predeploy": "npm run build && npm run check:faq-schema"
   },
   "dependencies": {
     "@astrojs/partytown": "^2.1.5",
