@@ -8,27 +8,24 @@ interface FAQPolicyInput {
   isFaqHub?: boolean;
 }
 
-function normalize(value: string): string {
-  return value.toLowerCase().replace(/\s+/g, ' ').trim();
+const MIN_FAQ_COUNT = 2;
+
+function hasText(value: string): boolean {
+  return value.trim().length > 0;
 }
 
-function includesToken(question: string, tokens: string[]): boolean {
-  const normalizedQuestion = normalize(question);
-  return tokens.some((token) => normalizedQuestion.includes(normalize(token)));
+function hasValidFaqContent(faq: FAQ): boolean {
+  return hasText(faq.question) && hasText(faq.answer);
 }
 
 export function shouldEmitFaqSchema(input: FAQPolicyInput): boolean {
+  const visibleFaqs = input.faqs.filter(hasValidFaqContent);
+
   if (input.isFaqHub) {
-    return input.visible && input.faqs.length >= 1;
+    return input.visible && visibleFaqs.length >= 1;
   }
 
-  if (!input.visible || input.usesSharedFallback || input.faqs.length < 3) {
-    return false;
-  }
-
-  if (input.pageTokens.length === 0) {
-    return false;
-  }
-
-  return input.faqs.every((faq) => includesToken(faq.question, input.pageTokens));
+  // Emit FAQ schema when FAQs are user-visible, sufficiently numerous,
+  // and valid for both rendered FAQ UI and JSON-LD serialization.
+  return input.visible && visibleFaqs.length >= MIN_FAQ_COUNT;
 }
