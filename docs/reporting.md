@@ -134,6 +134,34 @@ Track the top queries that trigger the GBP listing:
 | Redirect chains | Screaming Frog | 0 | Monthly |
 | SSL certificate | Automated | Valid | Continuous |
 
+### Structured Data / Rich Results Rollout Protocol
+
+Use this sequence any time schema policy logic is changed (for example, FAQ eligibility policy updates):
+
+1. **Deploy the policy fix first** to production.
+2. **Validate one live URL per template type** in Google Rich Results Test:
+   - Service pillar template (`/services/{service}/`)
+   - City template (`/{city}/`)
+   - Money template (`/{city}/{service}/`)
+   - Blog template (`/blog/{post}/`)
+3. **Run Google Search Console URL Inspection** for key URLs by template type:
+   - Run **Live Test**.
+   - If page is not indexed or stale, click **Request Indexing**.
+4. **Monitor enhancements + crawl recency for 1-3 weeks**:
+   - Enhancement report status trend (valid / warnings / errors)
+   - Last crawl date freshness after deployment
+   - Any template-specific validation regressions
+5. **Track outcomes by template type** so regressions are obvious.
+
+#### Post-Deploy Tracking Sheet (Template-Level)
+
+| Template Type | Representative URL | Rich Results Test | URL Inspection Live Test | Indexing Requested | Last Crawl (Before) | Last Crawl (After) | Enhancement Status | Notes |
+|---------------|--------------------|-------------------|--------------------------|--------------------|---------------------|--------------------|--------------------|-------|
+| Service | `/services/ev-charger-installation/` | Pass / Fail | Pass / Fail | Yes / No | YYYY-MM-DD | YYYY-MM-DD | Valid / Warning / Error |  |
+| City | `/carlsbad/` | Pass / Fail | Pass / Fail | Yes / No | YYYY-MM-DD | YYYY-MM-DD | Valid / Warning / Error |  |
+| Money | `/carlsbad/ev-charger-installation/` | Pass / Fail | Pass / Fail | Yes / No | YYYY-MM-DD | YYYY-MM-DD | Valid / Warning / Error |  |
+| Blog | `/blog/carlsbad-home-electrical-readiness-checklist/` | Pass / Fail | Pass / Fail | Yes / No | YYYY-MM-DD | YYYY-MM-DD | Valid / Warning / Error |  |
+
 ---
 
 ## 6. Reporting Cadence
