@@ -1,0 +1,89 @@
+---
+/**
+ * SplitServiceGrid
+ * Renders residential and commercial services in two labeled groups.
+ * Used on homepage and services index. City pages use ServiceGrid directly.
+ */
+import type { ServicePillar } from '../../types';
+import ServiceCard from './ServiceCard.astro';
+
+interface Props {
+  services: ServicePillar[];
+  citySlug?: string;
+}
+
+const { services, citySlug } = Astro.props;
+
+const RESIDENTIAL_HOMEPAGE_SLUGS = [
+  'ev-charger-installation',
+  'electrical-panel-upgrades',
+  'service-calls-troubleshooting',
+  'recessed-lighting-installation',
+  'light-fixture-installation',
+  'ceiling-fan-installation',
+  'spa-jacuzzi-sauna-electrical',
+  'outlet-switch-dimmer-gfci-repairs',
+];
+
+const residential = RESIDENTIAL_HOMEPAGE_SLUGS
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is NonNullable<typeof s> => s !== undefined);
+
+const commercial = services.filter((s) => s.category === 'commercial');
+
+const getHref = (service: ServicePillar) =>
+  citySlug ? `/${citySlug}/${service.slug}/` : `/services/${service.slug}/`;
+---
+
+<div>
+  {/* ── Residential group ── */}
+  <div class="mb-16">
+    <div class="mb-8">
+      <h3 class="text-xl md:text-2xl font-heading font-bold text-brand-slate">Residential Electrical Services</h3>
+      <p class="text-sm text-text-muted mt-1">Panel upgrades, EV chargers, lighting, troubleshooting, and more for North County homeowners.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {residential.map((service) => (
+        <ServiceCard
+          name={service.name}
+          description={service.shortDesc}
+          href={getHref(service)}
+        />
+      ))}
+    </div>
+    <div class="mt-6 flex items-center gap-6">
+      <a href="/services/residential-electrical-services/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-teal-light transition-colors">
+        View all residential services &rarr;
+      </a>
+      <span class="text-text-light text-sm">Dedicated Circuits &middot; Remodel &amp; Rewiring &middot; Safety Inspections &middot; ADU Electrical</span>
+    </div>
+  </div>
+
+  {/* ── Divider ── */}
+  <div class="border-t border-surface-subtle mb-16"></div>
+
+  {/* ── Commercial group ── */}
+  <div>
+    <div class="mb-8">
+      <h3 class="text-xl md:text-2xl font-heading font-bold text-brand-slate">Commercial Electrical Services</h3>
+      <p class="text-sm text-text-muted mt-1">Tenant improvements, maintenance programs, and light industrial electrical for North County businesses.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {commercial.map((service) => (
+        <ServiceCard
+          name={service.name}
+          description={service.shortDesc}
+          href={getHref(service)}
+        />
+      ))}
+    </div>
+    <div class="mt-6 flex items-center gap-6">
+      <a href="/services/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-teal-light transition-colors">
+        View all commercial services &rarr;
+      </a>
+      <a href="/who-we-work-with/" class="text-sm text-text-muted hover:text-brand-teal transition-colors">
+        Who we work with &rarr;
+      </a>
+    </div>
+  </div>
+</div>

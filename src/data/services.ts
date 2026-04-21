@@ -13,6 +13,7 @@ const baseServicePillars: ServicePillar[] = [
   // 1. EV Charger Installation
   {
     slug: 'ev-charger-installation',
+    category: 'residential',
     name: 'EV Charger Installation',
     publish: true,
     tier: 'wave1',
@@ -153,6 +154,7 @@ const baseServicePillars: ServicePillar[] = [
   // 2. Electrical Panel Upgrades
   {
     slug: 'electrical-panel-upgrades',
+    category: 'residential',
     name: 'Electrical Panel Upgrades',
     publish: true,
     tier: 'wave1',
@@ -296,6 +298,7 @@ const baseServicePillars: ServicePillar[] = [
   // 3. Service Calls & Troubleshooting
   {
     slug: 'service-calls-troubleshooting',
+    category: 'residential',
     name: 'Service Calls & Troubleshooting',
     publish: true,
     tier: 'wave1',
@@ -436,6 +439,7 @@ const baseServicePillars: ServicePillar[] = [
   // 4. Recessed Lighting Installation
   {
     slug: 'recessed-lighting-installation',
+    category: 'residential',
     name: 'Recessed Lighting Installation',
     publish: true,
     tier: 'wave1',
@@ -574,6 +578,7 @@ const baseServicePillars: ServicePillar[] = [
   // 5. Light Fixture Installation
   {
     slug: 'light-fixture-installation',
+    category: 'residential',
     name: 'Light Fixture Installation',
     publish: true,
     tier: 'wave1',
@@ -713,6 +718,7 @@ const baseServicePillars: ServicePillar[] = [
   // 6. Ceiling Fan Installation
   {
     slug: 'ceiling-fan-installation',
+    category: 'residential',
     name: 'Ceiling Fan Installation',
     publish: true,
     tier: 'wave1',
@@ -850,6 +856,7 @@ const baseServicePillars: ServicePillar[] = [
   // 7. Spa, Jacuzzi & Sauna Electrical
   {
     slug: 'spa-jacuzzi-sauna-electrical',
+    category: 'residential',
     name: 'Spa, Jacuzzi & Sauna Electrical',
     publish: true,
     tier: 'wave1',
@@ -996,6 +1003,7 @@ const baseServicePillars: ServicePillar[] = [
   // 8. Outlet, Switch, Dimmer & GFCI Repairs
   {
     slug: 'outlet-switch-dimmer-gfci-repairs',
+    category: 'residential',
     name: 'Outlet, Switch, Dimmer & GFCI Repairs',
     publish: true,
     tier: 'wave1',
@@ -1141,6 +1149,7 @@ const baseServicePillars: ServicePillar[] = [
   // 9. Residential Electrical Services (Hub)
   {
     slug: 'residential-electrical-services',
+    category: 'residential',
     name: 'Residential Electrical Services',
     publish: true,
     tier: 'wave1',
@@ -1343,6 +1352,7 @@ const baseServicePillars: ServicePillar[] = [
   // 9. Dedicated Circuits
   {
     slug: 'dedicated-circuits',
+    category: 'residential',
     name: 'Dedicated Circuits',
     publish: true,
     tier: 'wave2',
@@ -1462,6 +1472,7 @@ const baseServicePillars: ServicePillar[] = [
   // 10. Remodel & Rewiring (incl. ADU)
   {
     slug: 'remodel-rewiring-adu',
+    category: 'residential',
     name: 'Remodel & Rewiring (incl. ADU)',
     publish: true,
     tier: 'wave2',
@@ -1592,6 +1603,7 @@ const baseServicePillars: ServicePillar[] = [
   // 11. Commercial Tenant Improvement (TI)
   {
     slug: 'commercial-tenant-improvement',
+    category: 'commercial',
     name: 'Commercial Tenant Improvement (TI)',
     publish: true,
     tier: 'wave2',
@@ -1721,6 +1733,7 @@ const baseServicePillars: ServicePillar[] = [
   // 12. Commercial Electrical Maintenance
   {
     slug: 'commercial-electrical-maintenance',
+    category: 'commercial',
     name: 'Commercial Electrical Maintenance',
     publish: true,
     tier: 'wave2',
@@ -1840,6 +1853,7 @@ const baseServicePillars: ServicePillar[] = [
   // 13. Light Industrial Electrical
   {
     slug: 'light-industrial-electrical',
+    category: 'commercial',
     name: 'Light Industrial Electrical',
     publish: true,
     tier: 'wave2',
@@ -1961,6 +1975,7 @@ const baseServicePillars: ServicePillar[] = [
   // 14. Electrical Safety Inspections
   {
     slug: 'electrical-safety-inspections',
+    category: 'residential',
     name: 'Electrical Safety Inspections',
     publish: true,
     tier: 'wave2',
@@ -2077,10 +2092,673 @@ const baseServicePillars: ServicePillar[] = [
         'your area diverse housing stock means electrical system quality varies considerably from property to property. Wheyland Electric provides electrical safety inspections for homeowners, buyers, investors, and property managers across your area, delivering honest assessments and actionable recommendations.',
     },
   },
+
+
+
+
+  // 15. Commercial EV Charging
+  {
+    slug: 'commercial-ev-charging',
+    category: 'commercial',
+    name: 'Commercial EV Charging',
+    publish: true,
+    tier: 'wave2',
+    primaryKeyword: 'commercial EV charging installation',
+    secondaryKeywords: [
+      'commercial EV charger electrician Carlsbad',
+      'business EV charging station installation',
+      'workplace EV charging San Diego',
+      'fleet EV charging electrician',
+      'Level 2 commercial EV charger installation',
+      'parking lot EV charging station',
+    ],
+    shortDesc:
+      'Commercial EV charging station installation for office parks, retail centers, restaurants, and multi-tenant properties across North County San Diego. Load management, permitting, and utility coordination handled end-to-end.',
+    includedBullets: [
+      'Site assessment and electrical infrastructure review',
+      'Load management planning for multi-station installations',
+      'Dedicated circuit installation for each charging station',
+      'Charger mounting, wiring, and commissioning',
+      'Permit procurement and AHJ inspection coordination',
+      'Utility coordination for service upgrades when required',
+      'Network-enabled charger setup and connectivity verification',
+      'One-year labor warranty on all workmanship',
+    ],
+    overviewBullets: [
+      'Carlsbad-based commercial electricians serving North County business parks and retail centers.',
+      'Full-service commercial EV charging from load planning through permit inspection.',
+      'Experience with office parks, restaurants, retail centers, and multi-tenant properties.',
+      'Network-enabled charger setup for fleet management and billing.',
+      'Utility coordination and service upgrade management when required.',
+      'Code-compliant installations meeting California Title 24 and NEC standards.',
+      'Minimal business disruption — we work around your operating hours.',
+      'One-year labor warranty on all commercial EV charging work.',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Site Assessment & Load Planning',
+        description:
+          'We evaluate your property electrical infrastructure, parking layout, anticipated charging demand, and utility service capacity to design the right system.',
+      },
+      {
+        step: 2,
+        title: 'System Design & Proposal',
+        description:
+          'You receive a detailed scope covering number of stations, load management strategy, conduit routing, permit path, and transparent pricing.',
+      },
+      {
+        step: 3,
+        title: 'Permitting & Utility Coordination',
+        description:
+          'We pull the electrical permit, coordinate with the AHJ, and handle any required utility service upgrade applications.',
+      },
+      {
+        step: 4,
+        title: 'Installation',
+        description:
+          'Our licensed electricians install all conduit, wiring, panels, and charger equipment. We work around your business schedule to minimize disruption.',
+      },
+      {
+        step: 5,
+        title: 'Commissioning & Handoff',
+        description:
+          'We commission each station, verify network connectivity, pass final inspection, and provide documentation for your records and any incentive applications.',
+      },
+    ],
+    pricingFactors: [
+      'Number of charging stations and circuit requirements',
+      'Distance from electrical service to charging locations',
+      'Whether a panel upgrade or sub-panel is required',
+      'Load management hardware requirements',
+      'Conduit routing complexity (trenching, concrete, parking structures)',
+      'Charger brand and network requirements',
+      'Permit and inspection fees by jurisdiction',
+      'Utility coordination scope',
+    ],
+    faqs: [
+      {
+        question: 'What types of commercial properties do you install EV chargers for?',
+        answer:
+          'We install commercial EV charging for office parks, retail centers, restaurants, medical offices, multi-tenant commercial buildings, HOA communities, and parking structures throughout North County San Diego.',
+      },
+      {
+        question: 'How many EV chargers can my property support?',
+        answer:
+          'It depends on your existing electrical service capacity and load. We perform a load assessment to determine how many stations your current infrastructure supports and what upgrades are needed for additional capacity.',
+      },
+      {
+        question: 'Do commercial EV chargers require a permit?',
+        answer:
+          'Yes. Commercial EV charger installations require an electrical permit in all San Diego County jurisdictions. We handle the permit application, coordination with the AHJ, and final inspection.',
+      },
+      {
+        question: 'What is load management and do I need it?',
+        answer:
+          'Load management systems dynamically distribute available electrical capacity across multiple chargers, allowing more stations without upgrading your service. For properties installing 3 or more chargers, load management often eliminates the need for a costly service upgrade.',
+      },
+      {
+        question: 'Can you install network-enabled chargers for billing and fleet management?',
+        answer:
+          'Yes. We install and commission network-enabled chargers from ChargePoint, Blink, EvoCharge, and other platforms that support usage tracking, employee billing, and fleet management.',
+      },
+      {
+        question: 'Are there incentives available for commercial EV charging installations?',
+        answer:
+          'Yes. SDG&E, CALSTART, and other programs offer incentives for commercial EV charging installations. We can point you toward current programs and provide the documentation needed for applications.',
+      },
+      {
+        question: 'How long does a commercial EV charging installation take?',
+        answer:
+          'Timeline varies by scope. A single-station installation at an existing commercial property typically takes one to two days. Multi-station installations with service upgrades may take several days and require utility coordination.',
+      },
+      {
+        question: 'Do you work with property managers and commercial landlords?',
+        answer:
+          'Yes. We work directly with property managers, commercial landlords, and tenant representatives on EV charging installations. We coordinate access, scheduling, and documentation to meet your property management requirements.',
+      },
+    ],
+    relatedServices: [
+      'commercial-tenant-improvement',
+      'commercial-electrical-maintenance',
+      'electrical-panel-upgrades',
+    ],
+    relatedServiceSlugs: [
+      'commercial-tenant-improvement',
+      'commercial-electrical-maintenance',
+      'electrical-panel-upgrades',
+    ],
+    subtopics: [
+      'Office park EV charging installation',
+      'Retail EV charging station electrician',
+      'Multi-tenant commercial EV charging',
+      'Fleet charging infrastructure',
+      'HOA EV charging installation',
+    ],
+    localizedIntroSeedByCity: {
+      ['car' + 'lsbad']:
+        'Carlsbad business parks along Palomar Airport Road, Loker Avenue, and Faraday Avenue are seeing rapid EV adoption among employees and customers. Wheyland Electric designs and installs commercial EV charging infrastructure for office parks, retail centers, and multi-tenant properties throughout Carlsbad — from single-station installations to multi-port systems with load management. We handle the permit, utility coordination, and commissioning.',
+      ['enc' + 'initas']:
+        'Encinitas commercial properties along El Camino Real and Encinitas Boulevard are increasingly adding EV charging as a tenant amenity and employee benefit. Wheyland Electric provides commercial EV charging installation throughout Encinitas — fully permitted, load-managed, and ready for network connectivity.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe commercial and equestrian properties require EV charging solutions scaled to their unique infrastructure. Wheyland Electric designs commercial charging systems for the limited commercial and estate-scale properties in this community with the same attention to detail we bring to every project.',
+      'san-marcos':
+        'San Marcos business parks, retail corridors, and restaurant properties along Grand Avenue and Rancheros Drive are prime candidates for commercial EV charging. Wheyland Electric installs commercial charging stations throughout San Marcos with full permit and utility coordination.',
+      'del-mar':
+        'Del Mar commercial properties and parking facilities benefit from EV charging as an amenity for customers and employees. Wheyland Electric provides commercial EV charging installation for Del Mar retail, office, and mixed-use properties.',
+      'solana-beach':
+        'Solana Beach commercial properties including the Cedros Design District benefit from EV charging as a customer amenity. Wheyland Electric installs commercial charging stations throughout Solana Beach with minimal disruption to business operations.',
+      ['ocean' + 'side']:
+        'Oceanside commercial properties across the downtown corridor, Mission Avenue business parks, and eastern industrial zones are adding EV charging infrastructure. Wheyland Electric provides commercial EV charging installation throughout Oceanside for retail, office, restaurant, and industrial properties.',
+    },
+    h1TaglineByCity: {
+      ['car' + 'lsbad']: 'Commercial EV Charging Installation in Carlsbad — Office Parks, Retail & Multi-Tenant',
+      ['enc' + 'initas']: 'Commercial EV Charging in Encinitas — Permitted, Load-Managed, Network-Ready',
+      'rancho-santa-fe': 'Commercial EV Charging in Rancho Santa Fe — Estate & Commercial Scale',
+      'san-marcos': 'Commercial EV Charging in San Marcos — Business Parks & Retail Centers',
+      'del-mar': 'Commercial EV Charging in Del Mar — Customer & Employee Charging Solutions',
+      'solana-beach': 'Commercial EV Charging in Solana Beach — Retail & Office Charging Installs',
+      ['ocean' + 'side']: 'Commercial EV Charging in Oceanside — All Commercial Property Types',
+    },
+    whenToCallSigns: [
+      'Your office park or retail center is receiving tenant requests for EV charging',
+      'You want to attract and retain employees by offering workplace charging',
+      'Your property is near a major employer or retail corridor with high EV adoption',
+      'You are building out a new commercial space and want EV charging infrastructure roughed in',
+      'Your HOA community is planning to add EV charging to common area parking',
+      'You operate a fleet and need dedicated charging infrastructure at your facility',
+      'You want to qualify for SDG&E or CALSTART commercial EV charging incentives',
+    ],
+  },
+
+  // 16. Restaurant & Food Service Electrical
+  {
+    slug: 'restaurant-electrical',
+    category: 'commercial',
+    name: 'Restaurant & Food Service Electrical',
+    publish: true,
+    tier: 'wave2',
+    primaryKeyword: 'restaurant electrician Carlsbad',
+    secondaryKeywords: [
+      'restaurant electrical contractor San Diego',
+      'commercial kitchen electrician North County',
+      'food service electrical installation',
+      'restaurant tenant improvement electrician',
+      'commercial kitchen hood electrical',
+      'restaurant lighting electrician',
+    ],
+    shortDesc:
+      'Electrical services for restaurants, cafes, and food service businesses across North County San Diego. Kitchen equipment hookups, hood systems, lighting, and tenant improvements — code-compliant and inspected.',
+    includedBullets: [
+      'Commercial kitchen equipment electrical hookups',
+      'Hood and ventilation system electrical connections',
+      'Dedicated circuits for high-draw equipment',
+      'Restaurant lighting design and installation',
+      'Tenant improvement electrical for new restaurant buildouts',
+      'Title 24 energy compliance for lighting controls',
+      '3-phase power for commercial cooking equipment',
+      'Permit procurement and health department coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    overviewBullets: [
+      'Licensed commercial electricians with restaurant and food service experience.',
+      'Kitchen equipment hookups sized to manufacturer specifications.',
+      'Hood and ventilation system electrical connections to code.',
+      'Title 24 lighting controls compliance for California restaurant requirements.',
+      'Tenant improvement electrical from plan review through final inspection.',
+      'Permit coordination with AHJ and health department documentation.',
+      'Minimal downtime scheduling — we work around your kitchen hours.',
+      'One-year labor warranty on all restaurant electrical work.',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Plan Review & Kitchen Layout Assessment',
+        description:
+          'We review your equipment schedule, kitchen layout, and architectural plans to identify all electrical requirements and size circuits correctly.',
+      },
+      {
+        step: 2,
+        title: 'Proposal & Permitting',
+        description:
+          'You receive a detailed scope and pricing. We pull the electrical permit and coordinate with the building department and health department as required.',
+      },
+      {
+        step: 3,
+        title: 'Rough-In',
+        description:
+          'We install all conduit, wiring, and boxes for kitchen equipment, hood systems, lighting, and service panels. We pass the rough-in inspection before walls close.',
+      },
+      {
+        step: 4,
+        title: 'Equipment Hookup & Trim-Out',
+        description:
+          'Once equipment is delivered and positioned, we make final electrical connections, install lighting fixtures, and complete all device trim-out.',
+      },
+      {
+        step: 5,
+        title: 'Final Inspection & Commissioning',
+        description:
+          'We pass final electrical inspection, verify all equipment operates correctly, and provide documentation for your health department and certificate of occupancy.',
+      },
+    ],
+    pricingFactors: [
+      'Kitchen size and equipment count',
+      'Equipment voltage and amperage requirements (single vs. 3-phase)',
+      'Hood and ventilation system electrical scope',
+      'Lighting fixture count and Title 24 control requirements',
+      'Whether a panel upgrade or sub-panel is required',
+      'New buildout vs. renovation of existing kitchen',
+      'Permit and inspection fees',
+    ],
+    faqs: [
+      {
+        question: 'What electrical work does a restaurant buildout typically require?',
+        answer:
+          'A typical restaurant buildout requires a sub-panel or service upgrade, dedicated circuits for each major piece of kitchen equipment, hood and ventilation electrical connections, lighting throughout the dining and kitchen areas with Title 24 controls, and GFCI protection in wet areas.',
+      },
+      {
+        question: 'Do you handle 3-phase electrical for commercial kitchen equipment?',
+        answer:
+          'Yes. Many commercial ovens, fryers, and dishwashers require 3-phase power. We install 3-phase panels and circuits for restaurants and food service operations throughout North County San Diego.',
+      },
+      {
+        question: 'What is Title 24 and how does it affect restaurant lighting?',
+        answer:
+          'California Title 24 energy standards require restaurants to install lighting controls including occupancy sensors, daylight harvesting, and dimming in applicable areas. We ensure your restaurant lighting meets these requirements and passes inspection.',
+      },
+      {
+        question: 'Can you work with my general contractor on a restaurant buildout?',
+        answer:
+          'Yes. We coordinate with general contractors, kitchen equipment vendors, and health department inspectors on restaurant buildouts. We sequence our work to meet construction milestones and keep your project on schedule.',
+      },
+      {
+        question: 'Do you install hood and ventilation system electrical connections?',
+        answer:
+          'Yes. We make all electrical connections for commercial hood systems including exhaust fans, make-up air units, and fire suppression system interlocks. We coordinate with your hood vendor on specifications.',
+      },
+      {
+        question: 'How do you minimize downtime for restaurant renovations?',
+        answer:
+          'For renovations to operating restaurants, we schedule electrical work during off-hours or in phases that maintain kitchen function. We communicate clearly with your management team on timing and any required shutdowns.',
+      },
+    ],
+    relatedServices: [
+      'commercial-tenant-improvement',
+      'commercial-electrical-maintenance',
+      'light-industrial-electrical',
+    ],
+    relatedServiceSlugs: [
+      'commercial-tenant-improvement',
+      'commercial-electrical-maintenance',
+      'light-industrial-electrical',
+    ],
+    subtopics: [
+      'Restaurant kitchen electrical hookups',
+      'Commercial hood system electrical',
+      'Restaurant tenant improvement electrician',
+      'Food service Title 24 compliance',
+      'Restaurant lighting installation',
+    ],
+    localizedIntroSeedByCity: {
+      ['car' + 'lsbad']:
+        'Carlsbad has a dense restaurant corridor along Carlsbad Village Drive, Palomar Airport Road, and the Bressi Ranch Village Center. Wheyland Electric provides restaurant and food service electrical for new buildouts, renovations, and equipment upgrades throughout Carlsbad — from the permitting through the health department sign-off.',
+      ['enc' + 'initas']:
+        'Encinitas has a vibrant dining scene along Highway 101 and El Camino Real. Wheyland Electric handles restaurant electrical for new buildouts, kitchen renovations, and equipment additions throughout Encinitas — fully permitted and coordinated with the City of Encinitas building department.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe dining establishments require electrical work that matches the caliber of this community. Wheyland Electric provides restaurant and food service electrical services with the precision and professionalism this market demands.',
+      'san-marcos':
+        'San Marcos has an active restaurant row along Grand Avenue and growing food service development near Cal State San Marcos. Wheyland Electric provides restaurant electrical for new buildouts and renovations throughout San Marcos.',
+      'del-mar':
+        'Del Mar restaurants along Camino Del Mar and in the retail centers require precise electrical work to meet health department and building code requirements. Wheyland Electric handles restaurant electrical in Del Mar with full permit and inspection management.',
+      'solana-beach':
+        'Solana Beach restaurants in the Cedros Design District and along Lomas Santa Fe Drive rely on Wheyland Electric for food service electrical that passes inspection the first time. We coordinate with the City of Solana Beach and health department on all restaurant electrical projects.',
+      ['ocean' + 'side']:
+        'Oceanside has a growing restaurant scene downtown and throughout the city. Wheyland Electric provides restaurant and food service electrical throughout Oceanside — from single-location buildouts to multi-unit food hall installations.',
+    },
+    h1TaglineByCity: {
+      ['car' + 'lsbad']: 'Restaurant Electrician in Carlsbad — Kitchen Hookups, Hood Systems & TI Work',
+      ['enc' + 'initas']: 'Restaurant Electrician in Encinitas — Food Service Electrical, Fully Permitted',
+      'rancho-santa-fe': 'Restaurant Electrician in Rancho Santa Fe — Precision Food Service Electrical',
+      'san-marcos': 'Restaurant Electrician in San Marcos — Commercial Kitchen & Dining Electrical',
+      'del-mar': 'Restaurant Electrician in Del Mar — Kitchen Equipment & Dining Room Electrical',
+      'solana-beach': 'Restaurant Electrician in Solana Beach — Food Service Electrical, Code-Compliant',
+      ['ocean' + 'side']: 'Restaurant Electrician in Oceanside — Full-Service Food Service Electrical',
+    },
+    whenToCallSigns: [
+      'You are opening a new restaurant and need a licensed electrician for the buildout',
+      'You are adding or replacing major kitchen equipment that requires dedicated circuits',
+      'Your hood and ventilation system needs electrical connections or upgrades',
+      'Your restaurant lighting does not meet Title 24 requirements',
+      'You are renovating your dining room or bar and need updated lighting and circuits',
+      'Your kitchen breakers trip under normal operating load',
+      'You need 3-phase power for commercial cooking equipment',
+      'You want to add EV charging for staff or customers at your restaurant location',
+    ],
+  },
+
+  // 17. Commercial LED Lighting Retrofit
+  {
+    slug: 'commercial-led-lighting',
+    category: 'commercial',
+    name: 'Commercial LED Lighting Retrofit',
+    publish: true,
+    tier: 'wave2',
+    primaryKeyword: 'commercial LED lighting retrofit San Diego',
+    secondaryKeywords: [
+      'commercial lighting upgrade Carlsbad',
+      'warehouse LED lighting installation',
+      'office LED retrofit electrician',
+      'commercial lighting electrician North County',
+      'LED lighting upgrade San Diego',
+      'Title 24 lighting compliance electrician',
+    ],
+    shortDesc:
+      'Commercial LED lighting retrofits and upgrades for offices, warehouses, retail spaces, and parking lots across North County San Diego. Energy savings, Title 24 compliance, and utility rebate assistance.',
+    includedBullets: [
+      'Existing lighting audit and energy savings analysis',
+      'LED fixture selection and specification',
+      'Fixture removal and LED installation',
+      'Lighting control installation (occupancy sensors, dimmers, daylight harvesting)',
+      'Title 24 energy compliance verification',
+      'Utility rebate documentation assistance',
+      'Parking lot and exterior lighting upgrades',
+      'One-year labor warranty on all workmanship',
+    ],
+    overviewBullets: [
+      'Commercial LED retrofits that reduce energy costs 40-70% versus older fixtures.',
+      'Full lighting audit before any work — you know exactly what you are getting.',
+      'Title 24 compliance handled as part of every commercial lighting project.',
+      'Utility rebate documentation prepared to maximize your incentives.',
+      'Minimal business disruption — phased installation available.',
+      'Parking lot, exterior, and interior lighting all handled by one contractor.',
+      'Licensed electricians, not lighting-only crews — full electrical scope capability.',
+      'One-year labor warranty on all commercial lighting work.',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Lighting Audit',
+        description:
+          'We inventory your existing fixtures, measure light levels, calculate energy consumption, and project savings from LED conversion.',
+      },
+      {
+        step: 2,
+        title: 'Specification & Proposal',
+        description:
+          'You receive a fixture specification, layout plan, control strategy, and itemized pricing — including estimated utility rebates.',
+      },
+      {
+        step: 3,
+        title: 'Permit & Rebate Applications',
+        description:
+          'We pull the required permit and prepare your SDG&E or utility rebate application documentation before work begins.',
+      },
+      {
+        step: 4,
+        title: 'Installation',
+        description:
+          'Our electricians complete the retrofit in phases that minimize disruption to your operations. We remove old fixtures, install LED replacements, and wire all controls.',
+      },
+      {
+        step: 5,
+        title: 'Commissioning & Documentation',
+        description:
+          'We commission all controls, verify light levels meet your requirements, pass final inspection, and finalize rebate paperwork.',
+      },
+    ],
+    pricingFactors: [
+      'Number and type of existing fixtures to replace',
+      'Interior vs. exterior and parking lot scope',
+      'Lighting control requirements (occupancy sensors, dimmers, BAS integration)',
+      'Title 24 compliance scope',
+      'Fixture quality and specification level',
+      'Phasing requirements for occupied spaces',
+      'Permit and inspection fees',
+    ],
+    faqs: [
+      {
+        question: 'How much can I save by switching to LED lighting?',
+        answer:
+          'Most commercial LED retrofits reduce lighting energy costs 40 to 70 percent compared to fluorescent or HID fixtures. The exact savings depend on your current fixture types, operating hours, and utility rates. We provide a specific savings projection during the audit.',
+      },
+      {
+        question: 'Are there utility rebates available for commercial LED retrofits in San Diego?',
+        answer:
+          'Yes. SDG&E offers rebates for commercial LED lighting upgrades through their Business Energy Solutions program. Rebate amounts vary by fixture type and project scope. We prepare the documentation needed to maximize your rebate.',
+      },
+      {
+        question: 'Does commercial LED lighting require a permit?',
+        answer:
+          'Lighting retrofits that modify the electrical system or require Title 24 compliance documentation typically require a permit. We handle the permit application and inspection coordination.',
+      },
+      {
+        question: 'What is Title 24 and does my commercial space need to comply?',
+        answer:
+          'California Title 24 energy standards require commercial spaces to meet specific lighting power density limits and install controls such as occupancy sensors and daylight harvesting. Any lighting project that requires a permit triggers Title 24 compliance.',
+      },
+      {
+        question: 'Can you retrofit warehouse high-bay lighting?',
+        answer:
+          'Yes. We replace metal halide and T5HO high-bay fixtures with LED high-bays in warehouses, manufacturing facilities, and industrial spaces. LED high-bays deliver better light quality at significantly lower energy consumption.',
+      },
+      {
+        question: 'Can you handle parking lot lighting upgrades?',
+        answer:
+          'Yes. We replace parking lot pole fixtures, wall packs, and canopy lights with LED alternatives. We handle all electrical work including underground conduit, pole bases, and photocell controls.',
+      },
+    ],
+    relatedServices: [
+      'commercial-electrical-maintenance',
+      'commercial-tenant-improvement',
+      'light-fixture-installation',
+    ],
+    relatedServiceSlugs: [
+      'commercial-electrical-maintenance',
+      'commercial-tenant-improvement',
+      'light-fixture-installation',
+    ],
+    subtopics: [
+      'Warehouse LED lighting retrofit',
+      'Office LED lighting upgrade',
+      'Parking lot LED lighting',
+      'Title 24 lighting compliance',
+      'SDG&E commercial lighting rebates',
+    ],
+    localizedIntroSeedByCity: {
+      ['car' + 'lsbad']:
+        'Carlsbad business parks along Palomar Airport Road and Loker Avenue house hundreds of office, warehouse, and light industrial tenants — most of which are still running fluorescent or HID fixtures that cost significantly more to operate than modern LED alternatives. Wheyland Electric provides commercial LED retrofits throughout Carlsbad with utility rebate documentation and Title 24 compliance.',
+      ['enc' + 'initas']:
+        'Encinitas commercial properties along El Camino Real and in the Highway 101 corridor benefit from LED retrofits that reduce operating costs and improve the appearance of retail and restaurant spaces. Wheyland Electric handles commercial lighting upgrades throughout Encinitas.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe commercial and equestrian properties benefit from LED lighting upgrades that reduce energy costs while maintaining the aesthetic quality this community expects. Wheyland Electric provides lighting retrofits scaled to each property.',
+      'san-marcos':
+        'San Marcos has a large inventory of light industrial and warehouse space along Rancheros Drive and Grand Avenue. Wheyland Electric provides LED high-bay retrofits, office lighting upgrades, and parking lot lighting replacements throughout San Marcos.',
+      'del-mar':
+        'Del Mar retail and office properties benefit from LED upgrades that reduce energy costs and improve the quality of light in customer-facing spaces. Wheyland Electric handles commercial lighting retrofits throughout Del Mar.',
+      'solana-beach':
+        'Solana Beach commercial properties including the Cedros Design District benefit from LED lighting upgrades that reduce energy costs and enhance the retail experience. Wheyland Electric provides lighting retrofits with utility rebate documentation.',
+      ['ocean' + 'side']:
+        'Oceanside has a large and growing commercial inventory from downtown retail to inland industrial parks. Wheyland Electric provides commercial LED lighting retrofits throughout Oceanside — warehouse high-bays, office fixtures, parking lots, and exterior lighting.',
+    },
+    h1TaglineByCity: {
+      ['car' + 'lsbad']: 'Commercial LED Lighting in Carlsbad — Retrofit, Rebates & Title 24 Compliance',
+      ['enc' + 'initas']: 'Commercial LED Lighting in Encinitas — Energy Savings, Full Permit Handling',
+      'rancho-santa-fe': 'Commercial LED Lighting in Rancho Santa Fe — Quality Fixtures, Energy Savings',
+      'san-marcos': 'Commercial LED Lighting in San Marcos — Warehouse & Office LED Retrofits',
+      'del-mar': 'Commercial LED Lighting in Del Mar — Retail & Office Lighting Upgrades',
+      'solana-beach': 'Commercial LED Lighting in Solana Beach — LED Retrofit, SDG&E Rebates',
+      ['ocean' + 'side']: 'Commercial LED Lighting in Oceanside — Industrial, Retail & Parking Lot LED',
+    },
+    whenToCallSigns: [
+      'Your commercial space still has fluorescent tubes or metal halide fixtures',
+      'Your energy bills are higher than expected and lighting is a major contributor',
+      'You are renovating a commercial space and want to upgrade lighting as part of the project',
+      'Your parking lot or exterior lighting fixtures are failing or need replacement',
+      'You need to meet Title 24 energy compliance for a permit or tenant improvement',
+      'You want to apply for SDG&E commercial lighting rebates',
+      'Your warehouse or industrial space has poor light levels affecting productivity',
+    ],
+  },
+
+  // 18. HOA Electrical Services
+  {
+    slug: 'hoa-electrical-services',
+    category: 'commercial',
+    name: 'HOA Electrical Services',
+    publish: true,
+    tier: 'wave2',
+    primaryKeyword: 'HOA electrician Carlsbad',
+    secondaryKeywords: [
+      'HOA electrical maintenance San Diego',
+      'HOA common area lighting electrician',
+      'homeowners association electrician North County',
+      'property management electrician Carlsbad',
+      'community electrical maintenance San Diego',
+      'HOA parking lot lighting electrician',
+    ],
+    shortDesc:
+      'Electrical maintenance and repair for HOA communities, property managers, and multi-family properties across North County San Diego. Scheduled service, transparent reporting, and reliable response.',
+    includedBullets: [
+      'Common area lighting maintenance and repair',
+      'Parking lot and pathway lighting upgrades',
+      'Panel inspections and maintenance for common area electrical',
+      'Gate, access control, and security lighting electrical',
+      'Pool and spa electrical maintenance and compliance',
+      'Emergency response for HOA electrical issues',
+      'Scheduled maintenance programs with flat-rate pricing',
+      'Detailed service reports for board and property manager records',
+    ],
+    overviewBullets: [
+      'Experienced HOA electrician serving North County master-planned communities.',
+      'Scheduled maintenance programs reduce emergency calls and board liability.',
+      'Transparent reporting after every visit — documentation boards can rely on.',
+      'Common area lighting, gate electrical, pool circuits, and parking lot fixtures all covered.',
+      'Priority response for HOA electrical emergencies.',
+      'Flat-rate maintenance pricing makes budgeting predictable.',
+      'Familiar with Bressi Ranch, Aviara, Robertson Ranch, and North County HOA infrastructure.',
+      'One-year labor warranty on all HOA electrical work.',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Property Walk & Assessment',
+        description:
+          'We walk the community with your property manager or board representative to document all electrical systems, identify maintenance needs, and establish a service baseline.',
+      },
+      {
+        step: 2,
+        title: 'Service Plan Proposal',
+        description:
+          'You receive a maintenance plan covering scope, frequency, pricing, and emergency response terms — designed to fit your HOA budget and maintenance cycle.',
+      },
+      {
+        step: 3,
+        title: 'Scheduled Maintenance Visits',
+        description:
+          'Our electricians perform scheduled visits covering common area lighting, panel inspections, GFCI testing, and any reported issues. We document everything.',
+      },
+      {
+        step: 4,
+        title: 'Reporting & Recommendations',
+        description:
+          'After each visit, your property manager receives a service report detailing work completed, issues identified, and recommended capital improvements.',
+      },
+    ],
+    pricingFactors: [
+      'Community size and number of common area electrical systems',
+      'Frequency of scheduled service visits',
+      'Scope of systems covered (lighting, panels, gate, pool, parking)',
+      'Emergency response inclusion and response time requirements',
+      'Age and condition of existing electrical infrastructure',
+      'Capital improvement planning scope',
+    ],
+    faqs: [
+      {
+        question: 'What HOA communities do you serve in North County San Diego?',
+        answer:
+          'We serve HOA communities throughout Carlsbad, Encinitas, San Marcos, Oceanside, Del Mar, and Solana Beach — including master-planned communities like Bressi Ranch, Aviara, Robertson Ranch, San Elijo Hills, and Rancho Del Oro.',
+      },
+      {
+        question: 'Do you offer scheduled maintenance contracts for HOAs?',
+        answer:
+          'Yes. We provide monthly and quarterly maintenance agreements customized to your community size, infrastructure, and budget. Each program includes scheduled visits, documentation, and priority emergency response.',
+      },
+      {
+        question: 'What common area electrical systems do you maintain?',
+        answer:
+          'We maintain common area lighting, parking lot and pathway fixtures, gate and access control electrical, pool and spa circuits, irrigation pump electrical, mailbox kiosk lighting, and community signage electrical.',
+      },
+      {
+        question: 'How do you document your work for HOA boards?',
+        answer:
+          'After every visit, we provide a written service report suitable for board meeting records, reserve study documentation, and property management files. We track recurring issues and flag capital improvement needs.',
+      },
+      {
+        question: 'Can you respond to HOA electrical emergencies?',
+        answer:
+          'Yes. Maintenance contract clients receive priority emergency response. We respond promptly to power outages, safety hazards, and lighting failures in common areas.',
+      },
+      {
+        question: 'Do you work with property management companies?',
+        answer:
+          'Yes. We partner with property management companies managing North County HOA portfolios. We integrate with your work order and approval processes and provide the documentation your management platform requires.',
+      },
+    ],
+    relatedServices: [
+      'commercial-electrical-maintenance',
+      'commercial-led-lighting',
+      'electrical-safety-inspections',
+    ],
+    relatedServiceSlugs: [
+      'commercial-electrical-maintenance',
+      'commercial-led-lighting',
+      'electrical-safety-inspections',
+    ],
+    subtopics: [
+      'HOA common area lighting maintenance',
+      'HOA parking lot lighting repair',
+      'Property management electrical services',
+      'Master-planned community electrician',
+      'HOA electrical maintenance contract',
+    ],
+    localizedIntroSeedByCity: {
+      ['car' + 'lsbad']:
+        'Carlsbad has more master-planned HOA communities than almost any city in North County — Bressi Ranch, Aviara, Robertson Ranch, Calavera Hills, and more. Wheyland Electric provides HOA electrical maintenance and repair for these communities with scheduled service programs, detailed reporting, and priority emergency response.',
+      ['enc' + 'initas']:
+        'Encinitas HOA communities including Encinitas Ranch, San Elijo Hills adjacent properties, and the coastal condominium complexes rely on consistent electrical maintenance to protect property values and resident safety. Wheyland Electric serves Encinitas HOAs with professional maintenance programs and prompt response.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe HOA communities including The Covenant, Fairbanks Ranch, and Cielo require electrical maintenance that reflects the standards of these premier communities. Wheyland Electric provides HOA electrical services with the discretion and quality this market demands.',
+      'san-marcos':
+        'San Marcos HOA communities including San Elijo Hills, Rancho Dorado, and Barham Ranch benefit from scheduled electrical maintenance that prevents emergency failures and protects common area infrastructure. Wheyland Electric serves San Marcos HOAs with reliable maintenance programs.',
+      'del-mar':
+        'Del Mar HOA communities and condominium associations trust Wheyland Electric for electrical maintenance that protects their common area infrastructure and meets the standards of this premier coastal community.',
+      'solana-beach':
+        'Solana Beach HOA communities and multi-family properties benefit from Wheyland Electric scheduled electrical maintenance — consistent service, transparent documentation, and prompt response to resident-reported issues.',
+      ['ocean' + 'side']:
+        'Oceanside has a large inventory of HOA communities from Ocean Hills and Rancho Del Oro to the newer master-planned developments in the eastern neighborhoods. Wheyland Electric provides HOA electrical maintenance throughout Oceanside with scheduled service and detailed reporting.',
+    },
+    h1TaglineByCity: {
+      ['car' + 'lsbad']: 'HOA Electrician in Carlsbad — Bressi Ranch, Aviara & North County Communities',
+      ['enc' + 'initas']: 'HOA Electrician in Encinitas — Common Area Lighting & Scheduled Maintenance',
+      'rancho-santa-fe': 'HOA Electrician in Rancho Santa Fe — Premier Community Electrical Services',
+      'san-marcos': 'HOA Electrician in San Marcos — Scheduled Maintenance & Emergency Response',
+      'del-mar': 'HOA Electrician in Del Mar — Common Area Electrical, Documented & Reliable',
+      'solana-beach': 'HOA Electrician in Solana Beach — HOA Maintenance Programs, Transparent Reporting',
+      ['ocean' + 'side']: 'HOA Electrician in Oceanside — Serving Master-Planned Communities Citywide',
+    },
+    whenToCallSigns: [
+      'Your HOA common area lighting has persistent failures that are not being resolved',
+      'Your property management company needs a reliable licensed electrician for the portfolio',
+      'Your HOA board wants scheduled maintenance to reduce emergency calls and liability',
+      'Your community gate, access control, or security lighting needs electrical work',
+      'Your parking lot or pathway lighting is failing or needs upgrading to LED',
+      'You need detailed electrical maintenance documentation for board records or reserve studies',
+      'Your pool or spa equipment electrical needs inspection or repair',
+    ],
+  },
+
 ];
-
-
-
 const DEFAULT_FAQ_ENTRIES = (serviceName: string) => [
   {
     question: `Do you handle permits for ${serviceName.toLowerCase()} work?`,

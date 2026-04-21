@@ -21,6 +21,10 @@ const residentialServices: NavItem[] = [
 const commercialServices: NavItem[] = [
   { label: 'Commercial Tenant Improvement (TI)', href: '/services/commercial-tenant-improvement/' },
   { label: 'Commercial Electrical Maintenance', href: '/services/commercial-electrical-maintenance/' },
+  { label: 'Commercial EV Charging', href: '/services/commercial-ev-charging/' },
+  { label: 'Restaurant & Food Service Electrical', href: '/services/restaurant-electrical/' },
+  { label: 'Commercial LED Lighting Retrofit', href: '/services/commercial-led-lighting/' },
+  { label: 'HOA Electrical Services', href: '/services/hoa-electrical-services/' },
   { label: 'Light Industrial Electrical', href: '/services/light-industrial-electrical/' },
 ];
 
