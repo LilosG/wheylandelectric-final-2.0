@@ -1133,6 +1133,209 @@ const baseServicePillars: ServicePillar[] = [
     ],
   },
 
+
+  // ========================
+  // RESIDENTIAL HUB — publish: true
+  // ========================
+
+  // 9. Residential Electrical Services (Hub)
+  {
+    slug: 'residential-electrical-services',
+    name: 'Residential Electrical Services',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'residential electrician Carlsbad CA',
+    secondaryKeywords: [
+      'residential electrical services Carlsbad',
+      'home electrician North County San Diego',
+      'licensed residential electrician Carlsbad',
+      'residential electrical contractor San Diego',
+      'home electrical services Carlsbad CA',
+      'residential electrician near me Carlsbad',
+    ],
+    shortDesc:
+      'Licensed residential electrician serving Carlsbad and North County San Diego. Panel upgrades, EV charger installation, recessed lighting, troubleshooting, and more — permitted, inspected, and backed by a 1-year labor warranty.',
+    includedBullets: [
+      'Electrical panel upgrades and replacements (100A to 200A+)',
+      'Level 2 EV charger installation with dedicated 240V circuit',
+      'Recessed lighting layout, installation, and dimmer setup',
+      'Light fixture, chandelier, and ceiling fan installation',
+      'Outlet, switch, GFCI, and AFCI installation and repair',
+      'Spa, hot tub, and sauna dedicated circuit installation',
+      'Service calls, troubleshooting, and electrical diagnostics',
+      'Dedicated circuits for appliances, home offices, and workshops',
+      'Whole-home surge protection',
+      'Permit procurement and city inspection coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    overviewBullets: [
+      'Carlsbad-based residential electricians serving North County since 2008.',
+      'Licensed, bonded, and insured — CA License #940291.',
+      'Full-range residential work: panels, EV chargers, lighting, outlets, troubleshooting.',
+      'Permit coordination and inspection handled by our team, not outsourced.',
+      'Upfront pricing with no hidden fees — you approve scope before work starts.',
+      'Clean job sites, professional communication, and a 1-year labor warranty.',
+      'Familiar with every Carlsbad neighborhood from Olde Carlsbad to La Costa to Bressi Ranch.',
+      'Same licensed electricians on every job — no rotating subcontractors.',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Schedule & Consult',
+        description:
+          'Call or submit our online form. We discuss your project, confirm scope, and schedule a visit. Most service calls and smaller projects are booked within 1–2 business days.',
+      },
+      {
+        step: 2,
+        title: 'On-Site Evaluation',
+        description:
+          'Our licensed electrician evaluates your electrical system, identifies the right solution, and provides transparent pricing before any work begins.',
+      },
+      {
+        step: 3,
+        title: 'Permitting (When Required)',
+        description:
+          'For panel upgrades, new circuits, EV chargers, and larger residential projects, we handle the permit application and coordinate with the city building department.',
+      },
+      {
+        step: 4,
+        title: 'Professional Installation',
+        description:
+          'Our electricians complete all work to current NEC and California Electrical Code standards. We protect your home, work cleanly, and keep you informed throughout.',
+      },
+      {
+        step: 5,
+        title: 'Testing, Inspection & Walkthrough',
+        description:
+          'We test all work before closeout, coordinate city inspections when required, and walk you through the completed installation. Every project is backed by our 1-year labor warranty.',
+      },
+    ],
+    pricingFactors: [
+      'Type and scope of service (single repair vs. full panel upgrade vs. multi-service project)',
+      'Age and condition of existing electrical system',
+      'Panel capacity and whether an upgrade is required',
+      'Distance and routing complexity for new circuits or wiring runs',
+      'Permit and inspection fees (vary by city and project scope)',
+      'Fixture type, fixture count, or charger brand (for installation projects)',
+      'Accessibility of wiring (finished walls, attic access, crawl space)',
+    ],
+    faqs: [
+      {
+        question: 'What residential electrical services does Wheyland Electric provide?',
+        answer:
+          'We handle the full range of residential electrical work — panel upgrades and replacements, EV charger installation, recessed lighting, light fixture and ceiling fan installation, outlet and switch repair, GFCI and AFCI upgrades, spa and hot tub wiring, service calls, troubleshooting, and dedicated circuits. If it involves the electrical system in your home, we can help.',
+      },
+      {
+        question: 'Are you a licensed residential electrician in Carlsbad?',
+        answer:
+          'Yes. Wheyland Electric holds California Electrical Contractor License #940291. All work is performed by our licensed electricians — not subcontractors. We have been serving Carlsbad and North County San Diego since 2008.',
+      },
+      {
+        question: 'Do you handle permits for residential electrical work?',
+        answer:
+          'Yes. We manage the permit application and coordinate city inspections for all work that requires it — panel upgrades, new circuits, EV chargers, and other permitted scopes. You do not need to deal with the building department. We handle it.',
+      },
+      {
+        question: 'How do I know if my home needs an electrical panel upgrade?',
+        answer:
+          'Common signs include frequently tripping breakers, a 100-amp panel in a home with modern appliances, plans to add an EV charger or ADU, a Federal Pacific or Zinsco panel, or a panel more than 30 years old. We perform a load calculation to give you a definitive recommendation.',
+      },
+      {
+        question: 'How quickly can you schedule a residential service call?',
+        answer:
+          'Most service calls and smaller projects are scheduled within 1–2 business days. For urgent issues such as burning smells, sparking, or loss of power, we prioritize same-day or next-day response.',
+      },
+      {
+        question: 'What neighborhoods in Carlsbad do you serve?',
+        answer:
+          'We serve every Carlsbad neighborhood — La Costa, Olde Carlsbad, Bressi Ranch, Aviara, Calavera Hills, The Village, Robertson Ranch, and all surrounding areas. We are based in Carlsbad at 3536 Woodland Way and respond quickly throughout the city.',
+      },
+      {
+        question: 'Do you work in older homes with outdated wiring?',
+        answer:
+          'Yes. We regularly work in Carlsbad homes from the 1960s through 1990s — including homes with aluminum wiring, two-prong ungrounded outlets, and original 100-amp panels. We evaluate the system honestly and recommend targeted upgrades that improve safety and capacity without unnecessary overbuilding.',
+      },
+      {
+        question: 'Do you offer a warranty on residential electrical work?',
+        answer:
+          'Yes. All Wheyland Electric residential work is backed by a one-year labor warranty. If a problem occurs due to our installation or workmanship, we return and correct it at no additional labor cost.',
+      },
+      {
+        question: 'Can you bundle multiple residential electrical services into one visit?',
+        answer:
+          'Absolutely. Many homeowners combine a panel evaluation with an EV charger installation, or add outlet upgrades during a lighting project. Bundling reduces total trip time and often improves efficiency. We scope and price combined projects clearly.',
+      },
+      {
+        question: 'What cities do you serve besides Carlsbad?',
+        answer:
+          'We serve Carlsbad, Encinitas, Rancho Santa Fe, San Marcos, Del Mar, Solana Beach, Oceanside, and surrounding North County San Diego communities. Carlsbad is our home base and our primary service area.',
+      },
+    ],
+    relatedServices: [
+      'electrical-panel-upgrades',
+      'ev-charger-installation',
+      'recessed-lighting-installation',
+      'outlet-switch-dimmer-gfci-repairs',
+    ],
+    relatedServiceSlugs: [
+      'electrical-panel-upgrades',
+      'ev-charger-installation',
+      'recessed-lighting-installation',
+      'outlet-switch-dimmer-gfci-repairs',
+    ],
+    subtopics: [
+      'Residential panel upgrades Carlsbad',
+      'Home EV charger installation North County',
+      'Residential lighting electrician Carlsbad',
+      'Home electrical troubleshooting San Diego',
+      'Licensed home electrician Carlsbad CA',
+    ],
+    localizedIntroSeedByCity: {
+      ['car' + 'lsbad']:
+        'Wheyland Electric is Carlsbad\'s residential electrician — based at 3536 Woodland Way and serving every neighborhood in the city since 2008. From panel upgrades in the older homes of Olde Carlsbad to EV charger installations in the newer developments of Bressi Ranch and La Costa, we handle the full range of residential electrical work. Licensed, permitted, and backed by a 1-year labor warranty.',
+      ['enc' + 'initas']:
+        'Wheyland Electric provides licensed residential electrical services throughout Encinitas — from the older coastal homes of Leucadia and Cardiff to the newer builds in New Encinitas and Encinitas Ranch. Whether you need a panel upgrade, an EV charger, or a full lighting renovation, our team handles every residential electrical project with professional craftsmanship and honest communication.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe homes demand electricians who match the quality of the properties they work in. Wheyland Electric provides residential electrical services for estates throughout The Covenant, Fairbanks Ranch, Cielo, and surrounding communities — from complex multi-panel evaluations and upgrades to custom lighting installations and EV charger circuits sized for multi-car garages.',
+      'san-marcos':
+        'Wheyland Electric serves San Marcos homeowners throughout Lake San Marcos, San Elijo Hills, Discovery Hills, and every neighborhood in between. We handle the full range of residential electrical work — panel upgrades, EV charger installation, lighting, troubleshooting, and more — with the same licensed, permitted, and warranty-backed approach on every project.',
+      'del-mar':
+        'Del Mar homeowners trust Wheyland Electric for residential electrical work that matches the quality of this premier coastal community. We handle panel upgrades, EV charger installations, recessed lighting, and service calls throughout Del Mar Heights, the Village, Torrey Hills, and Carmel Valley — fully permitted and professionally executed.',
+      'solana-beach':
+        'Wheyland Electric provides residential electrical services throughout Solana Beach — from Lomas Santa Fe and Eden Gardens to the Fletcher Cove area. We handle panel upgrades, EV charger circuits, outlet and GFCI modernization, and lighting upgrades with the same licensed, permitted approach we bring to every project across North County.',
+      ['ocean' + 'side']:
+        'Wheyland Electric serves Oceanside homeowners across every neighborhood — from the historic beach homes near the pier to the newer construction in Rancho Del Oro and Arrowood. We provide the full range of residential electrical services, from panel upgrades and EV charger installation to troubleshooting, lighting, and outlet upgrades — all licensed, permitted, and warranty-backed.',
+    },
+    h1TaglineByCity: {
+      ['car' + 'lsbad']: 'Residential Electrician in Carlsbad, CA — Licensed, Local, Backed by Warranty',
+      ['enc' + 'initas']: 'Residential Electrician in Encinitas, CA — Full-Service Home Electrical',
+      'rancho-santa-fe': 'Residential Electrician in Rancho Santa Fe — Estate-Grade Home Electrical',
+      'san-marcos': 'Residential Electrician in San Marcos, CA — Licensed, Permitted, Warranted',
+      'del-mar': 'Residential Electrician in Del Mar, CA — Coastal Homes, Professional Work',
+      'solana-beach': 'Residential Electrician in Solana Beach, CA — Local Team, Full-Service',
+      ['ocean' + 'side']: 'Residential Electrician in Oceanside, CA — All Neighborhoods, All Scopes',
+    },
+    whenToCallSigns: [
+      'Your home is more than 25 years old and has never had an electrical inspection or panel evaluation',
+      'You are adding an EV charger, hot tub, ADU, or major appliance that requires a dedicated circuit',
+      'Your circuit breakers trip frequently or your lights dim when large appliances start',
+      'You have a Federal Pacific, Zinsco, or fuse-based panel that needs replacement',
+      'You are remodeling a kitchen, bathroom, or living area and need updated electrical',
+      'You have two-prong ungrounded outlets in a home built before 1970',
+      'You smell burning near outlets, panels, or switches',
+      'You want to upgrade lighting with recessed fixtures and dimmers throughout your home',
+      'You are buying or selling a home and want a professional electrical evaluation',
+      'You need a licensed electrician who handles permits and city inspections, not just the work itself',
+    ],
+    serviceProofPoints: [
+      'Carlsbad-based since 2008 — CA License #940291.',
+      'Every project performed by our licensed electricians, not subcontractors.',
+      'Permit and inspection coordination handled end-to-end.',
+      'Transparent pricing — scope and cost approved before work starts.',
+      'One-year labor warranty on all residential workmanship.',
+    ],
+  },
+
   // ========================
   // WAVE 2 — publish: false
   // ========================
@@ -1141,7 +1344,7 @@ const baseServicePillars: ServicePillar[] = [
   {
     slug: 'dedicated-circuits',
     name: 'Dedicated Circuits',
-    publish: false,
+    publish: true,
     tier: 'wave2',
     primaryKeyword: 'dedicated circuit installation',
     secondaryKeywords: [
@@ -1260,7 +1463,7 @@ const baseServicePillars: ServicePillar[] = [
   {
     slug: 'remodel-rewiring-adu',
     name: 'Remodel & Rewiring (incl. ADU)',
-    publish: false,
+    publish: true,
     tier: 'wave2',
     primaryKeyword: 'electrical remodel rewiring',
     secondaryKeywords: [
@@ -1390,7 +1593,7 @@ const baseServicePillars: ServicePillar[] = [
   {
     slug: 'commercial-tenant-improvement',
     name: 'Commercial Tenant Improvement (TI)',
-    publish: false,
+    publish: true,
     tier: 'wave2',
     primaryKeyword: 'commercial tenant improvement electrician',
     secondaryKeywords: [
@@ -1519,7 +1722,7 @@ const baseServicePillars: ServicePillar[] = [
   {
     slug: 'commercial-electrical-maintenance',
     name: 'Commercial Electrical Maintenance',
-    publish: false,
+    publish: true,
     tier: 'wave2',
     primaryKeyword: 'commercial electrical maintenance',
     secondaryKeywords: [
@@ -1638,7 +1841,7 @@ const baseServicePillars: ServicePillar[] = [
   {
     slug: 'light-industrial-electrical',
     name: 'Light Industrial Electrical',
-    publish: false,
+    publish: true,
     tier: 'wave2',
     primaryKeyword: 'light industrial electrician',
     secondaryKeywords: [
@@ -1759,7 +1962,7 @@ const baseServicePillars: ServicePillar[] = [
   {
     slug: 'electrical-safety-inspections',
     name: 'Electrical Safety Inspections',
-    publish: false,
+    publish: true,
     tier: 'wave2',
     primaryKeyword: 'electrical safety inspection',
     secondaryKeywords: [
