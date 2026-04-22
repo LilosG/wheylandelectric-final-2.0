@@ -29,7 +29,7 @@ const residential = RESIDENTIAL_HOMEPAGE_SLUGS
   .map((slug) => services.find((s) => s.slug === slug))
   .filter((s): s is NonNullable<typeof s> => s !== undefined);
 
-const commercial = services.filter((s) => s.category === 'commercial');
+const commercial = services.filter((s) => s.category === 'commercial' && s.slug !== 'commercial-electrical-services');
 
 const getHref = (service: ServicePillar) =>
   citySlug ? `/${citySlug}/${service.slug}/` : `/services/${service.slug}/`;

@@ -94,6 +94,10 @@ export const serviceHeroImages: HeroImageMap = {
     src: '/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp',
     alt: 'Residential electrical services by Wheyland Electric - licensed electrician Carlsbad CA',
   },
+  'commercial-electrical-services': {
+    src: '/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp',
+    alt: 'Commercial electrical services by Wheyland Electric - licensed commercial electrician Carlsbad CA',
+  },
 };
 
 /**

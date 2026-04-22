@@ -1345,6 +1345,207 @@ const baseServicePillars: ServicePillar[] = [
     ],
   },
 
+
+  // Commercial Electrical Services Hub
+  {
+    slug: 'commercial-electrical-services',
+    category: 'commercial',
+    name: 'Commercial Electrical Services',
+    publish: true,
+    tier: 'wave1',
+    primaryKeyword: 'commercial electrician Carlsbad CA',
+    secondaryKeywords: [
+      'commercial electrical services North County San Diego',
+      'commercial electrical contractor Carlsbad',
+      'commercial electrician North County',
+      'business electrician Carlsbad CA',
+      'commercial electrical services San Diego',
+      'licensed commercial electrician Carlsbad',
+    ],
+    shortDesc:
+      'Licensed commercial electrician serving Carlsbad and North County San Diego. Tenant improvements, maintenance programs, EV charging, restaurant electrical, LED retrofits, HOA services, and light industrial — permitted, inspected, and backed by a 1-year labor warranty.',
+    includedBullets: [
+      'Commercial tenant improvement electrical — offices, retail, restaurant, medical',
+      'Ongoing commercial electrical maintenance programs',
+      'Commercial EV charging station installation with load management',
+      'Restaurant and food service electrical hookups and buildouts',
+      'Commercial LED lighting retrofits with utility rebate documentation',
+      'HOA and property management electrical maintenance',
+      'Light industrial electrical — 3-phase, equipment hookups, warehouse lighting',
+      'Permit procurement and AHJ coordination handled end-to-end',
+      'Title 24 energy compliance for all applicable commercial scopes',
+      'One-year labor warranty on all commercial workmanship',
+    ],
+    overviewBullets: [
+      'Carlsbad-based commercial electricians serving North County since 2008.',
+      'Licensed, bonded, and insured — CA License #940291.',
+      'Full-range commercial work: TI, maintenance, EV charging, restaurant, LED, HOA, industrial.',
+      'Permit and AHJ coordination handled by our team on every permitted scope.',
+      'Upfront pricing with no hidden fees — scope approved before work starts.',
+      'Title 24 compliance expertise for California commercial requirements.',
+      'Minimal business disruption — we schedule around your operating hours.',
+      'Same licensed electricians on every job — no rotating subcontractors.',
+      'Familiar with Carlsbad Research Center, Palomar Airport Road, and North County business parks.',
+      'One-year labor warranty on all commercial electrical workmanship.',
+    ],
+    processSteps: [
+      {
+        step: 1,
+        title: 'Consultation & Scope Review',
+        description:
+          'We discuss your project, review plans or conduct a site walk, and identify the full electrical scope. Commercial projects receive a written proposal with clear line-item pricing before work begins.',
+      },
+      {
+        step: 2,
+        title: 'Permitting & Coordination',
+        description:
+          'We pull all required permits, coordinate with the AHJ and building department, and align scheduling with your general contractor or property manager.',
+      },
+      {
+        step: 3,
+        title: 'Installation',
+        description:
+          'Our licensed electricians complete all work to NEC and California Electrical Code standards. We minimize disruption to your business operations and coordinate with other trades on TI and construction projects.',
+      },
+      {
+        step: 4,
+        title: 'Inspection & Commissioning',
+        description:
+          'We schedule and attend all required inspections, commission all systems, and verify code compliance before closeout.',
+      },
+      {
+        step: 5,
+        title: 'Documentation & Handoff',
+        description:
+          'You receive as-built documentation, panel directories, warranty information, and any utility rebate paperwork. Ongoing maintenance clients receive scheduled visit reports.',
+      },
+    ],
+    pricingFactors: [
+      'Type and scope of commercial service (TI, maintenance, EV charging, LED retrofit)',
+      'Square footage and system complexity',
+      'Panel and service upgrade requirements',
+      'Title 24 compliance scope',
+      'Permit and inspection fees by jurisdiction',
+      'Project timeline and phasing requirements',
+      'Whether 3-phase power is required',
+    ],
+    faqs: [
+      {
+        question: 'What commercial electrical services does Wheyland Electric provide?',
+        answer:
+          'We handle the full range of commercial electrical work — tenant improvements, ongoing maintenance programs, commercial EV charging, restaurant and food service electrical, LED lighting retrofits, HOA electrical services, and light industrial work. If it involves commercial electrical in North County San Diego, we can help.',
+      },
+      {
+        question: 'Are you a licensed commercial electrician in Carlsbad?',
+        answer:
+          'Yes. Wheyland Electric holds California Electrical Contractor License #940291. All commercial work is performed by our licensed electricians. We have been serving Carlsbad and North County San Diego commercial properties since 2008.',
+      },
+      {
+        question: 'Do you handle permits for commercial electrical work?',
+        answer:
+          'Yes. We manage the full permit process for all commercial work that requires it — TI buildouts, new circuits, EV charging, LED retrofits, and other permitted scopes. We coordinate with the AHJ and building department so you do not have to.',
+      },
+      {
+        question: 'Do you work with general contractors on tenant improvements?',
+        answer:
+          'Yes. We work with general contractors daily on commercial TI projects throughout North County San Diego. We coordinate scheduling, meet construction milestones, and communicate directly with your GC to keep projects on track.',
+      },
+      {
+        question: 'Can you handle ongoing electrical maintenance for our commercial property?',
+        answer:
+          'Yes. We offer scheduled maintenance programs for commercial properties, HOA communities, and multi-family buildings. Programs include regular inspections, lighting maintenance, panel testing, and priority emergency response — with detailed documentation after every visit.',
+      },
+      {
+        question: 'Do you install commercial EV charging stations?',
+        answer:
+          'Yes. We design and install commercial EV charging infrastructure for office parks, retail centers, restaurants, and multi-tenant properties. We handle load management planning, permit coordination, and utility coordination for service upgrades when required.',
+      },
+      {
+        question: 'What North County business parks and commercial areas do you serve?',
+        answer:
+          'We serve commercial properties throughout the Carlsbad Research Center, Palomar Airport Road corridor, Loker Avenue business parks, Bressi Ranch Village Center, Encinitas Boulevard commercial areas, Grand Avenue in San Marcos, and throughout North County San Diego.',
+      },
+      {
+        question: 'Do you handle Title 24 compliance for commercial spaces?',
+        answer:
+          'Yes. We ensure all commercial lighting and electrical controls meet California Title 24 energy requirements, including occupancy sensors, daylight harvesting, and lighting power density calculations.',
+      },
+      {
+        question: 'How quickly can you schedule a commercial service call?',
+        answer:
+          'Most commercial service calls and smaller projects are scheduled within 1-2 business days. For urgent issues affecting business operations, we prioritize same-day or next-day response.',
+      },
+      {
+        question: 'Do you offer a warranty on commercial electrical work?',
+        answer:
+          'Yes. All Wheyland Electric commercial work is backed by a one-year labor warranty. If a problem occurs due to our installation or workmanship, we return and correct it at no additional labor cost.',
+      },
+    ],
+    relatedServices: [
+      'commercial-tenant-improvement',
+      'commercial-electrical-maintenance',
+      'commercial-ev-charging',
+      'restaurant-electrical',
+    ],
+    relatedServiceSlugs: [
+      'commercial-tenant-improvement',
+      'commercial-electrical-maintenance',
+      'commercial-ev-charging',
+      'restaurant-electrical',
+    ],
+    subtopics: [
+      'Commercial electrician Carlsbad CA',
+      'Commercial tenant improvement electrician North County',
+      'Business electrician Carlsbad',
+      'Commercial electrical contractor San Diego',
+      'North County commercial electrician',
+    ],
+    localizedIntroSeedByCity: {
+      ['car' + 'lsbad']:
+        'Wheyland Electric is Carlsbad\'s commercial electrician — serving business parks, retail centers, restaurants, and HOA communities from our base at 3536 Woodland Way since 2008. From the Carlsbad Research Center and Palomar Airport Road corridor to the Bressi Ranch Village Center and Carlsbad Village commercial district, we handle the full range of commercial electrical work. Licensed, permitted, and backed by a 1-year labor warranty.',
+      ['enc' + 'initas']:
+        'Wheyland Electric provides licensed commercial electrical services throughout Encinitas — from the Highway 101 retail corridor and Cedros Design District to the business parks along Encinitas Boulevard and El Camino Real. Tenant improvements, maintenance programs, restaurant electrical, and commercial EV charging — all permitted and professionally executed.',
+      'rancho-santa-fe':
+        'Rancho Santa Fe commercial and equestrian properties require commercial electrical work that matches the standards of this premier community. Wheyland Electric provides commercial electrical services for the limited but high-quality commercial properties and estate operations in Rancho Santa Fe.',
+      'san-marcos':
+        'Wheyland Electric serves San Marcos commercial properties throughout the Grand Avenue restaurant corridor, Rancheros Drive business parks, and the growing commercial development near Cal State San Marcos. Full-service commercial electrical from TI buildouts through ongoing maintenance.',
+      'del-mar':
+        'Del Mar commercial properties — from Flower Hill Promenade and Del Mar Highlands to the offices along Camino Del Mar — require commercial electrical work that meets the standards of this premier coastal community. Wheyland Electric provides licensed commercial electrical services throughout Del Mar.',
+      'solana-beach':
+        'Wheyland Electric provides commercial electrical services for Solana Beach businesses including the Cedros Design District, Lomas Santa Fe commercial corridor, and the retail and restaurant properties throughout this compact coastal community.',
+      ['ocean' + 'side']:
+        'Wheyland Electric serves Oceanside commercial properties across the revitalized downtown district, Mission Avenue business parks, College Boulevard corridor, and the inland industrial zones. Full-range commercial electrical from restaurant buildouts to industrial equipment hookups.',
+    },
+    h1TaglineByCity: {
+      ['car' + 'lsbad']: 'Commercial Electrician in Carlsbad, CA — Licensed, Local, Backed by Warranty',
+      ['enc' + 'initas']: 'Commercial Electrician in Encinitas, CA — Full-Service Business Electrical',
+      'rancho-santa-fe': 'Commercial Electrician in Rancho Santa Fe — Professional Commercial Electrical',
+      'san-marcos': 'Commercial Electrician in San Marcos, CA — Licensed, Permitted, Warranted',
+      'del-mar': 'Commercial Electrician in Del Mar, CA — Coastal Business Electrical Services',
+      'solana-beach': 'Commercial Electrician in Solana Beach, CA — Local Team, Full-Service',
+      ['ocean' + 'side']: 'Commercial Electrician in Oceanside, CA — All Neighborhoods, All Scopes',
+    },
+    whenToCallSigns: [
+      'You need a licensed commercial electrician for a tenant improvement or buildout',
+      'Your commercial property needs ongoing electrical maintenance with documented reporting',
+      'You are adding commercial EV charging for employees, customers, or fleet vehicles',
+      'Your restaurant or food service business needs kitchen electrical hookups or upgrades',
+      'Your commercial lighting is outdated and you want an LED retrofit with utility rebates',
+      'Your HOA community needs scheduled electrical maintenance and emergency response',
+      'You need 3-phase power or industrial electrical for manufacturing or warehouse operations',
+      'Your commercial property has code violations or Title 24 compliance issues',
+      'You need a reliable commercial electrician who handles permits and inspections end-to-end',
+    ],
+    serviceProofPoints: [
+      'Carlsbad-based since 2008 — CA License #940291.',
+      'Every project performed by our licensed electricians, not subcontractors.',
+      'Permit and AHJ coordination handled end-to-end on every permitted scope.',
+      'Title 24 compliance expertise for California commercial requirements.',
+      'Transparent pricing — scope and cost approved before work starts.',
+      'One-year labor warranty on all commercial workmanship.',
+    ],
+  },
+
   // ========================
   // WAVE 2 — publish: false
   // ========================

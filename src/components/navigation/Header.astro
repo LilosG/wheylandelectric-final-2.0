@@ -55,24 +55,24 @@ const nav = buildNavigation();
             {/* Two-column Services dropdown: Residential | Commercial */}
             {item.residentialChildren && item.commercialChildren && (
               <div class="absolute left-0 top-full pt-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                <div class="bg-white rounded-xl shadow-xl border border-surface-warm/50 py-3 flex" style="min-width:600px">
+                <div class="bg-white rounded-xl shadow-xl border border-surface-warm/50 py-3 flex" style="min-width:660px">
                   <div class="flex-1 border-r border-surface-subtle px-3 pb-2">
-                    <div class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-teal mb-1">Residential</div>
+                    <div class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-brand-teal mb-1">Residential</div>
                     {item.residentialChildren.map((child) => (
                       <a
                         href={child.href}
-                        class="block px-3 py-1.5 text-sm text-text hover:bg-surface-subtle hover:text-brand-teal transition-colors rounded-md"
+                        class="block px-3 py-2 text-sm text-text hover:bg-surface-subtle hover:text-brand-teal transition-colors rounded-md leading-snug"
                       >
                         {child.label}
                       </a>
                     ))}
                   </div>
                   <div class="w-60 px-3 pb-2">
-                    <div class="px-3 py-1.5 text-xs font-semibold uppercase tracking-wider text-brand-gold mb-1">Commercial</div>
+                    <div class="px-3 py-2 text-xs font-semibold uppercase tracking-wider text-brand-gold mb-1">Commercial</div>
                     {item.commercialChildren.map((child) => (
                       <a
                         href={child.href}
-                        class="block px-3 py-1.5 text-sm text-text hover:bg-surface-subtle hover:text-brand-teal transition-colors rounded-md"
+                        class="block px-3 py-2 text-sm text-text hover:bg-surface-subtle hover:text-brand-teal transition-colors rounded-md leading-snug"
                       >
                         {child.label}
                       </a>

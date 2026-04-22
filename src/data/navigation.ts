@@ -1,6 +1,19 @@
 import type { NavItem } from '../types';
 import { getPublishedCities } from './cities';
 
+// Primary Wave 1 city slugs for nav — sub-neighborhoods excluded intentionally
+// Sub-neighborhood pages rank via internal links and sitemap, not nav
+const NAV_CITY_SLUGS = [
+  'carlsbad',
+  'encinitas',
+  'rancho-santa-fe',
+  'san-marcos',
+  'del-mar',
+  'solana-beach',
+  'oceanside',
+  'vista',
+];
+
 // ── Residential service nav items (manual — controls dropdown order and grouping)
 const residentialServices: NavItem[] = [
   { label: 'Residential Electrical Services', href: '/services/residential-electrical-services/' },
@@ -19,6 +32,7 @@ const residentialServices: NavItem[] = [
 
 // ── Commercial service nav items (manual)
 const commercialServices: NavItem[] = [
+  { label: 'All Commercial Services', href: '/services/commercial-electrical-services/' },
   { label: 'Commercial Tenant Improvement (TI)', href: '/services/commercial-tenant-improvement/' },
   { label: 'Commercial Electrical Maintenance', href: '/services/commercial-electrical-maintenance/' },
   { label: 'Commercial EV Charging', href: '/services/commercial-ev-charging/' },
@@ -45,10 +59,12 @@ export function buildNavigation(): NavItem[] {
       label: 'Service Areas',
       href: '/service-areas/',
       children: [
-        ...publishedCities.map((c) => ({
-          label: c.name,
-          href: `/${c.slug}/`,
-        })),
+        ...publishedCities
+          .filter((c) => NAV_CITY_SLUGS.includes(c.slug))
+          .map((c) => ({
+            label: c.name,
+            href: `/${c.slug}/`,
+          })),
         { label: 'All Service Areas', href: '/service-areas/' },
       ],
     },
