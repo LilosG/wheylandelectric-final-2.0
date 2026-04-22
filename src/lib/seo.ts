@@ -136,6 +136,15 @@ export function reviewsPageMeta(): PageMeta {
   });
 }
 
+
+export function segmentPageMeta(title: string, description: string, slug: string): PageMeta {
+  return generateMeta({
+    title,
+    description,
+    path: `/who-we-work-with/${slug}/`,
+  });
+}
+
 export function blogIndexMeta(): PageMeta {
   return generateMeta({
     title: 'Electrical Blog | Tips from San Diego County Electricians',

@@ -68,7 +68,17 @@ export function buildNavigation(): NavItem[] {
         { label: 'All Service Areas', href: '/service-areas/' },
       ],
     },
-    { label: 'Who We Work With', href: '/who-we-work-with/' },
+    {
+      label: 'Who We Work With',
+      href: '/who-we-work-with/',
+      children: [
+        { label: 'Homeowners', href: '/who-we-work-with/homeowners/' },
+        { label: 'Property Managers', href: '/who-we-work-with/property-managers/' },
+        { label: 'HOA Communities', href: '/who-we-work-with/hoa-communities/' },
+        { label: 'Commercial & Business', href: '/who-we-work-with/commercial/' },
+        { label: 'General Contractors', href: '/who-we-work-with/general-contractors/' },
+      ],
+    },
     {
       label: 'About',
       href: '/about/',

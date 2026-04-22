@@ -1,0 +1,182 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Hero from '../../components/sections/Hero.astro';
+import TrustBar from '../../components/sections/TrustBar.astro';
+import Section from '../../components/ui/Section.astro';
+import Button from '../../components/ui/Button.astro';
+import ServiceIntroSection from '../../components/sections/ServiceIntroSection.astro';
+import ProcessStepsSection from '../../components/sections/ProcessStepsSection.astro';
+import FAQAccordion from '../../components/sections/FAQAccordion.astro';
+import RelatedServicesSection from '../../components/sections/RelatedServicesSection.astro';
+import ContextualCTABand from '../../components/sections/ContextualCTABand.astro';
+import CTASection from '../../components/sections/CTASection.astro';
+import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
+import { faqPageSchemaNode } from '../../lib/schema/faq';
+import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
+import { segmentPageMeta } from '../../lib/seo';
+import { segments, getSegmentBySlug } from '../../data/whoWeWorkWith';
+import type { WhoWeWorkWithSegment } from '../../data/whoWeWorkWith';
+
+export function getStaticPaths() {
+  return segments.map((segment) => ({
+    params: { segment: segment.slug },
+    props: { segment },
+  }));
+}
+
+interface Props {
+  segment: WhoWeWorkWithSegment;
+}
+
+const { segment } = Astro.props;
+
+const meta = segmentPageMeta(
+  segment.metaTitle,
+  segment.metaDescription,
+  segment.slug
+);
+
+const breadcrumbs = [
+  { label: 'Who We Work With', href: '/who-we-work-with/' },
+  { label: segment.title, href: `/who-we-work-with/${segment.slug}/` },
+];
+
+const relatedServices = segment.services.slice(0, 3).map((s) => ({
+  name: s.label,
+  description: '',
+  href: s.href,
+}));
+---
+
+<PageLayout
+  meta={meta}
+  schemas={[
+    graphSchema([
+      webPageSchemaNode({
+        type: 'WebPage',
+        path: `/who-we-work-with/${segment.slug}/`,
+        name: meta.title,
+        description: meta.description,
+      }),
+      breadcrumbSchemaNode(breadcrumbs, `/who-we-work-with/${segment.slug}/`),
+      faqPageSchemaNode(segment.faqs, `/who-we-work-with/${segment.slug}/`),
+    ]),
+  ]}
+  breadcrumbs={breadcrumbs}
+>
+  {/* Hero */}
+  <Hero
+    title={segment.title}
+    subtitle={segment.description}
+    variant="compact"
+    showTrustCard={false}
+    showStatChips={false}
+    showCTAs={true}
+    backgroundImage={segment.heroImage.src}
+    backgroundImageAlt={segment.heroImage.alt}
+  />
+
+  {/* TrustBar */}
+  <TrustBar />
+
+  {/* Overview bullets */}
+  <ServiceIntroSection
+    title={`What We Provide for ${segment.title}`}
+    highlights={segment.overviewBullets}
+  />
+
+  {/* Why Choose section */}
+  <Section bg="subtle">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-8">
+        Why {segment.title} Choose Wheyland Electric
+      </h2>
+      <ul class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        {segment.whyChoose.map((point: string) => (
+          <li class="flex items-start gap-3 rounded-lg bg-white p-4 shadow-sm border border-surface-subtle">
+            <svg class="mt-0.5 h-5 w-5 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+            <span class="text-sm text-text-muted">{point}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </Section>
+
+  {/* Process Steps */}
+  <ProcessStepsSection
+    title={`How We Work With ${segment.title}`}
+    steps={segment.processSteps}
+  />
+
+  {/* Mid-page CTA */}
+  <ContextualCTABand
+    heading={`Ready to work with Wheyland Electric?`}
+  />
+
+  {/* Services list */}
+  <Section bg="white">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate mb-8">
+        Services for {segment.title}
+      </h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        {segment.services.map((svc: { label: string; href: string }) => (
+          <a
+            href={svc.href}
+            class="flex items-center gap-3 rounded-lg border border-surface-subtle bg-surface-subtle p-4 hover:border-brand-teal hover:bg-white transition-colors group"
+          >
+            <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+            <span class="text-sm font-medium text-brand-slate group-hover:text-brand-teal transition-colors">{svc.label}</span>
+          </a>
+        ))}
+      </div>
+      <div class="mt-8">
+        <Button href={segment.cta.href} variant="primary">{segment.cta.label}</Button>
+      </div>
+    </div>
+  </Section>
+
+  {/* FAQs */}
+  {segment.faqs.length > 0 && (
+    <Section bg="subtle">
+      <div class="mx-auto max-w-3xl">
+        <FAQAccordion
+          faqs={segment.faqs}
+          heading={`${segment.title} — Frequently Asked Questions`}
+        />
+      </div>
+    </Section>
+  )}
+
+  {/* Related segments */}
+  {segment.relatedSegments.length > 0 && (
+    <Section bg="white">
+      <div class="mx-auto max-w-4xl text-center">
+        <h2 class="text-xl font-heading font-bold text-brand-slate mb-6">Also Serving</h2>
+        <div class="flex flex-wrap justify-center gap-4">
+          {segment.relatedSegments.map((rel: { label: string; href: string }) => (
+            <a
+              href={rel.href}
+              class="rounded-full border border-brand-teal/30 bg-white px-6 py-2.5 text-sm font-semibold text-brand-teal hover:bg-brand-teal hover:text-white transition-colors"
+            >
+              {rel.label}
+            </a>
+          ))}
+          <a href="/who-we-work-with/" class="rounded-full border border-surface-subtle bg-surface-subtle px-6 py-2.5 text-sm font-medium text-text-muted hover:border-brand-teal hover:text-brand-teal transition-colors">
+            All Audiences
+          </a>
+        </div>
+      </div>
+    </Section>
+  )}
+
+  {/* CTA */}
+  <CTASection
+    title={`Work With Wheyland Electric`}
+    subtitle={`Licensed, bonded and insured with a 1-year labor warranty. Contact us for a free estimate.`}
+  />
+</PageLayout>
