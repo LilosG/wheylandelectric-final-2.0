@@ -19,8 +19,8 @@ export interface HeroImageMap {
  */
 export const serviceHeroImages: HeroImageMap = {
   'ev-charger-installation': {
-    src: '/images/about/wheyland-electric-family-portrait-carlsbad.webp',
-    alt: 'Level 2 EV charger installed by Wheyland Electric in San Diego County - home charging solution',
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp',
+    alt: 'Level 2 EV charger installed by Wheyland Electric in a Carlsbad home - home charging solution',
   },
   'electrical-panel-upgrades': {
     src: '/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp',
@@ -74,6 +74,26 @@ export const serviceHeroImages: HeroImageMap = {
     src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
     alt: 'Electrical safety inspection of outdoor service entrance by Wheyland Electric - safety inspections',
   },
+  'commercial-ev-charging': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-wall-mount-detail.webp',
+    alt: 'Commercial EV charging station installation by Wheyland Electric - North County San Diego',
+  },
+  'restaurant-electrical': {
+    src: '/images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp',
+    alt: 'Restaurant and food service electrical installation by Wheyland Electric - North County San Diego',
+  },
+  'commercial-led-lighting': {
+    src: '/images/services/lighting/wheyland-electric-kitchen-lighting-skylights.webp',
+    alt: 'Commercial LED lighting retrofit by Wheyland Electric - North County San Diego',
+  },
+  'hoa-electrical-services': {
+    src: '/images/services/lighting/wheyland-electric-led-handrail-stair-lighting.webp',
+    alt: 'HOA electrical maintenance and common area lighting by Wheyland Electric - North County San Diego',
+  },
+  'residential-electrical-services': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-1.webp',
+    alt: 'Residential electrical services by Wheyland Electric - licensed electrician Carlsbad CA',
+  },
 };
 
 /**
@@ -124,6 +144,30 @@ export const cityHeroImages: HeroImageMap = {
   'poway': {
     src: '/images/services/ev-charger/wheyland-electric-ev-charger-garage-setup.webp',
     alt: 'Poway electrician - EV charger installation and electrical services in Poway, CA',
+  },
+  'la-costa': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-home-installation-2.webp',
+    alt: 'La Costa electrician - EV charger installation and electrical services in La Costa, Carlsbad CA',
+  },
+  'olde-carlsbad': {
+    src: '/images/services/panel/wheyland-electric-service-entrance-wiring.webp',
+    alt: 'Olde Carlsbad electrician - Panel upgrades and electrical services in Olde Carlsbad CA',
+  },
+  'olivenhain': {
+    src: '/images/services/ev-charger/wheyland-electric-ev-charger-dedicated-circuit.webp',
+    alt: 'Olivenhain electrician - Residential electrical services in Olivenhain, Encinitas CA',
+  },
+  'bressi-ranch': {
+    src: '/images/services/ev-charger/wheyland-electric-porsche-ev-charger-garage.webp',
+    alt: 'Bressi Ranch electrician - EV charger installation and electrical services in Bressi Ranch, Carlsbad CA',
+  },
+  'aviara': {
+    src: '/images/services/lighting/wheyland-electric-crystal-chandelier-foyer.webp',
+    alt: 'Aviara electrician - Luxury electrical services in Aviara, Carlsbad CA',
+  },
+  'calavera-hills': {
+    src: '/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp',
+    alt: 'Calavera Hills electrician - Panel upgrades and electrical services in Calavera Hills, Carlsbad CA',
   },
 };
 
