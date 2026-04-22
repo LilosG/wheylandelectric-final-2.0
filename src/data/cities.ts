@@ -17,7 +17,7 @@ const baseCities: City[] = [
     localIntroSeed:
       'As a Carlsbad-based electrician since 2008, Wheyland Electric is proud to serve the community we call home. From the flower fields along Palomar Airport Road to the village streets near the coast, our licensed electricians deliver reliable work backed by deep local roots. Whether you live in La Costa, Bressi Ranch, Aviara, or Olde Carlsbad, we know this city inside and out — and we bring that local knowledge to every project.',
     localIntroExtended:
-      "Carlsbad's housing stock is one of the most diverse in North County San Diego, ranging from 1960s-era coastal cottages near the Village to brand-new construction in Robertson Ranch and the newer developments along Palomar Airport Road. Older neighborhoods often have outdated 100-amp panels, aluminum wiring, or undersized circuits that can't support today's electrical demands — including EV chargers, home offices, and smart home systems. Newer developments may need additions like dedicated EV charging circuits, outdoor living electrical, or whole-home surge protection. We serve all of it — residential, commercial, HOA communities, and EV charging installations across all Carlsbad ZIP codes: 92008, 92009, 92010, 92011, and 92013.",
+      "Carlsbad's housing stock is one of the most diverse in North County San Diego, ranging from 1960s-era coastal cottages near the Village to brand-new construction in Robertson Ranch and the newer developments along Palomar Airport Road. Older neighborhoods often have outdated 100-amp panels, aluminum wiring, or undersized circuits that can't support today\'s electrical demands — including EV chargers, home offices, and smart home systems. Newer developments may need additions like dedicated EV charging circuits, outdoor living electrical, or whole-home surge protection. We serve all of it — residential, commercial, HOA communities, and EV charging installations across all Carlsbad ZIP codes: 92008, 92009, 92010, 92011, and 92013.",
     neighborhoodDescriptions: {
       'La Costa': 'One of Carlsbad\'s largest communities, spanning a mix of mid-century homes and newer construction with HOA-managed common areas and active landscape lighting needs.',
       'Bressi Ranch': 'A master-planned community with newer homes, HOA infrastructure, and strong demand for EV charging installations and smart home electrical upgrades.',
@@ -47,7 +47,7 @@ const baseCities: City[] = [
     localIntroSeed:
       'La Costa is one of the largest and most established communities in Carlsbad, spanning a mix of 1970s-era homes near the original La Costa Resort and master-planned developments built through the 2000s. Wheyland Electric serves La Costa homeowners with the full range of residential electrical services — panel upgrades, EV charger installation, recessed lighting, and service calls — from our Carlsbad office just minutes away.',
     localIntroExtended:
-      "La Costa covers ZIP code 92009 and spans everything from older single-family homes in the original La Costa corridors to newer HOA-managed communities in La Costa Oaks, La Costa Greens, and Rancho Carrillo. Older homes in the 92009 ZIP frequently have 100-amp panels that can't support today's electrical loads — EV chargers, home offices, and modern appliances routinely push these systems past capacity. Newer master-planned communities have modern panels but are seeing strong demand for Level 2 EV charging circuits and smart home electrical upgrades. HOA communities throughout La Costa have ongoing common area lighting and electrical maintenance needs. Wheyland Electric handles all of it — residential, commercial, and HOA — across La Costa with permits coordinated through the City of Carlsbad building department.",
+      "La Costa covers ZIP code 92009 and spans everything from older single-family homes in the original La Costa corridors to newer HOA-managed communities in La Costa Oaks, La Costa Greens, and Rancho Carrillo. Older homes in the 92009 ZIP frequently have 100-amp panels that can't support today\'s electrical loads — EV chargers, home offices, and modern appliances routinely push these systems past capacity. Newer master-planned communities have modern panels but are seeing strong demand for Level 2 EV charging circuits and smart home electrical upgrades. HOA communities throughout La Costa have ongoing common area lighting and electrical maintenance needs. Wheyland Electric handles all of it — residential, commercial, and HOA — across La Costa with permits coordinated through the City of Carlsbad building department.",
     neighborhoodDescriptions: {
       'La Costa Valley': 'A large master-planned HOA community with newer construction and active demand for EV charger installations and smart home electrical.',
       'La Costa Oaks': 'Upscale hillside development with luxury homes featuring complex electrical systems and outdoor living areas requiring dedicated circuits.',
@@ -307,7 +307,7 @@ const baseCities: City[] = [
     localIntroSeed:
       'Wheyland Electric serves San Marcos homes and businesses throughout Lake San Marcos, San Elijo Hills, Twin Oaks Valley, Discovery Hills, and the growing commercial areas along Grand Avenue and Rancheros Drive. San Marcos is one of the fastest-growing cities in North County, with a wide mix of housing — from 1970s-era homes near the lake to newer master-planned communities — and our team knows how to work in all of it.',
     localIntroExtended:
-      "San Marcos spans three ZIP codes — 92069, 92078, and 92096 — and nearly every era of residential construction. Older homes near Lake San Marcos often have 100-amp panels and outdated wiring that wasn't designed to support today's electrical loads. The University District around Cal State San Marcos brings commercial electrical demand from retail, restaurant, and office tenants. Growing communities in San Elijo Hills, Barham Ranch, and Discovery Hills are seeing strong demand for EV charger installations, outdoor living circuits, and smart home electrical. Wheyland Electric handles residential, commercial, and HOA work throughout San Marcos, fully licensed and permitted through the City of San Marcos building department.",
+      "San Marcos spans three ZIP codes — 92069, 92078, and 92096 — and nearly every era of residential construction. Older homes near Lake San Marcos often have 100-amp panels and outdated wiring that wasn't designed to support today\'s electrical loads. The University District around Cal State San Marcos brings commercial electrical demand from retail, restaurant, and office tenants. Growing communities in San Elijo Hills, Barham Ranch, and Discovery Hills are seeing strong demand for EV charger installations, outdoor living circuits, and smart home electrical. Wheyland Electric handles residential, commercial, and HOA work throughout San Marcos, fully licensed and permitted through the City of San Marcos building department.",
     neighborhoodDescriptions: {
       'San Elijo Hills': 'A large planned community on the hills south of San Marcos with newer homes and HOA infrastructure, active for EV charger installations and landscape lighting.',
       'Lake San Marcos': 'An established community centered around the lake, featuring older custom homes and a golf course. Panel upgrades and rewiring are common requests here.',
@@ -654,6 +654,168 @@ const CITY_CONTENT_OVERRIDES: Partial<Record<string, Partial<City>>> = {
       { question: 'How do I schedule electrical service in Encinitas?', answer: 'Call our team or submit the estimate form and we will confirm scope and next available scheduling options.' },
     ],
   },
+  'la-costa': {
+    localProofPoints: [
+      'Carlsbad-based operations with fast routing throughout all La Costa communities.',
+      'Familiar with La Costa HOA permit and documentation requirements across all sub-communities.',
+      'Panel capacity upgrades for legacy La Costa housing stock from the 1970s and 1980s.',
+      'Strong EV readiness planning — the most common La Costa request from all construction eras.',
+      'Clean finish standards for visible conduit and exterior equipment in HOA communities.',
+      'Documented final testing with homeowner walkthrough before closeout.',
+      'One-year labor warranty on all residential electrical workmanship.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'La Costa Valley', blurb: 'Master-planned HOA community with newer construction and active demand for EV charger installations and load management planning.' },
+      { name: 'La Costa Oaks', blurb: 'Upscale hillside development with larger homes and complex electrical systems including outdoor living and pool circuits.' },
+      { name: 'La Costa Greens', blurb: 'Master-planned community with modern panels and growing demand for EV charging circuits and smart home electrical.' },
+      { name: 'La Costa Ridge', blurb: 'Hillside community with mix of custom and tract homes — panel evaluations and EV charger installations are frequent projects.' },
+      { name: 'La Costa Villas', blurb: 'Established 1980s-1990s neighborhood with consistent demand for panel upgrades, GFCI retrofits, and EV charging circuits.' },
+      { name: 'Rancho Carrillo', blurb: 'Newer master-planned development with modern construction and growing demand for EV charging and dedicated circuit additions.' },
+    ],
+    cityFAQs: [
+      { question: 'What electrical services does Wheyland Electric provide in La Costa?', answer: 'We handle the full range of residential electrical work in La Costa — panel upgrades, EV charger installation, recessed lighting, light fixture and ceiling fan installation, outlet and GFCI upgrades, spa and hot tub wiring, service calls, dedicated circuits, and more.' },
+      { question: 'Do you handle permits for electrical work in La Costa?', answer: 'Yes. La Costa falls within City of Carlsbad jurisdiction. We handle all permit applications, coordinate with the Building Division, and attend required inspections on every permitted scope.' },
+      { question: 'My La Costa home is in an HOA community. Do you handle the documentation?', answer: 'Yes. We regularly work in La Costa HOA communities and can provide the documentation your community requires for architectural review, including for EV charger installations and exterior electrical modifications.' },
+      { question: 'My La Costa home was built in the 1980s. Do I need a panel upgrade?', answer: 'Many 1980s La Costa homes have panels that are approaching capacity, especially if you are adding an EV charger, heat pump, or other large loads. We perform a free load calculation to give you a definitive answer.' },
+      { question: 'How quickly can you schedule electrical work in La Costa?', answer: 'We are Carlsbad-based and route quickly throughout La Costa. Most service calls and smaller projects are scheduled within 1-2 business days.' },
+      { question: 'Do you provide a warranty on electrical work in La Costa?', answer: 'Yes. All Wheyland Electric work in La Costa is backed by a one-year labor warranty on all workmanship.' },
+    ],
+  },
+
+  'olde-carlsbad': {
+    localProofPoints: [
+      'Extensive experience with pre-1980 homes in the 92008 ZIP code west of El Camino Real.',
+      'Federal Pacific and Zinsco panel replacement expertise — documented safety hazards handled correctly.',
+      'Aluminum wiring remediation using COPALUM and AlumiConn methods at outlets and switches.',
+      'Salt-air-appropriate hardware and sealed fittings for all exterior electrical work in this coastal neighborhood.',
+      'Honest assessments — we recommend what the home actually needs, not what maximizes the invoice.',
+      'City of Carlsbad permit coordination handled end-to-end on all required scopes.',
+      'One-year labor warranty on all residential electrical workmanship.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Barrio Carlsbad', blurb: 'Some of the oldest housing stock in Carlsbad — aluminum wiring, 60-amp and 100-amp panels, and two-prong outlets are common findings.' },
+      { name: 'Jefferson Elementary area', blurb: '1960s-1970s construction with consistent demand for panel upgrades and grounding modernization.' },
+      { name: 'Carlsbad Village adjacent', blurb: 'Mix of residential and mixed-use buildings with varied construction ages and electrical systems requiring careful evaluation.' },
+      { name: 'Tamarack area', blurb: 'Older residential corridor with active demand for panel upgrades, GFCI retrofits, and EV charger circuit additions.' },
+      { name: 'Pine Avenue corridor', blurb: 'Mix of original Carlsbad bungalows and newer infill construction — electrical ages vary widely by property.' },
+    ],
+    cityFAQs: [
+      { question: 'What electrical work is most common in Olde Carlsbad homes?', answer: 'The most common projects in Olde Carlsbad are panel upgrades from 100-amp to 200-amp service, Federal Pacific and Zinsco panel replacements, EV charger circuit additions, GFCI and outlet modernization, and service call diagnostics on aging wiring.' },
+      { question: 'My Olde Carlsbad home has a Federal Pacific panel. What should I do?', answer: 'Federal Pacific Stab-Lok panels have a documented history of breakers that fail to trip during overloads — a genuine fire risk. We recommend scheduling an evaluation. In most cases, replacement is the right course of action.' },
+      { question: 'My Olde Carlsbad home has aluminum wiring. Is that a problem?', answer: 'Aluminum branch wiring from the 1960s and 1970s is common in Olde Carlsbad. It is not inherently dangerous, but connections at outlets and switches can loosen over time. We inspect and remediate aluminum wiring connection issues using COPALUM or AlumiConn methods.' },
+      { question: 'Does salt air affect electrical systems in Olde Carlsbad?', answer: 'Yes. Salt air accelerates corrosion on exterior electrical components including service entrance equipment, outdoor outlets, and fixtures. We use marine-grade materials and weatherproof enclosures for all exterior work in the 92008 ZIP.' },
+      { question: 'Can I get an EV charger in my older Olde Carlsbad home?', answer: 'In many cases yes. We perform a load calculation to determine whether your existing panel has capacity for an EV charger circuit. Many older Olde Carlsbad homes with modest electrical loads can support a charger without a full panel upgrade.' },
+      { question: 'Do you provide a warranty on electrical work in Olde Carlsbad?', answer: 'Yes. All Wheyland Electric work in Olde Carlsbad is backed by a one-year labor warranty on all workmanship.' },
+    ],
+  },
+
+  'olivenhain': {
+    localProofPoints: [
+      'Experience with rural and semi-rural property electrical — outbuildings, sub-panels, well pumps, and long circuit runs.',
+      'Proper voltage drop calculations for extended circuit runs common on Olivenhain properties.',
+      'Barn, arena, and agricultural electrical handled by the same licensed electricians as the main residence.',
+      'City of Encinitas permit coordination on all permitted scopes in the 92024 ZIP code.',
+      'Honest load assessments for properties with well pumps, irrigation systems, and agricultural equipment.',
+      'Underground conduit and trenching capability for properties requiring inter-building circuit runs.',
+      'One-year labor warranty on all electrical workmanship.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Olivenhain proper', blurb: 'The original Olivenhain community with rural character, horse properties, and older homes frequently needing panel evaluations and circuit additions for modern loads.' },
+      { name: 'The Ranch', blurb: 'Custom home development with newer construction and larger lots — EV charging and outdoor living electrical are common requests.' },
+      { name: 'Wildflower', blurb: 'Established neighborhood with varied property ages and active demand for panel upgrades and dedicated circuit work.' },
+      { name: 'El Camino Olivenhain area', blurb: 'Properties along the main Olivenhain corridor with varied construction ages and frequent requests for service upgrades.' },
+      { name: 'Rancho Cielo adjacent', blurb: 'Larger lot properties with outbuildings and rural electrical needs including sub-panels and extended circuit runs.' },
+    ],
+    cityFAQs: [
+      { question: 'What electrical services does Wheyland Electric provide in Olivenhain?', answer: 'We handle the full range of residential and rural property electrical work in Olivenhain — panel upgrades, sub-panel additions for outbuildings, EV charger installation, well pump circuit work, barn and agricultural electrical, service calls, lighting, and outlet upgrades.' },
+      { question: 'Do you handle electrical work for horse properties and barns in Olivenhain?', answer: 'Yes. Barn electrical, arena lighting, tack room circuits, and well pump wiring are regular project types for us in Olivenhain. We understand the specific requirements of equestrian properties.' },
+      { question: 'My Olivenhain garage is detached and far from the main panel. Can I still get an EV charger?', answer: 'Yes. We plan the circuit routing, calculate voltage drop for the specific run length, and size the wire appropriately. For very long runs, we can also feed from an existing sub-panel closer to the charging location.' },
+      { question: 'Does City of Encinitas require permits for electrical work in Olivenhain?', answer: 'Yes. Olivenhain is within City of Encinitas jurisdiction. We handle all permits and required inspections for electrical work in the 92024 ZIP code.' },
+      { question: 'My Olivenhain property has a well pump. How does that affect electrical work?', answer: 'Well pumps draw significant electrical load when running. We include all existing loads in our calculations before adding any new circuits to ensure the panel has adequate capacity.' },
+      { question: 'Do you provide a warranty on electrical work in Olivenhain?', answer: 'Yes. All Wheyland Electric work in Olivenhain is backed by a one-year labor warranty.' },
+    ],
+  },
+
+  'bressi-ranch': {
+    localProofPoints: [
+      'Familiar with Bressi Ranch HOA permit, documentation, and architectural review requirements.',
+      'EV charger installation specialists for 2000s-era master-planned home electrical systems.',
+      'Panel capacity evaluation and load management for modern two-EV households.',
+      'Smart home electrical including Lutron Caseta and other popular systems in this community.',
+      'Clean exterior work that meets Bressi Ranch HOA appearance standards consistently.',
+      'City of Carlsbad permit coordination handled end-to-end on all required scopes.',
+      'One-year labor warranty on all residential electrical workmanship.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Bressi Ranch Village', blurb: 'Commercial and retail core with restaurants and services — commercial electrical maintenance and tenant improvement work for Village businesses.' },
+      { name: 'Bressi Ranch North', blurb: 'Single-family residential with consistent demand for EV charger installations and panel capacity evaluations.' },
+      { name: 'Bressi Ranch South', blurb: 'Mix of attached and detached homes with active demand for EV charging, smart home electrical, and lighting upgrades.' },
+      { name: 'Paseo Del Norte corridor', blurb: 'Well-connected residential area with good access and consistent residential electrical service demand.' },
+    ],
+    cityFAQs: [
+      { question: 'What electrical work is most common in Bressi Ranch homes?', answer: 'The most common Bressi Ranch projects are EV charger installations, panel capacity evaluations for two-EV households, smart home electrical upgrades, outdoor living circuits, and recessed lighting retrofits.' },
+      { question: 'Does my Bressi Ranch HOA need to approve electrical work?', answer: 'For exterior electrical modifications including EV chargers, your Bressi Ranch HOA requires architectural review approval. California law requires HOAs to approve EV charger requests within 60 days. We provide the documentation your HOA needs.' },
+      { question: 'My Bressi Ranch home was built around 2005. Do I need a panel upgrade for an EV charger?', answer: 'Most 2000s-era Bressi Ranch homes have 200-amp panels with adequate capacity for an EV charger circuit. We confirm this with a load calculation during the site assessment.' },
+      { question: 'I have two EVs in my Bressi Ranch garage. How do you handle the electrical planning?', answer: 'We perform a load calculation and plan the two charger circuits with a load management device that dynamically shares available capacity. This typically avoids the need for a service upgrade.' },
+      { question: 'Does City of Carlsbad require permits for electrical work in Bressi Ranch?', answer: 'Yes. All dedicated circuit installations, panel upgrades, and other permitted scopes require a City of Carlsbad electrical permit. We handle the full process.' },
+      { question: 'Do you provide a warranty on electrical work in Bressi Ranch?', answer: 'Yes. All Wheyland Electric work in Bressi Ranch is backed by a one-year labor warranty.' },
+    ],
+  },
+
+  'aviara': {
+    localProofPoints: [
+      'Experience with complex luxury home electrical systems including multi-panel configurations in Aviara.',
+      'Pool, spa, and landscape lighting circuit expertise for Aviara estate-style properties.',
+      'EV charger load management planning for multi-car luxury garages.',
+      'HOA architectural review coordination for all exterior electrical modifications.',
+      'Discreet, professional scheduling that respects Aviara homeowner privacy and property standards.',
+      'City of Carlsbad permit coordination handled end-to-end on all required scopes.',
+      'One-year labor warranty on all residential electrical workmanship.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Aviara proper', blurb: 'Core luxury residential development with larger custom homes and complex electrical systems including pool, landscape, and outdoor living circuits.' },
+      { name: 'Four Seasons Aviara area', blurb: 'Premium properties adjacent to the resort with high-end finishes and sophisticated electrical requirements.' },
+      { name: 'Park Drive corridor', blurb: 'Well-established Aviara residential area with mature landscaping and active demand for landscape lighting upgrades.' },
+      { name: 'Batiquitos Lagoon adjacent', blurb: 'Properties with lagoon views and premium outdoor living areas requiring weatherproof outdoor electrical.' },
+      { name: 'Ambrosia area', blurb: 'Established Aviara neighborhood with consistent demand for panel evaluations and EV charging circuit planning.' },
+    ],
+    cityFAQs: [
+      { question: 'What electrical services does Wheyland Electric provide in Aviara?', answer: 'We handle the full range of residential electrical work in Aviara — panel and service upgrades, EV charger installation and load management, pool and spa circuit maintenance, landscape lighting electrical, smart home electrical, recessed lighting, ceiling fans, outlet upgrades, and service calls.' },
+      { question: 'My Aviara home has a pool and multiple sub-panels. Can you work on the full system?', answer: 'Yes. We evaluate and work on complex multi-panel systems including pool sub-panels, landscape lighting transformers, and all associated circuits. We document the full system as part of every project.' },
+      { question: 'I have a three-car garage in Aviara with two EVs. How do you handle this?', answer: 'We plan two charger circuits with a load management device to share available capacity dynamically. This typically avoids the need for a service upgrade and allows for a future third charger if needed.' },
+      { question: 'Does the Aviara HOA need to approve electrical work?', answer: 'Yes for exterior modifications. We coordinate with the Aviara HOA and provide required documentation for architectural review. We are familiar with the process and can help move approvals along.' },
+      { question: 'How do you handle electrical work in Aviara to minimize disruption?', answer: 'We schedule around your availability, work efficiently, protect your property, and maintain a clean job site throughout. Aviara projects receive the same attention to finish quality as the properties themselves.' },
+      { question: 'Do you provide a warranty on electrical work in Aviara?', answer: 'Yes. All Wheyland Electric work in Aviara is backed by a one-year labor warranty.' },
+    ],
+  },
+
+  'calavera-hills': {
+    localProofPoints: [
+      'Extensive experience with 1978-1998 era electrical systems throughout the Calavera Hills community.',
+      'Panel upgrade specialists — 100-amp to 200-amp service in one day is the most common Calavera Hills project.',
+      'GFCI and AFCI retrofit expertise for pre-2000 homes lacking modern protective devices.',
+      'EV charger installation with honest panel capacity evaluation before quoting circuit work.',
+      'Outdoor electrical weatherproofing for open-space-adjacent properties near Lake Calavera.',
+      'City of Carlsbad permit coordination handled end-to-end on all required scopes.',
+      'One-year labor warranty on all residential electrical workmanship.',
+    ],
+    neighborhoodSpotlights: [
+      { name: 'Calavera Hills Village', blurb: 'Commercial core with retail and services — commercial electrical maintenance for Village business tenants.' },
+      { name: 'Calavera Hills North', blurb: 'Established 1980s-1990s residential with consistent panel upgrade and GFCI retrofit demand.' },
+      { name: 'Calavera Hills South', blurb: 'Similar construction era with active demand for EV charger installations and circuit capacity additions.' },
+      { name: 'Lake Calavera area', blurb: 'Properties adjacent to the lake preserve with outdoor lighting reliability concerns and weatherproof electrical priorities.' },
+      { name: 'College Boulevard corridor', blurb: 'Mixed construction ages with consistent electrical service demand across all residential project types.' },
+    ],
+    cityFAQs: [
+      { question: 'What electrical work is most common in Calavera Hills homes?', answer: 'The most common Calavera Hills projects are panel upgrades from 100-amp to 200-amp service, EV charger circuit installations, GFCI modernization in bathrooms and kitchens, service call diagnostics on aging 1980s-1990s systems, and dedicated circuits for home offices and appliances.' },
+      { question: 'My Calavera Hills home has a 100-amp panel from the 1980s. Should I upgrade it?', answer: 'A 100-amp panel in an 1980s Calavera Hills home is almost certainly undersized by today\'s standards. If you plan to add an EV charger, upgrade HVAC to a heat pump, or run a home office, a 200-amp upgrade is the right move. We perform a free load calculation to confirm.' },
+      { question: 'Do I need GFCI outlets in my older Calavera Hills home?', answer: 'GFCI protection is required in bathrooms, kitchens, garages, and outdoor areas. Older Calavera Hills homes frequently lack this protection in some or all of these locations. Installation is straightforward and significantly improves safety.' },
+      { question: 'Can I get an EV charger without upgrading my Calavera Hills panel?', answer: 'Sometimes. It depends on your current electrical load. We perform a load calculation during the assessment to give you a definitive answer. Many Calavera Hills homes with modest existing loads can support an EV charger on the current panel.' },
+      { question: 'Does City of Carlsbad require permits for electrical work in Calavera Hills?', answer: 'Yes. Panel upgrades, new circuits, EV chargers, and other permitted scopes require a City of Carlsbad electrical permit. We handle the full process.' },
+      { question: 'Do you provide a warranty on electrical work in Calavera Hills?', answer: 'Yes. All Wheyland Electric work in Calavera Hills is backed by a one-year labor warranty.' },
+    ],
+  },
+
 };
 
 const normalizeCity = (city: City): City => {
@@ -674,7 +836,7 @@ const normalizeCity = (city: City): City => {
     localCues,
     cityFAQs,
   };
-};
+  };
 
 export const cities: City[] = baseCities.map(normalizeCity);
 
