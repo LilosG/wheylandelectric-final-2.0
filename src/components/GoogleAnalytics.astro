@@ -11,5 +11,17 @@ const GA_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID;
       gtag('js', new Date());
       gtag('config', GA_ID, { send_page_view: true });
     </script>
+  <script is:inline>
+    document.addEventListener('click', function(e) {
+      var el = e.target.closest('a[href^="tel:"]');
+      if (!el) return;
+      if (typeof gtag === 'function') {
+        gtag('event', 'click_to_call', {
+          event_category: 'engagement',
+          event_label: el.href.replace('tel:', ''),
+        });
+      }
+    });
+  </script>
   </>
 )}

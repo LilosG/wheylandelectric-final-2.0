@@ -1,0 +1,281 @@
+---
+import FormField from './FormField.astro';
+import { getPublishedPillars } from '../../data/services';
+import { WORKER_ENDPOINT, THANK_YOU_PATH } from '../../data/forms';
+
+const pillars = getPublishedPillars();
+
+// Map pillar slugs to Worker serviceType values
+const PILLAR_TO_SERVICE_TYPE: Record<string, string> = {
+  'ev-charger-installation':        'ev-charger',
+  'electrical-panel-upgrades':      'panel-upgrade',
+  'service-calls-troubleshooting':  'general',
+  'recessed-lighting-installation': 'fixture',
+  'light-fixture-installation':     'fixture',
+  'ceiling-fan-installation':       'fixture',
+  'spa-jacuzzi-sauna-electrical':   'general',
+  'outlet-switch-dimmer-gfci-repairs': 'general',
+};
+
+// Conditional fields shown per serviceType
+// Keys match serviceType slugs sent to Worker
+const SERVICE_FIELDS: Record<string, string[]> = {
+  'ev-charger':    ['chargerLocation', 'distanceEstimate'],
+  'panel-upgrade': ['panelLocation', 'currentAmperage', 'upgradeReason'],
+  'fixture':       ['ceilingHeight', 'accessType', 'fixtureType'],
+  'general':       [],
+};
+
+const serviceOptions = [
+  { value: '', label: 'Select a service' },
+  ...pillars.map((p) => ({
+    value: PILLAR_TO_SERVICE_TYPE[p.slug] ?? 'general',
+    label: p.name,
+    slug: p.slug,
+  })),
+  { value: 'general', label: 'Other / Not Listed', slug: 'other' },
+];
+---
+
+<form
+  id="photo-estimate-form"
+  action={WORKER_ENDPOINT}
+  method="POST"
+  enctype="multipart/form-data"
+  class="form-shell"
+  data-endpoint={WORKER_ENDPOINT}
+  novalidate
+>
+  <input type="hidden" name="_timestamp" id="photo-estimate-timestamp" />
+  <input type="hidden" name="phone_digits" value="" />
+  <div style="position:absolute; left:-5000px;" aria-hidden="true">
+    <input type="text" name="honeypot" tabindex="-1" autocomplete="off" />
+  </div>
+
+  <fieldset class="space-y-5">
+    <p class="text-sm text-text-muted">Fields marked with * are required.</p>
+
+    <!-- Contact: Name | Phone / Email | Zip -->
+    <div class="form-grid gap-5">
+      <FormField
+        id="photo-estimate-name"
+        name="name"
+        label="Full Name"
+        required
+        placeholder="Your full name"
+        autocomplete="name"
+        inputClass="border-brand-teal/40"
+      />
+
+      <FormField
+        id="photo-estimate-phone"
+        name="phone"
+        label="Phone"
+        required
+        type="tel"
+        placeholder="(858) 555-1234"
+        autocomplete="tel"
+        inputClass="border-brand-teal/40"
+      />
+
+      <FormField
+        id="photo-estimate-email"
+        name="email"
+        label="Email"
+        type="email"
+        placeholder="you@example.com"
+        autocomplete="email"
+        inputClass="border-brand-teal/40"
+      />
+
+      <FormField
+        id="photo-estimate-zip"
+        name="zip"
+        label="Zip Code"
+        type="text"
+        placeholder="92008"
+        autocomplete="postal-code"
+        inputClass="border-brand-teal/40"
+      />
+    </div>
+
+    <!-- Service — full width, drives conditional fields -->
+    <FormField
+      id="photo-estimate-service"
+      name="serviceType"
+      label="Service Needed"
+      as="select"
+      required
+      options={serviceOptions.map(({ value, label }) => ({ value, label }))}
+      inputClass="border-brand-teal/40"
+    />
+
+    <!-- Conditional: EV Charger -->
+    <div class="conditional-fields space-y-5" data-show-for="ev-charger" hidden>
+      <FormField
+        id="photo-estimate-charger-location"
+        name="chargerLocation"
+        label="Where will the charger be installed?"
+        placeholder="e.g. Garage wall, exterior, carport"
+      />
+      <FormField
+        id="photo-estimate-distance"
+        name="distanceEstimate"
+        label="Approximate distance from electrical panel"
+        placeholder="e.g. 20 feet, not sure"
+      />
+    </div>
+
+    <!-- Conditional: Panel Upgrade -->
+    <div class="conditional-fields space-y-5" data-show-for="panel-upgrade" hidden>
+      <FormField
+        id="photo-estimate-panel-location"
+        name="panelLocation"
+        label="Where is your electrical panel located?"
+        placeholder="e.g. Garage, hallway, exterior"
+      />
+      <FormField
+        id="photo-estimate-amperage"
+        name="currentAmperage"
+        label="Current panel amperage (if known)"
+        placeholder="e.g. 100A, 200A, not sure"
+      />
+      <FormField
+        id="photo-estimate-upgrade-reason"
+        name="upgradeReason"
+        label="Reason for upgrade"
+        as="textarea"
+        rows={3}
+        placeholder="e.g. Adding EV charger, frequent breaker trips, home remodel"
+      />
+    </div>
+
+    <!-- Conditional: Fixture / Lighting / Fan -->
+    <div class="conditional-fields space-y-5" data-show-for="fixture" hidden>
+      <FormField
+        id="photo-estimate-ceiling-height"
+        name="ceilingHeight"
+        label="Ceiling height (approximate)"
+        placeholder="e.g. 8 ft, 10 ft, vaulted"
+      />
+      <FormField
+        id="photo-estimate-access-type"
+        name="accessType"
+        label="Attic access available?"
+        as="select"
+        options={[
+          { value: '', label: 'Select one' },
+          { value: 'yes', label: 'Yes — attic access available' },
+          { value: 'no', label: 'No — no attic access' },
+          { value: 'unsure', label: 'Not sure' },
+        ]}
+      />
+      <FormField
+        id="photo-estimate-fixture-type"
+        name="fixtureType"
+        label="Fixture or lighting type"
+        placeholder="e.g. Recessed wafer lights, chandelier, ceiling fan, pendant"
+      />
+    </div>
+
+    <!-- Description — always visible -->
+    <FormField
+      id="photo-estimate-description"
+      name="description"
+      label="Project Details"
+      as="textarea"
+      rows={4}
+      placeholder="Share any additional details about your project, timing, or questions."
+    />
+
+    <!-- Photo upload -->
+    <div class="rounded-xl border border-dashed border-brand-teal/50 bg-brand-teal/5 px-5 py-4">
+      <div class="mb-3 flex items-center gap-2">
+        <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+        <label for="photo-estimate-images" class="text-sm font-semibold text-brand-slate">
+          Attach Photos <span class="font-normal text-text-muted">(optional)</span>
+        </label>
+      </div>
+      <p class="mb-3 text-xs text-text-muted leading-relaxed">
+        Upload photos of your panel, installation area, existing fixtures, or anything that helps us understand the scope. Accepted: JPG, PNG, HEIC. Max 10 MB per photo.
+      </p>
+      <input
+        id="photo-estimate-images"
+        type="file"
+        name="images"
+        accept="image/jpeg,image/png,image/heic,image/webp"
+        multiple
+        class="block w-full cursor-pointer rounded-xl border border-brand-teal/30 bg-white px-3.5 py-2.5 text-sm text-brand-slate shadow-sm transition duration-150 file:mr-3 file:cursor-pointer file:rounded-lg file:border-0 file:bg-brand-teal file:px-3 file:py-1.5 file:text-xs file:font-semibold file:text-white hover:file:bg-brand-teal-light focus:outline-none focus:ring-2 focus:ring-brand-teal/25"
+      />
+      <p id="photo-estimate-file-count" class="mt-2 text-xs font-medium text-brand-teal" aria-live="polite"></p>
+    </div>
+
+    <p id="photo-estimate-feedback" class="form-feedback" role="status" aria-live="polite"></p>
+
+    <div class="g-recaptcha" data-sitekey="6LeKX5ksAAAAAHf4Cal9mylz3oe9hS_VS6lSvlKK"></div>
+
+    <div class="form-submit-group space-y-2">
+      <button
+        type="submit"
+        class="w-full rounded-lg bg-brand-gold px-8 py-3 font-semibold text-white transition-colors hover:bg-brand-gold-hover focus:outline-none focus:ring-2 focus:ring-brand-teal focus:ring-offset-2 disabled:cursor-not-allowed disabled:bg-surface-warm disabled:text-text-muted sm:w-auto"
+        data-loading-label="Sending Request..."
+      >
+        Request Free Estimate
+      </button>
+    </div>
+  </fieldset>
+</form>
+
+<script>
+  import { initUploadForm } from '../../lib/forms/clientUpload';
+  import { THANK_YOU_PATH } from '../../data/forms';
+
+  // Conditional field visibility based on serviceType selection
+  const form = document.getElementById('photo-estimate-form') as HTMLFormElement | null;
+  const serviceSelect = form?.querySelector<HTMLSelectElement>('[name="serviceType"]');
+  const conditionalGroups = form?.querySelectorAll<HTMLElement>('.conditional-fields[data-show-for]');
+
+  function updateConditionalFields(serviceType: string): void {
+    conditionalGroups?.forEach((group) => {
+      const showFor = group.dataset.showFor ?? '';
+      const visible = showFor === serviceType;
+      group.hidden = !visible;
+      // Enable/disable inputs inside to avoid submitting hidden fields
+      group.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
+        'input, select, textarea'
+      ).forEach((el) => {
+        el.disabled = !visible;
+      });
+    });
+  }
+
+  // Init on load
+  updateConditionalFields(serviceSelect?.value ?? '');
+
+  serviceSelect?.addEventListener('change', () => {
+    updateConditionalFields(serviceSelect.value);
+  });
+
+  // File count feedback
+  const fileInput = form?.querySelector<HTMLInputElement>('input[type="file"]');
+  const fileCount = document.getElementById('photo-estimate-file-count');
+  fileInput?.addEventListener('change', () => {
+    const count = fileInput.files?.length ?? 0;
+    if (fileCount) {
+      fileCount.textContent = count > 0
+        ? `${count} photo${count === 1 ? '' : 's'} selected`
+        : '';
+    }
+  });
+
+  // Init upload form handler
+  const endpoint = (form as HTMLFormElement & { action: string })?.action ?? '';
+  initUploadForm({
+    formId: 'photo-estimate-form',
+    feedbackId: 'photo-estimate-feedback',
+    endpoint,
+    thankYouPath: THANK_YOU_PATH,
+  });
+</script>

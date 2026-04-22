@@ -1,4 +1,5 @@
 declare const grecaptcha: { getResponse: () => string; reset: () => void };
+declare function gtag(...args: unknown[]): void;
 
 export interface LeadFormOptions {
   formId: string;
@@ -135,6 +136,12 @@ export function initLeadForm({
       }
 
       grecaptcha.reset();
+      if (typeof gtag === 'function') {
+        gtag('event', 'form_submit', {
+          event_category: 'lead',
+          event_label: formId,
+        });
+      }
       window.location.assign(thankYouPath);
     } catch (error) {
       const message = error instanceof Error ? error.message : 'We could not send your request. Please try again.';

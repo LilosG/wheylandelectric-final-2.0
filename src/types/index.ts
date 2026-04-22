@@ -119,6 +119,7 @@ export interface City {
 
 // --- Services ---
 export type ServiceTier = 'wave1' | 'wave2';
+export type ServiceCategory = 'residential' | 'commercial';
 
 export interface ProcessStep {
   step: number;
@@ -136,6 +137,7 @@ export interface ServicePillar {
   name: string;
   publish: boolean;
   tier: ServiceTier;
+  category: ServiceCategory;
   primaryKeyword: string;
   secondaryKeywords: string[];
   shortDesc: string;

@@ -46,7 +46,7 @@ const describedBy = [helperId, errorId].filter(Boolean).join(' ') || undefined;
 const isInvalid = Boolean(error);
 const controlClasses = [
   'w-full rounded-xl border bg-white px-3.5 text-[15px] text-brand-slate shadow-sm transition duration-150',
-  'h-11 border-surface focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/25',
+  'h-11 border-gray-300 focus:border-brand-teal focus:outline-none focus:ring-2 focus:ring-brand-teal/25',
   'placeholder:text-text-muted/80 disabled:cursor-not-allowed disabled:bg-surface-subtle/70 disabled:text-text-muted',
   isInvalid ? 'border-red-300 focus:border-red-400 focus:ring-red-200' : '',
   inputClass,
