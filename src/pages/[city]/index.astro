@@ -23,7 +23,7 @@ interface Props {
 }
 
 const { city } = Astro.props;
-const services = city.isSubNeighborhood ? getNeighborhoodPillars() : getPublishedPillars();
+const services = city.slug === 'carlsbad' ? getPublishedPillars() : getNeighborhoodPillars();
 const meta = cityPageMeta(city.name, city.slug);
 const breadcrumbs = [{ label: city.name, href: `/${city.slug}/` }];
 const cityHero = getCityHeroImage(city.slug);
