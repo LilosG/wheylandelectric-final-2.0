@@ -7,6 +7,7 @@ const baseCities: City[] = [
   // ========================
   {
     slug: 'carlsbad',
+    nearbyCities: ['encinitas', 'san-marcos', 'oceanside', 'vista'],
     name: 'Carlsbad',
     state: 'CA',
     tier: 'wave1',
@@ -253,6 +254,7 @@ const baseCities: City[] = [
 
   {
     slug: 'encinitas',
+    nearbyCities: ['carlsbad', 'solana-beach', 'san-marcos', 'del-mar'],
     name: 'Encinitas',
     state: 'CA',
     tier: 'wave1',
@@ -278,6 +280,7 @@ const baseCities: City[] = [
   },
   {
     slug: 'rancho-santa-fe',
+    nearbyCities: ['del-mar', 'encinitas', 'san-marcos', 'solana-beach'],
     name: 'Rancho Santa Fe',
     state: 'CA',
     tier: 'wave1',
@@ -323,7 +326,7 @@ const baseCities: City[] = [
       'Rancho Dorado': 'An established San Marcos neighborhood with 1990s–2000s construction and growing demand for panel upgrades and GFCI installations.',
     },
     localCues: ['Cal State San Marcos', 'Lake San Marcos', 'Grand Avenue', 'Restaurant Row', 'Double Peak Park'],
-    nearbyCities: ['carlsbad', 'oceanside', 'encinitas'],
+    nearbyCities: ['carlsbad', 'encinitas', 'vista', 'oceanside'],
     serviceCategories: ['residential', 'commercial', 'hoa', 'ev'],
   },
   {
@@ -398,7 +401,7 @@ const baseCities: City[] = [
       'Morro Hills': 'A semi-rural eastern neighborhood with larger lot properties and unique electrical needs including extended circuit runs and agricultural applications.',
     },
     localCues: ['Oceanside Pier', 'Oceanside Harbor', 'Camp Pendleton adjacent', 'Mission San Luis Rey', 'The Strand'],
-    nearbyCities: ['carlsbad', 'san-marcos'],
+    nearbyCities: ['carlsbad', 'vista', 'san-marcos'],
     serviceCategories: ['residential', 'commercial', 'hoa', 'ev'],
   },
 
