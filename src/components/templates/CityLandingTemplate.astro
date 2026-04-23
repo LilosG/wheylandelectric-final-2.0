@@ -209,7 +209,7 @@ const featuredServiceLinks = services.slice(0, 6).map((service) => ({
         <p class="text-text-muted text-sm mb-6">We also serve these North County San Diego communities</p>
         <div class="flex flex-wrap justify-center gap-3">
           {nearbyCities.map((c) => (
-            
+            <a
               href={`/${c.slug}/`}
               class="inline-flex items-center gap-2 px-5 py-2.5 bg-white rounded-full border border-brand-teal/30 text-sm font-semibold text-brand-slate hover:border-brand-teal hover:text-brand-teal transition-colors shadow-sm"
             >
@@ -220,7 +220,7 @@ const featuredServiceLinks = services.slice(0, 6).map((service) => ({
               {c.name}, CA
             </a>
           ))}
-          
+          <a
             href="/service-areas/"
             class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-teal rounded-full text-sm font-semibold text-white hover:bg-brand-teal-light transition-colors shadow-sm"
           >
