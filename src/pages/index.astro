@@ -20,7 +20,7 @@ import { getPublishedCities } from '../data/cities';
 
 const meta = homePageMeta();
 const services = getPublishedPillars();
-const cities = getPublishedCities();
+const cities = getPublishedCities().filter((c) => !c.isSubNeighborhood);
 ---
 <PageLayout
   meta={meta}

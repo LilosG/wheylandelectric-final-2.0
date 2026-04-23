@@ -5,7 +5,7 @@ import Button from '../ui/Button.astro';
 
 const cities = getPublishedCities();
 const primaryCity = cities.find((c) => c.slug === 'carlsbad');
-const otherCities = cities.filter((c) => c.slug !== 'carlsbad');
+const otherCities = cities.filter((c) => c.slug !== 'carlsbad' && !c.isSubNeighborhood);
 ---
 <section class="bg-surface-subtle py-16 md:py-24">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

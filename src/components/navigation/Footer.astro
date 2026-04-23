@@ -1,9 +1,9 @@
 ---
 import { site } from '../../data/site';
-import { getPublishedPillars } from '../../data/services';
+import { getNeighborhoodPillars } from '../../data/services';
 import { getGoogleRating } from '../../lib/googlePlaces';
 
-const services = getPublishedPillars();
+const services = getNeighborhoodPillars();
 const liveRating = await getGoogleRating();
 const linkClass = 'text-white/70 hover:text-white text-sm transition-colors block py-1';
 ---
@@ -71,6 +71,7 @@ const linkClass = 'text-white/70 hover:text-white text-sm transition-colors bloc
           {services.map((service) => (
             <a href={`/services/${service.slug}/`} class={linkClass}>{service.name}</a>
           ))}
+          <a href="/services/" class="text-brand-teal/70 hover:text-brand-teal text-sm transition-colors block py-1 mt-1">View all services &rarr;</a>
         </nav>
       </div>
 
