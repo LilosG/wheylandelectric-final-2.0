@@ -104,3 +104,37 @@ export const WHEYLAND_REVIEWS: ReviewNode[] = [
     reviewRating: { "@type": "Rating", ratingValue: "5", bestRating: "5" },
   },
 ];
+
+/**
+ * Curated display reviews for the testimonial carousel.
+ * Selected for variety: different services, different customer types, different lengths.
+ * Minimum rating: 5 stars. All verbatim from Google Business Profile.
+ */
+export interface DisplayReview {
+  author: string;
+  text: string;
+  rating: number;
+  date: string;
+  serviceHint?: string;
+}
+
+const CAROUSEL_SLUGS = [
+  'Lou Sanchez',
+  'Peggy Compton',
+  'tyler lawson',
+  'Roger Kathman',
+  'C Littlestar',
+  'Ethel Grant',
+];
+
+export function getDisplayReviews(): DisplayReview[] {
+  return WHEYLAND_REVIEWS
+    .filter((r) => CAROUSEL_SLUGS.includes(r.author.name))
+    .sort((a, b) => CAROUSEL_SLUGS.indexOf(a.author.name) - CAROUSEL_SLUGS.indexOf(b.author.name))
+    .map((r) => ({
+      author: r.author.name,
+      text: r.reviewBody,
+      rating: parseInt(r.reviewRating.ratingValue),
+      date: r.datePublished,
+    }));
+}

@@ -2,7 +2,7 @@ import type { SiteData, SiteFlags } from '../types';
 
 export const flags: SiteFlags = {
   reviews_verified: false,
-  show_review_excerpts: false,
+  show_review_excerpts: true,
   publish_wave2: false,
 } as const;
 
