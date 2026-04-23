@@ -37,6 +37,7 @@ const baseCities: City[] = [
 
   {
     slug: 'la-costa',
+    isSubNeighborhood: true,
     name: 'La Costa',
     state: 'CA',
     tier: 'wave1',
@@ -73,6 +74,7 @@ const baseCities: City[] = [
 
   {
     slug: 'olde-carlsbad',
+    isSubNeighborhood: true,
     name: 'Olde Carlsbad',
     state: 'CA',
     tier: 'wave1',
@@ -108,6 +110,7 @@ const baseCities: City[] = [
 
   {
     slug: 'olivenhain',
+    isSubNeighborhood: true,
     name: 'Olivenhain',
     state: 'CA',
     tier: 'wave1',
@@ -143,6 +146,7 @@ const baseCities: City[] = [
 
   {
     slug: 'bressi-ranch',
+    isSubNeighborhood: true,
     name: 'Bressi Ranch',
     state: 'CA',
     tier: 'wave1',
@@ -177,6 +181,7 @@ const baseCities: City[] = [
 
   {
     slug: 'aviara',
+    isSubNeighborhood: true,
     name: 'Aviara',
     state: 'CA',
     tier: 'wave1',
@@ -212,6 +217,7 @@ const baseCities: City[] = [
 
   {
     slug: 'calavera-hills',
+    isSubNeighborhood: true,
     name: 'Calavera Hills',
     state: 'CA',
     tier: 'wave1',

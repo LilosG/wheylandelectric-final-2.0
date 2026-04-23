@@ -3259,6 +3259,28 @@ export function getPublishedPillars(): ServicePillar[] {
   );
 }
 
+
+/** Get the residential priority pillars for sub-neighborhood city pages.
+ * Sub-neighborhoods show 8 residential pillars — no commercial services.
+ * Order matches search demand priority for these communities.
+ */
+export function getNeighborhoodPillars(): ServicePillar[] {
+  const priority = [
+    'ev-charger-installation',
+    'electrical-panel-upgrades',
+    'service-calls-troubleshooting',
+    'recessed-lighting-installation',
+    'light-fixture-installation',
+    'ceiling-fan-installation',
+    'outlet-switch-dimmer-gfci-repairs',
+    'residential-electrical-services',
+  ];
+  const all = getPublishedPillars();
+  return priority
+    .map((slug) => all.find((p) => p.slug === slug))
+    .filter((p): p is ServicePillar => p !== undefined);
+}
+
 /** Get a single pillar by slug */
 export function getPillarBySlug(slug: string): ServicePillar | undefined {
   return servicePillars.find((p) => p.slug === slug);

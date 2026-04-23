@@ -100,6 +100,8 @@ export interface City {
   state: 'CA';
   tier: CityTier;
   publish: boolean;
+  /** True for sub-neighborhood pages (La Costa, Olde Carlsbad, etc). Limits service grid to residential priority pillars. */
+  isSubNeighborhood?: boolean;
   has_zip_pdf: boolean;
   zips: string[];
   neighborhoods: string[];

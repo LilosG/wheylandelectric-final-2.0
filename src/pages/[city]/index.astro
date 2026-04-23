@@ -6,7 +6,7 @@ import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { getPublishedCities, getCityBySlug } from '../../data/cities';
-import { getPublishedPillars } from '../../data/services';
+import { getPublishedPillars, getNeighborhoodPillars } from '../../data/services';
 import { getCityHeroImage } from '../../data/heroImages';
 import type { City, FAQ } from '../../types';
 
@@ -23,7 +23,7 @@ interface Props {
 }
 
 const { city } = Astro.props;
-const services = getPublishedPillars();
+const services = city.isSubNeighborhood ? getNeighborhoodPillars() : getPublishedPillars();
 const meta = cityPageMeta(city.name, city.slug);
 const breadcrumbs = [{ label: city.name, href: `/${city.slug}/` }];
 const cityHero = getCityHeroImage(city.slug);
