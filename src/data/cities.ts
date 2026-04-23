@@ -7,7 +7,6 @@ const baseCities: City[] = [
   // ========================
   {
     slug: 'carlsbad',
-    nearbyCities: ['encinitas', 'san-marcos', 'oceanside', 'vista'],
     name: 'Carlsbad',
     state: 'CA',
     tier: 'wave1',
@@ -29,7 +28,7 @@ const baseCities: City[] = [
       'Olde Carlsbad': 'One of the original Carlsbad neighborhoods, featuring older homes that frequently need panel upgrades, rewiring, and GFCI installations.',
     },
     localCues: ['Coastal corrosion on exterior fixtures and disconnects', 'Frequent EV charger additions in newer subdivisions', 'Panel capacity constraints in older Village-area homes', 'Outdoor lighting wear from marine moisture', 'Landscape and pool equipment load balancing needs', 'GFCI/AFCI retrofit demand in pre-2000 homes'],
-    nearbyCities: ['encinitas', 'oceanside', 'san-marcos'],
+    nearbyCities: ['encinitas', 'san-marcos', 'oceanside', 'vista'],
     serviceCategories: ['residential', 'commercial', 'hoa', 'ev'],
   },
   // ========================
@@ -254,7 +253,6 @@ const baseCities: City[] = [
 
   {
     slug: 'encinitas',
-    nearbyCities: ['carlsbad', 'solana-beach', 'san-marcos', 'del-mar'],
     name: 'Encinitas',
     state: 'CA',
     tier: 'wave1',
@@ -280,7 +278,6 @@ const baseCities: City[] = [
   },
   {
     slug: 'rancho-santa-fe',
-    nearbyCities: ['del-mar', 'encinitas', 'san-marcos', 'solana-beach'],
     name: 'Rancho Santa Fe',
     state: 'CA',
     tier: 'wave1',
