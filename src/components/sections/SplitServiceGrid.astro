@@ -29,7 +29,16 @@ const residential = RESIDENTIAL_HOMEPAGE_SLUGS
   .map((slug) => services.find((s) => s.slug === slug))
   .filter((s): s is NonNullable<typeof s> => s !== undefined);
 
-const commercial = services.filter((s) => s.category === 'commercial' && s.slug !== 'commercial-electrical-services');
+const COMMERCIAL_FEATURED_SLUGS = [
+  'commercial-tenant-improvement',
+  'commercial-electrical-maintenance',
+  'commercial-ev-charging',
+  'restaurant-electrical',
+];
+
+const commercial = COMMERCIAL_FEATURED_SLUGS
+  .map((slug) => services.find((s) => s.slug === slug))
+  .filter((s): s is NonNullable<typeof s> => s !== undefined);
 
 const getHref = (service: ServicePillar) =>
   citySlug ? `/${citySlug}/${service.slug}/` : `/services/${service.slug}/`;
@@ -77,13 +86,17 @@ const getHref = (service: ServicePillar) =>
         />
       ))}
     </div>
-    <div class="mt-6 flex items-center gap-6">
-      <a href="/services/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-teal-light transition-colors">
+    <div class="mt-6 flex flex-wrap items-center gap-x-6 gap-y-2">
+      <a href="/services/commercial-electrical-services/" class="inline-flex items-center gap-1.5 text-sm font-semibold text-brand-teal hover:text-brand-teal-light transition-colors">
         View all commercial services &rarr;
       </a>
-      <a href="/who-we-work-with/" class="text-sm text-text-muted hover:text-brand-teal transition-colors">
-        Who we work with &rarr;
-      </a>
+      <span class="text-text-light text-sm">
+        <a href="/services/commercial-led-lighting/" class="hover:text-brand-teal transition-colors">LED Lighting Retrofit</a>
+        &middot;
+        <a href="/services/hoa-electrical-services/" class="hover:text-brand-teal transition-colors">HOA Electrical Services</a>
+        &middot;
+        <a href="/who-we-work-with/" class="hover:text-brand-teal transition-colors">Who we work with</a>
+      </span>
     </div>
   </div>
 </div>
