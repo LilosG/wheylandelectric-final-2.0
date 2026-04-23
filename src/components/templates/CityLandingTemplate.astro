@@ -9,6 +9,7 @@ import HOAOfferBlock from '../sections/HOAOfferBlock.astro';
 import GBPEmbed from '../sections/GBPEmbed.astro';
 import Section from '../ui/Section.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import TestimonialBlock from '../sections/TestimonialBlock.astro';
 import AreaLinksSection from '../sections/AreaLinksSection.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
 import { getPublishedCities } from '../../data/cities';
@@ -188,7 +189,10 @@ const featuredServiceLinks = services.slice(0, 6).map((service) => ({
     <HOAOfferBlock cityName={city.name} />
   </Section>
 
-  {/* 10. FAQs — bg-white */}
+  {/* 10. Testimonials — dark navy (self-contained) */}
+  <TestimonialBlock heading="What Our Customers Say" />
+
+  {/* 11. FAQs — bg-white */}
   {cappedFaqs.length > 0 && (
     <Section bg="white">
       <div class="mx-auto max-w-3xl">
@@ -197,13 +201,34 @@ const featuredServiceLinks = services.slice(0, 6).map((service) => ({
     </Section>
   )}
 
-  {/* 11. Nearby Cities — self-contained bg-white */}
+  {/* 12. Nearby Cities — bg-surface-subtle */}
   {nearbyCities.length > 0 && (
-    <AreaLinksSection
-      title="Nearby Service Areas"
-      subtitle="We also serve these North County communities"
-      links={nearbyCities.map((c) => ({ name: `${c.name}, CA`, href: `/${c.slug}/` }))}
-    />
+    <Section bg="subtle">
+      <div class="mx-auto max-w-4xl text-center">
+        <h2 class="text-xl font-heading font-bold text-brand-slate mb-2">Nearby Service Areas</h2>
+        <p class="text-text-muted text-sm mb-6">We also serve these North County San Diego communities</p>
+        <div class="flex flex-wrap justify-center gap-3">
+          {nearbyCities.map((c) => (
+            
+              href={`/${c.slug}/`}
+              class="inline-flex items-center gap-2 px-5 py-2.5 bg-white rounded-full border border-brand-teal/30 text-sm font-semibold text-brand-slate hover:border-brand-teal hover:text-brand-teal transition-colors shadow-sm"
+            >
+              <svg class="w-3.5 h-3.5 text-brand-teal shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              {c.name}, CA
+            </a>
+          ))}
+          
+            href="/service-areas/"
+            class="inline-flex items-center gap-2 px-5 py-2.5 bg-brand-teal rounded-full text-sm font-semibold text-white hover:bg-brand-teal-light transition-colors shadow-sm"
+          >
+            All Service Areas &rarr;
+          </a>
+        </div>
+      </div>
+    </Section>
   )}
 
   {/* 12. CTA Section — dark navy (self-contained) */}
