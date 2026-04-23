@@ -44,3 +44,4 @@ _audit/
 
 # local audit artifacts
 reports/
+*.bak.*
