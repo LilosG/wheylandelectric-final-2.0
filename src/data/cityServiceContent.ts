@@ -2960,6 +2960,198 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-outlet-switch-dimmer-gfci-repairs': {
+    introBullets: [
+      'La Costa homes from the 1970s through 1990s frequently have missing GFCI protection and aging devices at end of service life.',
+      'GFCI protection is required in all bathrooms, kitchens, garages, and outdoor areas — many older La Costa homes are missing it.',
+      'We test every outlet and switch systematically before recommending any replacement.',
+      'One-year labor warranty on all outlet, switch, and GFCI repair workmanship.',
+    ],
+    includedItems: [
+      'Systematic outlet and switch testing',
+      'GFCI protection assessment for bathrooms, kitchens, garages, and exterior locations',
+      'Outlet replacement with properly rated devices',
+      'GFCI outlet or breaker installation where protection is missing',
+      'Dimmer installation and compatibility verification',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'We test affected outlets and switches and identify the correct scope before any work begins.' },
+      { step: 2, title: 'Recommendation', description: 'Clear explanation of findings. No work starts until you approve.' },
+      { step: 3, title: 'Repair', description: 'Replacements completed with proper materials for each circuit type and location.' },
+      { step: 4, title: 'Testing', description: 'Every replaced device tested before closeout. GFCI devices trip-tested.' },
+    ],
+    pricingFactors: [
+      'Number of outlets, switches, or GFCI devices being replaced',
+      'Location type and required device rating',
+      'Dimmer compatibility requirements',
+    ],
+    faqs: [
+      { question: 'Do I need GFCI outlets in my La Costa home?', answer: 'Yes. GFCI protection is required by code in bathrooms, kitchens, garages, and outdoor locations. Many older La Costa homes are missing it in one or more areas.' },
+      { question: 'My La Costa home has two-prong outlets. What are my options?', answer: 'Two-prong outlets indicate ungrounded circuits. Code-compliant options are running new grounded wiring, adding a ground wire where feasible, or replacing with GFCI outlets which provide shock protection without requiring a ground wire.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks', 'La Costa Greens'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-outlet-switch-dimmer-gfci-repairs': {
+    introBullets: [
+      'Olde Carlsbad homes are among the most common locations for missing GFCI protection, two-prong outlets, and aluminum wiring connection issues.',
+      'Aluminum branch wiring from the 1965-1973 era requires COPALUM or AlumiConn remediation at every outlet and switch connection point.',
+      'Salt air corrosion accelerates failure of exterior outlets in the coastal 92008 ZIP — we use marine-grade devices for all exterior locations.',
+      'One-year labor warranty on all outlet, switch, and GFCI repair workmanship.',
+    ],
+    includedItems: [
+      'Systematic outlet and switch testing',
+      'Aluminum wiring connection inspection at each device location',
+      'COPALUM or AlumiConn remediation at aluminum-wired locations',
+      'Marine-grade GFCI devices for exterior coastal locations',
+      'GFCI protection assessment and installation in all required locations',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'We test devices, inspect wiring type at each location, and assess GFCI coverage.' },
+      { step: 2, title: 'Recommendation', description: 'We explain findings including aluminum wiring considerations before work begins.' },
+      { step: 3, title: 'Repair', description: 'Replacements completed with proper aluminum-compatible methods at every device location.' },
+      { step: 4, title: 'Testing', description: 'All replaced devices tested and GFCI devices trip-tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of devices being replaced',
+      'Whether aluminum wiring remediation is required',
+      'Marine-grade device requirements for exterior coastal locations',
+    ],
+    faqs: [
+      { question: 'My Olde Carlsbad home has aluminum wiring. Can you replace outlets safely?', answer: 'Yes. We use COPALUM or AlumiConn connectors at every aluminum-wired outlet and switch location — the code-accepted method for aluminum wiring remediation.' },
+      { question: 'Why do my outdoor outlets in Olde Carlsbad fail so often?', answer: 'Salt air accelerates corrosion on electrical contacts and GFCI components. We use marine-grade devices on all exterior installations in the 92008 ZIP.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area', 'Pine Avenue corridor'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-outlet-switch-dimmer-gfci-repairs': {
+    introBullets: [
+      'Bressi Ranch homes have modern wiring but AFCI nuisance trips, smart switch compatibility issues, and dimmer-fixture mismatches are common requests.',
+      'Smart home upgrades require compatible dimmers and switches that we verify before installation.',
+      'One-year labor warranty on all outlet, switch, and GFCI repair workmanship.',
+    ],
+    includedItems: [
+      'Outlet and switch testing and replacement',
+      'Smart switch and dimmer installation with compatibility verification',
+      'GFCI protection verification and installation',
+      'AFCI breaker assessment for nuisance trip issues',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'We test affected devices and identify the root cause.' },
+      { step: 2, title: 'Recommendation', description: 'Clear explanation of findings and options before work begins.' },
+      { step: 3, title: 'Installation', description: 'Replacements completed with devices appropriate for your home systems.' },
+      { step: 4, title: 'Testing', description: 'All devices tested and smart switches commissioned before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of devices being replaced',
+      'Smart home system compatibility requirements',
+    ],
+    faqs: [
+      { question: 'Can you install smart switches in my Bressi Ranch home?', answer: 'Yes. We install and commission smart switches from Lutron, Leviton, and other major systems. We verify compatibility with your existing fixtures before installation.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-outlet-switch-dimmer-gfci-repairs': {
+    introBullets: [
+      'Olivenhain properties range from 1970s ranch homes to newer custom builds — outlet and GFCI needs vary significantly by property age and location.',
+      'Rural properties with outbuildings have specific weatherproofing requirements.',
+      'One-year labor warranty on all outlet, switch, and GFCI repair workmanship.',
+    ],
+    includedItems: [
+      'Outlet and switch testing and replacement throughout main residence',
+      'Outbuilding and barn outlet assessment and repair',
+      'Weatherproof cover installation for exterior rural locations',
+      'GFCI protection assessment and installation in all required locations',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Property Assessment', description: 'Outlets and switches assessed throughout the main residence and any outbuildings in scope.' },
+      { step: 2, title: 'Recommendation', description: 'Clear findings and scope before work begins.' },
+      { step: 3, title: 'Repair', description: 'Replacements with materials appropriate for each location type.' },
+      { step: 4, title: 'Testing', description: 'All devices tested and GFCI protection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of devices across main residence and outbuildings',
+      'Weatherproof device requirements for rural exterior locations',
+    ],
+    faqs: [
+      { question: 'Do you handle outlet repairs in barns and outbuildings in Olivenhain?', answer: 'Yes. Outbuilding outlets, barn circuits, and exterior agricultural locations are part of our regular scope on Olivenhain properties.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'El Camino Olivenhain area'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-outlet-switch-dimmer-gfci-repairs': {
+    introBullets: [
+      'Aviara luxury homes have complex outlet and switch systems including outdoor living areas, pool equipment outlets, and smart home integrations.',
+      'High-end dimmer systems such as Lutron RadioRA and Caseta are common in Aviara and require compatible fixtures and proper commissioning.',
+      'Pool and spa area outlets require GFCI protection and weatherproof covers meeting NEC 680 requirements.',
+      'One-year labor warranty on all outlet, switch, and GFCI repair workmanship.',
+    ],
+    includedItems: [
+      'Outlet and switch testing and replacement throughout the home',
+      'High-end dimmer system installation and commissioning',
+      'Pool and spa area GFCI compliance and device replacement',
+      'Smart home switch integration and commissioning',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Full outlet and switch scope evaluated including pool areas and smart home systems.' },
+      { step: 2, title: 'Recommendation', description: 'Clear findings and options before work begins.' },
+      { step: 3, title: 'Installation', description: 'Professional work with finish quality appropriate to Aviara.' },
+      { step: 4, title: 'Testing', description: 'All devices tested and smart systems commissioned before closeout.' },
+    ],
+    pricingFactors: [
+      'Number and type of devices',
+      'High-end dimmer system scope',
+      'Pool and spa GFCI compliance scope',
+    ],
+    faqs: [
+      { question: 'Can you work on the high-end dimmer system in my Aviara home?', answer: 'Yes. We install and service Lutron RadioRA, Caseta, and other premium dimmer systems. We verify fixture compatibility and commission the system before handoff.' },
+    ],
+    neighborhoodMentions: ['Aviara proper', 'Park Drive corridor'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-outlet-switch-dimmer-gfci-repairs': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era frequently have missing GFCI protection and aging devices at end of service life.',
+      'GFCI protection upgrades are among the most common safety improvements we make in Calavera Hills homes.',
+      'One-year labor warranty on all outlet, switch, and GFCI repair workmanship.',
+    ],
+    includedItems: [
+      'Systematic outlet and switch testing',
+      'GFCI protection assessment for all required locations',
+      'GFCI outlet or breaker installation where protection is missing',
+      'Outlet and switch replacement with properly rated devices',
+      'Dimmer installation and fixture compatibility verification',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Devices tested and GFCI coverage evaluated throughout the home.' },
+      { step: 2, title: 'Recommendation', description: 'Clear findings before work begins.' },
+      { step: 3, title: 'Repair', description: 'Replacements and GFCI installations completed efficiently.' },
+      { step: 4, title: 'Testing', description: 'All devices tested and GFCI protection trip-tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of outlets and switches',
+      'GFCI coverage gaps requiring new protection',
+      'Dimmer installation scope',
+    ],
+    faqs: [
+      { question: 'My 1985 Calavera Hills home has no GFCI outlets in the bathrooms. Is that a problem?', answer: 'It is a safety gap. GFCI protection in bathrooms has been required by NEC since 1975. Installing GFCI protection is a straightforward safety improvement we regularly make in Calavera Hills homes.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
