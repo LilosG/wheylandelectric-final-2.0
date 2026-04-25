@@ -131,13 +131,15 @@ const baseServicePillars: ServicePillar[] = [
         'your area is one of the largest and fastest-growing cities in North County, and EV adoption is rising across every neighborhood from downtown to Rancho Del Oro and Arrowood. Wheyland Electric provides EV charger installation for single-family homes, townhomes, and multi-unit properties throughout your area. We handle the City of your area permit process and ensure your installation meets all current code requirements.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'EV Charger Installation in your area — Permitted, Local, Same-Day Scheduling',
+      ['car' + 'lsbad']:
+        'EV Charger Installation in your area — Permitted, Local, Same-Day Scheduling',
       ['enc' + 'initas']: 'EV Charger Installation in your area — From Leucadia to Olivenhain',
       'rancho-santa-fe': 'EV Charger Installation in your area — Estate-Scale Circuit Work',
       'san-marcos': 'EV Charger Installation in your area — San Elijo Hills to Twin Oaks Valley',
       'del-mar': 'EV Charger Installation in your area — Coastal Precision, Full Permit Handling',
       'solana-beach': 'EV Charger Installation in your area — Fast Scheduling From your area',
-      ['ocean' + 'side']: 'EV Charger Installation in your area — Serving All Neighborhoods, All ZIP Codes',
+      ['ocean' + 'side']:
+        'EV Charger Installation in your area — Serving All Neighborhoods, All ZIP Codes',
     },
     whenToCallSigns: [
       'You purchased or leased an electric vehicle and rely on slow Level 1 outlet charging',
@@ -274,13 +276,18 @@ const baseServicePillars: ServicePillar[] = [
         'your area diverse housing stock — from 1950s-era homes near the coast to new construction in Arrowood — means panel needs vary widely. Wheyland Electric performs panel upgrades across your area, from straightforward 200-amp replacements to complex multi-meter commercial setups. We work with the City of your area permitting office and keep the process on schedule.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Electrical Panel Upgrades in your area — Serving La Costa to the Village Since 2008',
-      ['enc' + 'initas']: 'Electrical Panel Upgrades in your area — Leucadia, Cardiff, Olivenhain & Beyond',
-      'rancho-santa-fe': 'Electrical Panel Upgrades in your area — Estate-Grade Panel Work, Permitted',
+      ['car' + 'lsbad']:
+        'Electrical Panel Upgrades in your area — Serving La Costa to the Village Since 2008',
+      ['enc' + 'initas']:
+        'Electrical Panel Upgrades in your area — Leucadia, Cardiff, Olivenhain & Beyond',
+      'rancho-santa-fe':
+        'Electrical Panel Upgrades in your area — Estate-Grade Panel Work, Permitted',
       'san-marcos': 'Electrical Panel Upgrades in your area — 100A to 200A, Same-Day Assessment',
-      'del-mar': 'Electrical Panel Upgrades in your area — Code-Compliant Work for Coastal Properties',
+      'del-mar':
+        'Electrical Panel Upgrades in your area — Code-Compliant Work for Coastal Properties',
       'solana-beach': 'Electrical Panel Upgrades in your area — Licensed, SDG&E Coordinated',
-      ['ocean' + 'side']: 'Electrical Panel Upgrades in your area — From Vintage Beach Homes to New Construction',
+      ['ocean' + 'side']:
+        'Electrical Panel Upgrades in your area — From Vintage Beach Homes to New Construction',
     },
     whenToCallSigns: [
       'Your circuit breakers trip frequently under normal household use',
@@ -416,12 +423,15 @@ const baseServicePillars: ServicePillar[] = [
     },
     h1TaglineByCity: {
       ['car' + 'lsbad']: 'Electrical Service Calls in your area — Prompt Diagnosis, Honest Answers',
-      ['enc' + 'initas']: 'Electrical Troubleshooting in your area — Same-Day Service, Root-Cause Diagnosis',
+      ['enc' + 'initas']:
+        'Electrical Troubleshooting in your area — Same-Day Service, Root-Cause Diagnosis',
       'rancho-santa-fe': 'Electrical Service Calls in your area — Discreet, Professional, Thorough',
       'san-marcos': 'Electrical Troubleshooting in your area — Honest Diagnosis, No Upselling',
       'del-mar': 'Electrical Service Calls in your area — Coastal Home Specialists, Licensed',
-      'solana-beach': 'Electrical Service Calls in your area — Fast Response From Local your area Crew',
-      ['ocean' + 'side']: 'Electrical Troubleshooting in your area — Serving All ZIP Codes, Prompt Response',
+      'solana-beach':
+        'Electrical Service Calls in your area — Fast Response From Local your area Crew',
+      ['ocean' + 'side']:
+        'Electrical Troubleshooting in your area — Serving All ZIP Codes, Prompt Response',
     },
     whenToCallSigns: [
       'Outlets or switches feel warm to the touch when nothing is plugged in',
@@ -556,13 +566,19 @@ const baseServicePillars: ServicePillar[] = [
         'Recessed lighting transforms a room, and your area homeowners across Fire Mountain, South O, and Rancho Del Oro are upgrading in record numbers. Wheyland Electric installs both new-construction and retrofit recessed lighting throughout your area, helping each homeowner choose the right fixture count, spacing, and color temperature for their space.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Recessed Lighting Installation in your area — LED Layouts From La Costa to the Village',
-      ['enc' + 'initas']: 'Recessed Lighting Installation in your area — Modern Fixtures for Coastal Homes',
-      'rancho-santa-fe': 'Recessed Lighting Installation in your area — Estate Lighting, Precision Install',
-      'san-marcos': 'Recessed Lighting Installation in your area — Clean, Even Light, Licensed Electricians',
-      'del-mar': 'Recessed Lighting Installation in your area — Trim Selection, Layout Design, Full Install',
+      ['car' + 'lsbad']:
+        'Recessed Lighting Installation in your area — LED Layouts From La Costa to the Village',
+      ['enc' + 'initas']:
+        'Recessed Lighting Installation in your area — Modern Fixtures for Coastal Homes',
+      'rancho-santa-fe':
+        'Recessed Lighting Installation in your area — Estate Lighting, Precision Install',
+      'san-marcos':
+        'Recessed Lighting Installation in your area — Clean, Even Light, Licensed Electricians',
+      'del-mar':
+        'Recessed Lighting Installation in your area — Trim Selection, Layout Design, Full Install',
       'solana-beach': 'Recessed Lighting Installation in your area — LED Retrofits & New Installs',
-      ['ocean' + 'side']: 'Recessed Lighting Installation in your area — From Beach Cottages to New Construction',
+      ['ocean' + 'side']:
+        'Recessed Lighting Installation in your area — From Beach Cottages to New Construction',
     },
     whenToCallSigns: [
       'Your rooms feel dark even with ceiling fixtures on',
@@ -696,13 +712,20 @@ const baseServicePillars: ServicePillar[] = [
         'Across your area — from the renovated downtown lofts to the family homes in Rancho Del Oro — Wheyland Electric provides professional light fixture installation services. We install everything from simple flush mounts and bathroom vanity lights to large outdoor fixtures and commercial lighting. Every installation includes junction box verification and a clean, code-compliant result.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Light Fixture Installation in your area — Chandeliers, Pendants & Outdoor Fixtures',
-      ['enc' + 'initas']: 'Light Fixture Installation in your area — Coastal Style, Code-Compliant Wiring',
-      'rancho-santa-fe': 'Light Fixture Installation in your area — Statement Fixtures, Flawless Execution',
-      'san-marcos': 'Light Fixture Installation in your area — Any Fixture, Any Room, Licensed Install',
-      'del-mar': 'Light Fixture Installation in your area — Luxury Fixtures, Coastal-Grade Connections',
-      'solana-beach': 'Light Fixture Installation in your area — Pendants, Sconces & Outdoor Lights',
-      ['ocean' + 'side']: 'Light Fixture Installation in your area — Fast, Clean, Code-Compliant Installs',
+      ['car' + 'lsbad']:
+        'Light Fixture Installation in your area — Chandeliers, Pendants & Outdoor Fixtures',
+      ['enc' + 'initas']:
+        'Light Fixture Installation in your area — Coastal Style, Code-Compliant Wiring',
+      'rancho-santa-fe':
+        'Light Fixture Installation in your area — Statement Fixtures, Flawless Execution',
+      'san-marcos':
+        'Light Fixture Installation in your area — Any Fixture, Any Room, Licensed Install',
+      'del-mar':
+        'Light Fixture Installation in your area — Luxury Fixtures, Coastal-Grade Connections',
+      'solana-beach':
+        'Light Fixture Installation in your area — Pendants, Sconces & Outdoor Lights',
+      ['ocean' + 'side']:
+        'Light Fixture Installation in your area — Fast, Clean, Code-Compliant Installs',
     },
     whenToCallSigns: [
       'You are hanging a heavy chandelier (30 lbs or more requires a fan-rated or fixture support box)',
@@ -835,13 +858,19 @@ const baseServicePillars: ServicePillar[] = [
         'Ceiling fan installations are one of our most common requests from your area homeowners looking to improve comfort and reduce cooling costs. Whether you are in a downtown condo, a Fire Mountain cottage, or a newer Arrowood home, Wheyland Electric installs your fan safely with a fan-rated box, balanced blades, and professional wiring.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Ceiling Fan Installation in your area — New Install or Replacement, Same-Day Scheduling',
-      ['enc' + 'initas']: 'Ceiling Fan Installation in your area — Indoor & Covered Patio Fan Installs',
+      ['car' + 'lsbad']:
+        'Ceiling Fan Installation in your area — New Install or Replacement, Same-Day Scheduling',
+      ['enc' + 'initas']:
+        'Ceiling Fan Installation in your area — Indoor & Covered Patio Fan Installs',
       'rancho-santa-fe': 'Ceiling Fan Installation in your area — Statement Fans for Large Spaces',
-      'san-marcos': 'Ceiling Fan Installation in your area — Efficient Fans, Energy Savings, Clean Install',
-      'del-mar': 'Ceiling Fan Installation in your area — Coastal-Rated Fans for Salt-Air Environments',
-      'solana-beach': 'Ceiling Fan Installation in your area — Fast Installs, Outdoor-Rated Options',
-      ['ocean' + 'side']: 'Ceiling Fan Installation in your area — From Harbor Homes to Inland New Construction',
+      'san-marcos':
+        'Ceiling Fan Installation in your area — Efficient Fans, Energy Savings, Clean Install',
+      'del-mar':
+        'Ceiling Fan Installation in your area — Coastal-Rated Fans for Salt-Air Environments',
+      'solana-beach':
+        'Ceiling Fan Installation in your area — Fast Installs, Outdoor-Rated Options',
+      ['ocean' + 'side']:
+        'Ceiling Fan Installation in your area — From Harbor Homes to Inland New Construction',
     },
     whenToCallSigns: [
       'Your rooms are stuffy and uncomfortable even when the air conditioner is running',
@@ -982,13 +1011,17 @@ const baseServicePillars: ServicePillar[] = [
         'Whether you are installing a hot tub behind your your area home or wiring a sauna for your garage gym, Wheyland Electric provides professional spa electrical services throughout the city. We handle everything from the panel to the equipment — dedicated circuit, disconnect switch, conduit run, and city inspection.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Hot Tub & Spa Electrical in your area — 240V Circuits, Permitted, Same-Week Scheduling',
-      ['enc' + 'initas']: 'Spa & Hot Tub Electrical in your area — From Cardiff to Olivenhain, Fully Permitted',
+      ['car' + 'lsbad']:
+        'Hot Tub & Spa Electrical in your area — 240V Circuits, Permitted, Same-Week Scheduling',
+      ['enc' + 'initas']:
+        'Spa & Hot Tub Electrical in your area — From Cardiff to Olivenhain, Fully Permitted',
       'rancho-santa-fe': 'Spa & Sauna Electrical in your area — Estate-Grade Outdoor Electrical',
       'san-marcos': 'Hot Tub Electrical in your area — Dedicated 240V Circuit, Permit Included',
-      'del-mar': 'Spa & Hot Tub Electrical in your area — Code-Compliant Circuits for Coastal Luxury',
+      'del-mar':
+        'Spa & Hot Tub Electrical in your area — Code-Compliant Circuits for Coastal Luxury',
       'solana-beach': 'Hot Tub & Spa Electrical in your area — Fast Permitting, Local Crew',
-      ['ocean' + 'side']: 'Spa & Hot Tub Electrical in your area — All Neighborhoods, Licensed & Permitted',
+      ['ocean' + 'side']:
+        'Spa & Hot Tub Electrical in your area — All Neighborhoods, Licensed & Permitted',
     },
     whenToCallSigns: [
       'You are purchasing a hot tub and need a dedicated 240V, 50-amp GFCI-protected circuit installed',
@@ -1121,12 +1154,15 @@ const baseServicePillars: ServicePillar[] = [
         'From downtown your area condos to Fire Mountain family homes, Wheyland Electric provides outlet and switch services that keep your electrical system safe and up to date. We install GFCI outlets, replace worn switches, add dimmers, and upgrade to USB outlets — fast, affordable, and done right by a licensed electrician.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Outlet & Switch Repairs in your area — GFCI, Dimmers & More, Same-Day Available',
-      ['enc' + 'initas']: 'Outlet & GFCI Repairs in your area — Fast, Honest Service for Coastal Homes',
+      ['car' + 'lsbad']:
+        'Outlet & Switch Repairs in your area — GFCI, Dimmers & More, Same-Day Available',
+      ['enc' + 'initas']:
+        'Outlet & GFCI Repairs in your area — Fast, Honest Service for Coastal Homes',
       'rancho-santa-fe': 'Outlet & Switch Repairs in your area — Precision Work for High-End Homes',
       'san-marcos': 'Outlet, Switch & GFCI Repairs in your area — No Job Too Small',
       'del-mar': 'GFCI & Outlet Repairs in your area — Coastal-Grade Repairs, Properly Permitted',
-      'solana-beach': 'Outlet & Switch Repairs in your area — Fast Response From Local your area Team',
+      'solana-beach':
+        'Outlet & Switch Repairs in your area — Fast Response From Local your area Team',
       ['ocean' + 'side']: 'Outlet, Dimmer & GFCI Repairs in your area — Serving All Neighborhoods',
     },
     whenToCallSigns: [
@@ -1140,7 +1176,6 @@ const baseServicePillars: ServicePillar[] = [
       'Your outdoor outlets lack GFCI protection as required by current code',
     ],
   },
-
 
   // ========================
   // RESIDENTIAL HUB — publish: true
@@ -1301,7 +1336,7 @@ const baseServicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       ['car' + 'lsbad']:
-        'Wheyland Electric is Carlsbad\'s residential electrician — based at 3536 Woodland Way and serving every neighborhood in the city since 2008. From panel upgrades in the older homes of Olde Carlsbad to EV charger installations in the newer developments of Bressi Ranch and La Costa, we handle the full range of residential electrical work. Licensed, permitted, and backed by a 1-year labor warranty.',
+        "Wheyland Electric is Carlsbad's residential electrician — based at 3536 Woodland Way and serving every neighborhood in the city since 2008. From panel upgrades in the older homes of Olde Carlsbad to EV charger installations in the newer developments of Bressi Ranch and La Costa, we handle the full range of residential electrical work. Licensed, permitted, and backed by a 1-year labor warranty.",
       ['enc' + 'initas']:
         'Wheyland Electric provides licensed residential electrical services throughout Encinitas — from the older coastal homes of Leucadia and Cardiff to the newer builds in New Encinitas and Encinitas Ranch. Whether you need a panel upgrade, an EV charger, or a full lighting renovation, our team handles every residential electrical project with professional craftsmanship and honest communication.',
       'rancho-santa-fe':
@@ -1316,13 +1351,16 @@ const baseServicePillars: ServicePillar[] = [
         'Wheyland Electric serves Oceanside homeowners across every neighborhood — from the historic beach homes near the pier to the newer construction in Rancho Del Oro and Arrowood. We provide the full range of residential electrical services, from panel upgrades and EV charger installation to troubleshooting, lighting, and outlet upgrades — all licensed, permitted, and warranty-backed.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Residential Electrician in Carlsbad, CA — Licensed, Local, Backed by Warranty',
+      ['car' + 'lsbad']:
+        'Residential Electrician in Carlsbad, CA — Licensed, Local, Backed by Warranty',
       ['enc' + 'initas']: 'Residential Electrician in Encinitas, CA — Full-Service Home Electrical',
-      'rancho-santa-fe': 'Residential Electrician in Rancho Santa Fe — Estate-Grade Home Electrical',
+      'rancho-santa-fe':
+        'Residential Electrician in Rancho Santa Fe — Estate-Grade Home Electrical',
       'san-marcos': 'Residential Electrician in San Marcos, CA — Licensed, Permitted, Warranted',
       'del-mar': 'Residential Electrician in Del Mar, CA — Coastal Homes, Professional Work',
       'solana-beach': 'Residential Electrician in Solana Beach, CA — Local Team, Full-Service',
-      ['ocean' + 'side']: 'Residential Electrician in Oceanside, CA — All Neighborhoods, All Scopes',
+      ['ocean' + 'side']:
+        'Residential Electrician in Oceanside, CA — All Neighborhoods, All Scopes',
     },
     whenToCallSigns: [
       'Your home is more than 25 years old and has never had an electrical inspection or panel evaluation',
@@ -1344,7 +1382,6 @@ const baseServicePillars: ServicePillar[] = [
       'One-year labor warranty on all residential workmanship.',
     ],
   },
-
 
   // Commercial Electrical Services Hub
   {
@@ -1502,7 +1539,7 @@ const baseServicePillars: ServicePillar[] = [
     ],
     localizedIntroSeedByCity: {
       ['car' + 'lsbad']:
-        'Wheyland Electric is Carlsbad\'s commercial electrician — serving business parks, retail centers, restaurants, and HOA communities from our base at 3536 Woodland Way since 2008. From the Carlsbad Research Center and Palomar Airport Road corridor to the Bressi Ranch Village Center and Carlsbad Village commercial district, we handle the full range of commercial electrical work. Licensed, permitted, and backed by a 1-year labor warranty.',
+        "Wheyland Electric is Carlsbad's commercial electrician — serving business parks, retail centers, restaurants, and HOA communities from our base at 3536 Woodland Way since 2008. From the Carlsbad Research Center and Palomar Airport Road corridor to the Bressi Ranch Village Center and Carlsbad Village commercial district, we handle the full range of commercial electrical work. Licensed, permitted, and backed by a 1-year labor warranty.",
       ['enc' + 'initas']:
         'Wheyland Electric provides licensed commercial electrical services throughout Encinitas — from the Highway 101 retail corridor and Cedros Design District to the business parks along Encinitas Boulevard and El Camino Real. Tenant improvements, maintenance programs, restaurant electrical, and commercial EV charging — all permitted and professionally executed.',
       'rancho-santa-fe':
@@ -1517,9 +1554,12 @@ const baseServicePillars: ServicePillar[] = [
         'Wheyland Electric serves Oceanside commercial properties across the revitalized downtown district, Mission Avenue business parks, College Boulevard corridor, and the inland industrial zones. Full-range commercial electrical from restaurant buildouts to industrial equipment hookups.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Commercial Electrician in Carlsbad, CA — Licensed, Local, Backed by Warranty',
-      ['enc' + 'initas']: 'Commercial Electrician in Encinitas, CA — Full-Service Business Electrical',
-      'rancho-santa-fe': 'Commercial Electrician in Rancho Santa Fe — Professional Commercial Electrical',
+      ['car' + 'lsbad']:
+        'Commercial Electrician in Carlsbad, CA — Licensed, Local, Backed by Warranty',
+      ['enc' + 'initas']:
+        'Commercial Electrician in Encinitas, CA — Full-Service Business Electrical',
+      'rancho-santa-fe':
+        'Commercial Electrician in Rancho Santa Fe — Professional Commercial Electrical',
       'san-marcos': 'Commercial Electrician in San Marcos, CA — Licensed, Permitted, Warranted',
       'del-mar': 'Commercial Electrician in Del Mar, CA — Coastal Business Electrical Services',
       'solana-beach': 'Commercial Electrician in Solana Beach, CA — Local Team, Full-Service',
@@ -2294,9 +2334,6 @@ const baseServicePillars: ServicePillar[] = [
     },
   },
 
-
-
-
   // 15. Commercial EV Charging
   {
     slug: 'commercial-ev-charging',
@@ -2453,8 +2490,10 @@ const baseServicePillars: ServicePillar[] = [
         'Oceanside commercial properties across the downtown corridor, Mission Avenue business parks, and eastern industrial zones are adding EV charging infrastructure. Wheyland Electric provides commercial EV charging installation throughout Oceanside for retail, office, restaurant, and industrial properties.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Commercial EV Charging Installation in Carlsbad — Office Parks, Retail & Multi-Tenant',
-      ['enc' + 'initas']: 'Commercial EV Charging in Encinitas — Permitted, Load-Managed, Network-Ready',
+      ['car' + 'lsbad']:
+        'Commercial EV Charging Installation in Carlsbad — Office Parks, Retail & Multi-Tenant',
+      ['enc' + 'initas']:
+        'Commercial EV Charging in Encinitas — Permitted, Load-Managed, Network-Ready',
       'rancho-santa-fe': 'Commercial EV Charging in Rancho Santa Fe — Estate & Commercial Scale',
       'san-marcos': 'Commercial EV Charging in San Marcos — Business Parks & Retail Centers',
       'del-mar': 'Commercial EV Charging in Del Mar — Customer & Employee Charging Solutions',
@@ -2618,13 +2657,18 @@ const baseServicePillars: ServicePillar[] = [
         'Oceanside has a growing restaurant scene downtown and throughout the city. Wheyland Electric provides restaurant and food service electrical throughout Oceanside — from single-location buildouts to multi-unit food hall installations.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Restaurant Electrician in Carlsbad — Kitchen Hookups, Hood Systems & TI Work',
-      ['enc' + 'initas']: 'Restaurant Electrician in Encinitas — Food Service Electrical, Fully Permitted',
-      'rancho-santa-fe': 'Restaurant Electrician in Rancho Santa Fe — Precision Food Service Electrical',
+      ['car' + 'lsbad']:
+        'Restaurant Electrician in Carlsbad — Kitchen Hookups, Hood Systems & TI Work',
+      ['enc' + 'initas']:
+        'Restaurant Electrician in Encinitas — Food Service Electrical, Fully Permitted',
+      'rancho-santa-fe':
+        'Restaurant Electrician in Rancho Santa Fe — Precision Food Service Electrical',
       'san-marcos': 'Restaurant Electrician in San Marcos — Commercial Kitchen & Dining Electrical',
       'del-mar': 'Restaurant Electrician in Del Mar — Kitchen Equipment & Dining Room Electrical',
-      'solana-beach': 'Restaurant Electrician in Solana Beach — Food Service Electrical, Code-Compliant',
-      ['ocean' + 'side']: 'Restaurant Electrician in Oceanside — Full-Service Food Service Electrical',
+      'solana-beach':
+        'Restaurant Electrician in Solana Beach — Food Service Electrical, Code-Compliant',
+      ['ocean' + 'side']:
+        'Restaurant Electrician in Oceanside — Full-Service Food Service Electrical',
     },
     whenToCallSigns: [
       'You are opening a new restaurant and need a licensed electrician for the buildout',
@@ -2783,13 +2827,17 @@ const baseServicePillars: ServicePillar[] = [
         'Oceanside has a large and growing commercial inventory from downtown retail to inland industrial parks. Wheyland Electric provides commercial LED lighting retrofits throughout Oceanside — warehouse high-bays, office fixtures, parking lots, and exterior lighting.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'Commercial LED Lighting in Carlsbad — Retrofit, Rebates & Title 24 Compliance',
-      ['enc' + 'initas']: 'Commercial LED Lighting in Encinitas — Energy Savings, Full Permit Handling',
-      'rancho-santa-fe': 'Commercial LED Lighting in Rancho Santa Fe — Quality Fixtures, Energy Savings',
+      ['car' + 'lsbad']:
+        'Commercial LED Lighting in Carlsbad — Retrofit, Rebates & Title 24 Compliance',
+      ['enc' + 'initas']:
+        'Commercial LED Lighting in Encinitas — Energy Savings, Full Permit Handling',
+      'rancho-santa-fe':
+        'Commercial LED Lighting in Rancho Santa Fe — Quality Fixtures, Energy Savings',
       'san-marcos': 'Commercial LED Lighting in San Marcos — Warehouse & Office LED Retrofits',
       'del-mar': 'Commercial LED Lighting in Del Mar — Retail & Office Lighting Upgrades',
       'solana-beach': 'Commercial LED Lighting in Solana Beach — LED Retrofit, SDG&E Rebates',
-      ['ocean' + 'side']: 'Commercial LED Lighting in Oceanside — Industrial, Retail & Parking Lot LED',
+      ['ocean' + 'side']:
+        'Commercial LED Lighting in Oceanside — Industrial, Retail & Parking Lot LED',
     },
     whenToCallSigns: [
       'Your commercial space still has fluorescent tubes or metal halide fixtures',
@@ -2940,13 +2988,18 @@ const baseServicePillars: ServicePillar[] = [
         'Oceanside has a large inventory of HOA communities from Ocean Hills and Rancho Del Oro to the newer master-planned developments in the eastern neighborhoods. Wheyland Electric provides HOA electrical maintenance throughout Oceanside with scheduled service and detailed reporting.',
     },
     h1TaglineByCity: {
-      ['car' + 'lsbad']: 'HOA Electrician in Carlsbad — Bressi Ranch, Aviara & North County Communities',
-      ['enc' + 'initas']: 'HOA Electrician in Encinitas — Common Area Lighting & Scheduled Maintenance',
-      'rancho-santa-fe': 'HOA Electrician in Rancho Santa Fe — Premier Community Electrical Services',
+      ['car' + 'lsbad']:
+        'HOA Electrician in Carlsbad — Bressi Ranch, Aviara & North County Communities',
+      ['enc' + 'initas']:
+        'HOA Electrician in Encinitas — Common Area Lighting & Scheduled Maintenance',
+      'rancho-santa-fe':
+        'HOA Electrician in Rancho Santa Fe — Premier Community Electrical Services',
       'san-marcos': 'HOA Electrician in San Marcos — Scheduled Maintenance & Emergency Response',
       'del-mar': 'HOA Electrician in Del Mar — Common Area Electrical, Documented & Reliable',
-      'solana-beach': 'HOA Electrician in Solana Beach — HOA Maintenance Programs, Transparent Reporting',
-      ['ocean' + 'side']: 'HOA Electrician in Oceanside — Serving Master-Planned Communities Citywide',
+      'solana-beach':
+        'HOA Electrician in Solana Beach — HOA Maintenance Programs, Transparent Reporting',
+      ['ocean' + 'side']:
+        'HOA Electrician in Oceanside — Serving Master-Planned Communities Citywide',
     },
     whenToCallSigns: [
       'Your HOA common area lighting has persistent failures that are not being resolved',
@@ -2958,7 +3011,6 @@ const baseServicePillars: ServicePillar[] = [
       'Your pool or spa equipment electrical needs inspection or repair',
     ],
   },
-
 ];
 const DEFAULT_FAQ_ENTRIES = (serviceName: string) => [
   {
@@ -2967,19 +3019,23 @@ const DEFAULT_FAQ_ENTRIES = (serviceName: string) => [
   },
   {
     question: `How should I prepare before ${serviceName.toLowerCase()} service day?`,
-    answer: 'We share a short prep checklist in advance so access, shutoffs, and scheduling are straightforward.',
+    answer:
+      'We share a short prep checklist in advance so access, shutoffs, and scheduling are straightforward.',
   },
   {
     question: `Will you explain options before starting work?`,
-    answer: 'Yes. We review practical options, tradeoffs, and scope so you can approve the right plan.',
+    answer:
+      'Yes. We review practical options, tradeoffs, and scope so you can approve the right plan.',
   },
   {
     question: `Is the work performed by licensed electricians?`,
-    answer: 'Yes. All work is completed by licensed electricians using current California and NEC standards.',
+    answer:
+      'Yes. All work is completed by licensed electricians using current California and NEC standards.',
   },
   {
     question: `Do you test and verify performance after installation?`,
-    answer: 'Yes. We perform functional and safety testing before closeout and walk you through final operation.',
+    answer:
+      'Yes. We perform functional and safety testing before closeout and walk you through final operation.',
   },
   {
     question: `Can this service be bundled with related electrical upgrades?`,
@@ -3016,11 +3072,36 @@ const SERVICE_CONTENT_OVERRIDES: Partial<Record<string, Partial<ServicePillar>>>
       'Final walkthrough with safety and usage guidance.',
     ],
     processSteps: [
-      { step: 1, title: 'Discovery & Load Planning', description: 'We confirm your vehicle, charging goals, and daily mileage, then complete a load review to size the circuit correctly.' },
-      { step: 2, title: 'Design & Scope Approval', description: 'You receive a clear scope covering charger location, routing approach, protection method, and permit path.' },
-      { step: 3, title: 'Installation Day', description: 'Our electricians install the branch circuit, mount the charger, and complete all terminations to manufacturer torque and code standards.' },
-      { step: 4, title: 'Inspection & Commissioning', description: 'We support permit inspection as required, then commission the charger and verify expected charging behavior.' },
-      { step: 5, title: 'Handoff & Optimization', description: 'We walk through app controls, charging schedules, and off-peak setup so your system is efficient from day one.' },
+      {
+        step: 1,
+        title: 'Discovery & Load Planning',
+        description:
+          'We confirm your vehicle, charging goals, and daily mileage, then complete a load review to size the circuit correctly.',
+      },
+      {
+        step: 2,
+        title: 'Design & Scope Approval',
+        description:
+          'You receive a clear scope covering charger location, routing approach, protection method, and permit path.',
+      },
+      {
+        step: 3,
+        title: 'Installation Day',
+        description:
+          'Our electricians install the branch circuit, mount the charger, and complete all terminations to manufacturer torque and code standards.',
+      },
+      {
+        step: 4,
+        title: 'Inspection & Commissioning',
+        description:
+          'We support permit inspection as required, then commission the charger and verify expected charging behavior.',
+      },
+      {
+        step: 5,
+        title: 'Handoff & Optimization',
+        description:
+          'We walk through app controls, charging schedules, and off-peak setup so your system is efficient from day one.',
+      },
     ],
     pricingFactors: [
       'Panel headroom and available breaker space',
@@ -3034,26 +3115,315 @@ const SERVICE_CONTENT_OVERRIDES: Partial<Record<string, Partial<ServicePillar>>>
       'Single-charger vs multi-charger future-ready planning',
     ],
     faqs: [
-      { question: 'What charger size should I install at home?', answer: 'Most homes benefit from a Level 2 charger sized to your vehicle acceptance rate and daily mileage. We recommend the circuit and breaker to match real usage, not just the maximum published charger rating.' },
-      { question: 'Can you install both Tesla and non-Tesla chargers?', answer: 'Yes. We install Tesla Wall Connector and major J1772/NACS-compatible chargers, and we verify connector compatibility before scheduling.' },
-      { question: 'Do I need a hardwired charger or a receptacle setup?', answer: 'Hardwired installations are often preferred for durability and weather resistance. Receptacle-based setups can be appropriate in specific scenarios, and we will explain tradeoffs.' },
-      { question: 'Will my existing panel support a new EV charger?', answer: 'We perform a formal load review to determine if your panel has sufficient capacity. If not, we provide practical options such as panel upgrades or managed charging solutions.' },
-      { question: 'How long does a typical EV charger install take?', answer: 'Many straightforward installations are completed in a single visit. Complex routing, service changes, or permit sequencing can extend the schedule.' },
-      { question: 'Do you handle permit and inspection steps?', answer: 'Yes. We manage permit-related requirements and coordinate inspection steps so the installation is code-compliant and documented.' },
-      { question: 'Can I set the charger to run during off-peak utility hours?', answer: 'Yes. We help configure charger scheduling so you can align charging windows with utility time-of-use plans.' },
-      { question: 'Can you prepare my home for a second EV later?', answer: 'Yes. We can plan conduit paths, panel strategy, and equipment sizing to reduce future upgrade friction.' },
-      { question: 'What affects charger reliability over time?', answer: 'Proper conductor sizing, torque-verified terminations, weather-rated hardware, and clean commissioning all materially improve long-term reliability.' },
-      { question: 'Do you test charging performance after installation?', answer: 'Yes. We verify energization, fault behavior, and charging operation before handoff.' },
-      { question: 'Will the installation include labeling and safety checks?', answer: 'Yes. We include circuit labeling and required safety checks so future service and inspection are straightforward.' },
-      { question: 'Can charger placement be optimized for daily convenience?', answer: 'Absolutely. We evaluate parking position, cable reach, and mounting height to make everyday charging simple.' },
+      {
+        question: 'What charger size should I install at home?',
+        answer:
+          'Most homes benefit from a Level 2 charger sized to your vehicle acceptance rate and daily mileage. We recommend the circuit and breaker to match real usage, not just the maximum published charger rating.',
+      },
+      {
+        question: 'Can you install both Tesla and non-Tesla chargers?',
+        answer:
+          'Yes. We install Tesla Wall Connector and major J1772/NACS-compatible chargers, and we verify connector compatibility before scheduling.',
+      },
+      {
+        question: 'Do I need a hardwired charger or a receptacle setup?',
+        answer:
+          'Hardwired installations are often preferred for durability and weather resistance. Receptacle-based setups can be appropriate in specific scenarios, and we will explain tradeoffs.',
+      },
+      {
+        question: 'Will my existing panel support a new EV charger?',
+        answer:
+          'We perform a formal load review to determine if your panel has sufficient capacity. If not, we provide practical options such as panel upgrades or managed charging solutions.',
+      },
+      {
+        question: 'How long does a typical EV charger install take?',
+        answer:
+          'Many straightforward installations are completed in a single visit. Complex routing, service changes, or permit sequencing can extend the schedule.',
+      },
+      {
+        question: 'Do you handle permit and inspection steps?',
+        answer:
+          'Yes. We manage permit-related requirements and coordinate inspection steps so the installation is code-compliant and documented.',
+      },
+      {
+        question: 'Can I set the charger to run during off-peak utility hours?',
+        answer:
+          'Yes. We help configure charger scheduling so you can align charging windows with utility time-of-use plans.',
+      },
+      {
+        question: 'Can you prepare my home for a second EV later?',
+        answer:
+          'Yes. We can plan conduit paths, panel strategy, and equipment sizing to reduce future upgrade friction.',
+      },
+      {
+        question: 'What affects charger reliability over time?',
+        answer:
+          'Proper conductor sizing, torque-verified terminations, weather-rated hardware, and clean commissioning all materially improve long-term reliability.',
+      },
+      {
+        question: 'Do you test charging performance after installation?',
+        answer:
+          'Yes. We verify energization, fault behavior, and charging operation before handoff.',
+      },
+      {
+        question: 'Will the installation include labeling and safety checks?',
+        answer:
+          'Yes. We include circuit labeling and required safety checks so future service and inspection are straightforward.',
+      },
+      {
+        question: 'Can charger placement be optimized for daily convenience?',
+        answer:
+          'Absolutely. We evaluate parking position, cable reach, and mounting height to make everyday charging simple.',
+      },
     ],
-    relatedServiceSlugs: ['electrical-panel-upgrades', 'dedicated-circuits', 'outlet-switch-dimmer-gfci-repairs'],
+    relatedServiceSlugs: [
+      'electrical-panel-upgrades',
+      'dedicated-circuits',
+      'outlet-switch-dimmer-gfci-repairs',
+    ],
     serviceProofPoints: [
       'Permit workflow managed end-to-end when required by scope.',
       'Load calculations aligned with panel capacity and EV demand.',
       'Compatibility planning for Tesla, NACS, and J1772 ecosystems.',
       'NEC and California code-compliant branch-circuit installation.',
       'Activation, functional testing, and customer onboarding at handoff.',
+    ],
+  },
+  'commercial-ev-charging': {
+    overviewBullets: [
+      'Licensed North County commercial electricians with office park, retail, and multi-tenant EV charging experience.',
+      'Load management strategy from the start — multi-station layouts sized to your service capacity and future growth.',
+      'Network-enabled charger setup for fleet billing, usage reporting, and remote access control.',
+      'Utility coordination and service upgrade management handled as part of your project scope.',
+      'Permit procurement and AHJ inspection coordination through every phase.',
+      'California Title 24 and NEC-compliant installations on every project.',
+      'Dedicated circuits for each station — no shared-circuit compromises.',
+      'Charger brand agnostic: ChargePoint, Blink, Tesla Wall Connector, Enel X, and J1772/NACS-compatible hardware.',
+      'Phased deployment planning for properties adding stations in stages.',
+      'One-year labor warranty on all workmanship.',
+    ],
+    includedItems: [
+      'Site walk and existing electrical infrastructure assessment.',
+      'Load calculation and service capacity review for single and multi-station layouts.',
+      'Dedicated circuit design with conductor sizing matched to charger specifications.',
+      'Breaker and overcurrent protection selection per NEC and charger requirements.',
+      'Charger mounting, conduit routing, and torque-verified terminations.',
+      'Trenching and underground conduit for parking lot and exterior runs.',
+      'Network-enabled charger commissioning and connectivity verification.',
+      'Fleet management platform onboarding and billing configuration.',
+      'Utility upgrade coordination and service entrance work when required.',
+      'Permit application package preparation and AHJ submittal.',
+      'Inspection scheduling and job-site support through final sign-off.',
+      'Labeling, disconnect identification, and code-required signage.',
+      'Post-installation documentation for property records.',
+      'One-year labor warranty on all installed work.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Site Assessment & Load Review', description: 'We walk the property, review your existing service capacity, and map station locations against electrical infrastructure — before any design work begins.' },
+      { step: 2, title: 'System Design & Scope Approval', description: 'You receive a complete design covering station placement, load management approach, conduit routing, and permit path — with clear pricing before we schedule work.' },
+      { step: 3, title: 'Permit Procurement', description: 'We prepare and submit permit documentation to the AHJ, coordinate utility notifications, and track approval status so your project stays on schedule.' },
+      { step: 4, title: 'Installation', description: 'Our crew installs branch circuits, mounts stations, routes conduit, and completes all terminations to manufacturer torque specifications and code standards.' },
+      { step: 5, title: 'Commissioning & Inspection', description: 'We commission each charger, verify network connectivity and billing configuration, and support permit inspection through final sign-off.' },
+      { step: 6, title: 'Handoff & Documentation', description: 'Property manager or facilities team receives a full handoff: station operation, fleet platform access, and post-installation records for your files.' },
+    ],
+    pricingFactors: [
+      'Number of charging stations and circuit runs required',
+      'Distance from main service panel or subpanel to station locations',
+      'Parking lot trenching and underground conduit requirements',
+      'Service capacity and need for utility upgrade or new subpanel',
+      'Load management hardware requirements for multi-station deployments',
+      'Network-enabled vs non-networked charger hardware',
+      'Permit scope and AHJ inspection complexity',
+      'Phased deployment vs single-mobilization full build-out',
+      'Property access and coordination requirements',
+    ],
+    faqs: [
+      { question: 'How many EV charging stations can my existing electrical service support?', answer: 'That depends on your current service size, existing load, and whether load management hardware is used. We complete a formal load review on every commercial project before recommending a station count.' },
+      { question: 'What is load management and do we need it?', answer: 'Load management systems dynamically distribute available power across multiple stations, allowing more chargers on a given service capacity. For properties with multiple stations or constrained service, it is often the most cost-effective path.' },
+      { question: 'Which charger brands do you install?', answer: 'We are hardware agnostic. We install ChargePoint, Blink, Tesla Wall Connector, Enel X, and other J1772 and NACS-compatible commercial chargers. We will advise on hardware that fits your use case and budget.' },
+      { question: 'Do you handle the permit and utility coordination?', answer: 'Yes. We prepare permit documentation, submit to the AHJ, coordinate with the utility on any service upgrade requirements, and support inspection through final sign-off.' },
+      { question: 'Can you install stations in phases as demand grows?', answer: 'Yes. We design conduit infrastructure for future expansion during initial installation, which significantly reduces cost when you add stations later.' },
+      { question: 'What is the typical timeline for a commercial EV charging project?', answer: 'Simple installations with existing service capacity can be completed in days once permitted. Multi-station projects with service upgrades or utility coordination typically run four to eight weeks depending on permit and utility timelines.' },
+      { question: 'Is there financial assistance available for commercial EV charging?', answer: 'SDG&E and California programs periodically offer incentives for commercial EV charging infrastructure. We can identify current programs available for your property type during scoping.' },
+      { question: 'Do you service and maintain commercial chargers after installation?', answer: 'Yes. We offer ongoing maintenance and priority service response for commercial EV charging infrastructure we install.' },
+    ],
+  },
+  'restaurant-electrical': {
+    overviewBullets: [
+      'Licensed commercial electricians with hands-on restaurant and food service build-out experience.',
+      'Kitchen equipment hookups sized precisely to manufacturer specifications — no undersized circuits.',
+      'Hood and ventilation system electrical connections coordinated with mechanical and health department requirements.',
+      'Title 24 lighting controls compliance handled as part of every California restaurant project.',
+      'Tenant improvement electrical from plan review through final inspection and health department sign-off.',
+      '3-phase power distribution for commercial cooking equipment, walk-in refrigeration, and dishwashers.',
+      'Permit coordination with AHJ and documentation support for health department inspections.',
+      'Minimal downtime scheduling — phased work and off-hours installation available.',
+      'Emergency response for restaurant electrical failures that cannot wait.',
+      'One-year labor warranty on all workmanship.',
+    ],
+    includedItems: [
+      'Commercial kitchen equipment circuit design and hookup.',
+      'Hood and ventilation system electrical connections per mechanical specifications.',
+      'Dedicated circuits for ranges, fryers, convection ovens, steamers, and high-draw equipment.',
+      '3-phase power distribution panels and branch circuits for commercial cooking loads.',
+      'Walk-in cooler and freezer electrical connections and dedicated circuits.',
+      'Dishwasher, warewasher, and booster heater electrical hookups.',
+      'Restaurant dining and bar lighting design, installation, and dimmer controls.',
+      'Title 24 energy compliance verification for lighting controls.',
+      'POS system power and low-voltage rough-in coordination.',
+      'Tenant improvement electrical rough-in and trim for new buildouts.',
+      'Permit procurement and AHJ submittal for all permitted work.',
+      'Health department inspection coordination and documentation.',
+      'Labeling, panel directory updates, and as-built documentation.',
+      'One-year labor warranty on all installed work.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Equipment & Load Review', description: 'We review your equipment schedule, manufacturer spec sheets, and utility service to design circuits that match real equipment loads — not generic estimates.' },
+      { step: 2, title: 'Design & Permit Coordination', description: 'We prepare electrical design documentation, coordinate with your general contractor and mechanical sub, and submit permits to the AHJ and health department as required.' },
+      { step: 3, title: 'Rough-In', description: 'Our crew completes conduit, wire, and panel rough-in work coordinated with your project schedule — timed to avoid conflicts with other trades.' },
+      { step: 4, title: 'Equipment Hookups & Trim', description: 'We connect kitchen equipment, hood systems, lighting, and controls to manufacturer specifications with torque-verified terminations on every connection.' },
+      { step: 5, title: 'Inspection & Commissioning', description: 'We support AHJ and health department inspections, commission all circuits, verify equipment operation, and resolve any punch items before handoff.' },
+      { step: 6, title: 'Handoff & Documentation', description: 'Owner or manager receives panel directory, circuit labeling, and as-built documentation — everything needed for future service and health department records.' },
+    ],
+    pricingFactors: [
+      'Size and complexity of kitchen equipment schedule',
+      'Number of dedicated high-draw circuits required',
+      '3-phase vs single-phase service requirements',
+      'Hood system electrical complexity and interlock requirements',
+      'Lighting scope and Title 24 controls requirements',
+      'Tenant improvement build-out extent vs targeted equipment work',
+      'Permit scope and AHJ or health department inspection requirements',
+      'Phased opening schedule and coordination with other trades',
+      'Emergency or off-hours work requirements',
+    ],
+    faqs: [
+      { question: 'Do you work with our general contractor on restaurant build-outs?', answer: 'Yes. We coordinate directly with your GC, mechanical sub, and equipment vendors. Clear communication between trades is how restaurant projects stay on schedule.' },
+      { question: 'Can you size circuits directly from equipment spec sheets?', answer: 'Yes. We pull manufacturer data sheets for every piece of equipment and design circuits to match actual nameplate requirements — not generic estimates.' },
+      { question: 'Do you handle health department electrical documentation?', answer: 'Yes. We prepare and coordinate electrical documentation required for health department inspections as part of our standard scope on restaurant projects.' },
+      { question: 'What is Title 24 and why does it apply to our restaurant?', answer: 'Title 24 is California energy code that mandates specific lighting controls in commercial spaces including restaurants. We handle compliance as part of every California restaurant lighting project.' },
+      { question: 'Can you work around our operating hours to minimize downtime?', answer: 'Yes. We schedule phased work, off-hours installation, and equipment hookup sequencing to minimize impact on your operations and opening timeline.' },
+      { question: 'Do you install 3-phase power for commercial cooking equipment?', answer: 'Yes. We install and service 3-phase distribution panels and branch circuits for commercial ranges, convection ovens, steamers, and other high-draw kitchen equipment.' },
+      { question: 'What happens if we need to add equipment after opening?', answer: 'We document panel capacity and available circuits at handoff so future equipment additions are straightforward. Adding circuits to an existing restaurant is a standard service call for us.' },
+      { question: 'Do you handle emergency electrical failures during service?', answer: 'Yes. We offer priority emergency response for restaurant electrical failures. A kitchen down during service is not something that can wait for a scheduled appointment.' },
+    ],
+  },
+  'commercial-led-lighting': {
+    overviewBullets: [
+      'Commercial LED retrofits that reduce lighting energy costs 40–70% versus fluorescent and HID fixtures.',
+      'Full lighting audit before any work — fixture counts, wattage, hours of operation, and calculated payback period.',
+      'Title 24 California energy code compliance handled as part of every commercial lighting project.',
+      'Utility rebate documentation prepared to maximize SDG&E and California incentive programs.',
+      'Offices, warehouses, retail spaces, parking lots, and exterior — all handled by one licensed electrical contractor.',
+      'Lighting controls included where they improve performance: occupancy sensors, daylight harvesting, dimmers.',
+      'Phased installation available to minimize business disruption during operating hours.',
+      'Licensed electricians perform all work — not lighting-only crews without electrical licensing.',
+      'Fixture specification assistance for color temperature, CRI, and lumen output matched to your space.',
+      'One-year labor warranty on all workmanship.',
+    ],
+    includedItems: [
+      'Existing lighting audit: fixture inventory, wattage, hours of operation, and energy cost baseline.',
+      'LED fixture specification and product selection matched to space requirements.',
+      'Energy savings and payback period calculation prior to project approval.',
+      'Utility rebate program identification and documentation preparation.',
+      'Existing fixture removal and disposal.',
+      'LED fixture installation with proper mounting, wiring, and torque-verified terminations.',
+      'Occupancy sensor installation and commissioning.',
+      'Daylight harvesting control installation where applicable.',
+      'Dimmer and lighting control panel installation.',
+      'Title 24 energy compliance verification and documentation.',
+      'Parking lot pole light and exterior fixture replacement.',
+      'Emergency egress lighting testing and compliance verification.',
+      'Labeling and panel directory updates for new circuits or loads.',
+      'One-year labor warranty on all installed work.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Lighting Audit', description: 'We inventory every fixture, measure current wattage and lumen output, review hours of operation, and calculate your current lighting energy cost — giving you a clear baseline before any commitment.' },
+      { step: 2, title: 'Fixture Specification & Savings Analysis', description: 'We specify replacement fixtures matched to your space requirements and produce a detailed energy savings and payback analysis, including available utility rebates.' },
+      { step: 3, title: 'Proposal & Scheduling', description: 'You receive a complete scope with fixture specifications, savings projections, rebate documentation plan, and phased installation schedule if required.' },
+      { step: 4, title: 'Installation', description: 'Our licensed electricians remove existing fixtures and install LED replacements with proper mounting, wiring, and commissioning — phased to minimize business disruption.' },
+      { step: 5, title: 'Controls Commissioning', description: 'Occupancy sensors, daylight harvesting controls, and dimmers are commissioned and tested to verify correct operation and maximum energy performance.' },
+      { step: 6, title: 'Title 24 Verification & Rebate Submission', description: 'We complete Title 24 compliance documentation and prepare your utility rebate submission package so you capture every available incentive.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures and square footage of space',
+      'Fixture type complexity (troffer, high-bay, exterior, parking lot poles)',
+      'Lighting controls scope (occupancy sensors, daylight harvesting, dimming)',
+      'Title 24 compliance documentation requirements',
+      'Phased vs single-mobilization installation scheduling',
+      'Disposal requirements for existing fixtures',
+      'Emergency egress lighting compliance scope',
+      'Utility rebate program requirements that affect fixture specification',
+      'Ceiling height and access requirements for high-bay installations',
+    ],
+    faqs: [
+      { question: 'How much will we actually save after switching to LED?', answer: 'Most commercial facilities see 40–70% reduction in lighting energy costs. We calculate your specific baseline from the audit and provide a projected payback period before you approve any work.' },
+      { question: 'What utility rebates are available for commercial LED upgrades in San Diego?', answer: 'SDG&E and California programs offer rebates for qualifying commercial LED projects. Rebate availability and amounts change periodically. We identify current programs during the audit phase and prepare required documentation.' },
+      { question: 'What is Title 24 and does our project require it?', answer: 'Title 24 is California energy code. Most commercial lighting projects in California require Title 24 compliance, which mandates specific lighting controls. We handle compliance documentation as part of every commercial lighting project.' },
+      { question: 'Can you install lighting controls as part of the retrofit?', answer: 'Yes. Occupancy sensors, daylight harvesting controls, and dimmers are included in our scope where they improve energy performance and Title 24 compliance.' },
+      { question: 'Do you handle parking lot and exterior lighting?', answer: 'Yes. Parking lot pole lights, wall packs, canopy fixtures, and other exterior lighting are part of our commercial LED scope.' },
+      { question: 'Can installation be phased to avoid closing our business?', answer: 'Yes. We schedule phased installation and can work off-hours for spaces that cannot be taken offline during business hours.' },
+      { question: 'Who specifies the replacement fixtures?', answer: 'We specify fixtures based on your space requirements: color temperature, CRI, lumen output, and mounting type. You approve the specification before any product is ordered.' },
+      { question: 'Are you licensed electricians or a lighting-only contractor?', answer: 'We are licensed California electrical contractors. All work is performed and warranted by licensed electricians — not lighting-only installation crews.' },
+      { question: 'How long does a typical commercial LED retrofit take?', answer: 'Small office retrofits can be completed in a day or two. Larger facilities, phased projects, or projects requiring controls commissioning typically run one to two weeks depending on scope and scheduling.' },
+    ],
+  },
+  'hoa-electrical-services': {
+    overviewBullets: [
+      'Experienced HOA electrician serving North County master-planned communities including Bressi Ranch, Aviara, Calavera Hills, and La Costa.',
+      'Scheduled maintenance programs that reduce emergency calls, extend equipment life, and protect board liability.',
+      'Transparent post-service reporting after every visit — documentation boards and property managers can rely on for records and vendor accountability.',
+      'Common area lighting, gate and access control electrical, pool and spa circuits, and parking lot fixtures all handled under one contract.',
+      'Priority emergency response for HOA electrical failures that affect resident safety or community operations.',
+      'Flat-rate maintenance pricing for predictable budgeting and reserve planning.',
+      'Pool and spa electrical compliance — bonding, GFCI protection, and safety inspection to NEC and California code.',
+      'Parking lot and pathway lighting upgrades that improve resident safety and reduce long-term maintenance costs.',
+      'Panel inspections and load reviews for common area electrical infrastructure.',
+      'One-year labor warranty on all workmanship.',
+    ],
+    includedItems: [
+      'Common area lighting inspection, maintenance, and repair.',
+      'Parking lot pole light and pathway lighting maintenance and replacement.',
+      'LED lighting upgrades for common area and exterior fixtures.',
+      'Gate, access control, and entry system electrical maintenance.',
+      'Security lighting inspection and repair.',
+      'Pool and spa electrical maintenance: bonding verification, GFCI testing, equipment circuits.',
+      'Pool and spa electrical compliance inspections per NEC 680 and California code.',
+      'Panel inspections and load reviews for common area electrical panels.',
+      'Circuit breaker testing and replacement for common area panels.',
+      'Emergency electrical response for HOA common area failures.',
+      'Scheduled maintenance visits with flat-rate pricing.',
+      'Detailed service reports after every visit for board and property manager records.',
+      'Vendor documentation and certificate of insurance on file for board requirements.',
+      'One-year labor warranty on all installed work.',
+    ],
+    processSteps: [
+      { step: 1, title: 'Community Assessment', description: 'We walk your common areas, document existing electrical infrastructure, identify deferred maintenance items, and provide a prioritized scope for immediate repairs and long-term planning.' },
+      { step: 2, title: 'Maintenance Program Setup', description: 'We establish a scheduled maintenance program with visit frequency, scope of each visit, flat-rate pricing, and reporting format — approved by the board before any work begins.' },
+      { step: 3, title: 'Scheduled Maintenance Visits', description: 'Our crew performs inspections, preventive maintenance, and minor repairs on each scheduled visit, documenting findings and completed work for board records.' },
+      { step: 4, title: 'Repair & Upgrade Work', description: 'Identified repairs and upgrades are scoped, priced, and approved before work begins. No surprise invoices — every item is authorized by the board or property manager.' },
+      { step: 5, title: 'Emergency Response', description: 'Priority response for electrical failures affecting resident safety or community operations. We carry adequate stock of common HOA electrical materials to resolve most issues on first response.' },
+      { step: 6, title: 'Reporting & Documentation', description: 'After every visit you receive a detailed service report: work completed, findings, photos, and recommendations — formatted for board meeting records and reserve study documentation.' },
+    ],
+    pricingFactors: [
+      'Size of community and number of common area electrical assets',
+      'Current condition of electrical infrastructure and deferred maintenance backlog',
+      'Scope of scheduled maintenance visits',
+      'Pool and spa electrical compliance requirements',
+      'Parking lot lighting scope and fixture count',
+      'Gate and access control electrical complexity',
+      'Emergency response priority level and response time requirements',
+      'LED upgrade scope included in maintenance program',
+      'Reporting and documentation requirements',
+    ],
+    faqs: [
+      { question: 'What does a typical HOA electrical maintenance program include?', answer: 'Scheduled visits covering common area lighting inspection and repair, parking lot fixtures, gate and access control electrical, pool and spa circuit testing, panel inspections, and detailed reporting after every visit.' },
+      { question: 'How does flat-rate maintenance pricing work?', answer: 'We agree on a fixed price per scheduled visit based on your community size and scope. This covers labor for all routine maintenance items in the agreed scope — no hourly billing surprises for standard maintenance work.' },
+      { question: 'Do you handle pool and spa electrical compliance?', answer: 'Yes. Pool and spa electrical work requires specific compliance with NEC Article 680 and California code covering bonding, GFCI protection, and equipment circuits. We perform compliance inspections and all required maintenance and repair.' },
+      { question: 'Can you provide documentation for our reserve study?', answer: 'Yes. Our service reports document the condition of electrical assets, completed maintenance, and recommended capital repairs — formatted to support reserve study documentation.' },
+      { question: 'What is your emergency response time for HOA calls?', answer: 'We offer priority response for HOA electrical emergencies. Response time depends on the nature of the emergency and current call volume, but HOA common area failures affecting resident safety are treated as high priority.' },
+      { question: 'Do you carry insurance and licensing documentation for board files?', answer: 'Yes. We provide current certificate of insurance, contractor license verification, and any other vendor documentation required by your board or management company.' },
+      { question: 'Can you upgrade our parking lot lighting to LED as part of the maintenance program?', answer: 'Yes. LED upgrades for parking lot and common area lighting are a common scope addition to maintenance programs — improving reliability, reducing energy costs, and lowering long-term maintenance frequency.' },
+      { question: 'Do you work with property management companies directly?', answer: 'Yes. We work directly with property managers for day-to-day work authorization, reporting, and invoicing, while keeping board-level communication available when required.' },
     ],
   },
 };
@@ -3071,7 +3441,10 @@ const normalizePillarContent = (pillar: ServicePillar): ServicePillar => {
   const override = SERVICE_CONTENT_OVERRIDES[pillar.slug] || {};
 
   const overviewBullets = ensureCount(
-    (override.overviewBullets as string[]) || pillar.overviewBullets || pillar.whenToCallSigns || pillar.includedBullets,
+    (override.overviewBullets as string[]) ||
+      pillar.overviewBullets ||
+      pillar.whenToCallSigns ||
+      pillar.includedBullets,
     8,
     [
       `Clear project scoping for ${pillar.name.toLowerCase()} with safety-first recommendations.`,
@@ -3091,7 +3464,9 @@ const normalizePillarContent = (pillar: ServicePillar): ServicePillar => {
     ]
   ).slice(0, 16);
 
-  const processSteps = ((override.processSteps as ServicePillar['processSteps']) || pillar.processSteps).slice(0, 5);
+  const processSteps = (
+    (override.processSteps as ServicePillar['processSteps']) || pillar.processSteps
+  ).slice(0, 5);
 
   const pricingFactors = ensureCount(
     (override.pricingFactors as string[]) || pillar.pricingFactors,
@@ -3100,16 +3475,22 @@ const normalizePillarContent = (pillar: ServicePillar): ServicePillar => {
   ).slice(0, 10);
 
   const faqSeed = [
-    ...(((override.faqs as ServicePillar['faqs']) || pillar.faqs) || []),
+    ...((override.faqs as ServicePillar['faqs']) || pillar.faqs || []),
     ...DEFAULT_FAQ_ENTRIES(pillar.name),
   ];
   const faqs = faqSeed
-    .filter((faq, i, arr) => faq?.question && arr.findIndex((f) => f.question === faq.question) === i)
+    .filter(
+      (faq, i, arr) => faq?.question && arr.findIndex((f) => f.question === faq.question) === i
+    )
     .slice(0, 14);
 
-  const relatedServiceSlugs = (((override.relatedServiceSlugs as string[]) || pillar.relatedServiceSlugs || pillar.relatedServices)
+  const relatedServiceSlugs = (
+    (override.relatedServiceSlugs as string[]) ||
+    pillar.relatedServiceSlugs ||
+    pillar.relatedServices
+  )
     .filter(Boolean)
-    .slice(0, 4));
+    .slice(0, 4);
 
   const normalized: ServicePillar = {
     ...pillar,
@@ -3119,7 +3500,8 @@ const normalizePillarContent = (pillar: ServicePillar): ServicePillar => {
     processSteps: processSteps.length >= 4 ? processSteps : pillar.processSteps,
     pricingFactors,
     faqs: faqs.length >= 10 ? faqs : [...faqs, ...DEFAULT_FAQ_ENTRIES(pillar.name)].slice(0, 10),
-    relatedServiceSlugs: relatedServiceSlugs.length >= 2 ? relatedServiceSlugs : pillar.relatedServices.slice(0, 2),
+    relatedServiceSlugs:
+      relatedServiceSlugs.length >= 2 ? relatedServiceSlugs : pillar.relatedServices.slice(0, 2),
     relatedServices: relatedServiceSlugs.length >= 2 ? relatedServiceSlugs : pillar.relatedServices,
   };
 
@@ -3134,118 +3516,462 @@ export const servicePillars: ServicePillar[] = baseServicePillars.map(normalizeP
 
 export const extendedServices: ExtendedService[] = [
   // --- Service Calls & Troubleshooting ---
-  { name: 'Emergency electrical services', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
-  { name: 'Electrical troubleshooting and repairs', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
-  { name: 'Power outage restoration', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
-  { name: 'Residential electrical installations', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
-  { name: 'Residential electrical services', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
-  { name: 'Emergency electrical response services', category: 'residential', relatedPillarSlug: 'service-calls-troubleshooting' },
+  {
+    name: 'Emergency electrical services',
+    category: 'residential',
+    relatedPillarSlug: 'service-calls-troubleshooting',
+  },
+  {
+    name: 'Electrical troubleshooting and repairs',
+    category: 'residential',
+    relatedPillarSlug: 'service-calls-troubleshooting',
+  },
+  {
+    name: 'Power outage restoration',
+    category: 'residential',
+    relatedPillarSlug: 'service-calls-troubleshooting',
+  },
+  {
+    name: 'Residential electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'service-calls-troubleshooting',
+  },
+  {
+    name: 'Residential electrical services',
+    category: 'residential',
+    relatedPillarSlug: 'service-calls-troubleshooting',
+  },
+  {
+    name: 'Emergency electrical response services',
+    category: 'residential',
+    relatedPillarSlug: 'service-calls-troubleshooting',
+  },
 
   // --- Electrical Panel Upgrades ---
-  { name: 'Main electrical panel upgrades', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Main electrical panel replacements', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Sub-panel installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Sub-panel replacements', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Main service switchgear planning', category: 'commercial', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Multi-unit meter planning and design', category: 'commercial', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Electrical systems infrastructure upgrades', category: 'commercial', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Circuit breaker installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Circuit breaker replacements', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Whole-home surge protection installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Electrical grounding system installations', category: 'residential', relatedPillarSlug: 'electrical-panel-upgrades' },
-  { name: 'Electrical load calculations', category: 'compliance', relatedPillarSlug: 'electrical-panel-upgrades' },
+  {
+    name: 'Main electrical panel upgrades',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Main electrical panel replacements',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Sub-panel installations',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Sub-panel replacements',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Main service switchgear planning',
+    category: 'commercial',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Multi-unit meter planning and design',
+    category: 'commercial',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Electrical systems infrastructure upgrades',
+    category: 'commercial',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Circuit breaker installations',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Circuit breaker replacements',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Whole-home surge protection installations',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Electrical grounding system installations',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
+  {
+    name: 'Electrical load calculations',
+    category: 'compliance',
+    relatedPillarSlug: 'electrical-panel-upgrades',
+  },
 
   // --- EV Charger Installation ---
-  { name: 'Electric vehicle (EV) charger installations', category: 'ev', relatedPillarSlug: 'ev-charger-installation' },
+  {
+    name: 'Electric vehicle (EV) charger installations',
+    category: 'ev',
+    relatedPillarSlug: 'ev-charger-installation',
+  },
 
   // --- Recessed Lighting Installation ---
-  { name: 'Recessed lighting installations', category: 'residential', relatedPillarSlug: 'recessed-lighting-installation' },
-  { name: 'Under-cabinet lighting installations', category: 'residential', relatedPillarSlug: 'recessed-lighting-installation' },
-  { name: 'Accent lighting installations', category: 'residential', relatedPillarSlug: 'recessed-lighting-installation' },
+  {
+    name: 'Recessed lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'recessed-lighting-installation',
+  },
+  {
+    name: 'Under-cabinet lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'recessed-lighting-installation',
+  },
+  {
+    name: 'Accent lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'recessed-lighting-installation',
+  },
 
   // --- Light Fixture Installation ---
-  { name: 'Electrical fixture installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Lighting system design and installation', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'LED lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'LED lighting retrofits', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Commercial lighting installations', category: 'commercial', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Parking lot lighting installations', category: 'commercial', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Chandelier installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Decorative lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Track lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Security lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Low-voltage lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'High-reach lighting installations', category: 'commercial', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Mood lighting installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Smart lighting control installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Energy-efficient lighting upgrades', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Lighting fixture replacements', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
-  { name: 'Home automation system installations', category: 'residential', relatedPillarSlug: 'light-fixture-installation' },
+  {
+    name: 'Electrical fixture installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Lighting system design and installation',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'LED lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'LED lighting retrofits',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Commercial lighting installations',
+    category: 'commercial',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Parking lot lighting installations',
+    category: 'commercial',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Chandelier installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Decorative lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Track lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Security lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Low-voltage lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'High-reach lighting installations',
+    category: 'commercial',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Mood lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Smart lighting control installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Energy-efficient lighting upgrades',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Lighting fixture replacements',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
+  {
+    name: 'Home automation system installations',
+    category: 'residential',
+    relatedPillarSlug: 'light-fixture-installation',
+  },
 
   // --- Ceiling Fan Installation ---
-  { name: 'Ceiling fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
-  { name: 'Ceiling fan lighting installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
-  { name: 'Exhaust fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
-  { name: 'Attic fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
-  { name: 'Whole house fan installations', category: 'residential', relatedPillarSlug: 'ceiling-fan-installation' },
+  {
+    name: 'Ceiling fan installations',
+    category: 'residential',
+    relatedPillarSlug: 'ceiling-fan-installation',
+  },
+  {
+    name: 'Ceiling fan lighting installations',
+    category: 'residential',
+    relatedPillarSlug: 'ceiling-fan-installation',
+  },
+  {
+    name: 'Exhaust fan installations',
+    category: 'residential',
+    relatedPillarSlug: 'ceiling-fan-installation',
+  },
+  {
+    name: 'Attic fan installations',
+    category: 'residential',
+    relatedPillarSlug: 'ceiling-fan-installation',
+  },
+  {
+    name: 'Whole house fan installations',
+    category: 'residential',
+    relatedPillarSlug: 'ceiling-fan-installation',
+  },
 
   // --- Spa, Jacuzzi & Sauna Electrical ---
-  { name: 'Hot tub electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
-  { name: 'Sauna electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
-  { name: 'Ice bath electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
-  { name: 'Pool and spa electrical wiring', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
-  { name: 'Outdoor living space electrical installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
-  { name: 'Infratech heater installations', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
-  { name: 'Pergola electrical wiring', category: 'residential', relatedPillarSlug: 'spa-jacuzzi-sauna-electrical' },
+  {
+    name: 'Hot tub electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
+  {
+    name: 'Sauna electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
+  {
+    name: 'Ice bath electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
+  {
+    name: 'Pool and spa electrical wiring',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
+  {
+    name: 'Outdoor living space electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
+  {
+    name: 'Infratech heater installations',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
+  {
+    name: 'Pergola electrical wiring',
+    category: 'residential',
+    relatedPillarSlug: 'spa-jacuzzi-sauna-electrical',
+  },
 
   // --- Outlet, Switch, Dimmer & GFCI Repairs ---
-  { name: 'Electrical outlet installations', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
-  { name: 'GFCI outlet installations', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
-  { name: 'AFCI outlet installations', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
-  { name: 'Bathroom electrical upgrades', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
-  { name: 'Electrical outlet relocation', category: 'residential', relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs' },
+  {
+    name: 'Electrical outlet installations',
+    category: 'residential',
+    relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs',
+  },
+  {
+    name: 'GFCI outlet installations',
+    category: 'residential',
+    relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs',
+  },
+  {
+    name: 'AFCI outlet installations',
+    category: 'residential',
+    relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs',
+  },
+  {
+    name: 'Bathroom electrical upgrades',
+    category: 'residential',
+    relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs',
+  },
+  {
+    name: 'Electrical outlet relocation',
+    category: 'residential',
+    relatedPillarSlug: 'outlet-switch-dimmer-gfci-repairs',
+  },
 
   // --- Dedicated Circuits ---
-  { name: 'Generator installations', category: 'residential', relatedPillarSlug: 'dedicated-circuits' },
-  { name: 'Home theater electrical installations', category: 'residential', relatedPillarSlug: 'dedicated-circuits' },
-  { name: 'Kitchen appliance electrical installations', category: 'residential', relatedPillarSlug: 'dedicated-circuits' },
-  { name: 'Commercial kitchen hood system installations', category: 'commercial', relatedPillarSlug: 'dedicated-circuits' },
-  { name: 'Voice and data cabling installations', category: 'commercial', relatedPillarSlug: 'dedicated-circuits' },
+  {
+    name: 'Generator installations',
+    category: 'residential',
+    relatedPillarSlug: 'dedicated-circuits',
+  },
+  {
+    name: 'Home theater electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'dedicated-circuits',
+  },
+  {
+    name: 'Kitchen appliance electrical installations',
+    category: 'residential',
+    relatedPillarSlug: 'dedicated-circuits',
+  },
+  {
+    name: 'Commercial kitchen hood system installations',
+    category: 'commercial',
+    relatedPillarSlug: 'dedicated-circuits',
+  },
+  {
+    name: 'Voice and data cabling installations',
+    category: 'commercial',
+    relatedPillarSlug: 'dedicated-circuits',
+  },
 
   // --- Remodel & Rewiring (incl. ADU) ---
-  { name: 'New electrical wiring installations', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'Electrical rewiring', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'Complete electrical wiring for new constructions', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'Electrical rewiring for existing structures', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'Electrical engineering and design', category: 'commercial', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'Electrical remodeling services', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'New construction electrical services', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
-  { name: 'Accessory Dwelling Unit (ADU) electrical services', category: 'residential', relatedPillarSlug: 'remodel-rewiring-adu' },
+  {
+    name: 'New electrical wiring installations',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'Electrical rewiring',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'Complete electrical wiring for new constructions',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'Electrical rewiring for existing structures',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'Electrical engineering and design',
+    category: 'commercial',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'Electrical remodeling services',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'New construction electrical services',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
+  {
+    name: 'Accessory Dwelling Unit (ADU) electrical services',
+    category: 'residential',
+    relatedPillarSlug: 'remodel-rewiring-adu',
+  },
 
   // --- Commercial Tenant Improvement ---
-  { name: 'Tenant improvement electrical services', category: 'commercial', relatedPillarSlug: 'commercial-tenant-improvement' },
-  { name: '3-phase commercial equipment electrical hookups', category: 'commercial', relatedPillarSlug: 'commercial-tenant-improvement' },
-  { name: 'Commercial electrical services', category: 'commercial', relatedPillarSlug: 'commercial-tenant-improvement' },
+  {
+    name: 'Tenant improvement electrical services',
+    category: 'commercial',
+    relatedPillarSlug: 'commercial-tenant-improvement',
+  },
+  {
+    name: '3-phase commercial equipment electrical hookups',
+    category: 'commercial',
+    relatedPillarSlug: 'commercial-tenant-improvement',
+  },
+  {
+    name: 'Commercial electrical services',
+    category: 'commercial',
+    relatedPillarSlug: 'commercial-tenant-improvement',
+  },
 
   // --- Commercial Electrical Maintenance ---
-  { name: 'Preventative electrical maintenance programs', category: 'commercial', relatedPillarSlug: 'commercial-electrical-maintenance' },
-  { name: 'Multi-family property electrical maintenance', category: 'hoa', relatedPillarSlug: 'commercial-electrical-maintenance' },
-  { name: 'Property management electrical services', category: 'hoa', relatedPillarSlug: 'commercial-electrical-maintenance' },
-  { name: 'Energy efficiency optimization services', category: 'compliance', relatedPillarSlug: 'commercial-electrical-maintenance' },
+  {
+    name: 'Preventative electrical maintenance programs',
+    category: 'commercial',
+    relatedPillarSlug: 'commercial-electrical-maintenance',
+  },
+  {
+    name: 'Multi-family property electrical maintenance',
+    category: 'hoa',
+    relatedPillarSlug: 'commercial-electrical-maintenance',
+  },
+  {
+    name: 'Property management electrical services',
+    category: 'hoa',
+    relatedPillarSlug: 'commercial-electrical-maintenance',
+  },
+  {
+    name: 'Energy efficiency optimization services',
+    category: 'compliance',
+    relatedPillarSlug: 'commercial-electrical-maintenance',
+  },
 
   // --- Light Industrial Electrical ---
-  { name: 'Electrical control system installations', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
-  { name: 'Specialty electrical projects', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
-  { name: 'Industrial electrical services', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
-  { name: 'Temporary power installations', category: 'industrial', relatedPillarSlug: 'light-industrial-electrical' },
+  {
+    name: 'Electrical control system installations',
+    category: 'industrial',
+    relatedPillarSlug: 'light-industrial-electrical',
+  },
+  {
+    name: 'Specialty electrical projects',
+    category: 'industrial',
+    relatedPillarSlug: 'light-industrial-electrical',
+  },
+  {
+    name: 'Industrial electrical services',
+    category: 'industrial',
+    relatedPillarSlug: 'light-industrial-electrical',
+  },
+  {
+    name: 'Temporary power installations',
+    category: 'industrial',
+    relatedPillarSlug: 'light-industrial-electrical',
+  },
 
   // --- Electrical Safety Inspections ---
-  { name: 'Electrical permitting and inspections', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
-  { name: 'Title 24 energy compliance controls', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
-  { name: 'Electrical code compliance audits', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
-  { name: 'Electrical safety inspections', category: 'compliance', relatedPillarSlug: 'electrical-safety-inspections' },
-  { name: 'Smoke detector installations', category: 'residential', relatedPillarSlug: 'electrical-safety-inspections' },
-  { name: 'Carbon monoxide detector installations', category: 'residential', relatedPillarSlug: 'electrical-safety-inspections' },
+  {
+    name: 'Electrical permitting and inspections',
+    category: 'compliance',
+    relatedPillarSlug: 'electrical-safety-inspections',
+  },
+  {
+    name: 'Title 24 energy compliance controls',
+    category: 'compliance',
+    relatedPillarSlug: 'electrical-safety-inspections',
+  },
+  {
+    name: 'Electrical code compliance audits',
+    category: 'compliance',
+    relatedPillarSlug: 'electrical-safety-inspections',
+  },
+  {
+    name: 'Electrical safety inspections',
+    category: 'compliance',
+    relatedPillarSlug: 'electrical-safety-inspections',
+  },
+  {
+    name: 'Smoke detector installations',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-safety-inspections',
+  },
+  {
+    name: 'Carbon monoxide detector installations',
+    category: 'residential',
+    relatedPillarSlug: 'electrical-safety-inspections',
+  },
 ];
 
 // ============================================================
@@ -3254,11 +3980,8 @@ export const extendedServices: ExtendedService[] = [
 
 /** Get published pillars (respects Wave 2 flag) */
 export function getPublishedPillars(): ServicePillar[] {
-  return servicePillars.filter(
-    (p) => p.publish || (p.tier === 'wave2' && flags.publish_wave2)
-  );
+  return servicePillars.filter((p) => p.publish || (p.tier === 'wave2' && flags.publish_wave2));
 }
-
 
 /** Get the residential priority pillars for sub-neighborhood city pages.
  * Sub-neighborhoods show 8 residential pillars — no commercial services.
