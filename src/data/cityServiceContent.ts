@@ -3525,6 +3525,192 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-ceiling-fan-installation': {
+    introBullets: [
+      'La Costa homes across all construction eras benefit from ceiling fan installation -- proper junction boxes rated for fan weight and motor vibration are required.',
+      'Smart ceiling fans with app control are increasingly popular in La Costa master-planned communities.',
+      'One-year labor warranty on all ceiling fan installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture or fan removal',
+      'Junction box assessment and fan-rated box installation if required',
+      'Ceiling fan mounting, blade attachment, and wiring',
+      'Wall control or remote receiver installation',
+      'Function test at all speeds before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Junction box evaluated for fan-rated support before installation.' },
+      { step: 2, title: 'Box Upgrade', description: 'Fan-rated box installed if existing box is not rated for fan weight and vibration.' },
+      { step: 3, title: 'Fan Installation', description: 'Fan mounted, wired, and control installed.' },
+      { step: 4, title: 'Testing', description: 'All speeds tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Fan-rated box installation required',
+      'Number of fans',
+    ],
+    faqs: [
+      { question: 'Can I install a ceiling fan where a light fixture currently is in my La Costa home?', answer: 'Yes, but the existing junction box must be fan-rated. We assess and upgrade the box as part of every ceiling fan installation.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-ceiling-fan-installation': {
+    introBullets: [
+      'Older Olde Carlsbad homes rarely have fan-rated junction boxes at original fixture locations -- box replacement is almost always required.',
+      'Salt air affects exterior fan installations on covered patios in coastal Olde Carlsbad -- we use appropriate materials.',
+      'One-year labor warranty on all ceiling fan installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture or fan removal',
+      'Junction box assessment and fan-rated box installation if required',
+      'Ceiling fan mounting, blade attachment, and wiring',
+      'Wall control or remote receiver installation',
+      'Function test at all speeds before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Junction box evaluated for fan-rated support before installation.' },
+      { step: 2, title: 'Box Upgrade', description: 'Fan-rated box installed if existing box is not rated for fan weight and vibration.' },
+      { step: 3, title: 'Fan Installation', description: 'Fan mounted, wired, and control installed.' },
+      { step: 4, title: 'Testing', description: 'All speeds tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Fan-rated box installation required',
+      'Number of fans',
+    ],
+    faqs: [
+      { question: 'Do all ceiling fan installations in Olde Carlsbad require a new junction box?', answer: 'In most cases yes. Original fixture boxes from the 1960s through 1980s are not fan-rated. We install a fan-rated brace box as standard on every ceiling fan installation in this neighborhood.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-ceiling-fan-installation': {
+    introBullets: [
+      'Bressi Ranch homes have modern wiring and often have fan-ready junction boxes -- ceiling fan installations are typically efficient.',
+      'Smart ceiling fans with Alexa and Google Home control are popular in Bressi Ranch.',
+      'One-year labor warranty on all ceiling fan installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture or fan removal',
+      'Junction box assessment and fan-rated box installation if required',
+      'Ceiling fan mounting, blade attachment, and wiring',
+      'Wall control or remote receiver installation',
+      'Function test at all speeds before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Junction box evaluated for fan-rated support before installation.' },
+      { step: 2, title: 'Box Upgrade', description: 'Fan-rated box installed if existing box is not rated for fan weight and vibration.' },
+      { step: 3, title: 'Fan Installation', description: 'Fan mounted, wired, and control installed.' },
+      { step: 4, title: 'Testing', description: 'All speeds tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Fan-rated box installation required',
+      'Number of fans',
+    ],
+    faqs: [
+      { question: 'Can you install a smart ceiling fan that works with my Bressi Ranch home automation system?', answer: 'Yes. We install smart ceiling fans compatible with Alexa, Google Home, Apple HomeKit, and most major platforms. We commission the fan and verify it operates correctly with your existing system.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-ceiling-fan-installation': {
+    introBullets: [
+      'Olivenhain custom homes frequently have vaulted and angled ceilings requiring specific fan mounting hardware.',
+      'Large covered patio and outdoor living areas on Olivenhain properties often benefit from multiple outdoor ceiling fans.',
+      'One-year labor warranty on all ceiling fan installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture or fan removal',
+      'Junction box assessment and fan-rated box installation if required',
+      'Ceiling fan mounting, blade attachment, and wiring',
+      'Wall control or remote receiver installation',
+      'Function test at all speeds before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Junction box evaluated for fan-rated support before installation.' },
+      { step: 2, title: 'Box Upgrade', description: 'Fan-rated box installed if existing box is not rated for fan weight and vibration.' },
+      { step: 3, title: 'Fan Installation', description: 'Fan mounted, wired, and control installed.' },
+      { step: 4, title: 'Testing', description: 'All speeds tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Fan-rated box installation required',
+      'Number of fans',
+    ],
+    faqs: [
+      { question: 'My Olivenhain home has vaulted ceilings. What type of ceiling fan mount do I need?', answer: 'Vaulted ceilings require an angled mount adapter that allows the fan motor to hang vertically from the angled ceiling. We select the correct adapter for your specific ceiling pitch.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'The Ranch'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-ceiling-fan-installation': {
+    introBullets: [
+      'Aviara luxury homes have high standards for ceiling fan installation -- proper mounting on vaulted and high ceilings and clean wiring are expected.',
+      'Smart fan integration with whole-home automation is a common scope in Aviara.',
+      'One-year labor warranty on all ceiling fan installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture or fan removal',
+      'Junction box assessment and fan-rated box installation if required',
+      'Ceiling fan mounting, blade attachment, and wiring',
+      'Wall control or remote receiver installation',
+      'Function test at all speeds before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Junction box evaluated for fan-rated support before installation.' },
+      { step: 2, title: 'Box Upgrade', description: 'Fan-rated box installed if existing box is not rated for fan weight and vibration.' },
+      { step: 3, title: 'Fan Installation', description: 'Fan mounted, wired, and control installed.' },
+      { step: 4, title: 'Testing', description: 'All speeds tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Fan-rated box installation required',
+      'Number of fans',
+    ],
+    faqs: [
+      { question: 'Can you install ceiling fans in my Aviara home that match the existing high-end finishes?', answer: 'Yes. We ensure the installation matches the finish quality of your home -- clean mounting, no visible wire, proper trim, and correct blade pitch.' },
+    ],
+    neighborhoodMentions: ['Aviara proper'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-ceiling-fan-installation': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era typically need fan-rated junction box installation -- original fixture boxes are not fan-rated.',
+      'Ceiling fan installation is one of the most popular comfort upgrades in Calavera Hills where summers are warmer than coastal areas.',
+      'One-year labor warranty on all ceiling fan installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture or fan removal',
+      'Junction box assessment and fan-rated box installation if required',
+      'Ceiling fan mounting, blade attachment, and wiring',
+      'Wall control or remote receiver installation',
+      'Function test at all speeds before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Junction box evaluated for fan-rated support before installation.' },
+      { step: 2, title: 'Box Upgrade', description: 'Fan-rated box installed if existing box is not rated for fan weight and vibration.' },
+      { step: 3, title: 'Fan Installation', description: 'Fan mounted, wired, and control installed.' },
+      { step: 4, title: 'Testing', description: 'All speeds tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Fan-rated box installation required',
+      'Number of fans',
+    ],
+    faqs: [
+      { question: 'How long does ceiling fan installation take in a Calavera Hills home?', answer: 'A single ceiling fan replacement is typically completed in one to two hours. Multiple fans in the same visit are handled efficiently.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
