@@ -4329,6 +4329,192 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-electrical-safety-inspections': {
+    introBullets: [
+      'La Costa home purchases, pre-sale inspections, and proactive safety reviews are common reasons homeowners request electrical safety inspections.',
+      'We provide written inspection reports with findings, code compliance gaps, and prioritized recommendations.',
+      'One-year labor warranty on any corrective work following the inspection.',
+    ],
+    includedItems: [
+      'Full panel inspection -- breaker sizing, labeling, condition, and capacity',
+      'Visible wiring inspection in accessible areas',
+      'GFCI and AFCI protection verification throughout the home',
+      'Outlet and switch testing and grounding verification',
+      'Exterior electrical inspection including service entrance',
+      'Written report with findings, code gaps, and prioritized recommendations',
+      'One-year labor warranty on any corrective work',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Inspection', description: 'Systematic inspection of panel, wiring, devices, and exterior electrical.' },
+      { step: 2, title: 'Written Report', description: 'Detailed report with findings, code gaps, and recommendations prioritized by safety impact.' },
+      { step: 3, title: 'Corrective Work', description: 'Identified repairs quoted and completed with your approval.' },
+    ],
+    pricingFactors: [
+      'Home size and number of panels',
+      'Whether corrective work is included',
+    ],
+    faqs: [
+      { question: 'We are buying a home in La Costa. Should we get an electrical inspection?', answer: 'Yes. A licensed electrician inspection goes beyond what a general home inspector covers -- we test devices, evaluate panel condition and capacity, check GFCI and AFCI coverage, and identify code compliance gaps.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks', 'La Costa Greens'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-electrical-safety-inspections': {
+    introBullets: [
+      'Olde Carlsbad homes from the 1950s through 1980s have a higher rate of electrical safety concerns -- panel age, aluminum wiring, missing GFCI protection, and degraded insulation are common findings.',
+      'Pre-purchase electrical inspections in Olde Carlsbad frequently reveal issues that affect sale negotiations.',
+      'We provide detailed written reports appropriate for real estate transactions.',
+    ],
+    includedItems: [
+      'Full panel inspection -- breaker sizing, labeling, condition, and capacity',
+      'Visible wiring inspection in accessible areas',
+      'GFCI and AFCI protection verification throughout the home',
+      'Outlet and switch testing and grounding verification',
+      'Exterior electrical inspection including service entrance',
+      'Written report with findings, code gaps, and prioritized recommendations',
+      'One-year labor warranty on any corrective work',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Inspection', description: 'Systematic inspection of panel, wiring, devices, and exterior electrical.' },
+      { step: 2, title: 'Written Report', description: 'Detailed report with findings, code gaps, and recommendations prioritized by safety impact.' },
+      { step: 3, title: 'Corrective Work', description: 'Identified repairs quoted and completed with your approval.' },
+    ],
+    pricingFactors: [
+      'Home size and number of panels',
+      'Whether corrective work is included',
+    ],
+    faqs: [
+      { question: 'I am buying an older home in Olde Carlsbad. What electrical issues should I be aware of?', answer: 'Pre-1980 Olde Carlsbad homes commonly have 100-amp panels undersized for modern loads, Federal Pacific or Zinsco panels with documented safety issues, aluminum branch wiring from the 1965-1973 era, missing GFCI protection, and two-prong ungrounded outlets. Our inspection identifies which of these apply.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-electrical-safety-inspections': {
+    introBullets: [
+      'Bressi Ranch homes are now 15-20 years old -- an electrical inspection before a major remodel or before listing for sale provides a clear picture of current condition.',
+      'Modern Bressi Ranch wiring is generally in good condition but AFCI protection gaps and GFCI coverage gaps are occasionally found.',
+      'One-year labor warranty on any corrective work following the inspection.',
+    ],
+    includedItems: [
+      'Full panel inspection -- breaker sizing, labeling, condition, and capacity',
+      'Visible wiring inspection in accessible areas',
+      'GFCI and AFCI protection verification throughout the home',
+      'Outlet and switch testing and grounding verification',
+      'Exterior electrical inspection including service entrance',
+      'Written report with findings, code gaps, and prioritized recommendations',
+      'One-year labor warranty on any corrective work',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Inspection', description: 'Systematic inspection of panel, wiring, devices, and exterior electrical.' },
+      { step: 2, title: 'Written Report', description: 'Detailed report with findings, code gaps, and recommendations prioritized by safety impact.' },
+      { step: 3, title: 'Corrective Work', description: 'Identified repairs quoted and completed with your approval.' },
+    ],
+    pricingFactors: [
+      'Home size and number of panels',
+      'Whether corrective work is included',
+    ],
+    faqs: [
+      { question: 'We are selling our Bressi Ranch home. Is a pre-listing electrical inspection worth doing?', answer: 'Yes. Identifying and addressing electrical issues before listing avoids delays during escrow. Bressi Ranch homes are generally in good condition but small issues are straightforward to address proactively.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-electrical-safety-inspections': {
+    introBullets: [
+      'Olivenhain rural properties benefit from comprehensive electrical inspections covering the main residence, outbuildings, well pump circuits, and agricultural electrical.',
+      'Older Olivenhain properties may have outdated panels and aging wiring across multiple structures.',
+      'One-year labor warranty on any corrective work following the inspection.',
+    ],
+    includedItems: [
+      'Full panel inspection -- breaker sizing, labeling, condition, and capacity',
+      'Visible wiring inspection in accessible areas',
+      'GFCI and AFCI protection verification throughout the home',
+      'Outlet and switch testing and grounding verification',
+      'Exterior electrical inspection including service entrance',
+      'Written report with findings, code gaps, and prioritized recommendations',
+      'One-year labor warranty on any corrective work',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Inspection', description: 'Systematic inspection of panel, wiring, devices, and exterior electrical.' },
+      { step: 2, title: 'Written Report', description: 'Detailed report with findings, code gaps, and recommendations prioritized by safety impact.' },
+      { step: 3, title: 'Corrective Work', description: 'Identified repairs quoted and completed with your approval.' },
+    ],
+    pricingFactors: [
+      'Home size and number of panels',
+      'Whether corrective work is included',
+    ],
+    faqs: [
+      { question: 'We are purchasing a rural property in Olivenhain. What should a thorough electrical inspection cover?', answer: 'A complete Olivenhain property inspection should cover the main residence panel and branch circuits, all outbuilding and barn electrical, the well pump circuit, any irrigation electrical, and exterior service entrance condition.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'The Ranch'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-electrical-safety-inspections': {
+    introBullets: [
+      'Aviara luxury homes have complex electrical systems -- a thorough inspection covers the main panel, all sub-panels, pool and spa circuits, outdoor living electrical, and the full home.',
+      'Pre-purchase inspections in Aviara protect buyers from undisclosed electrical issues in homes with significant electrical infrastructure.',
+      'One-year labor warranty on any corrective work following the inspection.',
+    ],
+    includedItems: [
+      'Full panel inspection -- breaker sizing, labeling, condition, and capacity',
+      'Visible wiring inspection in accessible areas',
+      'GFCI and AFCI protection verification throughout the home',
+      'Outlet and switch testing and grounding verification',
+      'Exterior electrical inspection including service entrance',
+      'Written report with findings, code gaps, and prioritized recommendations',
+      'One-year labor warranty on any corrective work',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Inspection', description: 'Systematic inspection of panel, wiring, devices, and exterior electrical.' },
+      { step: 2, title: 'Written Report', description: 'Detailed report with findings, code gaps, and recommendations prioritized by safety impact.' },
+      { step: 3, title: 'Corrective Work', description: 'Identified repairs quoted and completed with your approval.' },
+    ],
+    pricingFactors: [
+      'Home size and number of panels',
+      'Whether corrective work is included',
+    ],
+    faqs: [
+      { question: 'We are purchasing an Aviara home with a pool and spa. What does a thorough electrical inspection cover?', answer: 'A complete Aviara inspection covers the main panel and all sub-panels, pool and spa circuit compliance per NEC Article 680 including bonding verification and GFCI protection, outdoor living area electrical, and the full home branch circuits and devices.' },
+    ],
+    neighborhoodMentions: ['Aviara proper', 'Four Seasons Aviara area'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-electrical-safety-inspections': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era have a consistent set of electrical concerns -- panel age and capacity, GFCI coverage, and circuit condition.',
+      'Pre-purchase inspections regularly identify panel capacity issues and missing safety devices.',
+      'One-year labor warranty on any corrective work following the inspection.',
+    ],
+    includedItems: [
+      'Full panel inspection -- breaker sizing, labeling, condition, and capacity',
+      'Visible wiring inspection in accessible areas',
+      'GFCI and AFCI protection verification throughout the home',
+      'Outlet and switch testing and grounding verification',
+      'Exterior electrical inspection including service entrance',
+      'Written report with findings, code gaps, and prioritized recommendations',
+      'One-year labor warranty on any corrective work',
+    ],
+    processSteps: [
+      { step: 1, title: 'Full Inspection', description: 'Systematic inspection of panel, wiring, devices, and exterior electrical.' },
+      { step: 2, title: 'Written Report', description: 'Detailed report with findings, code gaps, and recommendations prioritized by safety impact.' },
+      { step: 3, title: 'Corrective Work', description: 'Identified repairs quoted and completed with your approval.' },
+    ],
+    pricingFactors: [
+      'Home size and number of panels',
+      'Whether corrective work is included',
+    ],
+    faqs: [
+      { question: 'What electrical issues are most common in Calavera Hills homes from the 1980s?', answer: 'The most common findings are 100-amp panels undersized for modern loads, missing GFCI protection in bathrooms and kitchens, aging breakers that trip below their rated amperage, and two-prong outlets in some rooms.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South', 'Lake Calavera area'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
