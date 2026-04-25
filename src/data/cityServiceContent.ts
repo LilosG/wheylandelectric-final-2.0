@@ -3152,6 +3152,200 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-recessed-lighting-installation': {
+    introBullets: [
+      'La Costa homes span construction eras from the 1970s through 2000s -- recessed lighting retrofits vary from straightforward LED replacements to more involved attic-access installations.',
+      'LED recessed lighting with compatible dimmers reduces energy use and improves light quality throughout La Costa homes.',
+      'We plan the layout before drilling -- fixture placement and dimmer location are confirmed with you first.',
+      'One-year labor warranty on all recessed lighting installation workmanship.',
+    ],
+    includedItems: [
+      'Layout planning with homeowner confirmation before installation',
+      'Ceiling access assessment -- attic, finished ceiling, or retrofit approach',
+      'Recessed housing installation and LED trim selection',
+      'Circuit wiring as appropriate to scope',
+      'Compatible dimmer installation and verification',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Layout Consultation', description: 'We walk the space with you and confirm the plan before any holes are made.' },
+      { step: 2, title: 'Ceiling and Circuit Assessment', description: 'Attic access, ceiling construction, and circuit capacity evaluated.' },
+      { step: 3, title: 'Installation', description: 'Fixtures installed, wiring completed, dimmers installed and tested.' },
+      { step: 4, title: 'Walkthrough', description: 'All fixtures tested at full and dimmed levels before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures and rooms involved',
+      'Ceiling construction and attic access conditions',
+      'Circuit additions required for the fixture count',
+    ],
+    faqs: [
+      { question: 'Can you add recessed lighting to existing rooms in my La Costa home without major ceiling damage?', answer: 'In most cases yes. Most La Costa homes have attic space that allows wiring without opening walls or ceilings extensively.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks', 'La Costa Greens'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-recessed-lighting-installation': {
+    introBullets: [
+      'Olde Carlsbad homes present more varied ceiling and attic conditions -- low-pitch roofs and limited attic access require an experienced approach.',
+      'Older wiring may need evaluation before adding new lighting circuits.',
+      'LED recessed lighting is a high-value upgrade in these older homes.',
+      'One-year labor warranty on all recessed lighting installation workmanship.',
+    ],
+    includedItems: [
+      'Layout planning and ceiling and attic access assessment',
+      'Panel capacity evaluation before adding new circuits',
+      'Recessed housing and LED trim installation',
+      'New circuit wiring or connection to existing circuits as appropriate',
+      'Compatible dimmer installation',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Consultation and Assessment', description: 'We walk the space, assess ceiling and attic conditions, and evaluate the panel before recommending a scope.' },
+      { step: 2, title: 'Layout Confirmation', description: 'Fixture placement confirmed before any holes are made.' },
+      { step: 3, title: 'Installation', description: 'Fixtures installed with methods appropriate for the ceiling construction.' },
+      { step: 4, title: 'Testing', description: 'All fixtures tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures and ceiling access conditions',
+      'Circuit additions required',
+    ],
+    faqs: [
+      { question: 'My Olde Carlsbad home has a low-pitch roof with limited attic access. Can I still get recessed lighting?', answer: 'Often yes. We assess the specific ceiling construction and identify the most practical routing approach for each home.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-recessed-lighting-installation': {
+    introBullets: [
+      'Bressi Ranch homes have good attic access and modern wiring -- recessed lighting installations are typically straightforward.',
+      'LED retrofit kits are ideal for Bressi Ranch homes that already have older recessed cans -- no new housing required.',
+      'Smart dimmer integration is popular in Bressi Ranch homes with existing smart home systems.',
+      'One-year labor warranty on all recessed lighting installation workmanship.',
+    ],
+    includedItems: [
+      'Layout planning and confirmation before installation',
+      'LED retrofit kit or new housing installation as appropriate',
+      'Circuit wiring and dimmer installation',
+      'Smart dimmer commissioning if applicable',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Layout Consultation', description: 'Fixture placement confirmed before work begins.' },
+      { step: 2, title: 'Installation', description: 'Clean efficient installation using Bressi Ranch attic access.' },
+      { step: 3, title: 'Dimmer Setup', description: 'Dimmers installed and tested including smart commissioning if applicable.' },
+      { step: 4, title: 'Walkthrough', description: 'All fixtures tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures',
+      'Retrofit kits vs new housings',
+      'Smart dimmer scope',
+    ],
+    faqs: [
+      { question: 'Can you upgrade my existing recessed lighting to LED in my Bressi Ranch home?', answer: 'Yes. LED retrofit kits drop into existing housings without replacing the can -- faster installation, no ceiling damage, and significantly better energy efficiency.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-recessed-lighting-installation': {
+    introBullets: [
+      'Olivenhain custom homes vary widely in ceiling construction -- vaulted ceilings, exposed beam ceilings, and standard framed ceilings all require different installation approaches.',
+      'Larger Olivenhain homes often benefit from zone lighting design with multiple circuits and independent dimmers.',
+      'City of Encinitas permits apply for new circuit additions in Olivenhain.',
+      'One-year labor warranty on all recessed lighting installation workmanship.',
+    ],
+    includedItems: [
+      'Ceiling construction assessment and layout planning',
+      'Recessed housing selection appropriate for ceiling type',
+      'New circuit additions as required',
+      'Zone dimmer installation',
+      'City of Encinitas permit coordination for circuit additions',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment and Layout', description: 'Ceiling construction assessed and fixture placement confirmed before installation.' },
+      { step: 2, title: 'Permit Coordination', description: 'City of Encinitas permits pulled for any new circuit additions.' },
+      { step: 3, title: 'Installation', description: 'Fixtures installed with methods appropriate for the specific ceiling type.' },
+      { step: 4, title: 'Testing', description: 'All zones tested at full and dimmed levels before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures and zones',
+      'Ceiling construction complexity',
+      'Circuit additions required',
+    ],
+    faqs: [
+      { question: 'My Olivenhain home has vaulted ceilings. Can you install recessed lighting?', answer: 'Yes. Vaulted and sloped ceilings require angled recessed housings. We assess the specific ceiling construction and select the appropriate fixtures before quoting.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'The Ranch'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-recessed-lighting-installation': {
+    introBullets: [
+      'Aviara luxury homes often have complex lighting designs with multiple zones and integrated dimming systems.',
+      'Lutron RadioRA and similar whole-home dimming systems are common in Aviara -- new recessed lighting must integrate correctly with the existing system.',
+      'Aviara properties have high finish standards -- clean installation with minimal ceiling disturbance is expected.',
+      'One-year labor warranty on all recessed lighting installation workmanship.',
+    ],
+    includedItems: [
+      'Detailed layout planning and homeowner confirmation',
+      'Integration assessment with existing dimming systems',
+      'Recessed housing and trim selection matched to existing fixtures',
+      'New circuit additions as required',
+      'Smart dimmer integration and commissioning',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Design Consultation', description: 'Existing lighting systems assessed, fixture selection confirmed, routing planned to match Aviara finish standards.' },
+      { step: 2, title: 'System Integration Assessment', description: 'Compatibility with existing dimming and smart home systems verified before installation.' },
+      { step: 3, title: 'Installation', description: 'Professional installation with clean finishes appropriate to Aviara.' },
+      { step: 4, title: 'Commissioning', description: 'All zones tested and smart systems commissioned before handoff.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures and zones',
+      'Smart home system integration complexity',
+      'Circuit additions required',
+    ],
+    faqs: [
+      { question: 'Can you add recessed lighting that integrates with my existing Lutron system in Aviara?', answer: 'Yes. We are familiar with Lutron RadioRA and Caseta. New lighting additions are wired and programmed to integrate with your existing system and keypads.' },
+    ],
+    neighborhoodMentions: ['Aviara proper', 'Four Seasons Aviara area'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-recessed-lighting-installation': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era typically have good attic access -- recessed lighting installations are usually straightforward.',
+      'LED recessed lighting is a high-impact upgrade in Calavera Hills homes that frequently still have older fixtures.',
+      'One-year labor warranty on all recessed lighting installation workmanship.',
+    ],
+    includedItems: [
+      'Layout planning and attic access assessment',
+      'Panel capacity evaluation for new circuits',
+      'Recessed housing and LED trim installation',
+      'New circuit wiring as required',
+      'Dimmer installation and fixture compatibility verification',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Consultation', description: 'Layout confirmed, attic access assessed, panel capacity evaluated before installation.' },
+      { step: 2, title: 'Installation', description: 'Fixtures and circuits installed efficiently.' },
+      { step: 3, title: 'Dimmer Setup', description: 'Dimmers installed and tested.' },
+      { step: 4, title: 'Walkthrough', description: 'All fixtures tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures',
+      'Circuit additions required',
+    ],
+    faqs: [
+      { question: 'How many recessed lights do I need in a typical Calavera Hills living room?', answer: 'A general guide is one fixture per 20-25 square feet of floor area for general illumination. We recommend specific layouts during the consultation based on your actual space.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
