@@ -4125,6 +4125,210 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-remodel-rewiring-adu': {
+    introBullets: [
+      'La Costa homeowners undertaking kitchen and bathroom remodels and ADU builds need a licensed electrician familiar with City of Carlsbad permit requirements and HOA coordination.',
+      'La Costa ADU projects require sub-panel installation and separate meter coordination with SDG&E.',
+      'We work directly with general contractors on La Costa remodel projects.',
+      'One-year labor warranty on all remodel and ADU electrical workmanship.',
+    ],
+    includedItems: [
+      'Remodel rough-in for kitchens, bathrooms, and additions',
+      'Panel capacity evaluation and upgrade coordination if required',
+      'ADU sub-panel installation and SDG&E coordination if applicable',
+      'Circuit design and installation for new rooms and additions',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope Review', description: 'Plans reviewed with your GC and full electrical scope identified before quoting.' },
+      { step: 2, title: 'Permit Coordination', description: 'Electrical permit filed and coordinated with your overall project permit.' },
+      { step: 3, title: 'Rough-In', description: 'Electrical rough-in completed to meet inspection milestones.' },
+      { step: 4, title: 'Inspections and Trim', description: 'Rough-in inspection attended, trim completed, final inspection coordinated.' },
+    ],
+    pricingFactors: [
+      'Remodel scope and room count',
+      'Panel upgrade requirements',
+      'ADU sub-panel and metering scope if applicable',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'We are adding an ADU to our La Costa property. What electrical work does that involve?', answer: 'An ADU typically requires a dedicated sub-panel fed from the main panel, all branch circuits for the unit, a separate meter if required by SDG&E, and coordination with the City of Carlsbad for the electrical permit. We handle the full scope from sub-panel through final inspection.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'Rancho Carrillo', 'La Costa Oaks'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-remodel-rewiring-adu': {
+    introBullets: [
+      'Olde Carlsbad remodel projects in pre-1980 homes frequently uncover wiring conditions requiring remediation -- aluminum wiring, undersized circuits, and missing GFCI protection are common findings.',
+      'Full or partial rewiring is a common scope in Olde Carlsbad kitchen and bathroom remodels.',
+      'City of Carlsbad permits are required for all remodel electrical work.',
+      'One-year labor warranty on all remodel and ADU electrical workmanship.',
+    ],
+    includedItems: [
+      'Remodel rough-in for kitchens, bathrooms, and additions',
+      'Panel capacity evaluation and upgrade coordination if required',
+      'ADU sub-panel installation and SDG&E coordination if applicable',
+      'Circuit design and installation for new rooms and additions',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope Review', description: 'Plans reviewed with your GC and full electrical scope identified before quoting.' },
+      { step: 2, title: 'Permit Coordination', description: 'Electrical permit filed and coordinated with your overall project permit.' },
+      { step: 3, title: 'Rough-In', description: 'Electrical rough-in completed to meet inspection milestones.' },
+      { step: 4, title: 'Inspections and Trim', description: 'Rough-in inspection attended, trim completed, final inspection coordinated.' },
+    ],
+    pricingFactors: [
+      'Remodel scope and room count',
+      'Panel upgrade requirements',
+      'ADU sub-panel and metering scope if applicable',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'We are remodeling our Olde Carlsbad kitchen. What electrical work is typically involved?', answer: 'A kitchen remodel typically requires new dedicated circuits for major appliances, GFCI protection at all counter outlets, and updated lighting circuits. In older Olde Carlsbad homes partial rewiring of existing circuits is often addressed while walls are open.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area', 'Pine Avenue corridor'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-remodel-rewiring-adu': {
+    introBullets: [
+      'Bressi Ranch homes are now 15-20 years old -- kitchen and bathroom remodels are increasingly common as homeowners update these spaces.',
+      'ADU additions in Bressi Ranch require HOA architectural approval in addition to City of Carlsbad permits.',
+      'Modern Bressi Ranch wiring is in good condition -- remodel electrical typically focuses on new circuits and lighting.',
+      'One-year labor warranty on all remodel and ADU electrical workmanship.',
+    ],
+    includedItems: [
+      'Remodel rough-in for kitchens, bathrooms, and additions',
+      'Panel capacity evaluation and upgrade coordination if required',
+      'ADU sub-panel installation and SDG&E coordination if applicable',
+      'Circuit design and installation for new rooms and additions',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope Review', description: 'Plans reviewed with your GC and full electrical scope identified before quoting.' },
+      { step: 2, title: 'Permit Coordination', description: 'Electrical permit filed and coordinated with your overall project permit.' },
+      { step: 3, title: 'Rough-In', description: 'Electrical rough-in completed to meet inspection milestones.' },
+      { step: 4, title: 'Inspections and Trim', description: 'Rough-in inspection attended, trim completed, final inspection coordinated.' },
+    ],
+    pricingFactors: [
+      'Remodel scope and room count',
+      'Panel upgrade requirements',
+      'ADU sub-panel and metering scope if applicable',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'We want to add an ADU above our Bressi Ranch garage. What does that involve electrically?', answer: 'A garage ADU requires a sub-panel fed from the main panel, branch circuits for all rooms, a separate meter if required, and City of Carlsbad and HOA approvals. We coordinate the full electrical scope and all permit requirements.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-remodel-rewiring-adu': {
+    introBullets: [
+      'Olivenhain rural property remodels often involve more complex electrical scope -- outbuilding conversions, guest casita additions, and larger renovations require careful load planning.',
+      'ADU and guest casita additions may require sub-panel additions and SDG&E coordination for separate metering.',
+      'City of Encinitas permits required for all remodel electrical work in Olivenhain.',
+      'One-year labor warranty on all remodel and ADU electrical workmanship.',
+    ],
+    includedItems: [
+      'Remodel rough-in for kitchens, bathrooms, and additions',
+      'Panel capacity evaluation and upgrade coordination if required',
+      'ADU sub-panel installation and SDG&E coordination if applicable',
+      'Circuit design and installation for new rooms and additions',
+      'City of Encinitas permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope Review', description: 'Plans reviewed with your GC and full electrical scope identified before quoting.' },
+      { step: 2, title: 'Permit Coordination', description: 'Electrical permit filed and coordinated with your overall project permit.' },
+      { step: 3, title: 'Rough-In', description: 'Electrical rough-in completed to meet inspection milestones.' },
+      { step: 4, title: 'Inspections and Trim', description: 'Rough-in inspection attended, trim completed, final inspection coordinated.' },
+    ],
+    pricingFactors: [
+      'Remodel scope and room count',
+      'Panel upgrade requirements',
+      'ADU sub-panel and metering scope if applicable',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'We are converting a barn on our Olivenhain property to a guest unit. What electrical work is needed?', answer: 'A barn conversion to livable space requires a proper sub-panel or electrical service for the structure, branch circuits for all rooms including kitchen and bathroom circuits, GFCI protection, lighting, and a City of Encinitas building permit covering the full conversion scope.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'The Ranch', 'Rancho Cielo adjacent'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-remodel-rewiring-adu': {
+    introBullets: [
+      'Aviara luxury home remodels require an electrician who produces work that meets the finish standards of these properties.',
+      'Kitchen and bathroom remodels in Aviara frequently include smart lighting upgrades and high-end appliance circuits.',
+      'ADU additions require City of Carlsbad permits and HOA architectural approval.',
+      'One-year labor warranty on all remodel and ADU electrical workmanship.',
+    ],
+    includedItems: [
+      'Remodel rough-in for kitchens, bathrooms, and additions',
+      'Panel capacity evaluation and upgrade coordination if required',
+      'ADU sub-panel installation and SDG&E coordination if applicable',
+      'Circuit design and installation for new rooms and additions',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope Review', description: 'Plans reviewed with your GC and full electrical scope identified before quoting.' },
+      { step: 2, title: 'Permit Coordination', description: 'Electrical permit filed and coordinated with your overall project permit.' },
+      { step: 3, title: 'Rough-In', description: 'Electrical rough-in completed to meet inspection milestones.' },
+      { step: 4, title: 'Inspections and Trim', description: 'Rough-in inspection attended, trim completed, final inspection coordinated.' },
+    ],
+    pricingFactors: [
+      'Remodel scope and room count',
+      'Panel upgrade requirements',
+      'ADU sub-panel and metering scope if applicable',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'We are remodeling our Aviara kitchen with high-end appliances. What electrical is involved?', answer: 'A high-end kitchen remodel typically requires new dedicated circuits for each major appliance, a complete lighting redesign with recessed fixtures and dimming, under-cabinet lighting, and integration with your existing home automation system.' },
+    ],
+    neighborhoodMentions: ['Aviara proper'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-remodel-rewiring-adu': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era frequently benefit from partial rewiring during kitchen and bathroom remodels.',
+      'Panel upgrades are often combined with remodel projects in Calavera Hills to address both the renovation electrical and capacity needs in one permitted project.',
+      'City of Carlsbad permits required for all remodel electrical work.',
+      'One-year labor warranty on all remodel and ADU electrical workmanship.',
+    ],
+    includedItems: [
+      'Remodel rough-in for kitchens, bathrooms, and additions',
+      'Panel capacity evaluation and upgrade coordination if required',
+      'ADU sub-panel installation and SDG&E coordination if applicable',
+      'Circuit design and installation for new rooms and additions',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Scope Review', description: 'Plans reviewed with your GC and full electrical scope identified before quoting.' },
+      { step: 2, title: 'Permit Coordination', description: 'Electrical permit filed and coordinated with your overall project permit.' },
+      { step: 3, title: 'Rough-In', description: 'Electrical rough-in completed to meet inspection milestones.' },
+      { step: 4, title: 'Inspections and Trim', description: 'Rough-in inspection attended, trim completed, final inspection coordinated.' },
+    ],
+    pricingFactors: [
+      'Remodel scope and room count',
+      'Panel upgrade requirements',
+      'ADU sub-panel and metering scope if applicable',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'We are remodeling our 1988 Calavera Hills kitchen. Should we expect any rewiring?', answer: 'Likely yes for at least some circuits. Kitchen remodels in 1980s Calavera Hills homes frequently reveal circuits that do not meet current code -- missing GFCI protection, undersized circuits, or degraded wiring. We identify these with walls open and address them as part of the permitted scope.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
