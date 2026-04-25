@@ -3711,6 +3711,216 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-spa-jacuzzi-sauna-electrical': {
+    introBullets: [
+      'La Costa master-planned communities have a high concentration of homes with spas and hot tubs -- dedicated circuit installation and GFCI protection per NEC 680 is required.',
+      'HOA communities in La Costa require coordination for outdoor electrical additions including spa circuits.',
+      'City of Carlsbad permits are required for all spa and hot tub electrical installations.',
+      'One-year labor warranty on all spa and hot tub electrical workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity evaluation before circuit design',
+      'Dedicated 240V circuit with appropriate conductor sizing',
+      'GFCI protection per NEC Article 680',
+      'Weatherproof disconnect installation within sight of equipment',
+      'Equipment bonding per NEC requirements',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Panel Assessment', description: 'Panel capacity confirmed before circuit design.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed with the appropriate jurisdiction.' },
+      { step: 3, title: 'Installation', description: 'Circuit, GFCI protection, disconnect, and bonding installed to NEC 680 standards.' },
+      { step: 4, title: 'Inspection and Testing', description: 'Inspection attended and equipment tested before final closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit run length from panel to spa location',
+      'Equipment voltage and amperage requirements',
+      'Whether panel upgrade is required',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'Do I need a permit for a spa electrical installation in La Costa?', answer: 'Yes. All spa and hot tub electrical installations in La Costa require a City of Carlsbad permit. We handle the permit application, coordinate the inspection, and attend the final sign-off.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks', 'La Costa Greens'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-spa-jacuzzi-sauna-electrical': {
+    introBullets: [
+      'Older Olde Carlsbad homes adding a spa or hot tub frequently need panel evaluation first -- 100-amp panels may not support an additional 50-60 amp dedicated circuit.',
+      'Exterior electrical work in the coastal 92008 ZIP requires marine-grade materials and weatherproof enclosures.',
+      'City of Carlsbad permits are required for all spa and hot tub electrical.',
+      'One-year labor warranty on all spa and hot tub electrical workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity evaluation before circuit design',
+      'Dedicated 240V circuit with appropriate conductor sizing',
+      'GFCI protection per NEC Article 680',
+      'Weatherproof disconnect installation within sight of equipment',
+      'Equipment bonding per NEC requirements',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Panel Assessment', description: 'Panel capacity confirmed before circuit design.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed with the appropriate jurisdiction.' },
+      { step: 3, title: 'Installation', description: 'Circuit, GFCI protection, disconnect, and bonding installed to NEC 680 standards.' },
+      { step: 4, title: 'Inspection and Testing', description: 'Inspection attended and equipment tested before final closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit run length from panel to spa location',
+      'Equipment voltage and amperage requirements',
+      'Whether panel upgrade is required',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'My Olde Carlsbad home has a 100-amp panel. Can I still add a hot tub circuit?', answer: 'Possibly. We perform a load calculation during the assessment. If the panel has available capacity the circuit can be added directly. If not we quote the panel upgrade and hot tub circuit together.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-spa-jacuzzi-sauna-electrical': {
+    introBullets: [
+      'Bressi Ranch homes have modern 200-amp panels that typically support spa and hot tub circuits without an upgrade.',
+      'HOA architectural review is required for outdoor equipment additions in Bressi Ranch.',
+      'City of Carlsbad permits are required for all spa and hot tub electrical installations.',
+      'One-year labor warranty on all spa and hot tub electrical workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity evaluation before circuit design',
+      'Dedicated 240V circuit with appropriate conductor sizing',
+      'GFCI protection per NEC Article 680',
+      'Weatherproof disconnect installation within sight of equipment',
+      'Equipment bonding per NEC requirements',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Panel Assessment', description: 'Panel capacity confirmed before circuit design.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed with the appropriate jurisdiction.' },
+      { step: 3, title: 'Installation', description: 'Circuit, GFCI protection, disconnect, and bonding installed to NEC 680 standards.' },
+      { step: 4, title: 'Inspection and Testing', description: 'Inspection attended and equipment tested before final closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit run length from panel to spa location',
+      'Equipment voltage and amperage requirements',
+      'Whether panel upgrade is required',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'Does the Bressi Ranch HOA need to approve a hot tub installation?', answer: 'Yes. Outdoor equipment additions require HOA architectural review in Bressi Ranch. We provide the electrical documentation your HOA requires.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-spa-jacuzzi-sauna-electrical': {
+    introBullets: [
+      'Olivenhain properties with larger lots frequently have spas and outdoor hot tubs that require extended circuit runs from the main panel.',
+      'Rural property loads including well pumps must be factored into panel capacity calculations before adding spa circuits.',
+      'City of Encinitas permits are required for all spa and hot tub electrical in Olivenhain.',
+      'One-year labor warranty on all spa and hot tub electrical workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity evaluation before circuit design',
+      'Dedicated 240V circuit with appropriate conductor sizing',
+      'GFCI protection per NEC Article 680',
+      'Weatherproof disconnect installation within sight of equipment',
+      'Equipment bonding per NEC requirements',
+      'City of Encinitas permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Panel Assessment', description: 'Panel capacity confirmed before circuit design.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed with the appropriate jurisdiction.' },
+      { step: 3, title: 'Installation', description: 'Circuit, GFCI protection, disconnect, and bonding installed to NEC 680 standards.' },
+      { step: 4, title: 'Inspection and Testing', description: 'Inspection attended and equipment tested before final closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit run length from panel to spa location',
+      'Equipment voltage and amperage requirements',
+      'Whether panel upgrade is required',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'My Olivenhain spa is far from the main panel. Does that affect the cost?', answer: 'Yes. Longer circuit runs require larger conductor sizing to manage voltage drop which increases material cost. We calculate the run length during the site assessment and include it in the written proposal.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'The Ranch'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-spa-jacuzzi-sauna-electrical': {
+    introBullets: [
+      'Aviara luxury properties frequently have pools, spas, and sauna installations with complex multi-circuit electrical systems.',
+      'NEC Article 680 compliance for bonding, GFCI protection, and equipment connections is verified on every Aviara spa installation.',
+      'City of Carlsbad permits are required for all spa and hot tub electrical.',
+      'One-year labor warranty on all spa and hot tub electrical workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity evaluation before circuit design',
+      'Dedicated 240V circuit with appropriate conductor sizing',
+      'GFCI protection per NEC Article 680',
+      'Weatherproof disconnect installation within sight of equipment',
+      'Equipment bonding per NEC requirements',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Panel Assessment', description: 'Panel capacity confirmed before circuit design.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed with the appropriate jurisdiction.' },
+      { step: 3, title: 'Installation', description: 'Circuit, GFCI protection, disconnect, and bonding installed to NEC 680 standards.' },
+      { step: 4, title: 'Inspection and Testing', description: 'Inspection attended and equipment tested before final closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit run length from panel to spa location',
+      'Equipment voltage and amperage requirements',
+      'Whether panel upgrade is required',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'My Aviara property has an existing pool sub-panel. Should the spa circuit come from there?', answer: 'Often yes -- if the pool sub-panel has available capacity feeding the spa circuit from it is more efficient than running a new circuit from the main panel. We evaluate both options.' },
+    ],
+    neighborhoodMentions: ['Aviara proper', 'Four Seasons Aviara area'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-spa-jacuzzi-sauna-electrical': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era frequently need panel evaluation before adding a spa or hot tub circuit.',
+      'Combining a panel upgrade with spa circuit installation is common and efficient in Calavera Hills.',
+      'City of Carlsbad permits are required for all spa and hot tub electrical.',
+      'One-year labor warranty on all spa and hot tub electrical workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity evaluation before circuit design',
+      'Dedicated 240V circuit with appropriate conductor sizing',
+      'GFCI protection per NEC Article 680',
+      'Weatherproof disconnect installation within sight of equipment',
+      'Equipment bonding per NEC requirements',
+      'City of Carlsbad permit coordination',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Panel Assessment', description: 'Panel capacity confirmed before circuit design.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed with the appropriate jurisdiction.' },
+      { step: 3, title: 'Installation', description: 'Circuit, GFCI protection, disconnect, and bonding installed to NEC 680 standards.' },
+      { step: 4, title: 'Inspection and Testing', description: 'Inspection attended and equipment tested before final closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit run length from panel to spa location',
+      'Equipment voltage and amperage requirements',
+      'Whether panel upgrade is required',
+      'Permit fees',
+    ],
+    faqs: [
+      { question: 'Can I add a hot tub to my 1990s Calavera Hills home?', answer: 'In most cases yes. We perform a load calculation during the assessment. Many Calavera Hills homes with 150-amp or 200-amp panels have available capacity. For homes still at 100 amps a panel upgrade combined with the spa circuit is the right approach.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
