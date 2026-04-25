@@ -3921,6 +3921,210 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-dedicated-circuits': {
+    introBullets: [
+      'La Costa homeowners commonly add dedicated circuits for home offices, EV chargers, kitchen appliances, and workshop equipment.',
+      'Panel capacity is evaluated before any dedicated circuit addition.',
+      'City of Carlsbad permits handled end-to-end.',
+      'One-year labor warranty on all dedicated circuit workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity and available space evaluation',
+      'Dedicated circuit design with correct conductor and breaker sizing',
+      'Circuit installation from panel to device or outlet location',
+      'Outlet or connection point installation at the load location',
+      'City of Carlsbad permit coordination when required',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Panel capacity confirmed and circuit routing planned before quoting.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed for applicable scopes.' },
+      { step: 3, title: 'Installation', description: 'Circuit installed from panel to load location with correct wire sizing.' },
+      { step: 4, title: 'Testing', description: 'Circuit tested and load connection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit amperage and conductor size requirements',
+      'Run length and routing complexity',
+      'Whether panel upgrade is needed first',
+      'Permit fees for applicable scopes',
+    ],
+    faqs: [
+      { question: 'What appliances need a dedicated circuit in a La Costa home?', answer: 'Appliances that should have dedicated circuits include EV chargers, refrigerators, dishwashers, microwaves, washing machines, dryers, air conditioners, and any motor-driven equipment.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks', 'Rancho Carrillo'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-dedicated-circuits': {
+    introBullets: [
+      'Olde Carlsbad homes were wired for a fraction of modern electrical demand -- dedicated circuit additions are among the most common projects in this neighborhood.',
+      'Panel evaluation is critical before adding circuits -- 100-amp panels may need upgrading first.',
+      'City of Carlsbad permits are required for all new circuit installations.',
+      'One-year labor warranty on all dedicated circuit workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity and available space evaluation',
+      'Dedicated circuit design with correct conductor and breaker sizing',
+      'Circuit installation from panel to device or outlet location',
+      'Outlet or connection point installation at the load location',
+      'City of Carlsbad permit coordination when required',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Panel capacity confirmed and circuit routing planned before quoting.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed for applicable scopes.' },
+      { step: 3, title: 'Installation', description: 'Circuit installed from panel to load location with correct wire sizing.' },
+      { step: 4, title: 'Testing', description: 'Circuit tested and load connection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit amperage and conductor size requirements',
+      'Run length and routing complexity',
+      'Whether panel upgrade is needed first',
+      'Permit fees for applicable scopes',
+    ],
+    faqs: [
+      { question: 'My Olde Carlsbad home needs more circuits but has a 100-amp panel. What are my options?', answer: 'We assess the actual load and available panel capacity first. Some 100-amp panels have available capacity for targeted circuit additions. If the panel is at capacity we quote the panel upgrade and new circuits together as one permitted project.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area', 'Pine Avenue corridor'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-dedicated-circuits': {
+    introBullets: [
+      'Bressi Ranch homes have modern 200-amp panels with available capacity for most dedicated circuit additions.',
+      'Common requests include EV charger circuits, home office circuits, and garage workshop circuits.',
+      'City of Carlsbad permits handled by our team.',
+      'One-year labor warranty on all dedicated circuit workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity and available space evaluation',
+      'Dedicated circuit design with correct conductor and breaker sizing',
+      'Circuit installation from panel to device or outlet location',
+      'Outlet or connection point installation at the load location',
+      'City of Carlsbad permit coordination when required',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Panel capacity confirmed and circuit routing planned before quoting.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed for applicable scopes.' },
+      { step: 3, title: 'Installation', description: 'Circuit installed from panel to load location with correct wire sizing.' },
+      { step: 4, title: 'Testing', description: 'Circuit tested and load connection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit amperage and conductor size requirements',
+      'Run length and routing complexity',
+      'Whether panel upgrade is needed first',
+      'Permit fees for applicable scopes',
+    ],
+    faqs: [
+      { question: 'I work from home in Bressi Ranch and need a dedicated circuit for my home office. What does that involve?', answer: 'A dedicated home office circuit is a 20-amp circuit feeding a dedicated outlet for your office equipment. Most Bressi Ranch homes have panel capacity for this addition without any upgrade.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-dedicated-circuits': {
+    introBullets: [
+      'Olivenhain rural properties have unique dedicated circuit needs -- well pumps, irrigation systems, agricultural equipment, and outbuilding circuits require careful load planning.',
+      'Full property load calculation is required before adding circuits on properties with well pumps and agricultural loads.',
+      'City of Encinitas permits required for all circuit additions.',
+      'One-year labor warranty on all dedicated circuit workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity and available space evaluation',
+      'Dedicated circuit design with correct conductor and breaker sizing',
+      'Circuit installation from panel to device or outlet location',
+      'Outlet or connection point installation at the load location',
+      'City of Encinitas permit coordination when required',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Panel capacity confirmed and circuit routing planned before quoting.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed for applicable scopes.' },
+      { step: 3, title: 'Installation', description: 'Circuit installed from panel to load location with correct wire sizing.' },
+      { step: 4, title: 'Testing', description: 'Circuit tested and load connection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit amperage and conductor size requirements',
+      'Run length and routing complexity',
+      'Whether panel upgrade is needed first',
+      'Permit fees for applicable scopes',
+    ],
+    faqs: [
+      { question: 'I need electrical in a new outbuilding on my Olivenhain property. Is a sub-panel the right approach?', answer: 'For outbuildings requiring multiple circuits a sub-panel is almost always more practical than running individual circuits from the main panel. It provides local overcurrent protection and makes future additions straightforward.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper', 'The Ranch', 'Rancho Cielo adjacent'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-dedicated-circuits': {
+    introBullets: [
+      'Aviara luxury homes often have high electrical demand from multiple EV chargers, home theaters, outdoor kitchens, and pool equipment requiring multiple dedicated circuits.',
+      'Multi-sub-panel systems are common in Aviara -- new circuits may feed from the pool sub-panel or main panel.',
+      'City of Carlsbad permits handled by our team.',
+      'One-year labor warranty on all dedicated circuit workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity and available space evaluation',
+      'Dedicated circuit design with correct conductor and breaker sizing',
+      'Circuit installation from panel to device or outlet location',
+      'Outlet or connection point installation at the load location',
+      'City of Carlsbad permit coordination when required',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Panel capacity confirmed and circuit routing planned before quoting.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed for applicable scopes.' },
+      { step: 3, title: 'Installation', description: 'Circuit installed from panel to load location with correct wire sizing.' },
+      { step: 4, title: 'Testing', description: 'Circuit tested and load connection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit amperage and conductor size requirements',
+      'Run length and routing complexity',
+      'Whether panel upgrade is needed first',
+      'Permit fees for applicable scopes',
+    ],
+    faqs: [
+      { question: 'I want to add an outdoor kitchen circuit to my Aviara patio. What does that involve?', answer: 'An outdoor kitchen typically needs multiple dedicated circuits for the refrigerator, grill accessories, outlets, and built-in appliances. We assess the existing panel capacity and route circuits cleanly to the outdoor kitchen location.' },
+    ],
+    neighborhoodMentions: ['Aviara proper', 'Batiquitos Lagoon adjacent'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-dedicated-circuits': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era frequently need panel evaluation before adding circuits -- 100-amp panels are at capacity in many homes.',
+      'Combining dedicated circuit additions with a panel upgrade is common and cost-efficient in Calavera Hills.',
+      'City of Carlsbad permits required for all new circuit installations.',
+      'One-year labor warranty on all dedicated circuit workmanship.',
+    ],
+    includedItems: [
+      'Panel capacity and available space evaluation',
+      'Dedicated circuit design with correct conductor and breaker sizing',
+      'Circuit installation from panel to device or outlet location',
+      'Outlet or connection point installation at the load location',
+      'City of Carlsbad permit coordination when required',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Panel capacity confirmed and circuit routing planned before quoting.' },
+      { step: 2, title: 'Permit Filing', description: 'Permit filed for applicable scopes.' },
+      { step: 3, title: 'Installation', description: 'Circuit installed from panel to load location with correct wire sizing.' },
+      { step: 4, title: 'Testing', description: 'Circuit tested and load connection verified before closeout.' },
+    ],
+    pricingFactors: [
+      'Circuit amperage and conductor size requirements',
+      'Run length and routing complexity',
+      'Whether panel upgrade is needed first',
+      'Permit fees for applicable scopes',
+    ],
+    faqs: [
+      { question: 'I want to set up a workshop in my Calavera Hills garage. What circuits do I need?', answer: 'A basic workshop needs at minimum a 20-amp dedicated circuit for bench tools and a separate circuit for a compressor. If you plan to use a welder or large stationary tool a 240V dedicated circuit may be needed. We design the circuit plan around your actual tool list.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
