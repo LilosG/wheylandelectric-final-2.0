@@ -153,7 +153,7 @@ export interface ServicePillar {
   relatedServiceSlugs?: string[];
   serviceProofPoints?: string[];
   subtopics: string[];
-  localizedIntroSeedByCity: Record<string, string>;
+  localizedIntroSeedByCity?: Record<string, string>;
   /** Unique H1 tagline per city. Keyed by city slug. Wave 1 services only. */
   h1TaglineByCity?: Record<string, string>;
   /** Signs the customer needs this service — "When to Call" section. Wave 1 services only. */
