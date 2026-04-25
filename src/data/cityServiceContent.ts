@@ -3346,6 +3346,185 @@ const CITY_SERVICE_OVERRIDES: Partial<Record<string, Partial<CityServiceContent>
     zipCodes: ['92010'],
   },
 
+  'la-costa-light-fixture-installation': {
+    introBullets: [
+      'La Costa homes range from 1970s construction to newer master-planned builds -- fixture installation varies from straightforward swaps to more involved work on older wiring.',
+      'Chandelier and heavy fixture installations require junction boxes rated for fixture weight.',
+      'One-year labor warranty on all light fixture installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture removal',
+      'Junction box assessment and reinforcement for heavy fixtures',
+      'New fixture mounting, wiring, and secure installation',
+      'Compatibility check with existing dimmer or switch',
+      'Function test before project closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Existing junction box, wiring, and switch assessed for compatibility with the new fixture.' },
+      { step: 2, title: 'Installation', description: 'Old fixture removed, box reinforced if needed, new fixture installed and wired.' },
+      { step: 3, title: 'Testing', description: 'Fixture tested at full and dimmed output before closeout.' },
+    ],
+    pricingFactors: [
+      'Fixture size and weight requiring junction box work',
+      'Number of fixtures being replaced',
+    ],
+    faqs: [
+      { question: 'Can you install a heavy chandelier in my La Costa dining room?', answer: 'Yes. Heavy chandeliers require a junction box rated for their weight. We assess and install a fan-rated or fixture-rated brace if needed before mounting.' },
+    ],
+    neighborhoodMentions: ['La Costa Valley', 'La Costa Oaks'],
+    zipCodes: ['92009'],
+  },
+
+  'olde-carlsbad-light-fixture-installation': {
+    introBullets: [
+      'Older Olde Carlsbad homes frequently have original junction boxes not rated for modern fixtures and wiring that needs evaluation.',
+      'Salt air corrosion affects exterior fixture connections -- we use appropriate materials for all exterior work.',
+      'One-year labor warranty on all light fixture installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture removal',
+      'Junction box and wiring condition assessment',
+      'Box upgrade or reinforcement as needed',
+      'New fixture installation with salt-air-appropriate materials for exterior work',
+      'Function test before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Wiring and junction box evaluated before installation.' },
+      { step: 2, title: 'Installation', description: 'Box upgraded if needed, new fixture installed and wired correctly.' },
+      { step: 3, title: 'Testing', description: 'Fixture tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Junction box upgrade requirements',
+      'Exterior vs interior location materials',
+    ],
+    faqs: [
+      { question: 'My Olde Carlsbad exterior fixtures keep corroding. What should I do?', answer: 'Salt air accelerates corrosion on electrical contacts and fixture components. We install exterior fixtures with marine-grade gaskets, sealed junction boxes, and corrosion-resistant hardware.' },
+    ],
+    neighborhoodMentions: ['Barrio Carlsbad', 'Tamarack area'],
+    zipCodes: ['92008'],
+  },
+
+  'bressi-ranch-light-fixture-installation': {
+    introBullets: [
+      'Bressi Ranch homes have modern wiring and standard junction boxes -- fixture installations are typically clean and efficient.',
+      'Popular requests include dining room chandelier upgrades, kitchen pendant replacements, and outdoor fixture modernization.',
+      'One-year labor warranty on all light fixture installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture removal',
+      'Junction box assessment and reinforcement for heavy fixtures',
+      'New fixture installation and wiring',
+      'Dimmer and smart system compatibility verification',
+      'Function test before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Box and wiring checked for new fixture compatibility.' },
+      { step: 2, title: 'Installation', description: 'Old fixture removed, new fixture installed cleanly.' },
+      { step: 3, title: 'Testing', description: 'Tested before closeout including dimmer and smart system verification.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures',
+      'Junction box reinforcement scope',
+    ],
+    faqs: [
+      { question: 'Can you replace all the builder-grade fixtures in my Bressi Ranch home in one visit?', answer: 'Yes. Multi-fixture projects are common in Bressi Ranch. We bring the right materials for a full day of fixture replacements.' },
+    ],
+    neighborhoodMentions: ['Bressi Ranch North', 'Bressi Ranch South'],
+    zipCodes: ['92010'],
+  },
+
+  'olivenhain-light-fixture-installation': {
+    introBullets: [
+      'Olivenhain custom homes often have specialty ceiling fixtures, vaulted ceiling mounts, and outdoor fixtures on large lots.',
+      'Barn and outbuilding lighting fixtures are a regular scope item on Olivenhain properties.',
+      'One-year labor warranty on all light fixture installation workmanship.',
+    ],
+    includedItems: [
+      'Indoor fixture removal and replacement',
+      'Specialty and vaulted ceiling fixture installation',
+      'Outdoor and outbuilding fixture installation',
+      'Junction box assessment and upgrade as needed',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Fixture locations and ceiling conditions assessed before installation.' },
+      { step: 2, title: 'Installation', description: 'Fixtures installed with methods appropriate for each location.' },
+      { step: 3, title: 'Testing', description: 'All fixtures tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number and type of fixtures',
+      'Vaulted or specialty ceiling requirements',
+    ],
+    faqs: [
+      { question: 'Can you install lighting in my Olivenhain barn or outbuilding?', answer: 'Yes. Barn and outbuilding lighting installation is a regular scope for us on Olivenhain properties.' },
+    ],
+    neighborhoodMentions: ['Olivenhain proper'],
+    zipCodes: ['92024'],
+  },
+
+  'aviara-light-fixture-installation': {
+    introBullets: [
+      'Aviara luxury homes have high-finish standards -- clean work with no visible wire, properly centered fixtures, and correct trim are expected.',
+      'Chandelier installations in Aviara often involve vaulted or two-story foyers requiring specialized mounting hardware.',
+      'One-year labor warranty on all light fixture installation workmanship.',
+    ],
+    includedItems: [
+      'Heavy chandelier and specialty fixture installation with appropriate mounting hardware',
+      'Vaulted and high-ceiling installation methods',
+      'Interior and exterior fixture replacement',
+      'Junction box reinforcement and upgrading',
+      'Clean finish work appropriate to Aviara standards',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Mounting requirements, wiring, and access evaluated before installation begins.' },
+      { step: 2, title: 'Installation', description: 'Professional fixture installation with finish quality appropriate to Aviara.' },
+      { step: 3, title: 'Testing', description: 'All fixtures tested before handoff.' },
+    ],
+    pricingFactors: [
+      'Fixture size and weight',
+      'Ceiling height and access requirements',
+    ],
+    faqs: [
+      { question: 'Can you install a large chandelier in my Aviara two-story foyer?', answer: 'Yes. Large chandelier installations in high-ceiling foyers require a proper mounting brace rated for the fixture weight. We handle these installations regularly.' },
+    ],
+    neighborhoodMentions: ['Aviara proper', 'Four Seasons Aviara area'],
+    zipCodes: ['92011'],
+  },
+
+  'calavera-hills-light-fixture-installation': {
+    introBullets: [
+      'Calavera Hills homes from the 1978-1998 era typically have original fixtures that are overdue for upgrading.',
+      'Junction boxes in these homes are often at capacity for weight -- we assess and upgrade as needed.',
+      'One-year labor warranty on all light fixture installation workmanship.',
+    ],
+    includedItems: [
+      'Existing fixture removal',
+      'Junction box assessment and upgrade for weight-rated fixtures',
+      'New fixture installation and wiring',
+      'Dimmer compatibility verification',
+      'Function test before closeout',
+      'One-year labor warranty on all workmanship',
+    ],
+    processSteps: [
+      { step: 1, title: 'Assessment', description: 'Existing junction box and wiring evaluated.' },
+      { step: 2, title: 'Installation', description: 'Old fixture removed, box upgraded if needed, new fixture installed.' },
+      { step: 3, title: 'Testing', description: 'Fixture tested before closeout.' },
+    ],
+    pricingFactors: [
+      'Number of fixtures',
+      'Junction box upgrade requirements',
+    ],
+    faqs: [
+      { question: 'Can you replace all the original fixtures in my 1988 Calavera Hills home?', answer: 'Yes. Whole-home fixture replacement is a common project in Calavera Hills. We work room by room and assess each junction box as we go.' },
+    ],
+    neighborhoodMentions: ['Calavera Hills North', 'Calavera Hills South'],
+    zipCodes: ['92010'],
+  },
+
 };
 
 const normalizeCityServiceContent = (key: string, content: CityServiceContent): CityServiceContent => {
