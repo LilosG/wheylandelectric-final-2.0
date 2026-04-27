@@ -82,6 +82,7 @@ const relatedServices = segment.services.slice(0, 3).map((s) => ({
   {/* Overview bullets */}
   <ServiceIntroSection
     title={`What We Provide for ${segment.title}`}
+    subtitle={segment.introText}
     highlights={segment.overviewBullets}
   />
 

@@ -14,6 +14,7 @@ export interface WhoWeWorkWithSegment {
   metaDescription: string;
   heroImage: { src: string; alt: string };
   description: string;
+  introText?: string;
   overviewBullets: string[];
   whyChoose: string[];
   processSteps: { step: number; title: string; description: string }[];
@@ -92,7 +93,8 @@ export const segments: WhoWeWorkWithSegment[] = [
       src: '/images/services/panel/wheyland-electric-service-entrance-wiring.webp',
       alt: 'Wheyland Electric electrical services for property managers in North County San Diego',
     },
-    description: 'When a tenant reports a tripped breaker at 6pm, you need an electrician who answers, shows up, and documents the work -- not one you have to chase. Wheyland Electric has been the electrical contractor North County property managers depend on since 2008. We respond same-day or next-day on service calls, coordinate directly with your maintenance team on access and scheduling, and provide written service reports after every visit formatted for your records and owner reporting. We cover residential and commercial properties across Carlsbad, Encinitas, San Marcos, Vista, and Oceanside -- one vendor, one point of contact, consistent follow-through across your entire portfolio.',
+    description: 'The electrical contractor North County property managers depend on for fast tenant response, consistent documentation, and reliable follow-through across residential and commercial portfolios.',
+    introText: 'When a tenant reports a tripped breaker at 6pm, you need an electrician who answers, shows up, and documents the work -- not one you have to chase. Wheyland Electric has been the electrical contractor North County property managers depend on since 2008. We respond same-day or next-day on service calls, coordinate directly with your maintenance team on access and scheduling, and provide written service reports after every visit formatted for your records and owner reporting. We cover residential and commercial properties across Carlsbad, Encinitas, San Marcos, Vista, and Oceanside -- one vendor, one point of contact, consistent follow-through across your entire portfolio.',
     overviewBullets: [
       'Same-day and next-day response on tenant-reported electrical issues -- we answer when you call',
       'Written service reports after every visit: work completed, findings, photos, and recommendations',
