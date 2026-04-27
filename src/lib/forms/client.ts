@@ -29,12 +29,14 @@ export function initLeadForm({
   const timestampInput = form.querySelector('[name="_timestamp"]') as HTMLInputElement | null;
   const honeypotInput = form.querySelector('[name="honeypot"]') as HTMLInputElement | null;
   const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
-  const normalizedPhoneInput = form.querySelector('[name="phone_digits"]') as HTMLInputElement | null;
+  const normalizedPhoneInput = form.querySelector(
+    '[name="phone_digits"]'
+  ) as HTMLInputElement | null;
   const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
   const controls = Array.from(
-    form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement>(
-      'input:not([type="hidden"]), select, textarea, button'
-    )
+    form.querySelectorAll<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement
+    >('input:not([type="hidden"]), select, textarea, button')
   );
 
   const defaultSubmitLabel = submitButton?.textContent ?? 'Submit';
@@ -102,9 +104,9 @@ export function initLeadForm({
 
     if (requireOneOf.length > 0) {
       const hasAnyRequired = requireOneOf.some((fieldName) => {
-        const targetField = form.querySelector<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>(
-          `[name="${fieldName}"]`
-        );
+        const targetField = form.querySelector<
+          HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+        >(`[name="${fieldName}"]`);
         return !!targetField?.value?.trim();
       });
       if (!hasAnyRequired) {
@@ -130,21 +132,31 @@ export function initLeadForm({
         body: formData,
       });
 
-      const data = (await response.json().catch(() => null)) as { success?: boolean; message?: string } | null;
+      const data = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        message?: string;
+      } | null;
       if (!response.ok || data?.success === false) {
         throw new Error(data?.message || 'We could not send your request. Please try again.');
       }
 
       grecaptcha.reset();
+      const navigate = () => window.location.assign(thankYouPath);
       if (typeof gtag === 'function') {
         gtag('event', 'form_submit', {
           event_category: 'lead',
           event_label: formId,
+          event_callback: navigate,
+          event_timeout: 2000,
         });
+      } else {
+        navigate();
       }
-      window.location.assign(thankYouPath);
     } catch (error) {
-      const message = error instanceof Error ? error.message : 'We could not send your request. Please try again.';
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'We could not send your request. Please try again.';
       showFeedback('error', message);
       if (phoneInput && normalizedPhoneInput?.value) {
         phoneInput.value = normalizedPhoneInput.value;

@@ -6,9 +6,9 @@ export interface UploadFormOptions {
   thankYouPath?: string;
 }
 
-type FeedbackState = "error" | "success";
+type FeedbackState = 'error' | 'success';
 
-const getDigits = (value: string): string => value.replace(/\D+/g, "");
+const getDigits = (value: string): string => value.replace(/\D+/g, '');
 
 declare const grecaptcha: { getResponse: () => string; reset: () => void };
 declare function gtag(...args: unknown[]): void;
@@ -18,39 +18,41 @@ export function initUploadForm({
   feedbackId,
   minSubmitMs = 3000,
   endpoint,
-  thankYouPath = "/thank-you/",
+  thankYouPath = '/thank-you/',
 }: UploadFormOptions): void {
   const form = document.getElementById(formId) as HTMLFormElement | null;
   const feedback = document.getElementById(feedbackId) as HTMLParagraphElement | null;
   if (!form || !feedback) return;
 
-  const timestampInput = form.querySelector("[name=\"_timestamp\"]") as HTMLInputElement | null;
-  const honeypotInput = form.querySelector("[name=\"honeypot\"]") as HTMLInputElement | null;
-  const phoneInput = form.querySelector("input[name=\"phone\"]") as HTMLInputElement | null;
-  const normalizedPhoneInput = form.querySelector("[name=\"phone_digits\"]") as HTMLInputElement | null;
-  const submitButton = form.querySelector("button[type=\"submit\"]") as HTMLButtonElement | null;
+  const timestampInput = form.querySelector('[name="_timestamp"]') as HTMLInputElement | null;
+  const honeypotInput = form.querySelector('[name="honeypot"]') as HTMLInputElement | null;
+  const phoneInput = form.querySelector('input[name="phone"]') as HTMLInputElement | null;
+  const normalizedPhoneInput = form.querySelector(
+    '[name="phone_digits"]'
+  ) as HTMLInputElement | null;
+  const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement | null;
   const controls = Array.from(
-    form.querySelectorAll<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement>(
-      "input:not([type=\"hidden\"]), select, textarea, button"
-    )
+    form.querySelectorAll<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement | HTMLButtonElement
+    >('input:not([type="hidden"]), select, textarea, button')
   );
 
-  const defaultSubmitLabel = submitButton?.textContent?.trim() ?? "Submit";
-  const loadingSubmitLabel = submitButton?.dataset.loadingLabel ?? "Sending...";
+  const defaultSubmitLabel = submitButton?.textContent?.trim() ?? 'Submit';
+  const loadingSubmitLabel = submitButton?.dataset.loadingLabel ?? 'Sending...';
 
   const showFeedback = (state: FeedbackState, message: string): void => {
     feedback.dataset.state = state;
     feedback.textContent = message;
-    feedback.role = state === "error" ? "alert" : "status";
+    feedback.role = state === 'error' ? 'alert' : 'status';
   };
 
   const setFormSubmitting = (isSubmitting: boolean): void => {
-    form.dataset.submitting = isSubmitting ? "true" : "false";
+    form.dataset.submitting = isSubmitting ? 'true' : 'false';
     controls.forEach((field) => {
       if (isSubmitting) {
-        field.setAttribute("disabled", "true");
-      } else if (!field.hasAttribute("data-static-disabled")) {
-        field.removeAttribute("disabled");
+        field.setAttribute('disabled', 'true');
+      } else if (!field.hasAttribute('data-static-disabled')) {
+        field.removeAttribute('disabled');
       }
     });
     if (submitButton) {
@@ -59,41 +61,41 @@ export function initUploadForm({
   };
 
   controls.forEach((field) => {
-    if (field.hasAttribute("disabled")) {
-      field.setAttribute("data-static-disabled", "true");
+    if (field.hasAttribute('disabled')) {
+      field.setAttribute('data-static-disabled', 'true');
     }
   });
 
   if (timestampInput) timestampInput.value = String(Date.now());
 
-  phoneInput?.addEventListener("blur", () => {
+  phoneInput?.addEventListener('blur', () => {
     const digits = getDigits(phoneInput.value);
     if (normalizedPhoneInput) normalizedPhoneInput.value = digits;
   });
 
-  form.addEventListener("submit", async (event) => {
+  form.addEventListener('submit', async (event) => {
     event.preventDefault();
 
     if (!form.checkValidity()) {
       form.reportValidity();
-      showFeedback("error", "Please complete all required fields before submitting.");
+      showFeedback('error', 'Please complete all required fields before submitting.');
       return;
     }
 
     const elapsed = Date.now() - Number(timestampInput?.value ?? 0);
     if (elapsed < minSubmitMs) {
-      showFeedback("error", "Please wait a moment, then submit again.");
+      showFeedback('error', 'Please wait a moment, then submit again.');
       return;
     }
 
     if (honeypotInput?.value) {
-      showFeedback("error", "We could not submit your request. Please refresh and try again.");
+      showFeedback('error', 'We could not submit your request. Please refresh and try again.');
       return;
     }
 
     const token = grecaptcha.getResponse();
     if (!token) {
-      showFeedback("error", "Please complete the reCAPTCHA before submitting.");
+      showFeedback('error', 'Please complete the reCAPTCHA before submitting.');
       return;
     }
 
@@ -103,34 +105,44 @@ export function initUploadForm({
     }
 
     const formData = new FormData(form);
-    formData.append("recaptchaToken", token);
+    formData.append('recaptchaToken', token);
 
     setFormSubmitting(true);
-    showFeedback("success", loadingSubmitLabel);
+    showFeedback('success', loadingSubmitLabel);
 
     try {
       const response = await fetch(endpoint, {
-        method: "POST",
+        method: 'POST',
         body: formData,
       });
 
-      const data = (await response.json().catch(() => null)) as { success?: boolean; error?: string } | null;
+      const data = (await response.json().catch(() => null)) as {
+        success?: boolean;
+        error?: string;
+      } | null;
 
       if (!response.ok || data?.success === false) {
-        throw new Error(data?.error ?? "We could not send your request. Please try again.");
+        throw new Error(data?.error ?? 'We could not send your request. Please try again.');
       }
 
       grecaptcha.reset();
+      const navigate = () => window.location.assign(thankYouPath);
       if (typeof gtag === 'function') {
         gtag('event', 'form_submit', {
           event_category: 'lead',
           event_label: formId,
+          event_callback: navigate,
+          event_timeout: 2000,
         });
+      } else {
+        navigate();
       }
-      window.location.assign(thankYouPath);
     } catch (error) {
-      const message = error instanceof Error ? error.message : "We could not send your request. Please try again.";
-      showFeedback("error", message);
+      const message =
+        error instanceof Error
+          ? error.message
+          : 'We could not send your request. Please try again.';
+      showFeedback('error', message);
       setFormSubmitting(false);
     }
   });
