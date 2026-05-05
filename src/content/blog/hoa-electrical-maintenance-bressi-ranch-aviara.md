@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["hoa-electrical-services", "commercial-electrical-maintenance", "commercial-led-lighting"]
 faqs: []
-image: "/images/blog/hoa-electrical-maintenance-bressi-ranch-aviara.jpg"
+image: "/images/services/commercial/wheyland-electric-commercial-control-panel-vfd.webp"
 draft: false
 ---
 

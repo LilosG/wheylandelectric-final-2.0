@@ -4,7 +4,7 @@ description: "Explore practical outdoor lighting ideas for coastal homes in Carl
 date: 2026-03-24
 author: "Tim Wheyland"
 image: "/images/services/lighting/wheyland-electric-dining-room-pendant-sconces.webp"
-relatedServices: ["outdoor-lighting-installation"]
+relatedServices: ["light-fixture-installation", "recessed-lighting-installation"]
 faqs:
   - question: "What type of outdoor lighting works best near the coast?"
     answer: "Coastal homes benefit from outdoor lighting systems and fixtures chosen for durability, clean installation, and resistance to moisture, salt air, and long-term exterior exposure."

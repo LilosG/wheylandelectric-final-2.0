@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["ev-charger-installation", "electrical-panel-upgrades", "dedicated-circuits"]
 faqs: []
-image: "/images/blog/ev-charger-installation-la-costa.jpg"
+image: "/images/services/ev-charger/wheyland-electric-ev-charger-installation.webp"
 draft: false
 ---
 

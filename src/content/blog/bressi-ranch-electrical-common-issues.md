@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["service-calls-troubleshooting", "outlet-switch-dimmer-gfci-repairs", "ev-charger-installation"]
 faqs: []
-image: "/images/blog/bressi-ranch-electrical-common-issues.jpg"
+image: "/images/services/panel/wheyland-electric-outdoor-service-disconnect.webp"
 draft: false
 ---
 

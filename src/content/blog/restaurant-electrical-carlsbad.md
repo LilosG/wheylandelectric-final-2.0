@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["restaurant-electrical", "commercial-tenant-improvement", "commercial-electrical-maintenance"]
 faqs: []
-image: "/images/blog/restaurant-electrical-carlsbad.jpg"
+image: "/images/services/commercial/wheyland-electric-commercial-food-processing-electrical.webp"
 draft: false
 ---
 
