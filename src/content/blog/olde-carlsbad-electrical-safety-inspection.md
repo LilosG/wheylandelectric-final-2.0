@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["electrical-safety-inspections", "service-calls-troubleshooting", "outlet-switch-dimmer-gfci-repairs"]
 faqs: []
-image: "/images/blog/olde-carlsbad-electrical-safety-inspection.jpg"
+image: "/images/services/panel/wheyland-electric-service-entrance-wiring.webp"
 draft: false
 ---
 

@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["electrical-panel-upgrades", "ev-charger-installation", "dedicated-circuits"]
 faqs: []
-image: "/images/blog/electrical-panel-upgrade-calavera-hills.jpg"
+image: "/images/services/panel/wheyland-electric-commercial-meter-stack-panel.webp"
 draft: false
 ---
 

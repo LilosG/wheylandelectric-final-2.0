@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["dedicated-circuits", "electrical-panel-upgrades", "service-calls-troubleshooting"]
 faqs: []
-image: "/images/blog/olivenhain-electrical-rural-equestrian.jpg"
+image: "/images/services/ev-charger/wheyland-electric-ev-charger-dedicated-circuit.webp"
 draft: false
 ---
 

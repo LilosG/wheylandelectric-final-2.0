@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["remodel-rewiring-adu", "electrical-panel-upgrades", "dedicated-circuits"]
 faqs: []
-image: "/images/blog/adu-electrical-la-costa.jpg"
+image: "/images/services/panel/wheyland-electric-outdoor-meter-panel-new-construction.webp"
 draft: false
 ---
 

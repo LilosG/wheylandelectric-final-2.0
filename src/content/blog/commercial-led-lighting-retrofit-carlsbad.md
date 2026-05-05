@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["commercial-led-lighting", "commercial-electrical-maintenance", "commercial-tenant-improvement"]
 faqs: []
-image: "/images/blog/commercial-led-lighting-retrofit-carlsbad.jpg"
+image: "/images/services/lighting/wheyland-electric-commercial-pendant-light-installation.webp"
 draft: false
 ---
 

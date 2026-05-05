@@ -5,7 +5,7 @@ date: 2026-04-26
 author: "Tim Wheyland"
 relatedServices: ["electrical-safety-inspections", "spa-jacuzzi-sauna-electrical", "outlet-switch-dimmer-gfci-repairs"]
 faqs: []
-image: "/images/blog/electrician-aviara-carlsbad.jpg"
+image: "/images/services/lighting/wheyland-electric-led-handrail-stair-lighting.webp"
 draft: false
 ---
 
