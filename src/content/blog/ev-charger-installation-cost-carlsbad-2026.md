@@ -1,5 +1,6 @@
 ---
 title: "EV Charger Installation Cost in Carlsbad (2026): What Homeowners Should Expect"
+seoTitle: "EV Charger Installation Cost in Carlsbad (2026)"
 description: "Learn what affects EV charger installation cost in Carlsbad in 2026, including panel capacity, wire runs, permit requirements, charger type, and installation complexity."
 date: 2026-03-24
 author: "Tim Wheyland"

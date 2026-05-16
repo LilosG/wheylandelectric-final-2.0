@@ -10,6 +10,8 @@ export interface WhoWeWorkWithSegment {
   key: string;
   slug: string;
   title: string;
+  /** Search-intent hero/H1 label; title remains available for cards and navigation. */
+  heroTitle?: string;
   metaTitle: string;
   metaDescription: string;
   heroImage: { src: string; alt: string };
@@ -29,6 +31,7 @@ export const segments: WhoWeWorkWithSegment[] = [
     key: 'homeowners',
     slug: 'homeowners',
     title: 'Homeowners',
+    heroTitle: 'Residential Electrician for Homeowners',
     metaTitle: 'Residential Electrician for Carlsbad Homeowners | Wheyland Electric',
     metaDescription: 'Wheyland Electric provides licensed residential electrical services for homeowners throughout Carlsbad and North County San Diego. Panel upgrades, EV chargers, remodels, lighting, and service calls -- permitted, inspected, and backed by a one-year labor warranty.',
     heroImage: {
@@ -88,6 +91,7 @@ export const segments: WhoWeWorkWithSegment[] = [
     key: 'property-managers',
     slug: 'property-managers',
     title: 'Property Managers',
+    heroTitle: 'Electrician for Property Managers',
     metaTitle: 'Electrician for Property Managers | North County San Diego | Wheyland Electric',
     metaDescription: 'Wheyland Electric is the electrical contractor North County property managers trust for fast tenant response, consistent documentation, and reliable scheduling across residential and commercial portfolios. Serving Carlsbad, Encinitas, San Marcos, and Oceanside.',
     heroImage: {
@@ -149,6 +153,7 @@ export const segments: WhoWeWorkWithSegment[] = [
     key: 'hoa-communities',
     slug: 'hoa-communities',
     title: 'HOA Communities',
+    heroTitle: 'HOA Electrician for Communities',
     metaTitle: 'HOA Electrician Carlsbad — Common Area Electrical Maintenance | Wheyland Electric',
     metaDescription: 'Wheyland Electric provides scheduled electrical maintenance for HOA communities in Carlsbad, Bressi Ranch, Aviara, La Costa, and Calavera Hills. Flat-rate pricing, board-ready documentation, and priority emergency response.',
     heroImage: {
@@ -208,6 +213,7 @@ export const segments: WhoWeWorkWithSegment[] = [
     key: 'commercial',
     slug: 'commercial',
     title: 'Commercial & Business',
+    heroTitle: 'Commercial Electrician for Businesses',
     metaTitle: 'Commercial Electrician Carlsbad — Business & Tenant Improvement | Wheyland Electric',
     metaDescription: 'Wheyland Electric provides licensed commercial electrical services for businesses throughout Carlsbad and North County San Diego. Tenant improvements, EV charging, restaurant electrical, LED retrofits, and maintenance programs -- permitted, on schedule, and warranted.',
     heroImage: {
@@ -267,6 +273,7 @@ export const segments: WhoWeWorkWithSegment[] = [
     key: 'general-contractors',
     slug: 'general-contractors',
     title: 'General Contractors',
+    heroTitle: 'Subcontract Electrician for General Contractors',
     metaTitle: 'Subcontract Electrician for General Contractors | North County San Diego | Wheyland Electric',
     metaDescription: 'Wheyland Electric provides reliable subcontract electrical work for general contractors on remodel, TI, and new construction projects throughout North County San Diego. Licensed, on schedule, first-time inspection pass.',
     heroImage: {

@@ -142,6 +142,8 @@ export interface FAQ {
 export interface ServicePillar {
   slug: string;
   name: string;
+  /** Search-facing service label for metadata titles; display names stay unchanged. */
+  seoTitleName?: string;
   publish: boolean;
   tier: ServiceTier;
   category: ServiceCategory;

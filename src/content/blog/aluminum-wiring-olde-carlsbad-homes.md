@@ -1,5 +1,6 @@
 ---
 title: "Aluminum Wiring in Older Carlsbad Homes: What the 92008 ZIP Code Really Looks Like"
+seoTitle: "Aluminum Wiring in Olde Carlsbad Homes"
 description: "Many Olde Carlsbad homes built between the 1950s and 1970s still have aluminum branch wiring. Here is what it means, what the risks are, and what the correct remediation options are."
 date: 2026-04-22
 author: "Tim Wheyland"

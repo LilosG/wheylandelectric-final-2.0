@@ -1,5 +1,6 @@
 ---
 title: "Commercial Electrical for Tenant Improvements in Carlsbad: What Business Owners and Property Managers Need to Know"
+seoTitle: "Commercial TI Electrician in Carlsbad"
 description: "Tenant improvement electrical in Carlsbad requires coordination between the contractor, the building department, and SDG&E. Here is what the process looks like and what drives cost and timeline."
 date: 2026-04-22
 author: "Tim Wheyland"

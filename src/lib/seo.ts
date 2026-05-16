@@ -88,9 +88,11 @@ export function cityPageMeta(cityName: string, citySlug: string): PageMeta {
   });
 }
 
-export function servicePageMeta(serviceName: string, serviceSlug: string): PageMeta {
+export function servicePageMeta(serviceName: string, serviceSlug: string, seoTitleName?: string): PageMeta {
+  const titleServiceName = seoTitleName ?? serviceName;
+
   return generateMeta({
-    title: `${serviceName} in San Diego County`,
+    title: `${titleServiceName} in San Diego County`,
     description: `Professional ${serviceName.toLowerCase()} in San Diego County from Wheyland Electric. Licensed, bonded, and insured with code-compliant workmanship and free estimates.`,
     path: `/services/${serviceSlug}/`,
   });
@@ -100,10 +102,13 @@ export function moneyPageMeta(
   serviceName: string,
   cityName: string,
   citySlug: string,
-  serviceSlug: string
+  serviceSlug: string,
+  seoTitleName?: string
 ): PageMeta {
+  const titleServiceName = seoTitleName ?? serviceName;
+
   return generateMeta({
-    title: `${serviceName} in ${cityName}, CA`,
+    title: `${titleServiceName} in ${cityName}, CA`,
     description: `Need ${serviceName.toLowerCase()} in ${cityName}, CA? Wheyland Electric provides licensed, code-compliant service for homes and businesses with a 1-year labor warranty.`,
     path: `/${citySlug}/${serviceSlug}/`,
   });
