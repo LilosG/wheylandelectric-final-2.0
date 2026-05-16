@@ -49,15 +49,10 @@ export const site: SiteData = {
       'He understands the benefits of being local, buying local and knowing first hand with whom you are dealing.',
       'We are the same ones whose kids are attending local schools, participating in youth sports, school dance teams skate boarding or playing music. The family is a part of the treasure that is Southern California, its history, diversity and future.',
     ],
-    generation:
-      'fourth generation San Diego County resident (fifth in California)',
+    generation: 'fourth generation San Diego County resident (fifth in California)',
   },
   team: [{ name: 'Vanessa', role: 'Operations' }],
-  serviceRadiusCounties: [
-    'San Diego County',
-    'Orange County',
-    'Western Riverside County',
-  ],
+  serviceRadiusCounties: ['San Diego County', 'Orange County', 'Western Riverside County'],
   geo: {
     latitude: 33.1283,
     longitude: -117.3213,
@@ -72,9 +67,14 @@ export const site: SiteData = {
       'https://www.google.com/maps?q=Wheyland+Electric,+3536+Woodland+Way,+Carlsbad,+CA+92008&output=embed',
   },
   social: {
-    twitter: 'https://twitter.com/wheylandelectric',
-    facebook: 'https://facebook.com/wheylandelectric',
-    linkedin: 'https://linkedin.com/company/wheylandelectric',
+    facebook: 'https://www.facebook.com/wheylandelectric',
+    instagram: 'https://www.instagram.com/wheylandelectric/',
+    linkedin: 'https://www.linkedin.com/company/wheyland-electricinc/',
+    youtube: 'https://www.youtube.com/@WheylandElectric-f4f',
+  },
+  credit: {
+    label: 'Lilos Growth',
+    url: 'https://lilosgrowth.com/',
   },
   flags,
 };

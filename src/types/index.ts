@@ -69,9 +69,14 @@ export interface SiteData {
     embedSrc: string;
   };
   social: {
-    twitter: string;
     facebook: string;
+    instagram: string;
     linkedin: string;
+    youtube: string;
+  };
+  credit: {
+    label: string;
+    url: string;
   };
   flags: SiteFlags;
 }
@@ -186,7 +191,13 @@ export interface CityServiceContent {
   zipCodes?: string[];
 }
 
-export type ExtendedServiceCategory = 'residential' | 'commercial' | 'industrial' | 'hoa' | 'ev' | 'compliance';
+export type ExtendedServiceCategory =
+  | 'residential'
+  | 'commercial'
+  | 'industrial'
+  | 'hoa'
+  | 'ev'
+  | 'compliance';
 
 export interface ExtendedService {
   name: string;

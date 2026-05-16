@@ -6,7 +6,10 @@ import { WHEYLAND_REVIEWS } from '../../data/reviews';
 const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://wheylandelectric.com';
 const ELECTRICIAN_ID = `${SITE_URL}/#electrician`;
 
-export function electricianSchemaNode(ratingOverride?: { value: number; count: number }): Record<string, unknown> {
+export function electricianSchemaNode(ratingOverride?: {
+  value: number;
+  count: number;
+}): Record<string, unknown> {
   const rating = ratingOverride ?? site.rating;
   const publishedCities = getPublishedCities();
   const publishedServices = getPublishedPillars();
@@ -70,8 +73,9 @@ export function electricianSchemaNode(ratingOverride?: { value: number; count: n
     hasMap: site.gbp.url,
     sameAs: [
       site.social.facebook,
+      site.social.instagram,
       site.social.linkedin,
-      site.social.twitter,
+      site.social.youtube,
       'https://www.yelp.com/biz/wheyland-electric-carlsbad',
       'https://www.bbb.org/us/ca/carlsbad/profile/electrician/wheyland-electric-1126-171995150',
     ],
