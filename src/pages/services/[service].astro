@@ -27,7 +27,7 @@ interface Props {
 const { pillar } = Astro.props;
 const serviceImg = getServiceHeroImage({ serviceSlug: pillar.slug });
 const heroImage = getHeroServiceImage(pillar.slug);
-const meta = servicePageMeta(pillar.name, pillar.slug);
+const meta = servicePageMeta(pillar.name, pillar.slug, pillar.seoTitleName);
 const breadcrumbs = [
   { label: 'Services', href: '/services/' },
   { label: pillar.name, href: `/services/${pillar.slug}/` },

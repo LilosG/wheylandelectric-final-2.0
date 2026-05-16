@@ -1,5 +1,6 @@
 ---
 title: "Choosing a Residential Electrician in Carlsbad: What to Look for and What to Ask"
+seoTitle: "Residential Electrician in Carlsbad: Hiring Guide"
 description: "A practical guide for Carlsbad homeowners on what residential electrical work actually involves, what licensing and permitting requirements mean, and how to evaluate an electrician before hiring."
 date: 2026-04-22
 author: "Tim Wheyland"

@@ -45,7 +45,7 @@ const serviceImg = getServiceHeroImage({
   citySlug: city.slug,
   variant: 'money',
 });
-const meta = moneyPageMeta(pillar.name, city.name, city.slug, pillar.slug);
+const meta = moneyPageMeta(pillar.name, city.name, city.slug, pillar.slug, pillar.seoTitleName);
 const breadcrumbs = [
   { label: city.name, href: `/${city.slug}/` },
   { label: pillar.name, href: `/${city.slug}/${pillar.slug}/` },

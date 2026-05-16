@@ -1,5 +1,6 @@
 ---
 title: "HOA Electrical Maintenance in Bressi Ranch and Aviara: What Boards Should Know"
+seoTitle: "HOA Electrical Maintenance in Bressi Ranch & Aviara"
 description: "A practical guide for HOA boards and property managers in Bressi Ranch and Aviara covering scheduled electrical maintenance, pool and spa compliance, lighting, pricing, and documentation."
 date: 2026-04-26
 author: "Tim Wheyland"

@@ -5,6 +5,8 @@ const blogCollection = defineCollection({
   schema: z.object({
     title: z.string(),
     description: z.string(),
+    seoTitle: z.string().optional(),
+    seoDescription: z.string().optional(),
     date: z.date(),
     author: z.string().default('Tim Wheyland'),
     relatedServices: z.array(z.string()).default([]),

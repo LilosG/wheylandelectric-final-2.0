@@ -27,7 +27,11 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await post.render();
 
-const meta = blogPostMeta(post.data.title, post.data.description, post.slug);
+const meta = blogPostMeta(
+  post.data.seoTitle ?? post.data.title,
+  post.data.seoDescription ?? post.data.description,
+  post.slug
+);
 const blogPostHero = getPageHeroImage('blog-post');
 const blogHeroImage = post.data.image || blogPostHero.src;
 
