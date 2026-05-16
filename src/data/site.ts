@@ -73,7 +73,7 @@ export const site: SiteData = {
     youtube: 'https://www.youtube.com/@WheylandElectric-f4f',
   },
   credit: {
-    label: 'LILOs Growth',
+    label: 'Lilos Growth',
     url: 'https://lilosgrowth.com/',
   },
   flags,
