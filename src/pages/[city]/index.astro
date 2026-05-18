@@ -6,8 +6,9 @@ import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 import { shouldEmitFaqSchema } from '../../lib/schema/faqPolicy';
 import { graphSchema, webPageSchemaNode } from '../../lib/schema/graph';
 import { getPublishedCities, getCityBySlug } from '../../data/cities';
-import { getPublishedPillars, getNeighborhoodPillars } from '../../data/services';
+import { getPublishedPillars } from '../../data/services';
 import { getCityHeroImage } from '../../data/heroImages';
+import { getCityLandingServiceSlugs } from '../../data/priorityInternalLinks';
 import type { City, FAQ } from '../../types';
 
 export function getStaticPaths() {
@@ -23,7 +24,13 @@ interface Props {
 }
 
 const { city } = Astro.props;
-const services = city.slug === 'carlsbad' ? getPublishedPillars() : getNeighborhoodPillars();
+const allPillars = getPublishedPillars();
+const cityLandingServiceSlugs = getCityLandingServiceSlugs(city.slug);
+const services = cityLandingServiceSlugs === 'all'
+  ? allPillars
+  : cityLandingServiceSlugs
+      .map((slug) => allPillars.find((pillar) => pillar.slug === slug))
+      .filter((pillar): pillar is NonNullable<typeof pillar> => pillar !== undefined);
 const meta = cityPageMeta(city.name, city.slug);
 const breadcrumbs = [{ label: city.name, href: `/${city.slug}/` }];
 const cityHero = getCityHeroImage(city.slug);

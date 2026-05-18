@@ -2,7 +2,6 @@
 import PageLayout from '../layouts/PageLayout.astro';
 import Hero from '../components/sections/Hero.astro';
 import TrustBar from '../components/sections/TrustBar.astro';
-import ServiceGrid from '../components/sections/ServiceGrid.astro';
 import SplitServiceGrid from '../components/sections/SplitServiceGrid.astro';
 import CityGrid from '../components/sections/CityGrid.astro';
 import CustomerTypeCard from '../components/sections/CustomerTypeCard.astro';
@@ -10,13 +9,14 @@ import HOAOfferBlock from '../components/sections/HOAOfferBlock.astro';
 import TestimonialBlock from '../components/sections/TestimonialBlock.astro';
 import AboutPreview from '../components/sections/AboutPreview.astro';
 import CTASection from '../components/sections/CTASection.astro';
+import LocalServiceLinksSection from '../components/sections/LocalServiceLinksSection.astro';
 import MapSection from '../components/sections/MapSection.astro';
 import Section from '../components/ui/Section.astro';
-import Button from '../components/ui/Button.astro';
 import { homePageMeta } from '../lib/seo';
 import { graphSchema, webPageSchemaNode, websiteSchemaNode } from '../lib/schema/graph';
 import { getPublishedPillars } from '../data/services';
 import { getPublishedCities } from '../data/cities';
+import { priorityCityServiceLinks } from '../data/priorityInternalLinks';
 
 const meta = homePageMeta();
 const services = getPublishedPillars();
@@ -49,7 +49,7 @@ const cities = getPublishedCities().filter((c) => !c.isSubNeighborhood);
 
   {/* 3. CTA Band — drives qualified visitors to /free-estimates/ */}
   <CTASection
-    title="Get a Free Estimate From Wheyland Electric"
+    title="Request a Free Estimate From Wheyland Electric"
     subtitle="Licensed, bonded & insured. We’ll follow up within one business day — no obligation, no pressure."
     tone="dark"
   />
@@ -67,7 +67,15 @@ const cities = getPublishedCities().filter((c) => !c.isSubNeighborhood);
   {/* 5. Service Areas — dark indigo bg (self-contained) */}
   <CityGrid cities={cities} />
 
-  {/* 6. Who We Work With — white bg */}
+  {/* 6. Popular Local Services — white bg */}
+  <LocalServiceLinksSection
+    title="Popular Local Electrical Services"
+    subtitle="Quick links to high-demand electrical services in the North County communities we serve most often."
+    links={priorityCityServiceLinks}
+    bg="white"
+  />
+
+  {/* 7. Who We Work With — white bg */}
   <Section bg="white">
     <div class="text-center mb-12">
       <h2 class="text-2xl md:text-3xl lg:text-4xl font-heading font-bold text-brand-slate">
@@ -102,20 +110,20 @@ const cities = getPublishedCities().filter((c) => !c.isSubNeighborhood);
     </div>
   </Section>
 
-  {/* 7. HOA Maintenance — warm gold-tinted bg */}
+  {/* 8. HOA Maintenance — warm gold-tinted bg */}
   <Section bg="warm">
     <HOAOfferBlock />
   </Section>
 
-  {/* 8. Testimonials — dark indigo bg (self-contained) */}
+  {/* 9. Testimonials — dark indigo bg (self-contained) */}
   <TestimonialBlock />
 
-  {/* 9. About Preview — white bg (self-contained) */}
+  {/* 10. About Preview — white bg (self-contained) */}
   <AboutPreview />
 
-  {/* 10. CTA — dark indigo with radial gradient (self-contained) */}
+  {/* 11. CTA — dark indigo with radial gradient (self-contained) */}
   <CTASection />
 
-  {/* 11. Map / Local Service — white bg (self-contained) */}
+  {/* 12. Map / Local Service — white bg (self-contained) */}
   <MapSection />
 </PageLayout>
