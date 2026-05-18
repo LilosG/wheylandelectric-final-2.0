@@ -95,7 +95,7 @@ export function buildNavigation(): NavItem[] {
 }
 
 export const ctaNav = {
-  estimate: { label: 'Free Estimate', href: '/free-estimates/' },
+  estimate: { label: 'Request Free Estimate', href: '/free-estimates/' },
   phone: { label: 'Call (858) 663-5564', href: 'tel:8586635564' },
 };
 
