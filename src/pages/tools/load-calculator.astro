@@ -1,0 +1,80 @@
+---
+import PageLayout from '../../layouts/PageLayout.astro';
+import Section from '../../components/ui/Section.astro';
+import LoadCalculator from '../../components/tools/LoadCalculator';
+import CTASection from '../../components/sections/CTASection.astro';
+import { generateMeta } from '../../lib/seo';
+
+const meta = generateMeta({
+  title: 'Electrical Load Calculator | Wheyland Electric',
+  description:
+    'Estimate electrical demand for EV charging, panel upgrades, remodels, ADUs, spas, and commercial tenant improvement planning. Preliminary planning tool only; final sizing requires licensed review.',
+  path: '/tools/load-calculator/',
+});
+
+const breadcrumbs = [
+  { label: 'Resources', href: '/tools/load-calculator/' },
+  { label: 'Electrical Load Calculator', href: '/tools/load-calculator/' },
+];
+---
+
+<PageLayout meta={meta} breadcrumbs={breadcrumbs}>
+  <Section bg="white" spacing="hero-tight">
+    <div class="mx-auto max-w-5xl text-center">
+      <h1 class="text-4xl font-extrabold text-brand-slate md:text-5xl">Electrical Load Calculator</h1>
+      <p class="mx-auto mt-4 max-w-3xl text-lg text-slate-700">Estimate potential electrical demand for EV charging, panel upgrades, remodels, ADUs, spas, and commercial tenant improvements. Use this as a planning checkpoint before scheduling licensed field review.</p>
+      <div class="mt-6 flex flex-wrap justify-center gap-3">
+        <a href="/free-estimates/" class="rounded-lg bg-brand-gold px-6 py-3 font-semibold text-white hover:bg-brand-gold-hover">Request Free Estimate</a>
+        <a href="tel:8586635564" class="rounded-lg border border-brand-slate/20 px-6 py-3 font-semibold text-brand-slate hover:bg-slate-50">Call (858) 663-5564</a>
+      </div>
+      <p class="mt-5 text-sm text-slate-600">Licensed, bonded, insured, and code-conscious planning support for homes and light commercial projects in San Diego County.</p>
+    </div>
+  </Section>
+
+  <Section bg="subtle" spacing="normal">
+    <div class="mx-auto max-w-5xl">
+      <LoadCalculator client:load />
+    </div>
+  </Section>
+
+  <Section bg="white" spacing="tight">
+    <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
+      <div>
+        <h2 class="text-2xl font-bold text-brand-slate">How to use this calculator</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+          <li>Set your existing service size and estimated current utilization.</li>
+          <li>Add expected loads for EV charging, remodel scope, ADU plans, spa equipment, and dedicated circuits.</li>
+          <li>Review projected utilization and remaining capacity as a preliminary planning signal.</li>
+        </ul>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold text-brand-slate">What this estimate can and cannot tell you</h2>
+        <ul class="mt-3 list-disc space-y-2 pl-5 text-slate-700">
+          <li><strong>Can:</strong> Help flag whether your project may justify licensed service-capacity review.</li>
+          <li><strong>Cannot:</strong> Replace permit design, final NEC calculations, utility coordination, or inspection outcomes.</li>
+          <li><strong>Next step:</strong> Book a site visit for verified load calculations and upgrade options.</li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <Section bg="subtle" spacing="tight">
+    <div class="mx-auto max-w-5xl">
+      <h2 class="text-2xl font-bold text-brand-slate">Related Services</h2>
+      <div class="mt-4 grid gap-3 md:grid-cols-2">
+        <a class="rounded-lg border bg-white p-4 hover:border-brand-teal" href="/services/electrical-panel-upgrades/">Electrical Panel Upgrades</a>
+        <a class="rounded-lg border bg-white p-4 hover:border-brand-teal" href="/services/ev-charger-installation/">EV Charger Installation</a>
+        <a class="rounded-lg border bg-white p-4 hover:border-brand-teal" href="/services/remodel-rewiring-adu/">Remodel & Rewiring (incl. ADU)</a>
+        <a class="rounded-lg border bg-white p-4 hover:border-brand-teal" href="/services/commercial-tenant-improvement/">Commercial Tenant Improvement</a>
+      </div>
+      <h3 class="mt-8 text-xl font-bold text-brand-slate">Related Resources</h3>
+      <div class="mt-3 flex flex-col gap-2 text-brand-teal">
+        <a href="/blog/100a-vs-200a-panel-upgrade-north-county/">100A vs 200A Panel Upgrade Guide</a>
+        <a href="/blog/do-you-need-panel-upgrade-for-ev-charger-carlsbad/">Do You Need a Panel Upgrade for EV Charging?</a>
+        <a href="/about/faqs/">Electrical FAQs</a>
+      </div>
+    </div>
+  </Section>
+
+  <CTASection title="Need a licensed load review?" subtitle="Get a field-verified recommendation for your panel, circuits, and project scope." tone="subtle" />
+</PageLayout>
