@@ -1,7 +1,7 @@
 ---
 import PageLayout from '../../layouts/PageLayout.astro';
 import Section from '../../components/ui/Section.astro';
-import LoadCalculator from '../../components/tools/LoadCalculator';
+import LoadCalculatorTool from '../../components/tools/LoadCalculator';
 import CTASection from '../../components/sections/CTASection.astro';
 import { generateMeta } from '../../lib/seo';
 
@@ -31,13 +31,13 @@ const breadcrumbs = [
     </div>
   </Section>
 
-  <Section bg="subtle" spacing="normal">
+  <Section bg="subtle" spacing="default">
     <div class="mx-auto max-w-5xl">
-      <LoadCalculator client:load />
+      <LoadCalculatorTool client:load />
     </div>
   </Section>
 
-  <Section bg="white" spacing="tight">
+  <Section bg="white" spacing="default">
     <div class="mx-auto grid max-w-5xl gap-6 md:grid-cols-2">
       <div>
         <h2 class="text-2xl font-bold text-brand-slate">How to use this calculator</h2>
@@ -58,7 +58,7 @@ const breadcrumbs = [
     </div>
   </Section>
 
-  <Section bg="subtle" spacing="tight">
+  <Section bg="subtle" spacing="default">
     <div class="mx-auto max-w-5xl">
       <h2 class="text-2xl font-bold text-brand-slate">Related Services</h2>
       <div class="mt-4 grid gap-3 md:grid-cols-2">
