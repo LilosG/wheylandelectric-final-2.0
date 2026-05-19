@@ -80,14 +80,21 @@ export function buildNavigation(): NavItem[] {
       ],
     },
     {
+      label: 'Resources',
+      href: '/tools/load-calculator/',
+      children: [
+        { label: 'Electrical Load Calculator', href: '/tools/load-calculator/' },
+        { label: 'Blog', href: '/blog/' },
+        { label: 'FAQs', href: '/about/faqs/' },
+        { label: 'Projects', href: '/about/projects/' },
+      ],
+    },
+    {
       label: 'About',
       href: '/about/',
       children: [
         { label: 'About Wheyland Electric', href: '/about/' },
         { label: 'Licenses & Trust', href: '/about/licenses/' },
-        { label: 'FAQs', href: '/about/faqs/' },
-        { label: 'Projects', href: '/about/projects/' },
-        { label: 'Blog', href: '/blog/' },
       ],
     },
     { label: 'Contact', href: '/contact-us/' },
