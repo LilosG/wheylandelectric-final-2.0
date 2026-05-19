@@ -10,6 +10,7 @@ import WhatsIncludedSection from '../sections/WhatsIncludedSection.astro';
 import ProcessStepsSection from '../sections/ProcessStepsSection.astro';
 import PricingFactorsSection from '../sections/PricingFactorsSection.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import CalculatorCTA from '../sections/CalculatorCTA.astro';
 import AreaLinksSection from '../sections/AreaLinksSection.astro';
 import RelatedServicesSection from '../sections/RelatedServicesSection.astro';
 import type { FAQ, PageMeta, BreadcrumbItem, ServicePillar, City } from '../../types';
@@ -89,6 +90,16 @@ const nearbyLinks = nearbyCities.map((c) => ({
   name: `${pillarName} in ${c.name}`,
   href: `/${c.slug}/${pillarSlug}/`,
 }));
+
+const loadCalculatorEligibleSlugs = new Set([
+  'electrical-panel-upgrades',
+  'ev-charger-installation',
+  'residential-electrical-services',
+  'remodel-rewiring-adu',
+  'dedicated-circuits',
+  'spa-jacuzzi-sauna-electrical',
+  'commercial-tenant-improvement',
+]);
 ---
 
 <PageLayout meta={meta} schemas={schemas} breadcrumbs={breadcrumbs}>
@@ -135,9 +146,11 @@ const nearbyLinks = nearbyCities.map((c) => ({
   />
 
   {/* 8. Mid-Page CTA Band — self-contained bg-surface-subtle */}
-  <ContextualCTABand
-    heading={`Get a precise estimate for ${pillarName.toLowerCase()} in ${cityName}.`}
-  />
+  {loadCalculatorEligibleSlugs.has(pillarSlug) ? (
+    <CalculatorCTA />
+  ) : (
+    <ContextualCTABand heading={`Get a precise estimate for ${pillarName.toLowerCase()} in ${cityName}.`} />
+  )}
 
   {/* 9. Related Services — self-contained bg-surface-subtle */}
   {relatedLinks.length > 0 && (

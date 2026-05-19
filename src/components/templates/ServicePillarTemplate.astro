@@ -11,6 +11,7 @@ import WhatsIncludedSection from '../sections/WhatsIncludedSection.astro';
 import ProcessStepsSection from '../sections/ProcessStepsSection.astro';
 import PricingFactorsSection from '../sections/PricingFactorsSection.astro';
 import ContextualCTABand from '../sections/ContextualCTABand.astro';
+import CalculatorCTA from '../sections/CalculatorCTA.astro';
 import AreaLinksSection from '../sections/AreaLinksSection.astro';
 import RelatedServicesSection from '../sections/RelatedServicesSection.astro';
 import type { City, FAQ, PageMeta, BreadcrumbItem, ServicePillar } from '../../types';
@@ -107,6 +108,16 @@ const serviceAreaLinks = serviceAreaCities.map((city) => ({
   href: `/${city.slug}/${pillar.slug}/`,
 }));
 
+const loadCalculatorEligibleSlugs = new Set([
+  'electrical-panel-upgrades',
+  'ev-charger-installation',
+  'residential-electrical-services',
+  'remodel-rewiring-adu',
+  'dedicated-circuits',
+  'spa-jacuzzi-sauna-electrical',
+  'commercial-tenant-improvement',
+]);
+
 const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
   name: p.name,
   description: p.shortDesc ?? '',
@@ -158,9 +169,11 @@ const relatedServiceItems = relatedPillars.slice(0, 3).map((p) => ({
   />
 
   {/* 9. Mid-Page CTA Band */}
-  <ContextualCTABand
-    heading={`Get a Fast Callback for ${pillar.name}`}
-  />
+  {loadCalculatorEligibleSlugs.has(pillar.slug) ? (
+    <CalculatorCTA />
+  ) : (
+    <ContextualCTABand heading={`Get a Fast Callback for ${pillar.name}`} />
+  )}
 
   {/* 10. Service Areas Served — self-contained bg-white */}
   <AreaLinksSection
