@@ -1,5 +1,5 @@
 import React, { useMemo, useRef, useState } from 'react';
-import { Download, Zap } from 'lucide-react';
+import { Download, Gauge, Zap } from 'lucide-react';
 import { CALCULATOR_DISCLAIMER, calculateLoad, defaultInputs, type LoadCalculatorInputs } from '../../lib/tools/loadCalculator';
 
 const fields: Array<{ key: keyof LoadCalculatorInputs; label: string; min: number; max: number; step?: number }> = [
@@ -42,49 +42,81 @@ export default function LoadCalculator() {
     }
   };
 
-  const statusTone = result.reviewLevel === 'urgent' ? 'text-red-700 bg-red-50 border-red-200' : result.reviewLevel === 'review' ? 'text-amber-700 bg-amber-50 border-amber-200' : 'text-emerald-700 bg-emerald-50 border-emerald-200';
+  const statusTone =
+    result.reviewLevel === 'urgent'
+      ? 'border-red-200 bg-red-50 text-red-800'
+      : result.reviewLevel === 'review'
+      ? 'border-amber-200 bg-amber-50 text-amber-800'
+      : 'border-emerald-200 bg-emerald-50 text-emerald-800';
+
+  const statItems = [
+    { label: 'Service Capacity', value: `${result.serviceCapacityAmps.toFixed(0)}A` },
+    { label: 'Existing Load', value: `${result.estimatedExistingLoadAmps.toFixed(1)}A` },
+    { label: 'Added Load', value: `${result.addedLoadAmps.toFixed(1)}A` },
+    { label: 'Projected Total', value: `${result.projectedTotalLoadAmps.toFixed(1)}A` },
+    { label: 'Remaining Capacity', value: `${result.remainingCapacityAmps.toFixed(1)}A` },
+    { label: 'Utilization', value: `${result.utilizationPercent.toFixed(1)}%` },
+  ];
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-lg md:p-8" ref={reportRef}>
-      <div className="mb-6 flex items-center justify-between gap-3">
-        <div className="flex items-center gap-2">
-          <Zap className="h-5 w-5 text-brand-teal" />
-          <h2 className="text-xl font-bold text-brand-slate">Load Estimate Inputs</h2>
+    <div className="rounded-3xl border border-slate-200 bg-white shadow-xl shadow-slate-300/30" ref={reportRef}>
+      <div className="border-b border-slate-200 bg-gradient-to-r from-brand-navy to-brand-slate px-6 py-5 text-white md:px-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <div className="flex items-center gap-2">
+            <Zap className="h-5 w-5 text-brand-gold" />
+            <h2 className="text-xl font-bold">Electrical Load Planning Tool</h2>
+          </div>
+          <button
+            onClick={exportPdf}
+            disabled={exporting}
+            className="inline-flex items-center gap-2 rounded-lg border border-white/30 px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/10 disabled:opacity-60"
+          >
+            <Download className="h-4 w-4" /> {exporting ? 'Exporting...' : 'Export PDF'}
+          </button>
         </div>
-        <button onClick={exportPdf} disabled={exporting} className="inline-flex items-center gap-2 rounded-lg border border-brand-slate/20 px-4 py-2 text-sm font-semibold text-brand-slate hover:bg-slate-50 disabled:opacity-60">
-          <Download className="h-4 w-4" /> {exporting ? 'Exporting...' : 'Export PDF'}
-        </button>
-      </div>
-      <div className="grid gap-4 md:grid-cols-2">
-        {fields.map((field) => (
-          <label key={field.key} className="text-sm font-medium text-brand-slate">
-            <span className="mb-1 block">{field.label}</span>
-            <input
-              type="number"
-              min={field.min}
-              max={field.max}
-              step={field.step ?? 1}
-              value={inputs[field.key]}
-              onChange={(e) => updateInput(field.key, Number(e.target.value))}
-              className="w-full rounded-lg border border-slate-300 px-3 py-2 text-base"
-            />
-          </label>
-        ))}
+        <p className="mt-2 text-sm text-white/80">Preliminary planning estimate only — final service sizing requires licensed on-site review.</p>
       </div>
 
-      <div className={`mt-6 rounded-xl border p-4 ${statusTone}`}>
-        <p className="font-semibold">{result.message}</p>
-        <div className="mt-3 grid grid-cols-2 gap-3 text-sm md:grid-cols-4">
-          <p><strong>Service:</strong> {result.serviceCapacityAmps.toFixed(0)}A</p>
-          <p><strong>Existing:</strong> {result.estimatedExistingLoadAmps.toFixed(1)}A</p>
-          <p><strong>Added:</strong> {result.addedLoadAmps.toFixed(1)}A</p>
-          <p><strong>Projected:</strong> {result.projectedTotalLoadAmps.toFixed(1)}A</p>
-          <p><strong>Remaining:</strong> {result.remainingCapacityAmps.toFixed(1)}A</p>
-          <p><strong>Utilization:</strong> {result.utilizationPercent.toFixed(1)}%</p>
-        </div>
-      </div>
+      <div className="grid gap-6 p-6 md:grid-cols-[1.15fr_0.85fr] md:p-8">
+        <section className="rounded-2xl border border-slate-200 bg-slate-50/50 p-4 md:p-5" aria-labelledby="calc-inputs-title">
+          <h3 id="calc-inputs-title" className="mb-4 text-base font-bold text-brand-slate">Inputs</h3>
+          <div className="grid gap-4 md:grid-cols-2">
+            {fields.map((field) => (
+              <label key={field.key} className="text-sm font-medium text-brand-slate">
+                <span className="mb-1.5 block">{field.label}</span>
+                <input
+                  type="number"
+                  min={field.min}
+                  max={field.max}
+                  step={field.step ?? 1}
+                  value={inputs[field.key]}
+                  onChange={(e) => updateInput(field.key, Number(e.target.value))}
+                  className="w-full rounded-xl border border-slate-300 bg-white px-3 py-2.5 text-base shadow-sm outline-none transition-colors focus:border-brand-teal focus:ring-2 focus:ring-brand-teal/20"
+                />
+              </label>
+            ))}
+          </div>
+        </section>
 
-      <p className="mt-6 rounded-lg bg-slate-50 p-3 text-sm text-slate-700">{CALCULATOR_DISCLAIMER}</p>
+        <section className={`rounded-2xl border p-4 md:p-5 ${statusTone}`} aria-labelledby="calc-result-title">
+          <div className="mb-3 flex items-center gap-2">
+            <Gauge className="h-5 w-5" />
+            <h3 id="calc-result-title" className="text-base font-bold">Result</h3>
+          </div>
+          <p className="text-sm font-medium leading-relaxed">{result.message}</p>
+
+          <div className="mt-4 grid grid-cols-2 gap-2">
+            {statItems.map((item) => (
+              <div key={item.label} className="rounded-lg border border-current/20 bg-white/70 p-2.5">
+                <p className="text-[11px] font-semibold uppercase tracking-wide opacity-75">{item.label}</p>
+                <p className="mt-0.5 text-sm font-bold">{item.value}</p>
+              </div>
+            ))}
+          </div>
+
+          <p className="mt-4 rounded-lg border border-slate-200 bg-white/80 px-3 py-2 text-xs leading-relaxed text-slate-600">{CALCULATOR_DISCLAIMER}</p>
+        </section>
+      </div>
     </div>
   );
 }
