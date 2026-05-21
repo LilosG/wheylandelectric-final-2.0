@@ -706,8 +706,15 @@ export default function LoadCalculator() {
                       <span>First 10,000 VA @ 100%</span>
                       <span className="font-mono font-bold">{Math.round(calcs.first10k).toLocaleString()} VA</span>
                     </div>
-                    <div className="flex justify-between text-slate-600">
-                      <span>Remainder @ 40%</span>
+                    <div className="flex justify-between items-start text-slate-600">
+                      <div className="flex flex-col">
+                        <span>Remainder @ 40%</span>
+                        {calcs.optionalSubtotal > 10000 && (
+                          <span className="text-[10px] italic text-slate-400">
+                            ({(calcs.optionalSubtotal - 10000).toLocaleString()} VA × 0.4)
+                          </span>
+                        )}
+                      </div>
                       <span className="font-mono font-bold">{Math.round(calcs.balance * 0.4).toLocaleString()} VA</span>
                     </div>
                   </div>
