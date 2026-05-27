@@ -17,7 +17,11 @@ const blogCollection = defineCollection({
     image: z.string().optional(),
     imageAlt: z.string().optional(),
     draft: z.boolean().default(false),
-  }),
+  }).transform((data) => ({
+    ...data,
+    date: data.date ?? data.publishDate ?? new Date(),
+    publishDate: data.publishDate ?? data.date ?? new Date(),
+  })),
 });
 
 export const collections = { blog: blogCollection };
