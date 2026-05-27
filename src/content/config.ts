@@ -7,18 +7,17 @@ const blogCollection = defineCollection({
     description: z.string(),
     seoTitle: z.string().optional(),
     seoDescription: z.string().optional(),
-    date: z.date(),
+    date: z.coerce.date().optional(),
+    publishDate: z.coerce.date().optional(),
+    updatedDate: z.coerce.date().optional(),
     author: z.string().default('Tim Wheyland'),
     relatedServices: z.array(z.string()).default([]),
-    faqs: z.array(z.object({
-      question: z.string(),
-      answer: z.string(),
-    })).default([]),
+    faqs: z.array(z.object({ question: z.string(), answer: z.string() })).default([]),
+    serviceAreas: z.array(z.string()).default([]),
     image: z.string().optional(),
+    imageAlt: z.string().optional(),
     draft: z.boolean().default(false),
   }),
 });
 
-export const collections = {
-  blog: blogCollection,
-};
+export const collections = { blog: blogCollection };
