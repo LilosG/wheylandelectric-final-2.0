@@ -14,6 +14,16 @@
       "source": "/residential-electrician-carlsbad-san-diego/",
       "destination": "/services/service-calls-troubleshooting/",
       "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/contact-us/",
+      "permanent": true
+    },
+    {
+      "source": "/contact/",
+      "destination": "/contact-us/",
+      "permanent": true
     }
   ],
   "headers": [
