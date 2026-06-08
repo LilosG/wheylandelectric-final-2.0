@@ -1,18 +1,4 @@
 ---
-// src/pages/blog/index.astro
-// Wheyland Electric — Blog Hub
-// ==============================
-// Fix: Previous version used a hardcoded fallback image for every post that
-// lacked a frontmatter `image` field, causing the same image to repeat across
-// all automated blog cards on the hub.
-//
-// Fix applied: image is now conditional. Posts with an image render it;
-// posts without render a clean branded placeholder using the post category
-// or a neutral electrical-themed background. No hardcoded path fallback.
-//
-// All other functionality preserved: sorting, draft filter, schema,
-// PageLayout, Hero, Section, CTASection components.
-
 import PageLayout from '../../layouts/PageLayout.astro';
 import Section from '../../components/ui/Section.astro';
 import Hero from '../../components/sections/Hero.astro';
@@ -23,38 +9,18 @@ import { getPageHeroImage } from '../../data/heroImages';
 import { collectionPageSchema } from '../../lib/schema/collection';
 import { breadcrumbSchemaNode } from '../../lib/schema/breadcrumb';
 
-const meta     = blogIndexMeta();
+const meta = blogIndexMeta();
+
 const blogHero = getPageHeroImage('blog');
 
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-// Category to brand color map for image-less card placeholders.
-// Keeps the hub visually differentiated without a repeated photo.
-const CATEGORY_BG: Record<string, string> = {
-  'Electrical Guides': 'bg-brand-slate/10',
-  'EV Charging':       'bg-brand-teal/10',
-  'Panel & Service':   'bg-brand-slate/15',
-  'Safety':            'bg-amber-50',
-};
-const CATEGORY_ICON: Record<string, string> = {
-  'Electrical Guides': '⚡',
-  'EV Charging':       '🔌',
-  'Panel & Service':   '🔧',
-  'Safety':            '🛡️',
-};
 ---
-
 <PageLayout
   meta={meta}
   schemas={[
-    collectionPageSchema(
-      '/blog/',
-      meta.title,
-      meta.description,
-      posts.map((post) => ({ name: post.data.title, url: `/blog/${post.slug}/` })),
-    ),
+    collectionPageSchema('/blog/', meta.title, meta.description, posts.map((post) => ({ name: post.data.title, url: `/blog/${post.slug}/` }))),
     {
       '@context': 'https://schema.org',
       ...breadcrumbSchemaNode([{ label: 'Blog', href: '/blog/' }], '/blog/'),
@@ -63,7 +29,7 @@ const CATEGORY_ICON: Record<string, string> = {
   breadcrumbs={[{ label: 'Blog', href: '/blog/' }]}
 >
   <Hero
-    title="Electrical Tips &amp; Insights"
+    title="Electrical Tips & Insights"
     subtitle="Practical guides and information from the Wheyland Electric team."
     variant="compact"
     showCTAs={false}
@@ -74,64 +40,31 @@ const CATEGORY_ICON: Record<string, string> = {
 
   <Section bg="white" spacing="hero-tight">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center mb-10">
-        Latest Electrical Tips and Project Guides
-      </h2>
-
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center mb-10">Latest Electrical Tips and Project Guides</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => {
-          const category  = (post.data as Record<string, unknown>).category as string | undefined;
-          const placeholderBg   = (category && CATEGORY_BG[category])   ?? 'bg-surface-subtle';
-          const placeholderIcon = (category && CATEGORY_ICON[category]) ?? '⚡';
-
-          return (
-            <a
-              href={`/blog/${post.slug}/`}
-              class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group"
-            >
-              {/* Image — rendered only when present; no hardcoded fallback */}
-              {post.data.image ? (
-                <div class="aspect-video overflow-hidden">
-                  <img
-                    src={post.data.image}
-                    alt={post.data.title}
-                    class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                    loading="lazy"
-                    decoding="async"
-                    width="1200"
-                    height="675"
-                  />
-                </div>
-              ) : (
-                <div class={`aspect-video flex items-center justify-center ${placeholderBg}`}>
-                  <span class="text-4xl opacity-40" aria-hidden="true">{placeholderIcon}</span>
-                </div>
-              )}
-
-              <div class="p-6">
-                {category && (
-                  <span class="text-xs font-semibold uppercase tracking-wide text-brand-teal">
-                    {category}
-                  </span>
-                )}
-                <time
-                  class="block text-xs text-text-muted mt-1"
-                  datetime={post.data.date.toISOString()}
-                >
-                  {post.data.date.toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </time>
-                <h3 class="text-lg font-semibold text-brand-slate mt-2 mb-2 group-hover:text-brand-teal transition-colors leading-snug">
-                  {post.data.title}
-                </h3>
-                <p class="text-sm text-text-muted line-clamp-2">{post.data.description}</p>
-              </div>
-            </a>
-          );
-        })}
+        {posts.map((post) => (
+        <a href={`/blog/${post.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group">
+          <div class="aspect-video bg-surface-subtle overflow-hidden">
+            <img
+              src={post.data.image || '/images/services/lighting/wheyland-electric-kitchen-pendant-lighting.webp'}
+              alt={post.data.title}
+              class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+              loading="lazy"
+              width="1200"
+              height="675"
+            />
+          </div>
+          <div class="p-6">
+            <time class="text-xs text-text-muted" datetime={post.data.date.toISOString()}>
+              {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+            </time>
+            <h3 class="text-lg font-semibold text-brand-slate mt-2 mb-2 group-hover:text-brand-teal transition-colors">
+              {post.data.title}
+            </h3>
+            <p class="text-sm text-text-muted">{post.data.description}</p>
+          </div>
+        </a>
+        ))}
       </div>
     </div>
   </Section>
