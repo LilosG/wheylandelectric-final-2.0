@@ -15,19 +15,6 @@ const blogHero = getPageHeroImage('blog');
 const posts = (await getCollection('blog'))
   .filter((post) => !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-
-const CATEGORY_BG: Record<string, string> = {
-  'Electrical Guides': 'bg-brand-slate/10',
-  'EV Charging':       'bg-brand-teal/10',
-  'Panel & Service':   'bg-brand-slate/15',
-  'Safety':            'bg-amber-50',
-};
-const CATEGORY_ICON: Record<string, string> = {
-  'Electrical Guides': '⚡',
-  'EV Charging':       '🔌',
-  'Panel & Service':   '🔧',
-  'Safety':            '🛡️',
-};
 ---
 <PageLayout
   meta={meta}
@@ -54,40 +41,35 @@ const CATEGORY_ICON: Record<string, string> = {
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl md:text-3xl font-heading font-bold text-brand-slate text-center mb-10">Latest Electrical Tips and Project Guides</h2>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {posts.map((post) => {
-          const cat = post.data.category as string | undefined;
-          const placeholderBg = (cat && CATEGORY_BG[cat]) ?? 'bg-surface-subtle';
-          const placeholderIcon = (cat && CATEGORY_ICON[cat]) ?? '⚡';
-          return (
-            <a href={`/blog/${post.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group">
-              <div class="aspect-video overflow-hidden">
-                {post.data.image ? (
-                  <img
-                    src={post.data.image}
-                    alt={post.data.title}
-                    class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
-                    loading="lazy"
-                    width="1200"
-                    height="675"
-                  />
-                ) : (
-                  <div class={`w-full h-full flex items-center justify-center ${placeholderBg}`}>
-                    <span class="text-4xl opacity-30">{placeholderIcon}</span>
-                  </div>
-                )}
-              </div>
-              <div class="p-6">
-                <time class="text-xs text-text-muted" datetime={post.data.date.toISOString()}>
-                  {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
-                </time>
-                <h3 class="text-lg font-semibold text-brand-slate mt-2 mb-2 group-hover:text-brand-teal transition-colors">
-                  {post.data.title}
-                </h3>
-                <p class="text-sm text-text-muted">{post.data.description}</p>
-              </div>
-            </a>
-          );
-        })}
+        {posts.map((post) => (
+          <a href={`/blog/${post.slug}/`} class="block bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow overflow-hidden group">
+            <div class="aspect-video overflow-hidden">
+              {post.data.image ? (
+                <img
+                  src={post.data.image}
+                  alt={post.data.title}
+                  class="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-300"
+                  loading="lazy"
+                  width="1200"
+                  height="675"
+                />
+              ) : (
+                <div class="w-full h-full flex items-center justify-center bg-surface-subtle">
+                  <span class="text-4xl opacity-30">⚡</span>
+                </div>
+              )}
+            </div>
+            <div class="p-6">
+              <time class="text-xs text-text-muted" datetime={post.data.date.toISOString()}>
+                {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </time>
+              <h3 class="text-lg font-semibold text-brand-slate mt-2 mb-2 group-hover:text-brand-teal transition-colors">
+                {post.data.title}
+              </h3>
+              <p class="text-sm text-text-muted">{post.data.description}</p>
+            </div>
+          </a>
+        ))}
       </div>
     </div>
   </Section>
