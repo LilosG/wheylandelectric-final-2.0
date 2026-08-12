@@ -7,6 +7,21 @@ import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { site } from '../data/site';
 
 const meta = termsAndConditionsMeta();
+
+const sections = [
+  'Services',
+  'Estimates and Pricing',
+  'Scheduling',
+  'Customer Responsibilities',
+  'Text Messaging Terms',
+  'Payments',
+  'Cancellations and Rescheduling',
+  'Website Use',
+  'Third-Party Services',
+  'Limitation of Liability',
+  'Changes to These Terms',
+  'Contact Us',
+];
 ---
 
 <PageLayout
@@ -27,111 +42,200 @@ const meta = termsAndConditionsMeta();
   ]}
   breadcrumbs={[{ label: 'Terms & Conditions', href: '/terms-and-conditions/' }]}
 >
+
+  {/* Page header */}
+  <div class="bg-brand-navy text-white">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-teal">Legal</p>
+      <h1 class="font-heading text-3xl font-bold text-white md:text-4xl">Terms &amp; Conditions</h1>
+      <p class="mt-3 text-sm text-white/50">Effective Date: August 11, 2026</p>
+    </div>
+  </div>
+
   <Section bg="subtle">
-    <div class="mx-auto max-w-3xl py-8 md:py-12">
+    <div class="mx-auto max-w-7xl">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-12">
 
-      <header class="mb-10 border-b border-surface-subtle pb-8">
-        <h1 class="font-heading text-3xl font-bold text-brand-slate md:text-4xl">Terms &amp; Conditions</h1>
-        <p class="mt-3 text-sm text-text-muted">Effective Date: August 11, 2026</p>
-      </header>
+        {/* Sidebar — table of contents */}
+        <aside class="hidden lg:block lg:col-span-3">
+          <div class="sticky top-24 rounded-2xl border border-surface-DEFAULT bg-white p-5 shadow-sm">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-text-light">On this page</p>
+            <nav class="space-y-1">
+              {sections.map((s) => (
+                <a
+                  href={`#${s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                  class="block rounded-lg px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-surface-subtle hover:text-brand-teal"
+                >
+                  {s}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
 
-      <div class="prose prose-slate max-w-none prose-headings:font-heading prose-headings:font-bold prose-headings:text-brand-slate prose-a:text-brand-teal prose-a:no-underline hover:prose-a:underline prose-strong:text-brand-slate">
+        {/* Main content */}
+        <div class="lg:col-span-9">
+          <div class="rounded-2xl border border-surface-DEFAULT bg-white p-6 shadow-sm md:p-10">
 
-        <p>
-          Welcome to {site.nap.name}, Inc. (&ldquo;Wheyland Electric,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). These Terms &amp; Conditions govern your use of our website and your interactions with Wheyland Electric, including requests for estimates, scheduling, electrical services, and communications by phone or text message.
-        </p>
-        <p>By requesting or using our services, you agree to these Terms &amp; Conditions.</p>
+            <p class="mb-2 text-base leading-relaxed text-text-muted">
+              Welcome to {site.nap.name}, Inc. (&ldquo;Wheyland Electric,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;). These Terms &amp; Conditions govern your use of our website and your interactions with Wheyland Electric, including requests for estimates, scheduling, electrical services, and communications by phone or text message.
+            </p>
+            <p class="text-base leading-relaxed text-text-muted">By requesting or using our services, you agree to these Terms &amp; Conditions.</p>
 
-        <h2>Services</h2>
-        <p>
-          Wheyland Electric provides electrical contracting and related services. The specific services provided, scope of work, pricing, materials, scheduling, and other project details will be communicated through estimates, proposals, work orders, agreements, or other documentation provided to the customer.
-        </p>
-        <p>An estimate or proposal does not necessarily constitute acceptance of a contract. Work will be performed according to the terms agreed upon between Wheyland Electric and the customer.</p>
+            {/* Section */}
+            <div id="services" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Services</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                Wheyland Electric provides electrical contracting and related services. The specific services provided, scope of work, pricing, materials, scheduling, and other project details will be communicated through estimates, proposals, work orders, agreements, or other documentation provided to the customer.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">
+                An estimate or proposal does not necessarily constitute acceptance of a contract. Work will be performed according to the terms agreed upon between Wheyland Electric and the customer.
+              </p>
+            </div>
 
-        <h2>Estimates and Pricing</h2>
-        <p>
-          Estimates are based on the information reasonably available to us at the time the estimate is prepared. Actual project costs may change if site conditions, customer requests, material costs, code requirements, or the scope of work differs from the information available when the estimate was prepared.
-        </p>
-        <p>Any additional work or changes to the agreed scope may result in additional charges.</p>
+            {/* Section */}
+            <div id="estimates-and-pricing" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Estimates and Pricing</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                Estimates are based on the information reasonably available to us at the time the estimate is prepared. Actual project costs may change if site conditions, customer requests, material costs, code requirements, or the scope of work differs from the information available when the estimate was prepared.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">Any additional work or changes to the agreed scope may result in additional charges.</p>
+            </div>
 
-        <h2>Scheduling</h2>
-        <p>
-          Appointments are scheduled based on availability. We will make reasonable efforts to arrive within the scheduled appointment window, but circumstances such as emergencies, prior job conditions, weather, traffic, material availability, or other unforeseen circumstances may affect scheduling.
-        </p>
-        <p>We may contact customers by phone, email, or text message regarding appointments and scheduling.</p>
+            {/* Section */}
+            <div id="scheduling" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Scheduling</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                Appointments are scheduled based on availability. We will make reasonable efforts to arrive within the scheduled appointment window, but circumstances such as emergencies, prior job conditions, weather, traffic, material availability, or other unforeseen circumstances may affect scheduling.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">We may contact customers by phone, email, or text message regarding appointments and scheduling.</p>
+            </div>
 
-        <h2>Customer Responsibilities</h2>
-        <p>
-          Customers are responsible for providing accurate information necessary for us to evaluate and perform requested services. Customers should provide reasonable access to the property and areas where electrical work is to be performed.
-        </p>
-        <p>
-          Customers are responsible for notifying us of known conditions that may affect the work, including access restrictions, hazards, or other relevant property conditions.
-        </p>
+            {/* Section */}
+            <div id="customer-responsibilities" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Customer Responsibilities</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                Customers are responsible for providing accurate information necessary for us to evaluate and perform requested services. Customers should provide reasonable access to the property and areas where electrical work is to be performed.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">
+                Customers are responsible for notifying us of known conditions that may affect the work, including access restrictions, hazards, or other relevant property conditions.
+              </p>
+            </div>
 
-        <h2>Text Messaging Terms</h2>
-        <p>
-          By providing your phone number and consenting to receive text messages from Wheyland Electric, you agree that we may send text messages related to your requested services and customer relationship.
-        </p>
-        <p>These messages may include:</p>
-        <ul>
-          <li>Appointment confirmations and reminders</li>
-          <li>Scheduling communications</li>
-          <li>Estimate and quote updates</li>
-          <li>Service updates</li>
-          <li>Customer support communications</li>
-          <li>Invoice and payment notifications</li>
-          <li>Other messages related to services you have requested</li>
-        </ul>
-        <p>Message frequency varies based on your interactions with Wheyland Electric. Message and data rates may apply.</p>
-        <p>
-          You may opt out of text messages at any time by replying <strong>STOP</strong>. After opting out, you will receive a confirmation message and will no longer receive text messages from us, except where permitted or required by law.
-        </p>
-        <p>
-          For assistance, reply <strong>HELP</strong> or contact Wheyland Electric at <a href={`tel:${site.nap.phoneTel}`}>{site.nap.phone}</a>.
-        </p>
-        <p>Consent to receive text messages is not a condition of purchasing any goods or services.</p>
+            {/* Section */}
+            <div id="text-messaging-terms" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Text Messaging Terms</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                By providing your phone number and consenting to receive text messages from Wheyland Electric, you agree that we may send text messages related to your requested services and customer relationship.
+              </p>
+              <p class="mb-3 text-base leading-relaxed text-text-muted">These messages may include:</p>
+              <ul class="mb-4 space-y-2">
+                {[
+                  'Appointment confirmations and reminders',
+                  'Scheduling communications',
+                  'Estimate and quote updates',
+                  'Service updates',
+                  'Customer support communications',
+                  'Invoice and payment notifications',
+                  'Other messages related to services you have requested',
+                ].map((item) => (
+                  <li class="flex gap-3 text-text-muted">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-teal"></span>
+                    <span class="text-base leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">Message frequency varies based on your interactions with Wheyland Electric. Message and data rates may apply.</p>
 
-        <h2>Payments</h2>
-        <p>
-          Payment terms will be provided in the applicable estimate, proposal, invoice, or service agreement. Customers agree to pay amounts due according to the agreed payment terms.
-        </p>
+              <div class="my-5 rounded-xl border border-surface-DEFAULT bg-surface-subtle p-5">
+                <p class="mb-2 text-sm font-semibold text-brand-slate">Opt-out &amp; support</p>
+                <p class="text-sm leading-relaxed text-text-muted">
+                  Reply <span class="rounded bg-brand-slate px-1.5 py-0.5 font-mono text-xs font-bold text-white">STOP</span> at any time to unsubscribe. You will receive a confirmation message and will no longer receive text messages from us, except where permitted or required by law.
+                  For assistance, reply <span class="rounded bg-brand-slate px-1.5 py-0.5 font-mono text-xs font-bold text-white">HELP</span> or call us at <a href={`tel:${site.nap.phoneTel}`} class="font-medium text-brand-teal hover:underline">{site.nap.phone}</a>.
+                </p>
+              </div>
 
-        <h2>Cancellations and Rescheduling</h2>
-        <p>
-          Customers should contact Wheyland Electric as soon as possible if they need to cancel or reschedule an appointment. Any applicable cancellation or rescheduling policies will be communicated to the customer as appropriate.
-        </p>
+              <p class="text-sm text-text-light">Consent to receive text messages is not a condition of purchasing any goods or services.</p>
+            </div>
 
-        <h2>Website Use</h2>
-        <p>
-          Information provided on our website is intended for general informational purposes. While we make reasonable efforts to keep information accurate and current, we do not guarantee that all website content is complete, current, or error-free.
-        </p>
+            {/* Section */}
+            <div id="payments" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Payments</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                Payment terms will be provided in the applicable estimate, proposal, invoice, or service agreement. Customers agree to pay amounts due according to the agreed payment terms.
+              </p>
+            </div>
 
-        <h2>Third-Party Services</h2>
-        <p>
-          Wheyland Electric may use third-party providers to assist with scheduling, customer communications, payment processing, website services, and other business operations. Your use of services involving a third party may also be subject to that provider&rsquo;s terms and policies.
-        </p>
+            {/* Section */}
+            <div id="cancellations-and-rescheduling" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Cancellations and Rescheduling</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                Customers should contact Wheyland Electric as soon as possible if they need to cancel or reschedule an appointment. Any applicable cancellation or rescheduling policies will be communicated to the customer as appropriate.
+              </p>
+            </div>
 
-        <h2>Limitation of Liability</h2>
-        <p>
-          To the extent permitted by applicable law, Wheyland Electric shall not be responsible for indirect, incidental, consequential, or special damages arising from the use of our website or communications, except where such limitation is prohibited by law.
-        </p>
-        <p>Nothing in these Terms &amp; Conditions is intended to waive or limit any rights or obligations that cannot legally be waived or limited.</p>
+            {/* Section */}
+            <div id="website-use" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Website Use</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                Information provided on our website is intended for general informational purposes. While we make reasonable efforts to keep information accurate and current, we do not guarantee that all website content is complete, current, or error-free.
+              </p>
+            </div>
 
-        <h2>Changes to These Terms</h2>
-        <p>
-          We may update these Terms &amp; Conditions from time to time. Updated terms will be posted on this page with a revised effective date. Your continued use of our website or services after an update constitutes acceptance of the revised terms to the extent permitted by law.
-        </p>
+            {/* Section */}
+            <div id="third-party-services" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Third-Party Services</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                Wheyland Electric may use third-party providers to assist with scheduling, customer communications, payment processing, website services, and other business operations. Your use of services involving a third party may also be subject to that provider&rsquo;s terms and policies.
+              </p>
+            </div>
 
-        <h2>Contact Us</h2>
-        <p>If you have questions about these Terms &amp; Conditions, please contact:</p>
-        <address class="not-italic">
-          <strong>{site.nap.name}, Inc.</strong><br />
-          Phone: <a href={`tel:${site.nap.phoneTel}`}>{site.nap.phone}</a><br />
-          Email: <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a><br />
-          Address: {site.nap.address.full}<br />
-          Website: <a href="https://www.wheylandelectric.com" target="_blank" rel="noopener noreferrer">www.wheylandelectric.com</a>
-        </address>
+            {/* Section */}
+            <div id="limitation-of-liability" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Limitation of Liability</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                To the extent permitted by applicable law, Wheyland Electric shall not be responsible for indirect, incidental, consequential, or special damages arising from the use of our website or communications, except where such limitation is prohibited by law.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">Nothing in these Terms &amp; Conditions is intended to waive or limit any rights or obligations that cannot legally be waived or limited.</p>
+            </div>
 
+            {/* Section */}
+            <div id="changes-to-these-terms" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Changes to These Terms</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                We may update these Terms &amp; Conditions from time to time. Updated terms will be posted on this page with a revised effective date. Your continued use of our website or services after an update constitutes acceptance of the revised terms to the extent permitted by law.
+              </p>
+            </div>
+
+            {/* Contact card */}
+            <div id="contact-us" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Contact Us</h2>
+              <p class="mb-5 text-base leading-relaxed text-text-muted">If you have questions about these Terms &amp; Conditions, please contact:</p>
+              <div class="rounded-2xl border border-surface-DEFAULT bg-surface-subtle p-6">
+                <p class="mb-3 font-heading text-base font-bold text-brand-slate">{site.nap.name}, Inc.</p>
+                <ul class="space-y-2 text-sm text-text-muted">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <a href={`tel:${site.nap.phoneTel}`} class="font-medium text-brand-teal hover:underline">{site.nap.phone}</a>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <a href={`mailto:${site.nap.email}`} class="font-medium text-brand-teal hover:underline">{site.nap.email}</a>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>{site.nap.address.full}</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                    <a href="https://www.wheylandelectric.com" target="_blank" rel="noopener noreferrer" class="font-medium text-brand-teal hover:underline">www.wheylandelectric.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </Section>

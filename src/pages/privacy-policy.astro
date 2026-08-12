@@ -7,6 +7,20 @@ import { graphSchema, webPageSchemaNode } from '../lib/schema/graph';
 import { site } from '../data/site';
 
 const meta = privacyPolicyMeta();
+
+const sections = [
+  'Information We Collect',
+  'How We Use Your Information',
+  'Text Messages and SMS Communications',
+  'How We Share Information',
+  'Data Security',
+  'Information Retention',
+  'Your Choices and Rights',
+  'Third-Party Services and Links',
+  "Children's Privacy",
+  'Changes to This Privacy Policy',
+  'Contact Us',
+];
 ---
 
 <PageLayout
@@ -27,120 +41,213 @@ const meta = privacyPolicyMeta();
   ]}
   breadcrumbs={[{ label: 'Privacy Policy', href: '/privacy-policy/' }]}
 >
+
+  {/* Page header */}
+  <div class="bg-brand-navy text-white">
+    <div class="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+      <p class="mb-2 text-xs font-semibold uppercase tracking-widest text-brand-teal">Legal</p>
+      <h1 class="font-heading text-3xl font-bold text-white md:text-4xl">Privacy Policy</h1>
+      <p class="mt-3 text-sm text-white/50">Effective Date: August 11, 2026</p>
+    </div>
+  </div>
+
   <Section bg="subtle">
-    <div class="mx-auto max-w-3xl py-8 md:py-12">
+    <div class="mx-auto max-w-7xl">
+      <div class="lg:grid lg:grid-cols-12 lg:gap-12">
 
-      <header class="mb-10 border-b border-surface-subtle pb-8">
-        <h1 class="font-heading text-3xl font-bold text-brand-slate md:text-4xl">Privacy Policy</h1>
-        <p class="mt-3 text-sm text-text-muted">Effective Date: August 11, 2026</p>
-      </header>
+        {/* Sidebar — table of contents */}
+        <aside class="hidden lg:block lg:col-span-3">
+          <div class="sticky top-24 rounded-2xl border border-surface-DEFAULT bg-white p-5 shadow-sm">
+            <p class="mb-3 text-xs font-semibold uppercase tracking-widest text-text-light">On this page</p>
+            <nav class="space-y-1">
+              {sections.map((s) => (
+                <a
+                  href={`#${s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`}
+                  class="block rounded-lg px-3 py-1.5 text-sm text-text-muted transition-colors hover:bg-surface-subtle hover:text-brand-teal"
+                >
+                  {s}
+                </a>
+              ))}
+            </nav>
+          </div>
+        </aside>
 
-      <div class="prose prose-slate max-w-none prose-headings:font-heading prose-headings:font-bold prose-headings:text-brand-slate prose-a:text-brand-teal prose-a:no-underline hover:prose-a:underline prose-strong:text-brand-slate">
+        {/* Main content */}
+        <div class="lg:col-span-9">
+          <div class="rounded-2xl border border-surface-DEFAULT bg-white p-6 shadow-sm md:p-10">
 
-        <p>
-          {site.nap.name}, Inc. (&ldquo;Wheyland Electric,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy and is committed to protecting the personal information you provide to us.
-        </p>
-        <p>
-          This Privacy Policy explains how we collect, use, and protect information when you contact us, request our services, communicate with us by phone or text message, visit our website, or otherwise interact with Wheyland Electric.
-        </p>
+            <p class="mb-2 text-base leading-relaxed text-text-muted">
+              {site.nap.name}, Inc. (&ldquo;Wheyland Electric,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your privacy and is committed to protecting the personal information you provide to us.
+            </p>
+            <p class="text-base leading-relaxed text-text-muted">
+              This Privacy Policy explains how we collect, use, and protect information when you contact us, request our services, communicate with us by phone or text message, visit our website, or otherwise interact with Wheyland Electric.
+            </p>
 
-        <h2>Information We Collect</h2>
-        <p>We may collect information that you voluntarily provide to us, including:</p>
-        <ul>
-          <li>Your name</li>
-          <li>Phone number</li>
-          <li>Email address</li>
-          <li>Property or service address</li>
-          <li>Information about your electrical project or service needs</li>
-          <li>Appointment and scheduling information</li>
-          <li>Information you provide through our website, request forms, or other communications</li>
-          <li>Photos, documents, or other information you provide in connection with a service request</li>
-          <li>Payment and billing information when necessary to process transactions</li>
-        </ul>
-        <p>We may also collect basic information about how you interact with our website or electronic communications.</p>
+            {/* Section */}
+            <div id="information-we-collect" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Information We Collect</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">We may collect information that you voluntarily provide to us, including:</p>
+              <ul class="mb-4 space-y-2">
+                {[
+                  'Your name',
+                  'Phone number',
+                  'Email address',
+                  'Property or service address',
+                  'Information about your electrical project or service needs',
+                  'Appointment and scheduling information',
+                  'Information you provide through our website, request forms, or other communications',
+                  'Photos, documents, or other information you provide in connection with a service request',
+                  'Payment and billing information when necessary to process transactions',
+                ].map((item) => (
+                  <li class="flex gap-3 text-text-muted">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-teal"></span>
+                    <span class="text-base leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+              <p class="text-base leading-relaxed text-text-muted">We may also collect basic information about how you interact with our website or electronic communications.</p>
+            </div>
 
-        <h2>How We Use Your Information</h2>
-        <p>We may use the information we collect to:</p>
-        <ul>
-          <li>Respond to inquiries and requests for estimates</li>
-          <li>Schedule and manage appointments</li>
-          <li>Provide electrical services</li>
-          <li>Communicate with you regarding your project or account</li>
-          <li>Send appointment reminders and service updates</li>
-          <li>Send quotes, invoices, receipts, and payment-related information</li>
-          <li>Provide customer support</li>
-          <li>Respond to questions or requests</li>
-          <li>Maintain business and service records</li>
-          <li>Improve our services and customer experience</li>
-          <li>Comply with applicable legal and regulatory requirements</li>
-        </ul>
+            {/* Section */}
+            <div id="how-we-use-your-information" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">How We Use Your Information</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">We may use the information we collect to:</p>
+              <ul class="space-y-2">
+                {[
+                  'Respond to inquiries and requests for estimates',
+                  'Schedule and manage appointments',
+                  'Provide electrical services',
+                  'Communicate with you regarding your project or account',
+                  'Send appointment reminders and service updates',
+                  'Send quotes, invoices, receipts, and payment-related information',
+                  'Provide customer support',
+                  'Respond to questions or requests',
+                  'Maintain business and service records',
+                  'Improve our services and customer experience',
+                  'Comply with applicable legal and regulatory requirements',
+                ].map((item) => (
+                  <li class="flex gap-3 text-text-muted">
+                    <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-brand-teal"></span>
+                    <span class="text-base leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-        <h2>Text Messages and SMS Communications</h2>
-        <p>
-          If you provide your phone number and consent to receive text messages from Wheyland Electric, we may use text messaging to communicate with you regarding your services and account.
-        </p>
-        <p>Text messages may include appointment confirmations and reminders, scheduling information, service updates, estimate and quote communications, invoice or payment notifications, customer support messages, and other communications related to services you have requested.</p>
-        <p>Message frequency varies depending on your interactions and service needs. Message and data rates may apply.</p>
-        <p>
-          You can opt out of receiving text messages at any time by replying <strong>STOP</strong> to a text message from us. After you send STOP, you will receive confirmation that you have been unsubscribed and you will no longer receive text messages from us, except where permitted or required by law.
-        </p>
-        <p>
-          For assistance with text messaging, reply <strong>HELP</strong> or contact us using the information below.
-        </p>
-        <p>Consent to receive text messages is not a condition of purchasing goods or services from Wheyland Electric.</p>
+            {/* Section */}
+            <div id="text-messages-and-sms-communications" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Text Messages and SMS Communications</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                If you provide your phone number and consent to receive text messages from Wheyland Electric, we may use text messaging to communicate with you regarding your services and account.
+              </p>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                Text messages may include appointment confirmations and reminders, scheduling information, service updates, estimate and quote communications, invoice or payment notifications, customer support messages, and other communications related to services you have requested.
+              </p>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">Message frequency varies depending on your interactions and service needs. Message and data rates may apply.</p>
 
-        <h2>How We Share Information</h2>
-        <p>We do not sell or rent your personal information.</p>
-        <p>
-          We may share information with trusted service providers who assist us in operating our business, such as scheduling, customer management, payment processing, communications, website hosting, and other business services. These providers may only use information as necessary to provide services to us.
-        </p>
-        <p>
-          We may also disclose information when required by law, legal process, or governmental authority, or when reasonably necessary to protect our rights, customers, employees, or business.
-        </p>
+              <div class="my-5 rounded-xl border border-surface-DEFAULT bg-surface-subtle p-5">
+                <p class="mb-2 text-sm font-semibold text-brand-slate">Opt-out &amp; support</p>
+                <p class="text-sm leading-relaxed text-text-muted">
+                  Reply <span class="rounded bg-brand-slate px-1.5 py-0.5 font-mono text-xs font-bold text-white">STOP</span> at any time to unsubscribe. You will receive a confirmation and will no longer receive messages from us, except where permitted or required by law.
+                  For help, reply <span class="rounded bg-brand-slate px-1.5 py-0.5 font-mono text-xs font-bold text-white">HELP</span> or contact us below.
+                </p>
+              </div>
 
-        <h2>Data Security</h2>
-        <p>
-          We take reasonable measures to protect personal information from unauthorized access, use, disclosure, alteration, or destruction. However, no method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.
-        </p>
+              <p class="text-sm text-text-light">Consent to receive text messages is not a condition of purchasing goods or services from Wheyland Electric.</p>
+            </div>
 
-        <h2>Information Retention</h2>
-        <p>
-          We may retain customer information for as long as reasonably necessary to provide services, maintain business and financial records, resolve disputes, comply with legal obligations, and for legitimate business purposes.
-        </p>
+            {/* Section */}
+            <div id="how-we-share-information" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">How We Share Information</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">We do not sell or rent your personal information.</p>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                We may share information with trusted service providers who assist us in operating our business, such as scheduling, customer management, payment processing, communications, website hosting, and other business services. These providers may only use information as necessary to provide services to us.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">
+                We may also disclose information when required by law, legal process, or governmental authority, or when reasonably necessary to protect our rights, customers, employees, or business.
+              </p>
+            </div>
 
-        <h2>Your Choices and Rights</h2>
-        <p>
-          You may contact us to request access to, correction of, or updates to certain personal information we maintain about you.
-        </p>
-        <p>
-          You may also opt out of text messages by replying <strong>STOP</strong>, or request assistance by replying <strong>HELP</strong>.
-        </p>
+            {/* Section */}
+            <div id="data-security" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Data Security</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                We take reasonable measures to protect personal information from unauthorized access, use, disclosure, alteration, or destruction. However, no method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.
+              </p>
+            </div>
 
-        <h2>Third-Party Services and Links</h2>
-        <p>
-          Our website or communications may contain links to third-party websites or services. We are not responsible for the privacy practices or content of third-party websites. We encourage you to review their privacy policies before providing personal information.
-        </p>
+            {/* Section */}
+            <div id="information-retention" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Information Retention</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                We may retain customer information for as long as reasonably necessary to provide services, maintain business and financial records, resolve disputes, comply with legal obligations, and for legitimate business purposes.
+              </p>
+            </div>
 
-        <h2>Children&rsquo;s Privacy</h2>
-        <p>
-          Our services are intended for adults and businesses and are not directed toward children under the age of 13. We do not knowingly collect personal information from children under 13.
-        </p>
+            {/* Section */}
+            <div id="your-choices-and-rights" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Your Choices and Rights</h2>
+              <p class="mb-4 text-base leading-relaxed text-text-muted">
+                You may contact us to request access to, correction of, or updates to certain personal information we maintain about you.
+              </p>
+              <p class="text-base leading-relaxed text-text-muted">
+                You may also opt out of text messages by replying <span class="rounded bg-brand-slate px-1.5 py-0.5 font-mono text-xs font-bold text-white">STOP</span>, or request assistance by replying <span class="rounded bg-brand-slate px-1.5 py-0.5 font-mono text-xs font-bold text-white">HELP</span>.
+              </p>
+            </div>
 
-        <h2>Changes to This Privacy Policy</h2>
-        <p>
-          We may update this Privacy Policy from time to time to reflect changes in our business practices, services, technology, or legal requirements. Any updated policy will be posted on this page with a revised effective date.
-        </p>
+            {/* Section */}
+            <div id="third-party-services-and-links" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Third-Party Services and Links</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                Our website or communications may contain links to third-party websites or services. We are not responsible for the privacy practices or content of third-party websites. We encourage you to review their privacy policies before providing personal information.
+              </p>
+            </div>
 
-        <h2>Contact Us</h2>
-        <p>If you have questions about this Privacy Policy or how we handle your information, please contact:</p>
-        <address class="not-italic">
-          <strong>{site.nap.name}, Inc.</strong><br />
-          Phone: <a href={`tel:${site.nap.phoneTel}`}>{site.nap.phone}</a><br />
-          Email: <a href={`mailto:${site.nap.email}`}>{site.nap.email}</a><br />
-          Address: {site.nap.address.full}<br />
-          Website: <a href="https://www.wheylandelectric.com" target="_blank" rel="noopener noreferrer">www.wheylandelectric.com</a>
-        </address>
+            {/* Section */}
+            <div id="children-s-privacy" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Children&rsquo;s Privacy</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                Our services are intended for adults and businesses and are not directed toward children under the age of 13. We do not knowingly collect personal information from children under 13.
+              </p>
+            </div>
 
+            {/* Section */}
+            <div id="changes-to-this-privacy-policy" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Changes to This Privacy Policy</h2>
+              <p class="text-base leading-relaxed text-text-muted">
+                We may update this Privacy Policy from time to time to reflect changes in our business practices, services, technology, or legal requirements. Any updated policy will be posted on this page with a revised effective date.
+              </p>
+            </div>
+
+            {/* Contact card */}
+            <div id="contact-us" class="mt-10 border-t border-surface-subtle pt-8">
+              <h2 class="mb-4 font-heading text-xl font-bold text-brand-slate">Contact Us</h2>
+              <p class="mb-5 text-base leading-relaxed text-text-muted">If you have questions about this Privacy Policy or how we handle your information, please contact:</p>
+              <div class="rounded-2xl border border-surface-DEFAULT bg-surface-subtle p-6">
+                <p class="mb-3 font-heading text-base font-bold text-brand-slate">{site.nap.name}, Inc.</p>
+                <ul class="space-y-2 text-sm text-text-muted">
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" /></svg>
+                    <a href={`tel:${site.nap.phoneTel}`} class="font-medium text-brand-teal hover:underline">{site.nap.phone}</a>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+                    <a href={`mailto:${site.nap.email}`} class="font-medium text-brand-teal hover:underline">{site.nap.email}</a>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+                    <span>{site.nap.address.full}</span>
+                  </li>
+                  <li class="flex items-center gap-2">
+                    <svg class="h-4 w-4 shrink-0 text-brand-teal" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9"/></svg>
+                    <a href="https://www.wheylandelectric.com" target="_blank" rel="noopener noreferrer" class="font-medium text-brand-teal hover:underline">www.wheylandelectric.com</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
   </Section>
