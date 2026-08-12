@@ -208,7 +208,17 @@ const socialLinks = [
       class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 py-6 text-xs text-white/50 sm:flex-row sm:px-6 lg:px-8"
     >
       <p>&copy; {new Date().getFullYear()} {site.nap.name}. All rights reserved.</p>
-      <p>Licensed, Bonded & Insured &middot; {site.license}</p>
+      <nav class="flex flex-wrap items-center justify-center gap-x-4 gap-y-1" aria-label="Legal">
+        <p>Licensed, Bonded & Insured &middot; {site.license}</p>
+        <a
+          href="/privacy-policy/"
+          class="transition-colors hover:text-white"
+        >Privacy Policy</a>
+        <a
+          href="/terms-and-conditions/"
+          class="transition-colors hover:text-white"
+        >Terms &amp; Conditions</a>
+      </nav>
       <p>
         Website built by{' '}
         <a

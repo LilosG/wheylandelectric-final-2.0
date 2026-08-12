@@ -167,3 +167,21 @@ export function blogPostMeta(title: string, description: string, slug: string): 
   });
 }
 
+export function privacyPolicyMeta(): PageMeta {
+  return generateMeta({
+    title: 'Privacy Policy | Wheyland Electric',
+    description:
+      'Learn how Wheyland Electric collects, uses, and protects your personal information when you use our website or request electrical services.',
+    path: '/privacy-policy/',
+  });
+}
+
+export function termsAndConditionsMeta(): PageMeta {
+  return generateMeta({
+    title: 'Terms & Conditions | Wheyland Electric',
+    description:
+      'Review the Terms & Conditions governing use of the Wheyland Electric website and our electrical contracting services in San Diego County.',
+    path: '/terms-and-conditions/',
+  });
+}
+
